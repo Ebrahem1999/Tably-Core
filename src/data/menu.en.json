@@ -1,0 +1,498 @@
+{
+  "categories": [
+    { "id": "starters", "title": "Starters", "emoji": "🍽️" },
+    { "id": "breakfast", "title": "Breakfast", "emoji": "☀️" },
+    { "id": "sandwiches", "title": "Sandwiches", "emoji": "🥪" },
+    { "id": "pizza", "title": "Pizza", "emoji": "🍕" },
+    { "id": "pasta", "title": "Pasta", "emoji": "🍝" },
+    { "id": "salads", "title": "Salads", "emoji": "🥗" },
+    { "id": "cold_drinks", "title": "Cold Drinks", "emoji": "🥤" },
+    { "id": "hot_drinks", "title": "Hot Drinks", "emoji": "☕" },
+    { "id": "alcohol", "title": "Alcohol", "emoji": "🍷" }
+  ],
+  "items": [
+    {
+      "id": "starter_focaccia",
+      "name": "Wood-Fired Focaccia",
+      "desc": "Served with dips: olive spread, confit garlic, pesto.",
+      "price": 22,
+      "image": "/images/focaccia.jpg",
+      "category": "starters",
+      "tags": ["Vegetarian", "Taboon"],
+      "options": { "notes": { "type": "text", "label": "Notes" } }
+    },
+    {
+      "id": "salad_burrata",
+      "name": "Burrata Salad",
+      "desc": "Cherry tomatoes, basil, red onion, balsamic & pesto dressing.",
+      "price": 55,
+      "image": "/images/salad_burrata.jpg",
+      "category": "starters",
+      "tags": ["Vegetarian"],
+      "options": { "notes": { "type": "text", "label": "Notes" } }
+    },
+
+    {
+      "id": "bk_scrambled_croissant",
+      "name": "Scrambled Egg Croissant",
+      "desc": "Scrambled egg, cream cheese, arugula, a touch of truffle.",
+      "price": 45,
+      "image": "/images/breakfast_croissant.jpg",
+      "category": "breakfast",
+      "tags": [],
+      "options": { "notes": { "type": "text", "label": "Notes" } }
+    },
+    {
+      "id": "bk_brioche_lamb_bacon",
+      "name": "Brioche with Lamb Bacon",
+      "desc": "Brioche, Dr’c cheese, aioli, mustard, sunny-side-up egg. Served with side salad.",
+      "price": 55,
+      "image": "/images/breakfast_brioche.jpg",
+      "category": "breakfast",
+      "tags": [],
+      "options": { "notes": { "type": "text", "label": "Notes" } }
+    },
+    {
+      "id": "bk_bruschetta_omelette",
+      "name": "Bruschetta with Omelet",
+      "desc": "Toasted bread/challah, avocado, omelet, lettuce, tomato, chili flakes. Served with side salad.",
+      "price": 52,
+      "image": "/images/breakfast_bruschetta.jpg",
+      "category": "breakfast",
+      "tags": [],
+      "options": { "notes": { "type": "text", "label": "Notes" } }
+    },
+
+    {
+      "id": "sandwich_roast_beef",
+      "name": "Roast Beef Sandwich",
+      "desc": "Pan-seared roast beef with Dr’c cheese, mustard mayo, tomatoes, lettuce.",
+      "price": 39,
+      "image": "/images/sandwich_roastbeef.jpg",
+      "category": "sandwiches",
+      "tags": [],
+      "options": {
+        "bread": {
+          "type": "select",
+          "label": "Bread",
+          "choices": ["White sourdough", "Multigrain sourdough", "Frena"]
+        },
+        "notes": { "type": "text", "label": "Notes" }
+      }
+    },
+    {
+      "id": "sandwich_omelette",
+      "name": "Omelet Sandwich",
+      "desc": "Omelet, avocado, tomatoes, cream cheese.",
+      "price": 37,
+      "image": "/images/sandwich_omelette.jpg",
+      "category": "sandwiches",
+      "tags": [],
+      "options": {
+        "bread": {
+          "type": "select",
+          "label": "Bread",
+          "choices": ["White sourdough", "Multigrain sourdough", "Frena"]
+        },
+        "notes": { "type": "text", "label": "Notes" }
+      }
+    },
+
+    {
+      "id": "pizza_margherita",
+      "name": "Margherita Pizza",
+      "desc": "San Marzano tomatoes, basil, fresh mozzarella, parmesan, fleur de sel.",
+      "price": 40,
+      "image": "/images/pizza_margherita.jpg",
+      "category": "pizza",
+      "tags": ["Vegetarian"],
+      "options": {
+        "size": {
+          "type": "select",
+          "label": "Size",
+          "choices": [
+            { "name": "Small", "price": 0 },
+            { "name": "Large", "price": 20 }
+          ]
+        },
+        "extras": {
+          "type": "multi",
+          "label": "Extras",
+          "choices": [
+            { "name": "Corn", "price": 3 },
+            { "name": "Bell pepper", "price": 4 },
+            { "name": "Mushrooms", "price": 4 },
+            { "name": "Roman artichoke", "price": 5 },
+            { "name": "Green olives", "price": 5 },
+            { "name": "Kalamata olives", "price": 5 },
+            { "name": "Pepperoni", "price": 10 }
+          ]
+        },
+        "notes": { "type": "text", "label": "Notes" }
+      }
+    },
+    {
+      "id": "pizza_artichoke_cheese",
+      "name": "Artichoke Pizza",
+      "desc": "San Marzano tomatoes, parmesan, green olives, fresh mozzarella, Roman artichoke.",
+      "price": 45,
+      "image": "/images/pizza_artichoke.jpg",
+      "category": "pizza",
+      "tags": ["Vegetarian"],
+      "options": {
+        "size": {
+          "type": "select",
+          "label": "Size",
+          "choices": [
+            { "name": "Small", "price": 0 },
+            { "name": "Large", "price": 30 }
+          ]
+        },
+        "notes": { "type": "text", "label": "Notes" }
+      }
+    },
+    {
+      "id": "pizza_pepperoni",
+      "name": "Pepperoni Pizza",
+      "desc": "San Marzano tomatoes, basil, oregano, black pepper, parmesan, pepperoni.",
+      "price": 45,
+      "image": "/images/pizza_pepperoni.jpg",
+      "category": "pizza",
+      "tags": [],
+      "options": {
+        "size": {
+          "type": "select",
+          "label": "Size",
+          "choices": [
+            { "name": "Small", "price": 0 },
+            { "name": "Large", "price": 30 }
+          ]
+        },
+        "notes": { "type": "text", "label": "Notes" }
+      }
+    },
+    {
+      "id": "pizza_lamb_prosciutto",
+      "name": "Lamb Prosciutto Pizza",
+      "desc": "San Marzano tomatoes, mozzarella, parmesan, Kalamata olives, arugula, Grana Padano shavings.",
+      "price": 45,
+      "image": "/images/pizza_lamb_prosciutto.jpg",
+      "category": "pizza",
+      "tags": [],
+      "options": {
+        "size": {
+          "type": "select",
+          "label": "Size",
+          "choices": [
+            { "name": "Small", "price": 0 },
+            { "name": "Large", "price": 30 }
+          ]
+        },
+        "notes": { "type": "text", "label": "Notes" }
+      }
+    },
+    {
+      "id": "pizza_four_cheese",
+      "name": "Four-Cheese Pizza",
+      "desc": "Mozzarella, pecorino, blue cheese, parmesan (no tomato sauce), pepper jam on the side.",
+      "price": 45,
+      "image": "/images/pizza_four_cheese.jpg",
+      "category": "pizza",
+      "tags": ["Vegetarian"],
+      "options": {
+        "size": {
+          "type": "select",
+          "label": "Size",
+          "choices": [
+            { "name": "Small", "price": 0 },
+            { "name": "Large", "price": 30 }
+          ]
+        },
+        "notes": { "type": "text", "label": "Notes" }
+      }
+    },
+    {
+      "id": "pizza_bianca",
+      "name": "Bianca Pizza",
+      "desc": "White sauce, mushrooms, sweet potato, Kalamata olives.",
+      "price": 45,
+      "image": "/images/pizza_bianca.jpg",
+      "category": "pizza",
+      "tags": ["Vegetarian"],
+      "options": {
+        "size": {
+          "type": "select",
+          "label": "Size",
+          "choices": [
+            { "name": "Small", "price": 0 },
+            { "name": "Large", "price": 30 }
+          ]
+        },
+        "notes": { "type": "text", "label": "Notes" }
+      }
+    },
+    {
+      "id": "taboon_manakish",
+      "name": "Taboon Manakish",
+      "desc": "Za’atar, olives, cherry tomatoes.",
+      "price": 25,
+      "image": "/images/manakish.jpg",
+      "category": "pizza",
+      "tags": ["Vegetarian"],
+      "options": {
+        "size": {
+          "type": "select",
+          "label": "Size",
+          "choices": [
+            { "name": "Small", "price": 0 },
+            { "name": "Large", "price": 20 }
+          ]
+        },
+        "notes": { "type": "text", "label": "Notes" }
+      }
+    },
+
+    {
+      "id": "pasta_garlic_butter",
+      "name": "Garlic Butter Pasta",
+      "desc": "Pasta in garlic-butter sauce.",
+      "price": 50,
+      "image": "/images/pasta_garlic_butter.jpg",
+      "category": "pasta",
+      "tags": [],
+      "options": {
+        "pasta_type": {
+          "type": "select",
+          "label": "Pasta Type",
+          "choices": ["Spaghetti", "Fettuccine", "Cheese ravioli"]
+        },
+        "notes": { "type": "text", "label": "Notes" }
+      }
+    },
+    {
+      "id": "pasta_rosa",
+      "name": "Pasta Rosa",
+      "desc": "Creamy tomato sauce.",
+      "price": 50,
+      "image": "/images/pasta_rosa.jpg",
+      "category": "pasta",
+      "tags": [],
+      "options": {
+        "pasta_type": {
+          "type": "select",
+          "label": "Pasta Type",
+          "choices": ["Spaghetti", "Fettuccine", "Cheese ravioli"]
+        },
+        "notes": { "type": "text", "label": "Notes" }
+      }
+    },
+    {
+      "id": "pasta_mixed_tomatoes",
+      "name": "Mixed Tomatoes Pasta",
+      "desc": "Variety of tomatoes in house tomato sauce.",
+      "price": 50,
+      "image": "/images/pasta_mixed_tomatoes.jpg",
+      "category": "pasta",
+      "tags": [],
+      "options": {
+        "pasta_type": {
+          "type": "select",
+          "label": "Pasta Type",
+          "choices": ["Spaghetti", "Fettuccine", "Cheese ravioli"]
+        },
+        "notes": { "type": "text", "label": "Notes" }
+      }
+    },
+    {
+      "id": "pasta_cacio_pepe",
+      "name": "קאצ'ו א פפה",
+      "desc": "House-style cacio e pepe.",
+      "id": "pasta_pepper_parmesan",
+      "name": "Pepper Parmesan Pasta",
+      "desc": "House-style creamy pepper pasta.",
+      "price": 50,
+      "image": "/images/pasta_pepper_parmesan.jpg",
+      "category": "pasta",
+      "tags": [],
+      "options": {
+        "pasta_type": {
+          "type": "select",
+          "label": "Pasta Type",
+          "choices": ["Spaghetti", "Fettuccine", "Cheese ravioli"]
+        },
+        "notes": { "type": "text", "label": "Notes" }
+      }
+    },
+    {
+      "id": "pasta_mushroom_cream",
+      "name": "Creamy Mushroom Pasta",
+      "desc": "Rich cream sauce with mushrooms.",
+      "price": 55,
+      "image": "/images/pasta_mushroom_cream.jpg",
+      "category": "pasta",
+      "tags": [],
+      "options": {
+        "pasta_type": {
+          "type": "select",
+          "label": "Pasta Type",
+          "choices": ["Spaghetti", "Fettuccine", "Cheese ravioli"]
+        },
+        "notes": { "type": "text", "label": "Notes" }
+      }
+    },
+
+    {
+      "id": "salad_halloumi",
+      "name": "Halloumi Salad",
+      "desc": "Lettuce, roasted mushrooms, sweet potato, tomato, red onion, mustard vinaigrette.",
+      "price": 55,
+      "image": "/images/salad_halloumi.jpg",
+      "category": "salads",
+      "tags": [],
+      "options": { "notes": { "type": "text", "label": "Notes" } }
+    },
+    {
+      "id": "salad_quinoa_health",
+      "name": "Quinoa Health Salad",
+      "desc": "Quinoa, red cabbage, parsley, red onion, cucumber, tomato, green beans, tahini.",
+      "price": 52,
+      "image": "/images/salad_quinoa.jpg",
+      "category": "salads",
+      "tags": ["Gluten-free"],
+      "options": { "notes": { "type": "text", "label": "Notes" } }
+    },
+
+    {
+      "id": "juice_pomegranate",
+      "name": "100% Pomegranate Juice",
+      "price": 18,
+      "image": "/images/juice_pomegranate.jpg",
+      "category": "cold_drinks"
+    },
+    {
+      "id": "juice_orange",
+      "name": "100% Orange Juice",
+      "price": 18,
+      "image": "/images/juice_orange.jpg",
+      "category": "cold_drinks"
+    },
+    {
+      "id": "juice_apple",
+      "name": "100% Apple Juice",
+      "price": 18,
+      "image": "/images/juice_apple.jpg",
+      "category": "cold_drinks"
+    },
+    {
+      "id": "juice_apple_passion",
+      "name": "Apple & Passionfruit Juice",
+      "price": 18,
+      "image": "/images/juice_apple_passion.jpg",
+      "category": "cold_drinks"
+    },
+    {
+      "id": "sparkling_water",
+      "name": "Sparkling Water",
+      "price": 15,
+      "image": "/images/soda.jpg",
+      "category": "cold_drinks"
+    },
+    {
+      "id": "cola",
+      "name": "Cola",
+      "price": 10,
+      "image": "/images/cola.jpg",
+      "category": "cold_drinks"
+    },
+    {
+      "id": "cola_zero",
+      "name": "Cola Zero",
+      "price": 10,
+      "image": "/images/cola_zero.jpg",
+      "category": "cold_drinks"
+    },
+    {
+      "id": "iced_coffee",
+      "name": "Iced Coffee",
+      "price": 20,
+      "image": "/images/iced_coffee.jpg",
+      "category": "cold_drinks"
+    },
+
+    {
+      "id": "tea",
+      "name": "Tea",
+      "price": 11,
+      "image": "/images/tea.jpg",
+      "category": "hot_drinks"
+    },
+    {
+      "id": "espresso",
+      "name": "Espresso",
+      "price": 8,
+      "image": "/images/espresso.jpg",
+      "category": "hot_drinks"
+    },
+    {
+      "id": "double_espresso",
+      "name": "Double Espresso",
+      "price": 13,
+      "image": "/images/double_espresso.jpg",
+      "category": "hot_drinks"
+    },
+    {
+      "id": "americano",
+      "name": "Americano",
+      "price": 15,
+      "image": "/images/americano.jpg",
+      "category": "hot_drinks"
+    },
+    {
+      "id": "nescafe",
+      "name": "Nes Coffee",
+      "price": 17,
+      "image": "/images/nescafe.jpg",
+      "category": "hot_drinks"
+    },
+    {
+      "id": "cafe_hafuch_large",
+      "name": "Large Cappuccino",
+      "price": 18,
+      "image": "/images/latte_large.jpg",
+      "category": "hot_drinks"
+    },
+
+    {
+      "id": "red_wine",
+      "name": "Red Wine",
+      "desc": "Ask the waiter",
+      "image": "/images/red_wine.jpg",
+      "category": "alcohol",
+      "noCart": true
+    },
+    {
+      "id": "white_wine",
+      "name": "White Wine",
+      "desc": "Ask the waiter",
+      "image": "/images/white_wine.jpg",
+      "category": "alcohol",
+      "noCart": true
+    },
+    {
+      "id": "beer",
+      "name": "Beer",
+      "desc": "Ask the waiter",
+      "image": "/images/beer.jpg",
+      "category": "alcohol",
+      "noCart": true
+    },
+    {
+      "id": "aperol_spritz",
+      "name": "Aperol Spritz",
+      "desc": "Ask the waiter",
+      "image": "/images/aperol_spritz.jpg",
+      "category": "alcohol",
+      "noCart": true
+    }
+  ]
+}

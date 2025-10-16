@@ -1,0 +1,498 @@
+{
+  "categories": [
+    { "id": "starters", "title": "ראשונות", "emoji": "🍽️" },
+    { "id": "breakfast", "title": "ארוחות בוקר", "emoji": "☀️" },
+    { "id": "sandwiches", "title": "כריכים", "emoji": "🥪" },
+    { "id": "pizza", "title": "פיצה", "emoji": "🍕" },
+    { "id": "pasta", "title": "פסטות", "emoji": "🍝" },
+    { "id": "salads", "title": "סלטים", "emoji": "🥗" },
+    { "id": "cold_drinks", "title": "שתייה קרה", "emoji": "🥤" },
+    { "id": "hot_drinks", "title": "שתייה חמה", "emoji": "☕" },
+    { "id": "alcohol", "title": "אלכוהול", "emoji": "🍷" }
+  ],
+  "items": [
+    {
+      "id": "starter_focaccia",
+      "name": "פוקאצ'ה מהטבון",
+      "desc": "מוגשת עם מטבלים: ממרח זיתים, קונפי שום, פסטו.",
+      "price": 22,
+      "image": "/images/focaccia.jpg",
+      "category": "starters",
+      "tags": ["צמחוני", "טאבון"],
+      "options": { "notes": { "type": "text", "label": "הערות" } }
+    },
+    {
+      "id": "salad_burrata",
+      "name": "סלט בוראטה",
+      "desc": "עגבניות שירי, בזיליקום, בצל סגול, על בסיס רוטב בלסמי ופסטו.",
+      "price": 55,
+      "image": "/images/salad_burrata.jpg",
+      "category": "starters",
+      "tags": ["צמחוני"],
+      "options": { "notes": { "type": "text", "label": "הערות" } }
+    },
+
+    {
+      "id": "bk_scrambled_croissant",
+      "name": "קרואסון מקושקשת",
+      "desc": "ביצה מקושקשת, גבינת שמנת, ארוגולה, נגיעה של כמהין.",
+      "price": 45,
+      "image": "/images/breakfast_croissant.jpg",
+      "category": "breakfast",
+      "tags": [],
+      "options": { "notes": { "type": "text", "label": "הערות" } }
+    },
+    {
+      "id": "bk_brioche_lamb_bacon",
+      "name": "בריוש עם בייקון טלה",
+      "desc": "בריוש, גבינת דר׳צ, איולי, חרדל, ביצת עין. מוגש עם סלט עלים.",
+      "price": 55,
+      "image": "/images/breakfast_brioche.jpg",
+      "category": "breakfast",
+      "tags": [],
+      "options": { "notes": { "type": "text", "label": "הערות" } }
+    },
+    {
+      "id": "bk_bruschetta_omelette",
+      "name": "ברוסקטה עם חביתה",
+      "desc": "לחם/חלה צלוי, אבוקדו, חביתה, חסה, עגבנייה, פלפל שאטה. מוגש עם סלט עלים.",
+      "price": 52,
+      "image": "/images/breakfast_bruschetta.jpg",
+      "category": "breakfast",
+      "tags": [],
+      "options": { "notes": { "type": "text", "label": "הערות" } }
+    },
+
+    {
+      "id": "sandwich_roast_beef",
+      "name": "כריך רוסטביף",
+      "desc": "רוסטביף על המחבת עם גבינת דר׳צ, מיונז חרדל, עגבניות, חסה.",
+      "price": 39,
+      "image": "/images/sandwich_roastbeef.jpg",
+      "category": "sandwiches",
+      "tags": [],
+      "options": {
+        "bread": {
+          "type": "select",
+          "label": "לחם",
+          "choices": ["מחמצת לבן", "מחמצת דגנים", "פרנה"]
+        },
+        "notes": { "type": "text", "label": "הערות" }
+      }
+    },
+    {
+      "id": "sandwich_omelette",
+      "name": "כריך חביתה",
+      "desc": "חביתה, אבוקדו, עגבניות, גבינת שמנת.",
+      "price": 37,
+      "image": "/images/sandwich_omelette.jpg",
+      "category": "sandwiches",
+      "tags": [],
+      "options": {
+        "bread": {
+          "type": "select",
+          "label": "לחם",
+          "choices": ["מחמצת לבן", "מחמצת דגנים", "פרנה"]
+        },
+        "notes": { "type": "text", "label": "הערות" }
+      }
+    },
+
+    {
+      "id": "pizza_margherita",
+      "name": "פיצה מרגריטה",
+      "desc": "עגבניות סן מרזאנו, בזיליקום, מוצרלה טרייה, פרמזן, מלח דה סל פלור.",
+      "price": 40,
+      "image": "/images/pizza_margherita.jpg",
+      "category": "pizza",
+      "tags": ["צמחוני"],
+      "options": {
+        "size": {
+          "type": "select",
+          "label": "גודל",
+          "choices": [
+            { "name": "קטן", "price": 0 },
+            { "name": "גדול", "price": 20 }
+          ]
+        },
+        "extras": {
+          "type": "multi",
+          "label": "תוספות",
+          "choices": [
+            { "name": "תירס", "price": 3 },
+            { "name": "גמבה", "price": 4 },
+            { "name": "פטריות", "price": 4 },
+            { "name": "ארטישוק אלה רומאנה", "price": 5 },
+            { "name": "זיתים ירוקים", "price": 5 },
+            { "name": "זיתי קלמטה", "price": 5 },
+            { "name": "פפרוני", "price": 10 }
+          ]
+        },
+        "notes": { "type": "text", "label": "הערות" }
+      }
+    },
+    {
+      "id": "pizza_artichoke_cheese",
+      "name": "פיצה ארטישוק",
+      "desc": "עגבניות סן מרזאנו, פרמזן, זיתים ירוקים, מוצרלה טרייה, ארטישוק אלה רומנה.",
+      "price": 45,
+      "image": "/images/pizza_artichoke.jpg",
+      "category": "pizza",
+      "tags": ["צמחוני"],
+      "options": {
+        "size": {
+          "type": "select",
+          "label": "גודל",
+          "choices": [
+            { "name": "קטן", "price": 0 },
+            { "name": "גדול", "price": 30 }
+          ]
+        },
+        "notes": { "type": "text", "label": "הערות" }
+      }
+    },
+    {
+      "id": "pizza_pepperoni",
+      "name": "פיצה פפרוני",
+      "desc": "עגבניות סן מרזאנו, בזיליקום, אורגנו, פלפל שחור, פרמזן, פפרוני.",
+      "price": 45,
+      "image": "/images/pizza_pepperoni.jpg",
+      "category": "pizza",
+      "tags": [],
+      "options": {
+        "size": {
+          "type": "select",
+          "label": "גודל",
+          "choices": [
+            { "name": "קטן", "price": 0 },
+            { "name": "גדול", "price": 30 }
+          ]
+        },
+        "notes": { "type": "text", "label": "הערות" }
+      }
+    },
+    {
+      "id": "pizza_lamb_prosciutto",
+      "name": "פיצה פרושוטו טלה",
+      "desc": "עגבניות סן מרזאנו, מוצרלה, פרמזן, זיתי קלמטה, ארוגולה, שבבי גרנה פדנו.",
+      "price": 45,
+      "image": "/images/pizza_lamb_prosciutto.jpg",
+      "category": "pizza",
+      "tags": [],
+      "options": {
+        "size": {
+          "type": "select",
+          "label": "גודל",
+          "choices": [
+            { "name": "קטן", "price": 0 },
+            { "name": "גדול", "price": 30 }
+          ]
+        },
+        "notes": { "type": "text", "label": "הערות" }
+      }
+    },
+    {
+      "id": "pizza_four_cheese",
+      "name": "פיצה גבינות",
+      "desc": "מוצרלה, פקורינו, גבינה כחולה, פרמזן, (ללא רוטב עגבניות), ריבת פלפלים בצד.",
+      "price": 45,
+      "image": "/images/pizza_four_cheese.jpg",
+      "category": "pizza",
+      "tags": ["צמחוני"],
+      "options": {
+        "size": {
+          "type": "select",
+          "label": "גודל",
+          "choices": [
+            { "name": "קטן", "price": 0 },
+            { "name": "גדול", "price": 30 }
+          ]
+        },
+        "notes": { "type": "text", "label": "הערות" }
+      }
+    },
+    {
+      "id": "pizza_bianca",
+      "name": "פיצה ביאנקה",
+      "desc": "רוטב ביאנקה, פטריות, בטטה, זיתי קלמטה.",
+      "price": 45,
+      "image": "/images/pizza_bianca.jpg",
+      "category": "pizza",
+      "tags": ["צמחוני"],
+      "options": {
+        "size": {
+          "type": "select",
+          "label": "גודל",
+          "choices": [
+            { "name": "קטן", "price": 0 },
+            { "name": "גדול", "price": 30 }
+          ]
+        },
+        "notes": { "type": "text", "label": "הערות" }
+      }
+    },
+    {
+      "id": "taboon_manakish",
+      "name": "מנאקיש טאבון",
+      "desc": "זעתר, זיתים, עגבניות שירי.",
+      "price": 25,
+      "image": "/images/manakish.jpg",
+      "category": "pizza",
+      "tags": ["צמחוני"],
+      "options": {
+        "size": {
+          "type": "select",
+          "label": "גודל",
+          "choices": [
+            { "name": "קטן", "price": 0 },
+            { "name": "גדול", "price": 20 }
+          ]
+        },
+        "notes": { "type": "text", "label": "הערות" }
+      }
+    },
+
+    {
+      "id": "pasta_garlic_butter",
+      "name": "פסטה שום חמאה",
+      "desc": "פסטה ברוטב שום-חמאה.",
+      "price": 50,
+      "image": "/images/pasta_garlic_butter.jpg",
+      "category": "pasta",
+      "tags": [],
+      "options": {
+        "pasta_type": {
+          "type": "select",
+          "label": "סוג פסטה",
+          "choices": ["ספגטי", "פטוצ׳יני", "רביולי גבינות"]
+        },
+        "notes": { "type": "text", "label": "הערות" }
+      }
+    },
+    {
+      "id": "pasta_rosa",
+      "name": "פסטה רוזה",
+      "desc": "רוטב עגבניות-שמנת עדין.",
+      "price": 50,
+      "image": "/images/pasta_rosa.jpg",
+      "category": "pasta",
+      "tags": [],
+      "options": {
+        "pasta_type": {
+          "type": "select",
+          "label": "סוג פסטה",
+          "choices": ["ספגטי", "פטוצ׳יני", "רביולי גבינות"]
+        },
+        "notes": { "type": "text", "label": "הערות" }
+      }
+    },
+    {
+      "id": "pasta_mixed_tomatoes",
+      "name": "פסטה מיקס עגבניות",
+      "desc": "מבחר עגבניות ורוטב עגבניות ביתי.",
+      "price": 50,
+      "image": "/images/pasta_mixed_tomatoes.jpg",
+      "category": "pasta",
+      "tags": [],
+      "options": {
+        "pasta_type": {
+          "type": "select",
+          "label": "סוג פסטה",
+          "choices": ["ספגטי", "פטוצ׳יני", "רביולי גבינות"]
+        },
+        "notes": { "type": "text", "label": "הערות" }
+      }
+    },
+    {
+      "id": "pasta_cacio_pepe",
+      "name": "קאצ'ו א פפה",
+      "desc": "קאצ׳יו אה פפה בסגנון הבית.",
+      "id": "pasta_pepper_parmesan",
+      "name": "פסטה פלפל ופרמזן",
+      "desc": "פסטה פלפל ופרמזן בסגנון הבית.",
+      "price": 50,
+      "image": "/images/pasta_pepper_parmesan.jpg",
+      "category": "pasta",
+      "tags": [],
+      "options": {
+        "pasta_type": {
+          "type": "select",
+          "label": "סוג פסטה",
+          "choices": ["ספגטי", "פטוצ׳יני", "רביולי גבינות"]
+        },
+        "notes": { "type": "text", "label": "הערות" }
+      }
+    },
+    {
+      "id": "pasta_mushroom_cream",
+      "name": "פסטה שמנת פטריות",
+      "desc": "שמנת עשירה עם פטריות.",
+      "price": 55,
+      "image": "/images/pasta_mushroom_cream.jpg",
+      "category": "pasta",
+      "tags": [],
+      "options": {
+        "pasta_type": {
+          "type": "select",
+          "label": "סוג פסטה",
+          "choices": ["ספגטי", "פטוצ׳יני", "רביולי גבינות"]
+        },
+        "notes": { "type": "text", "label": "הערות" }
+      }
+    },
+
+    {
+      "id": "salad_halloumi",
+      "name": "סלט חלומי",
+      "desc": "חסה, פטריות צלויות, בטטה, עגבנייה, בצל סגול, ויניגרט חרדל.",
+      "price": 55,
+      "image": "/images/salad_halloumi.jpg",
+      "category": "salads",
+      "tags": [],
+      "options": { "notes": { "type": "text", "label": "הערות" } }
+    },
+    {
+      "id": "salad_quinoa_health",
+      "name": "סלט בריאות קינואה",
+      "desc": "קינואה, כרוב אדום, פטרוזיליה, בצל סגול, מלפפון, עגבנייה, שעועית ירוקה, טחינה.",
+      "price": 52,
+      "image": "/images/salad_quinoa.jpg",
+      "category": "salads",
+      "tags": ["ללא גלוטן"],
+      "options": { "notes": { "type": "text", "label": "הערות" } }
+    },
+
+    {
+      "id": "juice_pomegranate",
+      "name": "מיץ רימונים 100%",
+      "price": 18,
+      "image": "/images/juice_pomegranate.jpg",
+      "category": "cold_drinks"
+    },
+    {
+      "id": "juice_orange",
+      "name": "מיץ תפוזים 100%",
+      "price": 18,
+      "image": "/images/juice_orange.jpg",
+      "category": "cold_drinks"
+    },
+    {
+      "id": "juice_apple",
+      "name": "מיץ תפוחים 100%",
+      "price": 18,
+      "image": "/images/juice_apple.jpg",
+      "category": "cold_drinks"
+    },
+    {
+      "id": "juice_apple_passion",
+      "name": "מיץ תפוחים ופסיפלורה",
+      "price": 18,
+      "image": "/images/juice_apple_passion.jpg",
+      "category": "cold_drinks"
+    },
+    {
+      "id": "sparkling_water",
+      "name": "מים מוגזים",
+      "price": 15,
+      "image": "/images/soda.jpg",
+      "category": "cold_drinks"
+    },
+    {
+      "id": "cola",
+      "name": "קולה",
+      "price": 10,
+      "image": "/images/cola.jpg",
+      "category": "cold_drinks"
+    },
+    {
+      "id": "cola_zero",
+      "name": "קולה זירו",
+      "price": 10,
+      "image": "/images/cola_zero.jpg",
+      "category": "cold_drinks"
+    },
+    {
+      "id": "iced_coffee",
+      "name": "קפה קר",
+      "price": 20,
+      "image": "/images/iced_coffee.jpg",
+      "category": "cold_drinks"
+    },
+
+    {
+      "id": "tea",
+      "name": "תה",
+      "price": 11,
+      "image": "/images/tea.jpg",
+      "category": "hot_drinks"
+    },
+    {
+      "id": "espresso",
+      "name": "אספרסו",
+      "price": 8,
+      "image": "/images/espresso.jpg",
+      "category": "hot_drinks"
+    },
+    {
+      "id": "double_espresso",
+      "name": "אספרסו כפול",
+      "price": 13,
+      "image": "/images/double_espresso.jpg",
+      "category": "hot_drinks"
+    },
+    {
+      "id": "americano",
+      "name": "אמריקאנו",
+      "price": 15,
+      "image": "/images/americano.jpg",
+      "category": "hot_drinks"
+    },
+    {
+      "id": "nescafe",
+      "name": "נס קפה",
+      "price": 17,
+      "image": "/images/nescafe.jpg",
+      "category": "hot_drinks"
+    },
+    {
+      "id": "cafe_hafuch_large",
+      "name": "הפוך גדול",
+      "price": 18,
+      "image": "/images/latte_large.jpg",
+      "category": "hot_drinks"
+    },
+
+    {
+      "id": "red_wine",
+      "name": "יין אדום",
+      "desc": "שאל את המלצר",
+      "image": "/images/red_wine.jpg",
+      "category": "alcohol",
+      "noCart": true
+    },
+    {
+      "id": "white_wine",
+      "name": "יין לבן",
+      "desc": "שאל את המלצר",
+      "image": "/images/white_wine.jpg",
+      "category": "alcohol",
+      "noCart": true
+    },
+    {
+      "id": "beer",
+      "name": "בירה",
+      "desc": "שאל את המלצר",
+      "image": "/images/beer.jpg",
+      "category": "alcohol",
+      "noCart": true
+    },
+    {
+      "id": "aperol_spritz",
+      "name": "אפרול שפריץ",
+      "desc": "שאל את המלצר",
+      "image": "/images/aperol_spritz.jpg",
+      "category": "alcohol",
+      "noCart": true
+    }
+  ]
+}

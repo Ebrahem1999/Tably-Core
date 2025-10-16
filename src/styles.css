@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #3c86ff;
+  --accent: #1e63f2;
+  --bg: #0b0f14;
+  --card: #121821;
+  --text: #e5e7eb;
+}
+
+html, body, #root {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  direction: rtl;
+}
+
+.card {
+  @apply rounded-2xl bg-[var(--card)] shadow-soft border border-white/5;
+}

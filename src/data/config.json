@@ -1,0 +1,45 @@
+{
+  "slug": "Tably-demo",
+  "name": "Tably Template",
+  "logo": "/tably-logo.jpg",
+  "phone": "04-8530550",
+  "whatsapp": "+972509021620",
+  "address": "HaPalmach St 1, Tiberias",
+  "coords": { "lat": 32.801626, "lng": 35.169855 },
+  "instagram": "Tably.menu",
+  "slug": "template-demo",
+  "name": "Template Restaurant",
+  "logo": "/template-logo.jpg",
+  "phone": "+972-50-222-1156",
+  "whatsapp": "+972502221156",
+  "address": "Template Restaurant & Bakery",
+  "coords": { "lat": 32.801626, "lng": 35.169855 },
+  "instagram": "template_restaurant",
+  "hours": {
+    "Sun": "08:30-13:30",
+    "Tue-Sat": "08:30-22:00",
+    "Mon": "Closed"
+  },
+  "theme": {
+    "primary": "#10b981",
+    "accent": "#0ea5e9",
+    "bg": "#0b0f14",
+    "card": "#121821",
+    "text": "#e5e7eb"
+  },
+  "languages": ["ar", "he", "en"],
+  "currency": "\u20aa",
+  "reservation": {
+    "enabled": true,
+    "areas": [
+      { "id": "inside", "name": "Inside", "name_ar": "داخلي", "name_he": "פנים" },
+      { "id": "outside", "name": "Outside", "name_ar": "خارجي", "name_he": "חוץ" }
+    ],
+    "time_slots": [
+      "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30",
+      "18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00", "21:30", "22:00"
+    ],
+    "max_advance_days": 7,
+    "whatsapp": "+972509021620"
+  }
+}
