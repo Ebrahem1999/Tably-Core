@@ -7,7 +7,7 @@ export default function MoodBar({ selectedMood, setSelectedMood }) {
 
   const translatedMood = (key) => {
     switch (key) {
-      case "הכול":
+      case "aaaaaa":
         return t("mood_all");
       case "פיצה":
         return t("mood_pizza");
