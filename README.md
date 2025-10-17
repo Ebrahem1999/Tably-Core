@@ -1,21 +1,49 @@
-# QR Menu + WhatsApp Cart (React + Vite + Tailwind)
+# Tably Core 
 
-- Arabic default + RTL first paint
-- Menu with categories, search, item options (single/multi/text)
-- Cart drawer with quantity controls, clear cart, customer details
-- WhatsApp checkout (pre-filled message)
+A reusable React component library for restaurant QR menu applications.
 
-## Run
+## Installation
+
 ```bash
-npm install
-npm run dev
+npm install @tably/core
 ```
 
-## Customize
-- Business info: `src/data/config.json`
-- Menus: `src/data/menu.{ar,he,en}.json` (add `options` per item)
-- WhatsApp target: `config.whatsapp` in the same file
-- Styling via CSS variables in `src/styles/index.css`
+## Usage
 
-## Deploy
-- Vercel/Netlify. Use `/qr` to generate poster PNG.
+```javascript
+import { CartButton, useCart, MenuPage } from '@tably/core'
+import '@tably/core/styles'
+```
+
+## Components
+
+- CartButton
+- CartDrawer  
+- CategoryTabs
+- ImageLightbox
+- ItemCard
+- LanguageSwitcher
+- OptionModal
+- ReservationModal
+- SearchBar
+
+## Pages
+
+- MenuPage
+- ContactPage
+- QRPage
+- ReservationPage
+- TermsPage
+- PrivacyPage
+- AccessibilityPage
+
+## Contexts
+
+- AnimationProvider/useAnimation
+- CartProvider/useCart
+
+## Building
+
+```bash
+npm run build:lib
+```
