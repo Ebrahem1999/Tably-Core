@@ -51,6 +51,7 @@ export default function MoodBar({ selectedMood, setSelectedMood }) {
               </div>
               <div className={`mt-2 text-xs sm:text-sm ${active ? "text-[var(--primary)]" : "text-white/80"}`}>
                 {translatedMood(m.label)}
+                {translatedMood(m.key)}
               </div>
             </button>
           );
