@@ -22,7 +22,7 @@ export default function MoodBar({ selectedMood, setSelectedMood }) {
       case "קינוחים":
         return t("mood_desserts");
       case "איטלקי":
-        return t("mood_italian");
+        return t("mood_desserts");
       case "מזרחי":
         return t("mood_middle_eastern");
       default:
