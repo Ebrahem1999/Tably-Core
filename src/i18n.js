@@ -4,17 +4,28 @@ import en from "./locales/en.json";
 import he from "./locales/he.json";
 import ar from "./locales/ar.json";
 
+const resources = {
+  en: { translation: en },
+  he: { translation: he },
+  ar: { translation: ar },
+};
+
+export function applyDir(lang) {
+  const dir = lang === "ar" || lang === "he" ? "rtl" : "ltr";
+  document.documentElement.setAttribute("dir", dir);
+  document.documentElement.setAttribute("lang", lang);
+}
+
 i18n
   .use(initReactI18next)
   .init({
-    resources: {
-      en: { translation: en },
-      he: { translation: he },
-      ar: { translation: ar }
-    },
-    lng: "he", // default language
+    resources,
+    lng: "he",
     fallbackLng: "en",
-    interpolation: { escapeValue: false }
-  });
+    interpolation: { escapeValue: false },
+  })
+  .then(() => applyDir(i18n.language));
+
+i18n.on("languageChanged", applyDir);
 
 export default i18n;

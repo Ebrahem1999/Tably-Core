@@ -1,498 +1,341 @@
 {
+  "restaurant": {
+    "name": "زواوي",
+    "brand_subtitle": "TAKE AWAY"
+  },
   "categories": [
-    { "id": "starters", "title": "المقبلات", "emoji": "🍽️" },
-    { "id": "breakfast", "title": "وجبات الإفطار", "emoji": "☀️" },
-    { "id": "sandwiches", "title": "السندويشات", "emoji": "🥪" },
-    { "id": "pizza", "title": "بيتزا", "emoji": "🍕" },
-    { "id": "pasta", "title": "باستا", "emoji": "🍝" },
+    { "id": "toasts", "title": "توست", "emoji": "🧀" },
+    { "id": "sandwiches", "title": "سندويشات", "emoji": "🥪" },
     { "id": "salads", "title": "سلطات", "emoji": "🥗" },
-    { "id": "cold_drinks", "title": "مشروبات باردة", "emoji": "🥤" },
-    { "id": "hot_drinks", "title": "مشروبات ساخنة", "emoji": "☕" },
-    { "id": "alcohol", "title": "مشروبات كحولية", "emoji": "🍷" }
+    { "id": "baguette_tortilla", "title": "تورتيلا/باجيت/صحن", "emoji": "🌯" },
+    {
+      "id": "soft_drinks",
+      "title": "مشروبات غازية",
+      "emoji": "🥤"
+    }
   ],
   "items": [
     {
-      "id": "starter_focaccia",
-      "name": "فوكاتشا من التنور",
-      "desc": "تُقدّم مع سبريد زيتون، ثوم كونفي، وبيستو.",
-      "price": 22,
-      "image": "/images/focaccia.jpg",
-      "category": "starters",
-      "tags": ["نباتي", "تنور"],
-      "options": { "notes": { "type": "text", "label": "ملاحظات" } }
-    },
-    {
-      "id": "salad_burrata",
-      "name": "سلطة بوراتا",
-      "desc": "طماطم كرزية، ريحان، بصل أحمر، صلصة بلسميك وبيستو.",
-      "price": 55,
-      "image": "/images/salad_burrata.jpg",
-      "category": "starters",
+      "id": "toast_classic",
+      "name": "توست القلعة",
+      "desc": "جبنة صفراء، جبنة بلغارية، زيتون، طماطم، زبدة، معجون طماطم، بيستو.",
+      "price": 35,
+      "image": "/images/toast_classic.png",
+      "category": "toasts",
       "tags": ["نباتي"],
-      "options": { "notes": { "type": "text", "label": "ملاحظات" } }
-    },
-
-    {
-      "id": "bk_scrambled_croissant",
-      "name": "كرواسون ببيض مخفوق",
-      "desc": "بيض مخفوق، جبنة كريمية، جرجير، لمسة من الكمأة.",
-      "price": 45,
-      "image": "/images/breakfast_croissant.jpg",
-      "category": "breakfast",
-      "tags": [],
-      "options": { "notes": { "type": "text", "label": "ملاحظات" } }
-    },
-    {
-      "id": "bk_brioche_lamb_bacon",
-      "name": "بريوش مع بيكون لحم خروف",
-      "desc": "بريوش، جبنة د.تس، أيولي، خردل، بيضة عين. يُقدّم مع سلطة جانبية.",
-      "price": 55,
-      "image": "/images/breakfast_brioche.jpg",
-      "category": "breakfast",
-      "tags": [],
-      "options": { "notes": { "type": "text", "label": "ملاحظات" } }
-    },
-    {
-      "id": "bk_bruschetta_omelette",
-      "name": "بروسكيتا مع أومليت",
-      "desc": "خبز/حلّة محمّص، أفوكادو، أومليت، خس، طماطم، رقائق فلفل. يُقدّم مع سلطة جانبية.",
-      "price": 52,
-      "image": "/images/breakfast_bruschetta.jpg",
-      "category": "breakfast",
-      "tags": [],
-      "options": { "notes": { "type": "text", "label": "ملاحظات" } }
-    },
-
-    {
-      "id": "sandwich_roast_beef",
-      "name": "سندويش روست بيف",
-      "desc": "روست بيف مُحمّر على المقلاة مع جبنة د.تس، مايونيز بالخردل، طماطم، خس.",
-      "price": 39,
-      "image": "/images/sandwich_roastbeef.jpg",
-      "category": "sandwiches",
-      "tags": [],
       "options": {
-        "bread": {
-          "type": "select",
-          "label": "الخبز",
-          "choices": ["سوردو أبيض", "سوردو حبوب كاملة", "فرنة"]
-        },
         "notes": { "type": "text", "label": "ملاحظات" }
       }
     },
     {
-      "id": "sandwich_omelette",
-      "name": "سندويش أومليت",
-      "desc": "أومليت، أفوكادو، طماطم، جبنة كريمية.",
-      "price": 37,
-      "image": "/images/sandwich_omelette.jpg",
-      "category": "sandwiches",
-      "tags": [],
+      "id": "toast_golden",
+      "name": "توست ذهبي",
+      "desc": "جبنة صفراء، شرائح كتف ديك رومي، زيتون، ثوم، تشيلي حلو، بيستو.",
+      "price": 35,
+      "image": "/images/golden_toast.png",
+      "category": "toasts",
+      "tags": ["نباتي"],
       "options": {
-        "bread": {
-          "type": "select",
-          "label": "الخبز",
-          "choices": ["سوردو أبيض", "سوردو حبوب كاملة", "فرنة"]
-        },
+        "notes": { "type": "text", "label": "ملاحظات" }
+      }
+    },
+    {
+      "id": "toast_omelet",
+      "name": "توست عجة",
+      "desc": "عجة، جبنة صفراء، طماطم، لبنة.",
+      "price": 35,
+      "image": "/images/toast_omelet.png",
+      "category": "toasts",
+      "options": {
+        "notes": { "type": "text", "label": "ملاحظات" }
+      }
+    },
+    {
+      "id": "toast_pizza",
+      "name": "توست بيزا",
+      "desc": "جبنة صفراء، طماطم، زيتون، ذرة، بصل، صلصة بيتزا.",
+      "price": 35,
+      "image": "/images/toast_pizza.png",
+      "category": "toasts",
+      "options": {
         "notes": { "type": "text", "label": "ملاحظات" }
       }
     },
 
     {
-      "id": "pizza_margherita",
-      "name": "بيتزا مارغريتا",
-      "desc": "طماطم سان مارزانو، ريحان، موزاريلا طازجة، بارميزان، فلور دو سل.",
+      "id": "sand_zawadi",
+      "name": "سندويش زوادي",
+      "desc": "ديك رومي، شرائح كتف، لحم إيطالي، خس، طماطم، خيار، مايونيز بالثوم والشبت.",
       "price": 40,
-      "image": "/images/pizza_margherita.jpg",
-      "category": "pizza",
+      "image": "/images/sand_zawadi.png",
+      "category": "sandwiches",
+      "options": {
+        "notes": { "type": "text", "label": "ملاحظات" }
+      }
+    },
+    {
+      "id": "sand_tuna",
+      "name": "سندويش تونة",
+      "desc": "تونة، خس، طماطم، خيار مخلل، مايونيز أو صلصة ثوم-شبت.",
+      "price": 35,
+      "image": "/images/sand_tuna.png",
+      "category": "sandwiches",
+      "options": {
+        "notes": { "type": "text", "label": "ملاحظات" }
+      }
+    },
+    {
+      "id": "sand_healthy",
+      "name": "سندويش صحي",
+      "desc": "أفوكادو، خس، طماطم، تونة وبيض.",
+      "price": 35,
+      "image": "/images/sand_healthy.png",
+      "category": "sandwiches",
       "tags": ["نباتي"],
       "options": {
-        "size": {
+        "notes": { "type": "text", "label": "ملاحظات" }
+      }
+    },
+
+    {
+      "id": "salad_fattoush",
+      "name": "سلطة فتوش",
+      "desc": "خس، طماطم، خيار، بصل بنفسجي، زيتون أسود، جبنة بلغارية مبشورة بالزعتر.",
+      "price": 50,
+      "image": "/images/salad_fattoush.jpg",
+      "category": "salads",
+      "tags": ["نباتي"],
+      "options": {
+        "notes": { "type": "text", "label": "ملاحظات" }
+      }
+    },
+    {
+      "id": "salad_tabbouleh",
+      "name": "سلطة تبولة",
+      "desc": "برغل، طماطم كرزية، بقدونس، نعناع، بصل أخضر، ليمون وزيت زيتون.",
+      "price": 50,
+      "image": "/images/salad_tabbouleh.jpg",
+      "category": "salads",
+      "tags": ["نباتي"],
+      "options": {
+        "notes": { "type": "text", "label": "ملاحظات" }
+      }
+    },
+    {
+      "id": "salad_chicken_tuna",
+      "name": "سلطة دجاج",
+      "desc": "خس، طماطم، فلفل حلو، بصل بنفسجي، فجل، قطع صدر دجاج.",
+      "price": 50,
+      "image": "/images/salad_chicken_tuna.png",
+      "category": "salads",
+      "options": {
+        "notes": { "type": "text", "label": "ملاحظات" }
+      }
+    },
+
+    {
+      "id": "baguette_chicken",
+      "name": "دجاج",
+      "desc": "صدر دجاج متبل على البلانشا، خس، طماطم، خيار مخلل.",
+      "price": 40,
+      "image": "/images/baguette_chicken.png",
+      "category": "baguette_tortilla",
+      "options": {
+        "wrap": {
           "type": "select",
-          "label": "الحجم",
-          "choices": [
-            { "name": "صغير", "price": 0 },
-            { "name": "كبير", "price": 20 }
-          ]
+          "label": "يُقدم في",
+          "choices": [{"name": "باجيت", "price": 0}, {"name": "تورتيلا", "price": 0}, {"name": "صحن", "price": 10}]
+          
         },
-        "extras": {
+        "extra": {
           "type": "multi",
-          "label": "إضافات",
-          "choices": [
-            { "name": "ذرة", "price": 3 },
-            { "name": "فلفل حلو", "price": 4 },
-            { "name": "فطر", "price": 4 },
-            { "name": "خرشوف روماني", "price": 5 },
-            { "name": "زيتون أخضر", "price": 5 },
-            { "name": "زيتون كلاماتا", "price": 5 },
-            { "name": "بيبروني", "price": 10 }
-          ]
+          "label": "اضافات",
+          "choices": [{"name": "جبنة", "price": 5}, {"name": "بطاطس مقلي", "price": 10}]
         },
         "notes": { "type": "text", "label": "ملاحظات" }
       }
     },
     {
-      "id": "pizza_artichoke_cheese",
-      "name": "بيتزا خرشوف",
-      "desc": "طماطم سان مارزانو، بارميزان، زيتون أخضر، موزاريلا طازجة، خرشوف على طريقة روما.",
-      "price": 45,
-      "image": "/images/pizza_artichoke.jpg",
-      "category": "pizza",
-      "tags": ["نباتي"],
+      "id": "baguette_pargit",
+      "name": "فرجيت",
+      "desc": "قطع فخذ دجاج عصارية، خس، طماطم، بصل بنفسجي.",
+      "price": 40,
+      "image": "/images/baguette_pargit.jpg",
+      "category": "baguette_tortilla",
       "options": {
-        "size": {
+        "wrap": {
           "type": "select",
-          "label": "الحجم",
-          "choices": [
-            { "name": "صغير", "price": 0 },
-            { "name": "كبير", "price": 30 }
-          ]
+          "label": "يُقدم في",
+          "choices": [{"name": "باجيت", "price": 0}, {"name": "تورتيلا", "price": 0}, {"name": "صحن", "price": 10}]
+        },
+        "extra": {
+          "type": "multi",
+          "label": "اضافات",
+          "choices": [{"name": "جبنة", "price": 5}, {"name": "بطاطس مقلي", "price": 10}]
         },
         "notes": { "type": "text", "label": "ملاحظات" }
       }
     },
     {
-      "id": "pizza_pepperoni",
-      "name": "بيتزا بيبروني",
-      "desc": "طماطم سان مارزانو، ريحان، أوريغانو، فلفل أسود، بارميزان، بيبروني.",
-      "price": 45,
-      "image": "/images/pizza_pepperoni.jpg",
-      "category": "pizza",
-      "tags": [],
+      "id": "baguette_schnitzel",
+      "name": "شنيصل",
+      "desc": "شنيتسل مقرمش، خس، طماطم، خيار مخلل، مايونيز.",
+      "price": 40,
+      "image": "/images/baguette_schnitzel.png",
+      "category": "baguette_tortilla",
       "options": {
-        "size": {
+        "wrap": {
           "type": "select",
-          "label": "الحجم",
-          "choices": [
-            { "name": "صغير", "price": 0 },
-            { "name": "كبير", "price": 30 }
-          ]
+          "label": "يُقدم في",
+          "choices": [{"name": "باجيت", "price": 0}, {"name": "تورتيلا", "price": 0}, {"name": "صحن", "price": 10}]
+        },
+        "extra": {
+          "type": "multi",
+          "label": "اضافات",
+          "choices": [{"name": "جبنة", "price": 5}, {"name": "بطاطس مقلي", "price": 10}]
         },
         "notes": { "type": "text", "label": "ملاحظات" }
       }
     },
     {
-      "id": "pizza_lamb_prosciutto",
-      "name": "بيتزا بروشوتو لحم خروف",
-      "desc": "طماطم سان مارزانو، موزاريلا، بارميزان، زيتون كلاماتا، جرجير، رقائق جرانا بادانو.",
-      "price": 45,
-      "image": "/images/pizza_lamb_prosciutto.jpg",
-      "category": "pizza",
-      "tags": [],
-      "options": {
-        "size": {
-          "type": "select",
-          "label": "الحجم",
-          "choices": [
-            { "name": "صغير", "price": 0 },
-            { "name": "كبير", "price": 30 }
-          ]
-        },
-        "notes": { "type": "text", "label": "ملاحظات" }
-      }
-    },
-    {
-      "id": "pizza_four_cheese",
-      "name": "بيتزا أربع أجبان",
-      "desc": "موزاريلا، بيكورينو، جبنة زرقاء، بارميزان (بدون صلصة طماطم)، مربى فلفل على الجانب.",
-      "price": 45,
-      "image": "/images/pizza_four_cheese.jpg",
-      "category": "pizza",
-      "tags": ["نباتي"],
-      "options": {
-        "size": {
-          "type": "select",
-          "label": "الحجم",
-          "choices": [
-            { "name": "صغير", "price": 0 },
-            { "name": "كبير", "price": 30 }
-          ]
-        },
-        "notes": { "type": "text", "label": "ملاحظات" }
-      }
-    },
-    {
-      "id": "pizza_bianca",
-      "name": "بيتزا بيانكا",
-      "desc": "صلصة بيضاء، فطر، بطاطا حلوة، زيتون كلاماتا.",
-      "price": 45,
-      "image": "/images/pizza_bianca.jpg",
-      "category": "pizza",
-      "tags": ["نباتي"],
-      "options": {
-        "size": {
-          "type": "select",
-          "label": "الحجم",
-          "choices": [
-            { "name": "صغير", "price": 0 },
-            { "name": "كبير", "price": 30 }
-          ]
-        },
-        "notes": { "type": "text", "label": "ملاحظات" }
-      }
-    },
-    {
-      "id": "taboon_manakish",
-      "name": "مناقيش التنور",
-      "desc": "زعتر، زيتون، طماطم كرزية.",
-      "price": 25,
-      "image": "/images/manakish.jpg",
-      "category": "pizza",
-      "tags": ["نباتي"],
-      "options": {
-        "size": {
-          "type": "select",
-          "label": "الحجم",
-          "choices": [
-            { "name": "صغير", "price": 0 },
-            { "name": "كبير", "price": 20 }
-          ]
-        },
-        "notes": { "type": "text", "label": "ملاحظات" }
-      }
-    },
-
-    {
-      "id": "pasta_garlic_butter",
-      "name": "باستا بالثوم والزبدة",
-      "desc": "باستا بصلصة ثوم وزبدة.",
+      "id": "shawarma_chicken",
+      "name": "شاورما دجاج",
+      "desc": "شاورما دجاج عصارية، سلطات حسب الاختيار.",
       "price": 50,
-      "image": "/images/pasta_garlic_butter.jpg",
-      "category": "pasta",
-      "tags": [],
+      "image": "/images/shawarma_chickenn.jpg",
+      "category": "baguette_tortilla",
       "options": {
-        "pasta_type": {
+        "wrap": {
           "type": "select",
-          "label": "نوع الباستا",
-          "choices": ["سباغيتي", "فيتوتشيني", "رافيولي جبن"]
+          "label": "يُقدم في",
+          "choices": [{"name": "باجيت", "price": 0}, {"name": "تورتيلا", "price": 0}, {"name": "صحن", "price": 0}]
+        },
+        "extra": {
+          "type": "multi",
+          "label": "اضافات",
+          "choices": [{"name": "بطاطس مقلي", "price": 10}]
         },
         "notes": { "type": "text", "label": "ملاحظات" }
       }
     },
     {
-      "id": "pasta_rosa",
-      "name": "باستا روزا",
-      "desc": "صلصة طماطم وكريمة.",
+      "id": "shawarma_beef",
+      "name": "شاورما عجل",
+      "desc": "شاورما عجل بتتبيلة البيت، سلطات حسب الاختيار.",
       "price": 50,
-      "image": "/images/pasta_rosa.jpg",
-      "category": "pasta",
-      "tags": [],
+      "image": "/images/shawarma_beef.jpg",
+      "category": "baguette_tortilla",
       "options": {
-        "pasta_type": {
+        "wrap": {
           "type": "select",
-          "label": "نوع الباستا",
-          "choices": ["سباغيتي", "فيتوتشيني", "رافيولي جبن"]
+          "label": "يُقدم في",
+          "choices": [{"name": "باجيت", "price": 0}, {"name": "تورتيلا", "price": 0}, {"name": "صحن", "price": 0}]
+        },
+        "extra": {
+          "type": "multi",
+          "label": "اضافات",
+          "choices": [{"name": "بطاطس مقلي", "price": 10}]
         },
         "notes": { "type": "text", "label": "ملاحظات" }
       }
     },
     {
-      "id": "pasta_mixed_tomatoes",
-      "name": "باستا طماطم مشكّلة",
-      "desc": "تشكيلة طماطم مع صلصة طماطم منزلية.",
-      "price": 50,
-      "image": "/images/pasta_mixed_tomatoes.jpg",
-      "category": "pasta",
-      "tags": [],
+      "id": "fanta",
+      "name": "فانتا",
+      "desc": "",
+      "price": 7,
+      "image": "/images/fanta.jpg",
+      "category": "soft_drinks",
       "options": {
-        "pasta_type": {
-          "type": "select",
-          "label": "نوع الباستا",
-          "choices": ["سباغيتي", "فيتوتشيني", "رافيولي جبن"]
-        },
-        "notes": { "type": "text", "label": "ملاحظات" }
+        "notes": {
+          "type": "text",
+          "label": "ملاحظات"
+        }
       }
     },
     {
-      "id": "pasta_cacio_pepe",
-      "name": "קאצ'ו א פפה",
-      "desc": "على طريقة المطعم.",
-      "id": "pasta_pepper_parmesan",
-      "name": "باستا الفلفل والبارميزان",
-      "desc": "باستا بالفلفل والبارميزان على طريقة المطعم.",
-      "price": 50,
-      "image": "/images/pasta_pepper_parmesan.jpg",
-      "category": "pasta",
-      "tags": [],
+      "id": "sprite",
+      "name": "سبرايت",
+      "desc": "",
+      "price": 7,
+      "image": "/images/sprite.jpg",
+      "category": "soft_drinks",
       "options": {
-        "pasta_type": {
-          "type": "select",
-          "label": "نوع الباستا",
-          "choices": ["سباغيتي", "فيتوتشيني", "رافيولي جبن"]
-        },
-        "notes": { "type": "text", "label": "ملاحظات" }
+        "notes": {
+          "type": "text",
+          "label": "ملاحظات"
+        }
       }
     },
     {
-      "id": "pasta_mushroom_cream",
-      "name": "باستا بكريمة الفطر",
-      "desc": "صلصة كريمية غنية مع الفطر.",
-      "price": 55,
-      "image": "/images/pasta_mushroom_cream.jpg",
-      "category": "pasta",
-      "tags": [],
-      "options": {
-        "pasta_type": {
-          "type": "select",
-          "label": "نوع الباستا",
-          "choices": ["سباغيتي", "فيتوتشيني", "رافيولي جبن"]
-        },
-        "notes": { "type": "text", "label": "ملاحظات" }
-      }
-    },
-
-    {
-      "id": "salad_halloumi",
-      "name": "سلطة حلومي",
-      "desc": "خس، فطر مشوي، بطاطا حلوة، طماطم، بصل أحمر، فينيغريت خردل.",
-      "price": 55,
-      "image": "/images/salad_halloumi.jpg",
-      "category": "salads",
-      "tags": [],
-      "options": { "notes": { "type": "text", "label": "ملاحظات" } }
-    },
-    {
-      "id": "salad_quinoa_health",
-      "name": "سلطة كينوا صحية",
-      "desc": "كينوا، ملفوف أحمر، بقدونس، بصل أحمر، خيار، طماطم، فاصوليا خضراء، طحينة.",
-      "price": 52,
-      "image": "/images/salad_quinoa.jpg",
-      "category": "salads",
-      "tags": ["خالٍ من الغلوتين"],
-      "options": { "notes": { "type": "text", "label": "ملاحظات" } }
-    },
-
-    {
-      "id": "juice_pomegranate",
-      "name": "عصير رمان 100٪",
-      "price": 18,
-      "image": "/images/juice_pomegranate.jpg",
-      "category": "cold_drinks"
-    },
-    {
-      "id": "juice_orange",
-      "name": "عصير برتقال 100٪",
-      "price": 18,
-      "image": "/images/juice_orange.jpg",
-      "category": "cold_drinks"
-    },
-    {
-      "id": "juice_apple",
-      "name": "عصير تفاح 100٪",
-      "price": 18,
-      "image": "/images/juice_apple.jpg",
-      "category": "cold_drinks"
-    },
-    {
-      "id": "juice_apple_passion",
-      "name": "عصير تفاح وباشن فروت",
-      "price": 18,
-      "image": "/images/juice_apple_passion.jpg",
-      "category": "cold_drinks"
-    },
-    {
-      "id": "sparkling_water",
-      "name": "مياه غازية",
-      "price": 15,
-      "image": "/images/soda.jpg",
-      "category": "cold_drinks"
-    },
-    {
-      "id": "cola",
-      "name": "كولا",
-      "price": 10,
+      "id": "coca_cola",
+      "name": "كوكا كولا",
+      "desc": "",
+      "price": 7,
       "image": "/images/cola.jpg",
-      "category": "cold_drinks"
+      "category": "soft_drinks",
+      "options": {
+        "notes": {
+          "type": "text",
+          "label": "ملاحظات"
+        }
+      }
     },
     {
-      "id": "cola_zero",
+      "id": "coca_cola_zero",
       "name": "كولا زيرو",
-      "price": 10,
+      "desc": "",
+      "price": 7,
       "image": "/images/cola_zero.jpg",
-      "category": "cold_drinks"
+      "category": "soft_drinks",
+      "options": {
+        "notes": {
+          "type": "text",
+          "label": "ملاحظات"
+        }
+      }
     },
     {
-      "id": "iced_coffee",
-      "name": "قهوة باردة",
-      "price": 20,
-      "image": "/images/iced_coffee.jpg",
-      "category": "cold_drinks"
-    },
-
-    {
-      "id": "tea",
-      "name": "شاي",
-      "price": 11,
-      "image": "/images/tea.jpg",
-      "category": "hot_drinks"
-    },
-    {
-      "id": "espresso",
-      "name": "إسبريسو",
-      "price": 8,
-      "image": "/images/espresso.jpg",
-      "category": "hot_drinks"
+      "id": "xl",
+      "name": "XL",
+      "desc": "",
+      "price": 7,
+      "image": "/images/xl.jpg",
+      "category": "soft_drinks",
+      "options": {
+        "notes": {
+          "type": "text",
+          "label": "ملاحظات"
+        }
+      }
     },
     {
-      "id": "double_espresso",
-      "name": "دبل إسبريسو",
-      "price": 13,
-      "image": "/images/double_espresso.jpg",
-      "category": "hot_drinks"
+      "id": "xl_ten",
+      "name": "XL Ten",
+      "desc": "",
+      "price": 7,
+      "image": "/images/xl_ten.jpg",
+      "category": "soft_drinks",
+      "options": {
+        "notes": {
+          "type": "text",
+          "label": "ملاحظات"
+        }
+      }
     },
     {
-      "id": "americano",
-      "name": "أمريكانو",
-      "price": 15,
-      "image": "/images/americano.jpg",
-      "category": "hot_drinks"
-    },
-    {
-      "id": "nescafe",
-      "name": "نس كافيه",
-      "price": 17,
-      "image": "/images/nescafe.jpg",
-      "category": "hot_drinks"
-    },
-    {
-      "id": "cafe_hafuch_large",
-      "name": "كابوتشينو كبير",
-      "price": 18,
-      "image": "/images/latte_large.jpg",
-      "category": "hot_drinks"
-    },
-
-    {
-      "id": "red_wine",
-      "name": "نبيذ أحمر",
-      "desc": "اسأل النادل",
-      "image": "/images/red_wine.jpg",
-      "category": "alcohol",
-      "noCart": true
-    },
-    {
-      "id": "white_wine",
-      "name": "نبيذ أبيض",
-      "desc": "اسأل النادل",
-      "image": "/images/white_wine.jpg",
-      "category": "alcohol",
-      "noCart": true
-    },
-    {
-      "id": "beer",
-      "name": "بيرة",
-      "desc": "اسأل النادل",
-      "image": "/images/beer.jpg",
-      "category": "alcohol",
-      "noCart": true
-    },
-    {
-      "id": "aperol_spritz",
-      "name": "أبيرول سبريتز",
-      "desc": "اسأل النادل",
-      "image": "/images/aperol_spritz.jpg",
-      "category": "alcohol",
-      "noCart": true
+      "id": "mineral_water",
+      "name": "مياه معدنية",
+      "desc": "",
+      "price": 7,
+      "image": "/images/mineral_water.jpg",
+      "category": "soft_drinks",
+      "options": {
+        "notes": {
+          "type": "text",
+          "label": "ملاحظات"
+        }
+      }
     }
   ]
 }

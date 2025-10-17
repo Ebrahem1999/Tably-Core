@@ -1,24 +1,16 @@
 {
-  "slug": "Tably-demo",
-  "name": "Tably Template",
-  "logo": "/tably-logo.jpg",
-  "phone": "04-8530550",
-  "whatsapp": "+972509021620",
-  "address": "HaPalmach St 1, Tiberias",
-  "coords": { "lat": 32.801626, "lng": 35.169855 },
-  "instagram": "Tably.menu",
-  "slug": "template-demo",
-  "name": "Template Restaurant",
-  "logo": "/template-logo.jpg",
-  "phone": "+972-50-222-1156",
-  "whatsapp": "+972502221156",
-  "address": "Template Restaurant & Bakery",
-  "coords": { "lat": 32.801626, "lng": 35.169855 },
-  "instagram": "template_restaurant",
+  "slug": "zuwade",
+  "name": "Zuwade",
+  "logo": "/zuwade-logo.jpg",
+  "phone": "+972-54-750-7503",
+  "whatsapp": "+972547507503",
+  "address": "Zuwade TA",
+  "waze_name": "קסטרו שפרעם",
+  "coords": { "lat": 32.815570, "lng": 35.152813 },
+  "instagram": "zuwade.ta",
   "hours": {
-    "Sun": "08:30-13:30",
-    "Tue-Sat": "08:30-22:00",
-    "Mon": "Closed"
+    "Mon-Sat": "09:00-19:00",
+    "Sun": "Closed"
   },
   "theme": {
     "primary": "#10b981",
@@ -30,7 +22,7 @@
   "languages": ["ar", "he", "en"],
   "currency": "\u20aa",
   "reservation": {
-    "enabled": true,
+    "enabled": false,
     "areas": [
       { "id": "inside", "name": "Inside", "name_ar": "داخلي", "name_he": "פנים" },
       { "id": "outside", "name": "Outside", "name_ar": "خارجي", "name_he": "חוץ" }
@@ -40,6 +32,6 @@
       "18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00", "21:30", "22:00"
     ],
     "max_advance_days": 7,
-    "whatsapp": "+972509021620"
+    "whatsapp": "+972547507503"
   }
 }

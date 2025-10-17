@@ -26,6 +26,9 @@ export default function ItemCard({ item, currency, onAdd, onPreview }) {
           alt={item.name}
           className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition"
         />
+                <div className="absolute bottom-1 right-1 bg-black/40 text-white/80 text-[10px] px-1 py-0.5 rounded">
+          {t("for_illustration_only")}
+        </div>
       </div>
 
       <div className="p-4 flex flex-col gap-2 flex-1">

@@ -7,6 +7,8 @@ import config from "../data/config.json";
 import en from "../data/menu.en.json";
 import he from "../data/menu.he.json";
 import ar from "../data/menu.ar.json";
+import { trackOrder } from "../utils/analytics";
+import { isRestaurantOpen } from "../utils/timeUtils";
 
 const MENUS = { en, he, ar };
 
@@ -18,16 +20,20 @@ function getCurrentItemData(itemId, language) {
 
 // ---- WhatsApp formatting with robust RTL handling ----
 function formatWhatsApp(state, t, i18n) {
-  const labelForKey = (k) =>
-    ({
-      size: t("opt_size"),
-      extras: t("opt_extras"),
-      notes: t("opt_notes"),
-      doneness: t("opt_doneness"),
-      sugar: t("opt_sugar"),
-      pasta_type: t("opt_pasta_type"),
-      bread: t("opt_bread"),
-    }[k] || k);
+  const labelForKey = (k, itemData) => {
+    const optionConfig = itemData?.options?.[k];
+    return optionConfig?.label || 
+      ({
+        size: t("opt_size"),
+        extras: t("opt_extras"),
+        notes: t("opt_notes"),
+        doneness: t("opt_doneness"),
+        sugar: t("opt_sugar"),
+        pasta_type: t("opt_pasta_type"),
+        bread: t("opt_bread"),
+        wrap: t("opt_wrap"),
+      }[k] || k);
+  };
 
   const isRTL = i18n.language === "ar" || i18n.language === "he";
 
@@ -65,7 +71,7 @@ function formatWhatsApp(state, t, i18n) {
         
         for (const [k, v] of Object.entries(i.options)) {
           if (v == null || v === "" || (Array.isArray(v) && v.length === 0)) continue;
-          const label = labelForKey(k);
+          const label = labelForKey(k, itemData);
           const optionConfig = itemData?.options?.[k];
           
           // Translate option values using current language choices
@@ -150,7 +156,7 @@ function formatWhatsApp(state, t, i18n) {
       
       for (const [k, v] of Object.entries(i.options)) {
         if (v == null || v === "" || (Array.isArray(v) && v.length === 0)) continue;
-        const label = labelForKey(k);
+        const label = labelForKey(k, itemData);
         const optionConfig = itemData?.options?.[k];
         
         // Translate option values using current language choices
@@ -233,6 +239,14 @@ export function CartDrawer({ open, onClose }) {
   const message = formatWhatsApp(state, t, i18n);
   const [showPopup, setShowPopup] = React.useState(false);
   const [showNameError, setShowNameError] = React.useState(false);
+  const [showClosedNotice, setShowClosedNotice] = React.useState(false);
+
+  React.useEffect(() => {
+    if (!open) {
+      setShowPopup(false);
+      setShowClosedNotice(false);
+    }
+  }, [open]);
 
   // Get current language item data for each cart item
   const cartItemsWithData = state.items.map(cartItem => {
@@ -251,6 +265,11 @@ export function CartDrawer({ open, onClose }) {
   const closedTransform = isRTL ? "-translate-x-full" : "translate-x-full";
 
   const handleSendClick = () => {
+    if (config.hours && !isRestaurantOpen(config.hours)) {
+      setShowClosedNotice(true);
+      return;
+    }
+
     // Check if name is required and provided
     if (!state.customer.name || state.customer.name.trim() === '') {
       setShowNameError(true);
@@ -260,7 +279,38 @@ export function CartDrawer({ open, onClose }) {
     setShowPopup(true);
   };
 
-  const send = () => {
+  const send = async () => {
+    try {
+      // Track the order before sending to WhatsApp
+      const items = state.items || [];
+      const totalAmount = cartTotal(items);
+      const itemCount = items.reduce((sum, item) => sum + item.quantity, 0);
+      
+      // Don't await - fire and forget, so it doesn't block the WhatsApp redirect
+      trackOrder({
+        orderType: state.customer?.type || 'unknown',
+        itemCount: itemCount,
+        totalAmount: totalAmount,
+        customerName: state.customer?.name || 'anonymous',
+        customerPhone: state.customer?.phone || 'not provided',
+        items: items.map(item => ({
+          id: item.id,
+          name: item.name || `Item ${item.id}`,
+          quantity: item.quantity,
+          price: item.price || 0,
+          totalPrice: item.totalPrice || item.price || 0,
+          options: item.options || {}
+        })),
+        whatsappMessage: message // This contains the full formatted WhatsApp message
+      }).catch(error => {
+        console.warn('Failed to track order, but continuing with WhatsApp:', error);
+      });
+      
+    } catch (error) {
+      console.warn('Error in order tracking, but continuing with WhatsApp:', error);
+    }
+    
+    // Always proceed with WhatsApp regardless of tracking success
     const url = `https://wa.me/${config.whatsapp}?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");
     setShowPopup(false);
@@ -353,8 +403,8 @@ export function CartDrawer({ open, onClose }) {
                             
                             const optionConfig = itemData?.options?.[k];
                           
-                          // show translated labels in the drawer as well
-                          const label =
+                          // Use the actual label from the menu data, fallback to translation
+                          const label = optionConfig?.label || 
                             {
                               size: t("opt_size"),
                               extras: t("opt_extras"),
@@ -363,6 +413,7 @@ export function CartDrawer({ open, onClose }) {
                               sugar: t("opt_sugar"),
                               pasta_type: t("opt_pasta_type"),
                               bread: t("opt_bread"),
+                              wrap: t("opt_wrap"),
                             }[k] || k;
                           
                           // Translate option values using current language choices
@@ -509,6 +560,20 @@ export function CartDrawer({ open, onClose }) {
           </div>
         )}
       </aside>
+
+      {showClosedNotice && (
+        <div className="absolute inset-0 z-30 flex items-center justify-center p-4">
+          <div className="bg-[var(--card)] border border-red-500/30 rounded-xl p-6 max-w-md w-full shadow-2xl">
+            <div className="text-center space-y-4">
+              <h3 className="text-lg font-semibold">{t("important_notice_cart")}</h3>
+              <p className="text-sm text-white/80">{t("restaurant_closed_message")}</p>
+              <button className="btn w-full" onClick={() => setShowClosedNotice(false)}>
+                {t("close")}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Important Notice Popup */}
       {showPopup && (

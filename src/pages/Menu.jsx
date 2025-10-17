@@ -11,6 +11,7 @@ import ItemCard from "../components/ItemCard";
 import OptionModal from "../components/OptionModal";
 import ImageLightbox from "../components/ImageLightbox";
 import { useCart } from "../store/cart";
+import { isRestaurantOpen } from "../utils/timeUtils";
 
 
 const MENUS = { en, he, ar };
@@ -22,7 +23,18 @@ export default function MenuPage() {
   const [search, setSearch] = React.useState("");
   const [selected, setSelected] = React.useState(null);
   const [preview, setPreview] = React.useState(null);
+  const [showClosedOnLoad, setShowClosedOnLoad] = React.useState(false);
   const { dispatch } = useCart();
+
+  React.useEffect(() => {
+    try {
+      if (config.hours && !isRestaurantOpen(config.hours)) {
+        setShowClosedOnLoad(true);
+      }
+    } catch (e) {
+      // Don’t block UI if parsing fails
+    }
+  }, []);
 
   const menu = MENUS[i18n.language] || MENUS.ar;
   const filteredItems = menu.items.filter((it) =>
@@ -60,7 +72,7 @@ export default function MenuPage() {
         <a
           href={config.coords
             ? `https://waze.com/ul?ll=${config.coords.lat},${config.coords.lng}&navigate=yes`
-            : `https://waze.com/ul?q=${encodeURIComponent(config.address)}&navigate=yes`}
+            : `https://waze.com/ul?q=${encodeURIComponent(config.waze_name || config.name)}&navigate=yes`}
           target="_blank"
           rel="noreferrer"
           className="btn-outline flex items-center gap-2 flex-shrink-0"
@@ -182,6 +194,21 @@ export default function MenuPage() {
         alt={preview?.alt}
         onClose={() => setPreview(null)}
       />
+
+      {showClosedOnLoad && (
+        <div className="fixed inset-0 z-[9000] flex items-center justify-center p-4">
+          <div className="absolute inset-0 bg-black/60" />
+          <div className="relative bg-[var(--card)] border border-white/10 rounded-xl p-6 max-w-md w-full shadow-2xl">
+            <div className="text-center space-y-4">
+              <h3 className="text-lg font-semibold">{t("important_notice_cart")}</h3>
+              <p className="text-sm text-white/80">{t("closed_popup_message")}</p>
+              <button className="btn w-full" onClick={() => setShowClosedOnLoad(false)}>
+                {t("got_it_button")}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
