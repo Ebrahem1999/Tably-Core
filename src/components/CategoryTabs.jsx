@@ -13,7 +13,7 @@ export default function CategoryTabs({ categories, current, onChange }) {
       <div className="flex gap-2 overflow-x-auto py-3 px-2 no-scrollbar scroll-smooth">
       <button
         className={`tab ${current === "all" 
-          ? "bg-green-500/20 border-green-400/50 text-green-400 ring-2 ring-green-400/30" 
+          ? "bg-purple-500/20 border-purple-400/50 text-purple-400 ring-2 ring-purple-400/30" 
           : "hover:bg-white/5"
         } transition-all duration-200`}
         onClick={() => onChange("all")}
@@ -24,7 +24,7 @@ export default function CategoryTabs({ categories, current, onChange }) {
         <button
           key={c.id}
           className={`tab ${current === c.id 
-            ? "bg-green-500/20 border-green-400/50 text-green-400 ring-2 ring-green-400/30" 
+            ? "bg-purple-500/20 border-purple-400/50 text-purple-400 ring-2 ring-purple-400/30" 
             : "hover:bg-white/5"
           } transition-all duration-200`}
           onClick={() => onChange(c.id)}
