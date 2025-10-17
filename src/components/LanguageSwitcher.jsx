@@ -1,9 +1,9 @@
 import React from "react";
-import i18n from "../i18n";
+import { useTranslation } from "react-i18next";
 import { Globe, ChevronDown } from "lucide-react";
 
 export function LanguageSwitcher() {
-  const [lang, setLang] = React.useState(i18n.language);
+  const { i18n } = useTranslation();
   const [isOpen, setIsOpen] = React.useState(false);
   
   const languages = [
@@ -12,10 +12,9 @@ export function LanguageSwitcher() {
     { code: "en", name: "English" }
   ];
   
-  const currentLang = languages.find(l => l.code === lang) || languages[0];
+  const currentLang = languages.find(l => l.code === i18n.language) || languages[0];
   
   const changeLang = (newLang) => {
-    setLang(newLang);
     i18n.changeLanguage(newLang);
     setIsOpen(false);
   };
@@ -51,11 +50,11 @@ export function LanguageSwitcher() {
                 key={language.code}
                 onClick={() => changeLang(language.code)}
                 className={`w-full px-3 py-2 text-left hover:bg-white/5 transition-colors flex items-center justify-between text-sm ${
-                  language.code === lang ? 'bg-white/10 text-green-400' : 'text-white/80'
+                  language.code === i18n.language ? 'bg-white/10 text-green-400' : 'text-white/80'
                 }`}
               >
                 <span className="font-medium">{language.name}</span>
-                {language.code === lang && (
+                {language.code === i18n.language && (
                   <div className="w-2 h-2 bg-green-400 rounded-full" />
                 )}
               </button>
