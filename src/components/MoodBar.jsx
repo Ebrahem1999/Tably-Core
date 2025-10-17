@@ -7,7 +7,7 @@ export default function MoodBar({ selectedMood, setSelectedMood }) {
 
   const translatedMood = (key) => {
     switch (key) {
-      case "aaaaaa":
+      case "הכול":
         return t("mood_all");
       case "פיצה":
         return t("mood_pizza");
@@ -22,7 +22,7 @@ export default function MoodBar({ selectedMood, setSelectedMood }) {
       case "קינוחים":
         return t("mood_desserts");
       case "איטלקי":
-        return t("mood_desserts");
+        return t("mood_italian");
       case "מזרחי":
         return t("mood_middle_eastern");
       default:

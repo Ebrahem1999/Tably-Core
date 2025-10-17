@@ -15,7 +15,7 @@ export default function HeroSection() {
           </div>
           <div className="flex-1">
             <h1 className="text-xl sm:text-2xl font-extrabold tracking-tight text-white">
-              {t("welcome")}
+              {t("welcomessssssss")}
             </h1>
             <p className="mt-1 text-sm sm:text-base text-white/80">{t("subtitle")}</p>
           </div>

@@ -184,7 +184,7 @@ export default function App() {
       />
 
       {/* Hero Section */}
-      <HeroSection title={t("welcome")} subtitle={t("subtitle")} />
+      <HeroSection title={t("welcomessssssss")} subtitle={t("subtitle")} />
 
       {/* Mood Bar */}
       <MoodBar
