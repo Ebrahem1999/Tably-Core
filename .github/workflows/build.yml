@@ -58,46 +58,57 @@ jobs:
           
           echo "Created tag: $VERSION"
           
-      - name: Trigger main project update
+      - name: Trigger project updates
         if: github.ref == 'refs/heads/main'
         run: |
           # ========================================
-          # TRIGGER MAIN PROJECT UPDATE
+          # TRIGGER PROJECT UPDATES
           # ========================================
-          # This step sends a webhook to the main project repository
-          # to automatically update its @tably/core dependency
+          # This step sends webhooks to project repositories
+          # to automatically update their @tably/core dependency
           # ========================================
           
-          echo "🚀 Triggering main project update..."
+          echo "🚀 Triggering project updates..."
           echo "📦 Version: $VERSION"
-          echo "🎯 Target: Ebrahem1999/main"
           
-          # Send webhook to main repository
-          # This uses GitHub's repository dispatch API to trigger workflows
-          RESPONSE=$(curl -s -w "\n%{http_code}" -X POST \
-            -H "Authorization: token ${{ secrets.PAT_TOKEN }}" \
-            -H "Accept: application/vnd.github.v3+json" \
-            https://api.github.com/repos/Ebrahem1999/main/dispatches \
-            -d '{"event_type":"tably-core-updated","client_payload":{"version":"'$VERSION'"}}')
+          # Function to trigger repository update
+          trigger_repo_update() {
+            local repo_name=$1
+            local repo_owner=$2
+            
+            echo "🎯 Triggering update for: $repo_owner/$repo_name"
+            
+            # Send webhook to repository
+            # This uses GitHub's repository dispatch API to trigger workflows
+            RESPONSE=$(curl -s -w "\n%{http_code}" -X POST \
+              -H "Authorization: token ${{ secrets.PAT_TOKEN }}" \
+              -H "Accept: application/vnd.github.v3+json" \
+              https://api.github.com/repos/$repo_owner/$repo_name/dispatches \
+              -d '{"event_type":"tably-core-updated","client_payload":{"version":"'$VERSION'"}}')
+            
+            # Parse the response to get HTTP status code and response body
+            HTTP_CODE=$(echo "$RESPONSE" | tail -n1)
+            RESPONSE_BODY=$(echo "$RESPONSE" | head -n -1)
+            
+            # Log the results for debugging
+            echo "📊 HTTP Status Code for $repo_name: $HTTP_CODE"
+            echo "📄 Response: $RESPONSE_BODY"
+            
+            # Check if the webhook was successful
+            # HTTP 204 means "No Content" - this is the success response for repository dispatch
+            if [ "$HTTP_CODE" = "204" ]; then
+              echo "✅ Successfully triggered $repo_name update"
+              echo "🔄 $repo_name will now update its @tably/core dependency"
+            else
+              echo "❌ Failed to trigger $repo_name update"
+              echo "🔍 Possible causes:"
+              echo "   1. PAT_TOKEN secret not configured"
+              echo "   2. $repo_name repository doesn't have the workflow file"
+              echo "   3. PAT_TOKEN doesn't have access to $repo_name repository"
+              echo "   4. $repo_name repository Actions not enabled"
+            fi
+          }
           
-          # Parse the response to get HTTP status code and response body
-          HTTP_CODE=$(echo "$RESPONSE" | tail -n1)
-          RESPONSE_BODY=$(echo "$RESPONSE" | head -n -1)
-          
-          # Log the results for debugging
-          echo "📊 HTTP Status Code: $HTTP_CODE"
-          echo "📄 Response: $RESPONSE_BODY"
-          
-          # Check if the webhook was successful
-          # HTTP 204 means "No Content" - this is the success response for repository dispatch
-          if [ "$HTTP_CODE" = "204" ]; then
-            echo "✅ Successfully triggered main project update"
-            echo "🔄 Main project will now update its @tably/core dependency"
-          else
-            echo "❌ Failed to trigger main project update"
-            echo "🔍 Possible causes:"
-            echo "   1. PAT_TOKEN secret not configured"
-            echo "   2. Main repository doesn't have the workflow file"
-            echo "   3. PAT_TOKEN doesn't have access to main repository"
-            echo "   4. Main repository Actions not enabled"
-          fi
+          # Trigger updates for all projects
+          trigger_repo_update "main" "Ebrahem1999"
+          trigger_repo_update "zuwade" "Ebrahem1999"
