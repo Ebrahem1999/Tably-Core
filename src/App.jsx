@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 
 import Header from "./components/Header";
 import HeroSection from "./components/HeroSection";
-import MoodBar from "./components/MoodBar";
+import MoodBar from "..core/src/components/MoodBar";
 import RestaurantGrid from "./components/RestaurantGrid";
 import SplashScreen from "./components/SplashScreen";
 import Footer from "./components/Footer";
