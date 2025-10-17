@@ -3263,7 +3263,7 @@ function ra({ categories: n, current: e, onChange: t }) {
       /* @__PURE__ */ r.jsx(
         "button",
         {
-          className: `tab ${e === "all" ? "bg-purple-500/20 border-purple-400/50 text-purple-400 ring-2 ring-purple-400/30" : "hover:bg-white/5"} transition-all duration-200`,
+          className: `tab ${e === "all" ? "bg-green-500/20 border-green-400/50 text-green-400 ring-2 ring-green-400/30" : "hover:bg-white/5"} transition-all duration-200`,
           onClick: () => t("all"),
           children: s("all")
         }
@@ -3271,7 +3271,7 @@ function ra({ categories: n, current: e, onChange: t }) {
       n.map((a) => /* @__PURE__ */ r.jsxs(
         "button",
         {
-          className: `tab ${e === a.id ? "bg-purple-500/20 border-purple-400/50 text-purple-400 ring-2 ring-purple-400/30" : "hover:bg-white/5"} transition-all duration-200`,
+          className: `tab ${e === a.id ? "bg-green-500/20 border-green-400/50 text-green-400 ring-2 ring-green-400/30" : "hover:bg-white/5"} transition-all duration-200`,
           onClick: () => t(a.id),
           children: [
             /* @__PURE__ */ r.jsx("span", { className: "text-lg", children: a.emoji }),
