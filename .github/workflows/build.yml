@@ -58,84 +58,46 @@ jobs:
           
           echo "Created tag: $VERSION"
           
-      - name: Trigger environment updates
+      - name: Trigger main project update
         if: github.ref == 'refs/heads/main'
         run: |
-          echo "Triggering updates for all environments..."
-          echo "Version: $VERSION"
-          
           # ========================================
-          # ADD NEW ENVIRONMENTS HERE
+          # TRIGGER MAIN PROJECT UPDATE
           # ========================================
-          # Copy the curl command below and change:
-          # 1. Repository name (e.g., Ebrahem1999/main-staging)
-          # 2. Event type (e.g., tably-core-updated-staging)
+          # This step sends a webhook to the main project repository
+          # to automatically update its @tably/core dependency
           # ========================================
           
-          # PRODUCTION ENVIRONMENT
-          echo "Triggering PRODUCTION update..."
-          RESPONSE_PROD=$(curl -s -w "\n%{http_code}" -X POST \
+          echo "🚀 Triggering main project update..."
+          echo "📦 Version: $VERSION"
+          echo "🎯 Target: Ebrahem1999/main"
+          
+          # Send webhook to main repository
+          # This uses GitHub's repository dispatch API to trigger workflows
+          RESPONSE=$(curl -s -w "\n%{http_code}" -X POST \
             -H "Authorization: token ${{ secrets.PAT_TOKEN }}" \
             -H "Accept: application/vnd.github.v3+json" \
             https://api.github.com/repos/Ebrahem1999/main/dispatches \
             -d '{"event_type":"tably-core-updated","client_payload":{"version":"'$VERSION'"}}')
           
-          HTTP_CODE_PROD=$(echo "$RESPONSE_PROD" | tail -n1)
-          RESPONSE_BODY_PROD=$(echo "$RESPONSE_PROD" | head -n -1)
+          # Parse the response to get HTTP status code and response body
+          HTTP_CODE=$(echo "$RESPONSE" | tail -n1)
+          RESPONSE_BODY=$(echo "$RESPONSE" | head -n -1)
           
-          echo "PRODUCTION - HTTP Status: $HTTP_CODE_PROD"
-          echo "PRODUCTION - Response: $RESPONSE_BODY_PROD"
+          # Log the results for debugging
+          echo "📊 HTTP Status Code: $HTTP_CODE"
+          echo "📄 Response: $RESPONSE_BODY"
           
-          if [ "$HTTP_CODE_PROD" = "204" ]; then
-            echo "✅ Successfully triggered PRODUCTION update"
+          # Check if the webhook was successful
+          # HTTP 204 means "No Content" - this is the success response for repository dispatch
+          if [ "$HTTP_CODE" = "204" ]; then
+            echo "✅ Successfully triggered main project update"
+            echo "🔄 Main project will now update its @tably/core dependency"
           else
-            echo "❌ Failed to trigger PRODUCTION update"
+            echo "❌ Failed to trigger main project update"
+            echo "🔍 Possible causes:"
+            echo "   1. PAT_TOKEN secret not configured"
+            echo "   2. Main repository doesn't have the workflow file"
+            echo "   3. PAT_TOKEN doesn't have access to main repository"
+            echo "   4. Main repository Actions not enabled"
           fi
-          
-          # ========================================
-          # STAGING ENVIRONMENT (EXAMPLE)
-          # ========================================
-          # Uncomment and modify the lines below to add staging environment:
-          #
-          # echo "Triggering STAGING update..."
-          # RESPONSE_STAGING=$(curl -s -w "\n%{http_code}" -X POST \
-          #   -H "Authorization: token ${{ secrets.PAT_TOKEN }}" \
-          #   -H "Accept: application/vnd.github.v3+json" \
-          #   https://api.github.com/repos/Ebrahem1999/main-staging/dispatches \
-          #   -d '{"event_type":"tably-core-updated-staging","client_payload":{"version":"'$VERSION'"}}')
-          #
-          # HTTP_CODE_STAGING=$(echo "$RESPONSE_STAGING" | tail -n1)
-          # if [ "$HTTP_CODE_STAGING" = "204" ]; then
-          #   echo "✅ Successfully triggered STAGING update"
-          # else
-          #   echo "❌ Failed to trigger STAGING update"
-          # fi
-          
-          # ========================================
-          # DEVELOPMENT ENVIRONMENT (EXAMPLE)
-          # ========================================
-          # Uncomment and modify the lines below to add development environment:
-          #
-          # echo "Triggering DEVELOPMENT update..."
-          # RESPONSE_DEV=$(curl -s -w "\n%{http_code}" -X POST \
-          #   -H "Authorization: token ${{ secrets.PAT_TOKEN }}" \
-          #   -H "Accept: application/vnd.github.v3+json" \
-          #   https://api.github.com/repos/Ebrahem1999/main-dev/dispatches \
-          #   -d '{"event_type":"tably-core-updated-dev","client_payload":{"version":"'$VERSION'"}}')
-          #
-          # HTTP_CODE_DEV=$(echo "$RESPONSE_DEV" | tail -n1)
-          # if [ "$HTTP_CODE_DEV" = "204" ]; then
-          #   echo "✅ Successfully triggered DEVELOPMENT update"
-          # else
-          #   echo "❌ Failed to trigger DEVELOPMENT update"
-          # fi
-          
-          # ========================================
-          # ADD MORE ENVIRONMENTS AS NEEDED
-          # ========================================
-          # Follow the same pattern:
-          # 1. Copy the curl command
-          # 2. Change repository name
-          # 3. Change event type
-          # 4. Add success/failure logging
-          # ========================================
