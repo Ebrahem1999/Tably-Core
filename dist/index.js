@@ -1,7 +1,7 @@
-import A, { forwardRef as Wt, createElement as Je, createContext as Ht, useContext as Kt, useState as st, useRef as ke, useEffect as be, useCallback as Ks } from "react";
-import { createPortal as Yt } from "react-dom";
+import A, { forwardRef as Ht, createElement as Qe, createContext as Kt, useContext as Yt, useState as nt, useRef as Ce, useEffect as be, useCallback as Xs } from "react";
+import { createPortal as Jt } from "react-dom";
 import { useNavigate as Le } from "react-router-dom";
-var Qe = { exports: {} }, me = {};
+var Ge = { exports: {} }, me = {};
 /**
  * @license React
  * react-jsx-runtime.production.min.js
@@ -11,11 +11,11 @@ var Qe = { exports: {} }, me = {};
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-var St;
-function Ys() {
-  if (St)
+var kt;
+function Zs() {
+  if (kt)
     return me;
-  St = 1;
+  kt = 1;
   var n = A, e = Symbol.for("react.element"), t = Symbol.for("react.fragment"), s = Object.prototype.hasOwnProperty, a = n.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner, o = { key: !0, ref: !0, __self: !0, __source: !0 };
   function u(d, i, c) {
     var l, f = {}, p = null, g = null;
@@ -40,7 +40,7 @@ var ge = {};
  * LICENSE file in the root directory of this source tree.
  */
 var Ct;
-function Js() {
+function en() {
   return Ct || (Ct = 1, process.env.NODE_ENV !== "production" && function() {
     var n = A, e = Symbol.for("react.element"), t = Symbol.for("react.portal"), s = Symbol.for("react.fragment"), a = Symbol.for("react.strict_mode"), o = Symbol.for("react.profiler"), u = Symbol.for("react.provider"), d = Symbol.for("react.context"), i = Symbol.for("react.forward_ref"), c = Symbol.for("react.suspense"), l = Symbol.for("react.suspense_list"), f = Symbol.for("react.memo"), p = Symbol.for("react.lazy"), g = Symbol.for("react.offscreen"), m = Symbol.iterator, x = "@@iterator";
     function b(h) {
@@ -76,14 +76,14 @@ function Js() {
       // with.
       h.$$typeof === z || h.getModuleId !== void 0));
     }
-    function k(h, v, $) {
+    function C(h, v, $) {
       var R = h.displayName;
       if (R)
         return R;
       var F = v.displayName || v.name || "";
       return F !== "" ? $ + "(" + F + ")" : $;
     }
-    function C(h) {
+    function k(h) {
       return h.displayName || "Context";
     }
     function D(h) {
@@ -111,12 +111,12 @@ function Js() {
         switch (h.$$typeof) {
           case d:
             var v = h;
-            return C(v) + ".Consumer";
+            return k(v) + ".Consumer";
           case u:
             var $ = h;
-            return C($._context) + ".Provider";
+            return k($._context) + ".Provider";
           case i:
-            return k(h, h.render, "ForwardRef");
+            return C(h, h.render, "ForwardRef");
           case f:
             var R = h.displayName || null;
             return R !== null ? R : D(h.type) || "Memo";
@@ -131,18 +131,18 @@ function Js() {
         }
       return null;
     }
-    var B = Object.assign, W = 0, q, L, U, ee, se, pe, ut;
-    function dt() {
+    var B = Object.assign, W = 0, q, L, U, ee, se, pe, dt;
+    function pt() {
     }
-    dt.__reactDisabledLog = !0;
-    function bs() {
+    pt.__reactDisabledLog = !0;
+    function $s() {
       {
         if (W === 0) {
-          q = console.log, L = console.info, U = console.warn, ee = console.error, se = console.group, pe = console.groupCollapsed, ut = console.groupEnd;
+          q = console.log, L = console.info, U = console.warn, ee = console.error, se = console.group, pe = console.groupCollapsed, dt = console.groupEnd;
           var h = {
             configurable: !0,
             enumerable: !0,
-            value: dt,
+            value: pt,
             writable: !0
           };
           Object.defineProperties(console, {
@@ -158,7 +158,7 @@ function Js() {
         W++;
       }
     }
-    function vs() {
+    function Ss() {
       {
         if (W--, W === 0) {
           var h = {
@@ -186,34 +186,34 @@ function Js() {
               value: pe
             }),
             groupEnd: B({}, h, {
-              value: ut
+              value: dt
             })
           });
         }
         W < 0 && _("disabledDepth fell below zero. This is a bug in React. Please file an issue.");
       }
     }
-    var ze = N.ReactCurrentDispatcher, Fe;
+    var Fe = N.ReactCurrentDispatcher, De;
     function je(h, v, $) {
       {
-        if (Fe === void 0)
+        if (De === void 0)
           try {
             throw Error();
           } catch (F) {
             var R = F.stack.trim().match(/\n( *(at )?)/);
-            Fe = R && R[1] || "";
+            De = R && R[1] || "";
           }
         return `
-` + Fe + h;
+` + De + h;
       }
     }
-    var De = !1, Ne;
+    var Ue = !1, Ne;
     {
-      var ws = typeof WeakMap == "function" ? WeakMap : Map;
-      Ne = new ws();
+      var ks = typeof WeakMap == "function" ? WeakMap : Map;
+      Ne = new ks();
     }
-    function pt(h, v) {
-      if (!h || De)
+    function ht(h, v) {
+      if (!h || Ue)
         return "";
       {
         var $ = Ne.get(h);
@@ -221,11 +221,11 @@ function Js() {
           return $;
       }
       var R;
-      De = !0;
+      Ue = !0;
       var F = Error.prepareStackTrace;
       Error.prepareStackTrace = void 0;
       var V;
-      V = ze.current, ze.current = null, bs();
+      V = Fe.current, Fe.current = null, $s();
       try {
         if (v) {
           var I = function() {
@@ -262,31 +262,31 @@ function Js() {
         if (G && R && typeof G.stack == "string") {
           for (var M = G.stack.split(`
 `), Q = R.stack.split(`
-`), H = M.length - 1, K = Q.length - 1; H >= 1 && K >= 0 && M[H] !== Q[K]; )
-            K--;
-          for (; H >= 1 && K >= 0; H--, K--)
-            if (M[H] !== Q[K]) {
-              if (H !== 1 || K !== 1)
+`), H = M.length - 1, Y = Q.length - 1; H >= 1 && Y >= 0 && M[H] !== Q[Y]; )
+            Y--;
+          for (; H >= 1 && Y >= 0; H--, Y--)
+            if (M[H] !== Q[Y]) {
+              if (H !== 1 || Y !== 1)
                 do
-                  if (H--, K--, K < 0 || M[H] !== Q[K]) {
+                  if (H--, Y--, Y < 0 || M[H] !== Q[Y]) {
                     var Z = `
 ` + M[H].replace(" at new ", " at ");
                     return h.displayName && Z.includes("<anonymous>") && (Z = Z.replace("<anonymous>", h.displayName)), typeof h == "function" && Ne.set(h, Z), Z;
                   }
-                while (H >= 1 && K >= 0);
+                while (H >= 1 && Y >= 0);
               break;
             }
         }
       } finally {
-        De = !1, ze.current = V, vs(), Error.prepareStackTrace = F;
+        Ue = !1, Fe.current = V, Ss(), Error.prepareStackTrace = F;
       }
       var oe = h ? h.displayName || h.name : "", ne = oe ? je(oe) : "";
       return typeof h == "function" && Ne.set(h, ne), ne;
     }
-    function js(h, v, $) {
-      return pt(h, !1);
+    function Cs(h, v, $) {
+      return ht(h, !1);
     }
-    function Ns(h) {
+    function Es(h) {
       var v = h.prototype;
       return !!(v && v.isReactComponent);
     }
@@ -294,7 +294,7 @@ function Js() {
       if (h == null)
         return "";
       if (typeof h == "function")
-        return pt(h, Ns(h));
+        return ht(h, Es(h));
       if (typeof h == "string")
         return je(h);
       switch (h) {
@@ -306,7 +306,7 @@ function Js() {
       if (typeof h == "object")
         switch (h.$$typeof) {
           case i:
-            return js(h.render);
+            return Cs(h.render);
           case f:
             return $e(h.type, v, $);
           case p: {
@@ -319,15 +319,15 @@ function Js() {
         }
       return "";
     }
-    var he = Object.prototype.hasOwnProperty, ht = {}, ft = N.ReactDebugCurrentFrame;
+    var he = Object.prototype.hasOwnProperty, ft = {}, mt = N.ReactDebugCurrentFrame;
     function Se(h) {
       if (h) {
         var v = h._owner, $ = $e(h.type, h._source, v ? v.type : null);
-        ft.setExtraStackFrame($);
+        mt.setExtraStackFrame($);
       } else
-        ft.setExtraStackFrame(null);
+        mt.setExtraStackFrame(null);
     }
-    function $s(h, v, $, R, F) {
+    function Rs(h, v, $, R, F) {
       {
         var V = Function.call.bind(he);
         for (var I in h)
@@ -342,42 +342,42 @@ function Js() {
             } catch (H) {
               M = H;
             }
-            M && !(M instanceof Error) && (Se(F), _("%s: type specification of %s `%s` is invalid; the type checker function must return `null` or an `Error` but returned a %s. You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument).", R || "React class", $, I, typeof M), Se(null)), M instanceof Error && !(M.message in ht) && (ht[M.message] = !0, Se(F), _("Failed %s type: %s", $, M.message), Se(null));
+            M && !(M instanceof Error) && (Se(F), _("%s: type specification of %s `%s` is invalid; the type checker function must return `null` or an `Error` but returned a %s. You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument).", R || "React class", $, I, typeof M), Se(null)), M instanceof Error && !(M.message in ft) && (ft[M.message] = !0, Se(F), _("Failed %s type: %s", $, M.message), Se(null));
           }
       }
     }
-    var Ss = Array.isArray;
-    function Ue(h) {
-      return Ss(h);
+    var Os = Array.isArray;
+    function Be(h) {
+      return Os(h);
     }
-    function Cs(h) {
+    function Ps(h) {
       {
         var v = typeof Symbol == "function" && Symbol.toStringTag, $ = v && h[Symbol.toStringTag] || h.constructor.name || "Object";
         return $;
       }
     }
-    function ks(h) {
+    function Ts(h) {
       try {
-        return mt(h), !1;
+        return gt(h), !1;
       } catch {
         return !0;
       }
     }
-    function mt(h) {
+    function gt(h) {
       return "" + h;
     }
-    function gt(h) {
-      if (ks(h))
-        return _("The provided key is an unsupported type %s. This value must be coerced to a string before before using it here.", Cs(h)), mt(h);
+    function _t(h) {
+      if (Ts(h))
+        return _("The provided key is an unsupported type %s. This value must be coerced to a string before before using it here.", Ps(h)), gt(h);
     }
-    var fe = N.ReactCurrentOwner, Es = {
+    var fe = N.ReactCurrentOwner, As = {
       key: !0,
       ref: !0,
       __self: !0,
       __source: !0
-    }, _t, xt, Be;
-    Be = {};
-    function Rs(h) {
+    }, xt, yt, Ve;
+    Ve = {};
+    function Ls(h) {
       if (he.call(h, "ref")) {
         var v = Object.getOwnPropertyDescriptor(h, "ref").get;
         if (v && v.isReactWarning)
@@ -385,7 +385,7 @@ function Js() {
       }
       return h.ref !== void 0;
     }
-    function Os(h) {
+    function Ms(h) {
       if (he.call(h, "key")) {
         var v = Object.getOwnPropertyDescriptor(h, "key").get;
         if (v && v.isReactWarning)
@@ -393,16 +393,16 @@ function Js() {
       }
       return h.key !== void 0;
     }
-    function Ps(h, v) {
+    function Is(h, v) {
       if (typeof h.ref == "string" && fe.current && v && fe.current.stateNode !== v) {
         var $ = D(fe.current.type);
-        Be[$] || (_('Component "%s" contains the string ref "%s". Support for string refs will be removed in a future major release. This case cannot be automatically converted to an arrow function. We ask you to manually fix this case by using useRef() or createRef() instead. Learn more about using refs safely here: https://reactjs.org/link/strict-mode-string-ref', D(fe.current.type), h.ref), Be[$] = !0);
+        Ve[$] || (_('Component "%s" contains the string ref "%s". Support for string refs will be removed in a future major release. This case cannot be automatically converted to an arrow function. We ask you to manually fix this case by using useRef() or createRef() instead. Learn more about using refs safely here: https://reactjs.org/link/strict-mode-string-ref', D(fe.current.type), h.ref), Ve[$] = !0);
       }
     }
-    function Ts(h, v) {
+    function zs(h, v) {
       {
         var $ = function() {
-          _t || (_t = !0, _("%s: `key` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://reactjs.org/link/special-props)", v));
+          xt || (xt = !0, _("%s: `key` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://reactjs.org/link/special-props)", v));
         };
         $.isReactWarning = !0, Object.defineProperty(h, "key", {
           get: $,
@@ -410,10 +410,10 @@ function Js() {
         });
       }
     }
-    function As(h, v) {
+    function Fs(h, v) {
       {
         var $ = function() {
-          xt || (xt = !0, _("%s: `ref` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://reactjs.org/link/special-props)", v));
+          yt || (yt = !0, _("%s: `ref` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://reactjs.org/link/special-props)", v));
         };
         $.isReactWarning = !0, Object.defineProperty(h, "ref", {
           get: $,
@@ -421,7 +421,7 @@ function Js() {
         });
       }
     }
-    var Ls = function(h, v, $, R, F, V, I) {
+    var Ds = function(h, v, $, R, F, V, I) {
       var M = {
         // This tag allows us to uniquely identify this as a React Element
         $$typeof: e,
@@ -450,41 +450,41 @@ function Js() {
         value: F
       }), Object.freeze && (Object.freeze(M.props), Object.freeze(M)), M;
     };
-    function Ms(h, v, $, R, F) {
+    function Us(h, v, $, R, F) {
       {
         var V, I = {}, M = null, Q = null;
-        $ !== void 0 && (gt($), M = "" + $), Os(v) && (gt(v.key), M = "" + v.key), Rs(v) && (Q = v.ref, Ps(v, F));
+        $ !== void 0 && (_t($), M = "" + $), Ms(v) && (_t(v.key), M = "" + v.key), Ls(v) && (Q = v.ref, Is(v, F));
         for (V in v)
-          he.call(v, V) && !Es.hasOwnProperty(V) && (I[V] = v[V]);
+          he.call(v, V) && !As.hasOwnProperty(V) && (I[V] = v[V]);
         if (h && h.defaultProps) {
           var H = h.defaultProps;
           for (V in H)
             I[V] === void 0 && (I[V] = H[V]);
         }
         if (M || Q) {
-          var K = typeof h == "function" ? h.displayName || h.name || "Unknown" : h;
-          M && Ts(I, K), Q && As(I, K);
+          var Y = typeof h == "function" ? h.displayName || h.name || "Unknown" : h;
+          M && zs(I, Y), Q && Fs(I, Y);
         }
-        return Ls(h, M, Q, F, R, fe.current, I);
+        return Ds(h, M, Q, F, R, fe.current, I);
       }
     }
-    var Ve = N.ReactCurrentOwner, yt = N.ReactDebugCurrentFrame;
+    var qe = N.ReactCurrentOwner, bt = N.ReactDebugCurrentFrame;
     function ie(h) {
       if (h) {
         var v = h._owner, $ = $e(h.type, h._source, v ? v.type : null);
-        yt.setExtraStackFrame($);
+        bt.setExtraStackFrame($);
       } else
-        yt.setExtraStackFrame(null);
+        bt.setExtraStackFrame(null);
     }
-    var qe;
-    qe = !1;
-    function We(h) {
+    var We;
+    We = !1;
+    function He(h) {
       return typeof h == "object" && h !== null && h.$$typeof === e;
     }
-    function bt() {
+    function vt() {
       {
-        if (Ve.current) {
-          var h = D(Ve.current.type);
+        if (qe.current) {
+          var h = D(qe.current.type);
           if (h)
             return `
 
@@ -493,7 +493,7 @@ Check the render method of \`` + h + "`.";
         return "";
       }
     }
-    function Is(h) {
+    function Bs(h) {
       {
         if (h !== void 0) {
           var v = h.fileName.replace(/^.*[\\\/]/, ""), $ = h.lineNumber;
@@ -504,10 +504,10 @@ Check your code at ` + v + ":" + $ + ".";
         return "";
       }
     }
-    var vt = {};
-    function zs(h) {
+    var wt = {};
+    function Vs(h) {
       {
-        var v = bt();
+        var v = vt();
         if (!v) {
           var $ = typeof h == "string" ? h : h.displayName || h.name;
           $ && (v = `
@@ -517,39 +517,39 @@ Check the top-level render call using <` + $ + ">.");
         return v;
       }
     }
-    function wt(h, v) {
+    function jt(h, v) {
       {
         if (!h._store || h._store.validated || h.key != null)
           return;
         h._store.validated = !0;
-        var $ = zs(v);
-        if (vt[$])
+        var $ = Vs(v);
+        if (wt[$])
           return;
-        vt[$] = !0;
+        wt[$] = !0;
         var R = "";
-        h && h._owner && h._owner !== Ve.current && (R = " It was passed a child from " + D(h._owner.type) + "."), ie(h), _('Each child in a list should have a unique "key" prop.%s%s See https://reactjs.org/link/warning-keys for more information.', $, R), ie(null);
+        h && h._owner && h._owner !== qe.current && (R = " It was passed a child from " + D(h._owner.type) + "."), ie(h), _('Each child in a list should have a unique "key" prop.%s%s See https://reactjs.org/link/warning-keys for more information.', $, R), ie(null);
       }
     }
-    function jt(h, v) {
+    function Nt(h, v) {
       {
         if (typeof h != "object")
           return;
-        if (Ue(h))
+        if (Be(h))
           for (var $ = 0; $ < h.length; $++) {
             var R = h[$];
-            We(R) && wt(R, v);
+            He(R) && jt(R, v);
           }
-        else if (We(h))
+        else if (He(h))
           h._store && (h._store.validated = !0);
         else if (h) {
           var F = b(h);
           if (typeof F == "function" && F !== h.entries)
             for (var V = F.call(h), I; !(I = V.next()).done; )
-              We(I.value) && wt(I.value, v);
+              He(I.value) && jt(I.value, v);
         }
       }
     }
-    function Fs(h) {
+    function qs(h) {
       {
         var v = h.type;
         if (v == null || typeof v == "string")
@@ -565,16 +565,16 @@ Check the top-level render call using <` + $ + ">.");
           return;
         if ($) {
           var R = D(v);
-          $s($, h.props, "prop", R, h);
-        } else if (v.PropTypes !== void 0 && !qe) {
-          qe = !0;
+          Rs($, h.props, "prop", R, h);
+        } else if (v.PropTypes !== void 0 && !We) {
+          We = !0;
           var F = D(v);
           _("Component %s declared `PropTypes` instead of `propTypes`. Did you misspell the property assignment?", F || "Unknown");
         }
         typeof v.getDefaultProps == "function" && !v.getDefaultProps.isReactClassApproved && _("getDefaultProps is only used on classic React.createClass definitions. Use a static property named `defaultProps` instead.");
       }
     }
-    function Ds(h) {
+    function Ws(h) {
       {
         for (var v = Object.keys(h.props), $ = 0; $ < v.length; $++) {
           var R = v[$];
@@ -586,65 +586,65 @@ Check the top-level render call using <` + $ + ">.");
         h.ref !== null && (ie(h), _("Invalid attribute `ref` supplied to `React.Fragment`."), ie(null));
       }
     }
-    var Nt = {};
-    function $t(h, v, $, R, F, V) {
+    var $t = {};
+    function St(h, v, $, R, F, V) {
       {
         var I = O(h);
         if (!I) {
           var M = "";
           (h === void 0 || typeof h == "object" && h !== null && Object.keys(h).length === 0) && (M += " You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.");
-          var Q = Is(F);
-          Q ? M += Q : M += bt();
+          var Q = Bs(F);
+          Q ? M += Q : M += vt();
           var H;
-          h === null ? H = "null" : Ue(h) ? H = "array" : h !== void 0 && h.$$typeof === e ? (H = "<" + (D(h.type) || "Unknown") + " />", M = " Did you accidentally export a JSX literal instead of a component?") : H = typeof h, _("React.jsx: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s", H, M);
+          h === null ? H = "null" : Be(h) ? H = "array" : h !== void 0 && h.$$typeof === e ? (H = "<" + (D(h.type) || "Unknown") + " />", M = " Did you accidentally export a JSX literal instead of a component?") : H = typeof h, _("React.jsx: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s", H, M);
         }
-        var K = Ms(h, v, $, F, V);
-        if (K == null)
-          return K;
+        var Y = Us(h, v, $, F, V);
+        if (Y == null)
+          return Y;
         if (I) {
           var Z = v.children;
           if (Z !== void 0)
             if (R)
-              if (Ue(Z)) {
+              if (Be(Z)) {
                 for (var oe = 0; oe < Z.length; oe++)
-                  jt(Z[oe], h);
+                  Nt(Z[oe], h);
                 Object.freeze && Object.freeze(Z);
               } else
                 _("React.jsx: Static children should always be an array. You are likely explicitly calling React.jsxs or React.jsxDEV. Use the Babel transform instead.");
             else
-              jt(Z, h);
+              Nt(Z, h);
         }
         if (he.call(v, "key")) {
-          var ne = D(h), G = Object.keys(v).filter(function(Hs) {
-            return Hs !== "key";
-          }), He = G.length > 0 ? "{key: someKey, " + G.join(": ..., ") + ": ...}" : "{key: someKey}";
-          if (!Nt[ne + He]) {
-            var Ws = G.length > 0 ? "{" + G.join(": ..., ") + ": ...}" : "{}";
+          var ne = D(h), G = Object.keys(v).filter(function(Gs) {
+            return Gs !== "key";
+          }), Ke = G.length > 0 ? "{key: someKey, " + G.join(": ..., ") + ": ...}" : "{key: someKey}";
+          if (!$t[ne + Ke]) {
+            var Qs = G.length > 0 ? "{" + G.join(": ..., ") + ": ...}" : "{}";
             _(`A props object containing a "key" prop is being spread into JSX:
   let props = %s;
   <%s {...props} />
 React keys must be passed directly to JSX without using spread:
   let props = %s;
-  <%s key={someKey} {...props} />`, He, ne, Ws, ne), Nt[ne + He] = !0;
+  <%s key={someKey} {...props} />`, Ke, ne, Qs, ne), $t[ne + Ke] = !0;
           }
         }
-        return h === s ? Ds(K) : Fs(K), K;
+        return h === s ? Ws(Y) : qs(Y), Y;
       }
     }
-    function Us(h, v, $) {
-      return $t(h, v, $, !0);
+    function Hs(h, v, $) {
+      return St(h, v, $, !0);
     }
-    function Bs(h, v, $) {
-      return $t(h, v, $, !1);
+    function Ks(h, v, $) {
+      return St(h, v, $, !1);
     }
-    var Vs = Bs, qs = Us;
-    ge.Fragment = s, ge.jsx = Vs, ge.jsxs = qs;
+    var Ys = Ks, Js = Hs;
+    ge.Fragment = s, ge.jsx = Ys, ge.jsxs = Js;
   }()), ge;
 }
-process.env.NODE_ENV === "production" ? Qe.exports = Ys() : Qe.exports = Js();
-var r = Qe.exports;
-const Jt = A.createContext(null);
-function Qs(n, e) {
+process.env.NODE_ENV === "production" ? Ge.exports = Zs() : Ge.exports = en();
+var r = Ge.exports;
+const Qt = A.createContext(null);
+function tn(n, e) {
   if (!n.options || !e)
     return 0;
   let t = 0;
@@ -662,7 +662,7 @@ function Qs(n, e) {
     }
   }), t;
 }
-const Gs = (() => {
+const sn = (() => {
   try {
     const n = localStorage.getItem("qr_cart");
     return n ? JSON.parse(n) : { items: [], customer: { name: "", type: "pickup", timeOrTable: "" } };
@@ -670,10 +670,10 @@ const Gs = (() => {
     return { items: [], customer: { name: "", type: "pickup", timeOrTable: "" } };
   }
 })();
-function Xs(n, e) {
+function nn(n, e) {
   switch (e.type) {
     case "ADD": {
-      const { item: t, quantity: s, options: a } = e.payload, o = JSON.stringify({ id: t.id, options: a }), u = n.items.find((l) => l.key === o), d = Qs(t, a), i = t.price + d;
+      const { item: t, quantity: s, options: a } = e.payload, o = JSON.stringify({ id: t.id, options: a }), u = n.items.find((l) => l.key === o), d = tn(t, a), i = t.price + d;
       let c;
       return u ? c = n.items.map((l) => l.key === o ? {
         ...l,
@@ -712,18 +712,18 @@ function Xs(n, e) {
       return n;
   }
 }
-function ih({ children: n }) {
-  const [e, t] = A.useReducer(Xs, Gs);
+function oh({ children: n }) {
+  const [e, t] = A.useReducer(nn, sn);
   A.useEffect(() => {
     localStorage.setItem("qr_cart", JSON.stringify(e));
   }, [e]);
   const s = A.useMemo(() => ({ state: e, dispatch: t }), [e]);
-  return /* @__PURE__ */ r.jsx(Jt.Provider, { value: s, children: n });
+  return /* @__PURE__ */ r.jsx(Qt.Provider, { value: s, children: n });
 }
-function nt() {
-  return A.useContext(Jt);
+function at() {
+  return A.useContext(Qt);
 }
-function kt(n) {
+function Et(n) {
   return n.reduce((e, t) => e + (t.totalPrice || t.price) * t.quantity, 0);
 }
 /**
@@ -732,14 +732,14 @@ function kt(n) {
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const Zs = (n) => n.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase(), Qt = (...n) => n.filter((e, t, s) => !!e && e.trim() !== "" && s.indexOf(e) === t).join(" ").trim();
+const an = (n) => n.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase(), Gt = (...n) => n.filter((e, t, s) => !!e && e.trim() !== "" && s.indexOf(e) === t).join(" ").trim();
 /**
  * @license lucide-react v0.460.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-var en = {
+var rn = {
   xmlns: "http://www.w3.org/2000/svg",
   width: 24,
   height: 24,
@@ -756,7 +756,7 @@ var en = {
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const tn = Wt(
+const on = Ht(
   ({
     color: n = "currentColor",
     size: e = 24,
@@ -766,20 +766,20 @@ const tn = Wt(
     children: o,
     iconNode: u,
     ...d
-  }, i) => Je(
+  }, i) => Qe(
     "svg",
     {
       ref: i,
-      ...en,
+      ...rn,
       width: e,
       height: e,
       stroke: n,
       strokeWidth: s ? Number(t) * 24 / Number(e) : t,
-      className: Qt("lucide", a),
+      className: Gt("lucide", a),
       ...d
     },
     [
-      ...u.map(([c, l]) => Je(c, l)),
+      ...u.map(([c, l]) => Qe(c, l)),
       ...Array.isArray(o) ? o : [o]
     ]
   )
@@ -791,11 +791,11 @@ const tn = Wt(
  * See the LICENSE file in the root directory of this source tree.
  */
 const J = (n, e) => {
-  const t = Wt(
-    ({ className: s, ...a }, o) => Je(tn, {
+  const t = Ht(
+    ({ className: s, ...a }, o) => Qe(on, {
       ref: o,
       iconNode: e,
-      className: Qt(`lucide-${Zs(n)}`, s),
+      className: Gt(`lucide-${an(n)}`, s),
       ...a
     })
   );
@@ -807,7 +807,7 @@ const J = (n, e) => {
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const at = J("ArrowLeft", [
+const rt = J("ArrowLeft", [
   ["path", { d: "m12 19-7-7 7-7", key: "1l729n" }],
   ["path", { d: "M19 12H5", key: "x3x0zl" }]
 ]);
@@ -829,7 +829,7 @@ const Ee = J("Calendar", [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const sn = J("ChevronDown", [
+const cn = J("ChevronDown", [
   ["path", { d: "m6 9 6 6 6-6", key: "qrunsl" }]
 ]);
 /**
@@ -838,7 +838,7 @@ const sn = J("ChevronDown", [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const nn = J("CirclePlus", [
+const ln = J("CirclePlus", [
   ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
   ["path", { d: "M8 12h8", key: "1wcyev" }],
   ["path", { d: "M12 8v8", key: "napkw2" }]
@@ -849,7 +849,7 @@ const nn = J("CirclePlus", [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const Ge = J("Clock", [
+const Xe = J("Clock", [
   ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
   ["polyline", { points: "12 6 12 12 16 14", key: "68esgv" }]
 ]);
@@ -859,7 +859,7 @@ const Ge = J("Clock", [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const an = J("Globe", [
+const un = J("Globe", [
   ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
   ["path", { d: "M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20", key: "13o1zl" }],
   ["path", { d: "M2 12h20", key: "9i4pu4" }]
@@ -870,7 +870,7 @@ const an = J("Globe", [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const rn = J("Instagram", [
+const dn = J("Instagram", [
   ["rect", { width: "20", height: "20", x: "2", y: "2", rx: "5", ry: "5", key: "2e1cvw" }],
   ["path", { d: "M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z", key: "9exkf1" }],
   ["line", { x1: "17.5", x2: "17.51", y1: "6.5", y2: "6.5", key: "r4j83e" }]
@@ -881,7 +881,7 @@ const rn = J("Instagram", [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const rt = J("MapPin", [
+const it = J("MapPin", [
   [
     "path",
     {
@@ -897,7 +897,7 @@ const rt = J("MapPin", [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const it = J("MessageCircle", [
+const ot = J("MessageCircle", [
   ["path", { d: "M7.9 20A9 9 0 1 0 4 16.1L2 22Z", key: "vv11sd" }]
 ]);
 /**
@@ -906,7 +906,7 @@ const it = J("MessageCircle", [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const on = J("MessageSquare", [
+const pn = J("MessageSquare", [
   ["path", { d: "M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z", key: "1lielz" }]
 ]);
 /**
@@ -915,14 +915,14 @@ const on = J("MessageSquare", [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const cn = J("Minus", [["path", { d: "M5 12h14", key: "1ays0h" }]]);
+const hn = J("Minus", [["path", { d: "M5 12h14", key: "1ays0h" }]]);
 /**
  * @license lucide-react v0.460.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const ot = J("Phone", [
+const ct = J("Phone", [
   [
     "path",
     {
@@ -937,7 +937,7 @@ const ot = J("Phone", [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const ln = J("Plus", [
+const fn = J("Plus", [
   ["path", { d: "M5 12h14", key: "1ays0h" }],
   ["path", { d: "M12 5v14", key: "s699le" }]
 ]);
@@ -947,7 +947,7 @@ const ln = J("Plus", [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const un = J("ShoppingCart", [
+const mn = J("ShoppingCart", [
   ["circle", { cx: "8", cy: "21", r: "1", key: "jimo8o" }],
   ["circle", { cx: "19", cy: "21", r: "1", key: "13723u" }],
   [
@@ -964,7 +964,7 @@ const un = J("ShoppingCart", [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const dn = J("Trash2", [
+const gn = J("Trash2", [
   ["path", { d: "M3 6h18", key: "d0wm0j" }],
   ["path", { d: "M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6", key: "4alrt4" }],
   ["path", { d: "M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2", key: "v07s0e" }],
@@ -977,7 +977,7 @@ const dn = J("Trash2", [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const pn = J("User", [
+const _n = J("User", [
   ["path", { d: "M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2", key: "975kel" }],
   ["circle", { cx: "12", cy: "7", r: "4", key: "17ys0d" }]
 ]);
@@ -987,7 +987,7 @@ const pn = J("User", [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const Gt = J("Users", [
+const Xt = J("Users", [
   ["path", { d: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2", key: "1yyitq" }],
   ["circle", { cx: "9", cy: "7", r: "4", key: "nufk8" }],
   ["path", { d: "M22 21v-2a4 4 0 0 0-3-3.87", key: "kshegd" }],
@@ -1003,14 +1003,14 @@ const Me = J("X", [
   ["path", { d: "M18 6 6 18", key: "1bl5f8" }],
   ["path", { d: "m6 6 12 12", key: "d8bk6v" }]
 ]);
-function oh({ onClick: n }) {
-  const { state: e } = nt(), t = e.items.reduce((s, a) => s + a.quantity, 0);
+function ch({ onClick: n }) {
+  const { state: e } = at(), t = e.items.reduce((s, a) => s + a.quantity, 0);
   return /* @__PURE__ */ r.jsxs("button", { onClick: n, className: "relative tab", children: [
-    /* @__PURE__ */ r.jsx(un, { size: 18 }),
+    /* @__PURE__ */ r.jsx(mn, { size: 18 }),
     t > 0 && /* @__PURE__ */ r.jsx("span", { className: "absolute -top-2 -end-2 bg-red-500 text-white text-xs rounded-full px-2 py-0.5", children: t })
   ] });
 }
-const hn = (n, e, t, s) => {
+const xn = (n, e, t, s) => {
   var o, u, d, i;
   const a = [t, {
     code: e,
@@ -1019,9 +1019,9 @@ const hn = (n, e, t, s) => {
   if ((u = (o = n == null ? void 0 : n.services) == null ? void 0 : o.logger) != null && u.forward)
     return n.services.logger.forward(a, "warn", "react-i18next::", !0);
   ae(a[0]) && (a[0] = `react-i18next:: ${a[0]}`), (i = (d = n == null ? void 0 : n.services) == null ? void 0 : d.logger) != null && i.warn ? n.services.logger.warn(...a) : console != null && console.warn && console.warn(...a);
-}, Et = {}, Xe = (n, e, t, s) => {
-  ae(t) && Et[t] || (ae(t) && (Et[t] = /* @__PURE__ */ new Date()), hn(n, e, t, s));
-}, Xt = (n, e) => () => {
+}, Rt = {}, Ze = (n, e, t, s) => {
+  ae(t) && Rt[t] || (ae(t) && (Rt[t] = /* @__PURE__ */ new Date()), xn(n, e, t, s));
+}, Zt = (n, e) => () => {
   if (n.isInitialized)
     e();
   else {
@@ -1032,15 +1032,15 @@ const hn = (n, e, t, s) => {
     };
     n.on("initialized", t);
   }
-}, Ze = (n, e, t) => {
-  n.loadNamespaces(e, Xt(n, t));
-}, Rt = (n, e, t, s) => {
+}, et = (n, e, t) => {
+  n.loadNamespaces(e, Zt(n, t));
+}, Ot = (n, e, t, s) => {
   if (ae(t) && (t = [t]), n.options.preload && n.options.preload.indexOf(e) > -1)
-    return Ze(n, t, s);
+    return et(n, t, s);
   t.forEach((a) => {
     n.options.ns.indexOf(a) < 0 && n.options.ns.push(a);
-  }), n.loadLanguages(e, Xt(n, s));
-}, fn = (n, e, t = {}) => !e.languages || !e.languages.length ? (Xe(e, "NO_LANGUAGES", "i18n.languages were undefined or empty", {
+  }), n.loadLanguages(e, Zt(n, s));
+}, yn = (n, e, t = {}) => !e.languages || !e.languages.length ? (Ze(e, "NO_LANGUAGES", "i18n.languages were undefined or empty", {
   languages: e.languages
 }), !0) : e.hasLoadedNamespace(n, {
   lng: t.lng,
@@ -1049,7 +1049,7 @@ const hn = (n, e, t, s) => {
     if (((o = t.bindI18n) == null ? void 0 : o.indexOf("languageChanging")) > -1 && s.services.backendConnector.backend && s.isLanguageChangingTo && !a(s.isLanguageChangingTo, n))
       return !1;
   }
-}), ae = (n) => typeof n == "string", mn = (n) => typeof n == "object" && n !== null, gn = /&(?:amp|#38|lt|#60|gt|#62|apos|#39|quot|#34|nbsp|#160|copy|#169|reg|#174|hellip|#8230|#x2F|#47);/g, _n = {
+}), ae = (n) => typeof n == "string", bn = (n) => typeof n == "object" && n !== null, vn = /&(?:amp|#38|lt|#60|gt|#62|apos|#39|quot|#34|nbsp|#160|copy|#169|reg|#174|hellip|#8230|#x2F|#47);/g, wn = {
   "&amp;": "&",
   "&#38;": "&",
   "&lt;": "<",
@@ -1070,8 +1070,8 @@ const hn = (n, e, t, s) => {
   "&#8230;": "…",
   "&#x2F;": "/",
   "&#47;": "/"
-}, xn = (n) => _n[n], yn = (n) => n.replace(gn, xn);
-let et = {
+}, jn = (n) => wn[n], Nn = (n) => n.replace(vn, jn);
+let tt = {
   bindI18n: "languageChanged",
   bindI18nStore: "",
   transEmptyNodeValue: "",
@@ -1079,24 +1079,24 @@ let et = {
   transWrapTextNodes: "",
   transKeepBasicHtmlNodesFor: ["br", "strong", "i", "p"],
   useSuspense: !0,
-  unescape: yn
+  unescape: Nn
 };
-const bn = (n = {}) => {
-  et = {
-    ...et,
+const $n = (n = {}) => {
+  tt = {
+    ...tt,
     ...n
   };
-}, vn = () => et;
-let Zt;
-const wn = (n) => {
-  Zt = n;
-}, jn = () => Zt, Nn = {
+}, Sn = () => tt;
+let es;
+const kn = (n) => {
+  es = n;
+}, Cn = () => es, ts = {
   type: "3rdParty",
   init(n) {
-    bn(n.options.react), wn(n);
+    $n(n.options.react), kn(n);
   }
-}, $n = Ht();
-class Sn {
+}, En = Kt();
+class Rn {
   constructor() {
     this.usedNamespaces = {};
   }
@@ -1109,27 +1109,27 @@ class Sn {
     return Object.keys(this.usedNamespaces);
   }
 }
-const Cn = (n, e) => {
-  const t = ke();
+const On = (n, e) => {
+  const t = Ce();
   return be(() => {
     t.current = e ? t.current : n;
   }, [n, e]), t.current;
-}, es = (n, e, t, s) => n.getFixedT(e, t, s), kn = (n, e, t, s) => Ks(es(n, e, t, s), [n, e, t, s]), X = (n, e = {}) => {
+}, ss = (n, e, t, s) => n.getFixedT(e, t, s), Pn = (n, e, t, s) => Xs(ss(n, e, t, s), [n, e, t, s]), X = (n, e = {}) => {
   var w, j, S, T;
   const {
     i18n: t
   } = e, {
     i18n: s,
     defaultNS: a
-  } = Kt($n) || {}, o = t || s || jn();
-  if (o && !o.reportNamespaces && (o.reportNamespaces = new Sn()), !o) {
-    Xe(o, "NO_I18NEXT_INSTANCE", "useTranslation: You will need to pass in an i18next instance by using initReactI18next");
-    const E = (O, k) => ae(k) ? k : mn(k) && ae(k.defaultValue) ? k.defaultValue : Array.isArray(O) ? O[O.length - 1] : O, z = [E, {}, !1];
+  } = Yt(En) || {}, o = t || s || Cn();
+  if (o && !o.reportNamespaces && (o.reportNamespaces = new Rn()), !o) {
+    Ze(o, "NO_I18NEXT_INSTANCE", "useTranslation: You will need to pass in an i18next instance by using initReactI18next");
+    const E = (O, C) => ae(C) ? C : bn(C) && ae(C.defaultValue) ? C.defaultValue : Array.isArray(O) ? O[O.length - 1] : O, z = [E, {}, !1];
     return z.t = E, z.i18n = {}, z.ready = !1, z;
   }
-  (w = o.options.react) != null && w.wait && Xe(o, "DEPRECATED_OPTION", "useTranslation: It seems you are still using the old wait option, you may migrate to the new useSuspense behaviour.");
+  (w = o.options.react) != null && w.wait && Ze(o, "DEPRECATED_OPTION", "useTranslation: It seems you are still using the old wait option, you may migrate to the new useSuspense behaviour.");
   const u = {
-    ...vn(),
+    ...Sn(),
     ...o.options.react,
     ...e
   }, {
@@ -1138,25 +1138,25 @@ const Cn = (n, e) => {
   } = u;
   let c = n || a || ((j = o.options) == null ? void 0 : j.defaultNS);
   c = ae(c) ? [c] : c || ["translation"], (T = (S = o.reportNamespaces).addUsedNamespaces) == null || T.call(S, c);
-  const l = (o.isInitialized || o.initializedStoreOnce) && c.every((E) => fn(E, o, u)), f = kn(o, e.lng || null, u.nsMode === "fallback" ? c : c[0], i), p = () => f, g = () => es(o, e.lng || null, u.nsMode === "fallback" ? c : c[0], i), [m, x] = st(p);
+  const l = (o.isInitialized || o.initializedStoreOnce) && c.every((E) => yn(E, o, u)), f = Pn(o, e.lng || null, u.nsMode === "fallback" ? c : c[0], i), p = () => f, g = () => ss(o, e.lng || null, u.nsMode === "fallback" ? c : c[0], i), [m, x] = nt(p);
   let b = c.join();
   e.lng && (b = `${e.lng}${b}`);
-  const N = Cn(b), _ = ke(!0);
+  const N = On(b), _ = Ce(!0);
   be(() => {
     const {
       bindI18n: E,
       bindI18nStore: z
     } = u;
-    _.current = !0, !l && !d && (e.lng ? Rt(o, e.lng, c, () => {
+    _.current = !0, !l && !d && (e.lng ? Ot(o, e.lng, c, () => {
       _.current && x(g);
-    }) : Ze(o, c, () => {
+    }) : et(o, c, () => {
       _.current && x(g);
     })), l && N && N !== b && _.current && x(g);
     const O = () => {
       _.current && x(g);
     };
     return E && (o == null || o.on(E, O)), z && (o == null || o.store.on(z, O)), () => {
-      _.current = !1, o && (E == null || E.split(" ").forEach((k) => o.off(k, O))), z && o && z.split(" ").forEach((k) => o.store.off(k, O));
+      _.current = !1, o && (E == null || E.split(" ").forEach((C) => o.off(C, O))), z && o && z.split(" ").forEach((C) => o.store.off(C, O));
     };
   }, [o, b]), be(() => {
     _.current && l && x(p);
@@ -1165,25 +1165,25 @@ const Cn = (n, e) => {
   if (y.t = m, y.i18n = o, y.ready = l, l || !l && !d)
     return y;
   throw new Promise((E) => {
-    e.lng ? Rt(o, e.lng, c, () => E()) : Ze(o, c, () => E());
+    e.lng ? Ot(o, e.lng, c, () => E()) : et(o, c, () => E());
   });
-}, En = "zuwade", Rn = "Zuwade", On = "/zuwade-logo.jpg", Pn = "+972-54-750-7503", Tn = "+972547507503", An = "Zuwade TA", Ln = "קסטרו שפרעם", Mn = {
+}, Tn = "zuwade", An = "Zuwade", Ln = "/zuwade-logo.jpg", Mn = "+972-54-750-7503", In = "+972547507503", zn = "Zuwade TA", Fn = "קסטרו שפרעם", Dn = {
   lat: 32.81557,
   lng: 35.152813
-}, In = "zuwade.ta", zn = {
+}, Un = "zuwade.ta", Bn = {
   "Mon-Sat": "09:00-19:00",
   Sun: "Closed"
-}, Fn = {
+}, Vn = {
   primary: "#10b981",
   accent: "#0ea5e9",
   bg: "#0b0f14",
   card: "#121821",
   text: "#e5e7eb"
-}, Dn = [
+}, qn = [
   "ar",
   "he",
   "en"
-], Un = "₪", Bn = {
+], Wn = "₪", Hn = {
   enabled: !1,
   areas: [
     {
@@ -1221,24 +1221,24 @@ const Cn = (n, e) => {
   max_advance_days: 7,
   whatsapp: "+972547507503"
 }, P = {
-  slug: En,
-  name: Rn,
-  logo: On,
-  phone: Pn,
-  whatsapp: Tn,
-  address: An,
-  waze_name: Ln,
-  coords: Mn,
-  instagram: In,
-  hours: zn,
-  theme: Fn,
-  languages: Dn,
-  currency: Un,
-  reservation: Bn
-}, Vn = {
+  slug: Tn,
+  name: An,
+  logo: Ln,
+  phone: Mn,
+  whatsapp: In,
+  address: zn,
+  waze_name: Fn,
+  coords: Dn,
+  instagram: Un,
+  hours: Bn,
+  theme: Vn,
+  languages: qn,
+  currency: Wn,
+  reservation: Hn
+}, Kn = {
   name: "Zuwade",
   brand_subtitle: "TAKE AWAY"
-}, qn = [
+}, Yn = [
   {
     id: "toasts",
     title: "Toasts",
@@ -1264,7 +1264,7 @@ const Cn = (n, e) => {
     title: "Soft Drinks",
     emoji: "🥤"
   }
-], Wn = [
+], Jn = [
   {
     id: "toast_classic",
     name: "Castle Toast",
@@ -1740,14 +1740,14 @@ const Cn = (n, e) => {
       }
     }
   }
-], ts = {
-  restaurant: Vn,
-  categories: qn,
-  items: Wn
-}, Hn = {
+], ns = {
+  restaurant: Kn,
+  categories: Yn,
+  items: Jn
+}, Qn = {
   name: "זוואדי",
   brand_subtitle: "TAKE AWAY"
-}, Kn = [
+}, Gn = [
   {
     id: "toasts",
     title: "טוסטים",
@@ -1773,7 +1773,7 @@ const Cn = (n, e) => {
     title: "שתייה קלה",
     emoji: "🥤"
   }
-], Yn = [
+], Xn = [
   {
     id: "toast_classic",
     name: "טוסט המבצר",
@@ -2247,14 +2247,14 @@ const Cn = (n, e) => {
       }
     }
   }
-], ss = {
-  restaurant: Hn,
-  categories: Kn,
-  items: Yn
-}, Jn = {
+], as = {
+  restaurant: Qn,
+  categories: Gn,
+  items: Xn
+}, Zn = {
   name: "زواوي",
   brand_subtitle: "TAKE AWAY"
-}, Qn = [
+}, ea = [
   {
     id: "toasts",
     title: "توست",
@@ -2280,7 +2280,7 @@ const Cn = (n, e) => {
     title: "مشروبات غازية",
     emoji: "🥤"
   }
-], Gn = [
+], ta = [
   {
     id: "toast_classic",
     name: "توست القلعة",
@@ -2756,14 +2756,14 @@ const Cn = (n, e) => {
       }
     }
   }
-], ns = {
-  restaurant: Jn,
-  categories: Qn,
-  items: Gn
-}, Xn = "https://79vup8a13c.execute-api.eu-central-1.amazonaws.com", Zn = async (n = {}) => {
+], rs = {
+  restaurant: Zn,
+  categories: ea,
+  items: ta
+}, sa = "https://79vup8a13c.execute-api.eu-central-1.amazonaws.com", na = async (n = {}) => {
   console.log("🛒 Tracking order submission...");
   try {
-    const e = `${Xn}/api/analytics/order`, t = {
+    const e = `${sa}/api/analytics/order`, t = {
       timestamp: (/* @__PURE__ */ new Date()).toISOString(),
       tablyname: "Zuwade",
       orderType: n.orderType || "unknown",
@@ -2791,7 +2791,7 @@ const Cn = (n, e) => {
     console.warn("❌ Error tracking order:", e);
   }
 }, de = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-function Ot(n) {
+function Pt(n) {
   if (!n)
     return null;
   const e = n.trim().match(/^(\d{1,2}):(\d{2})$/);
@@ -2800,14 +2800,14 @@ function Ot(n) {
   const t = Number.parseInt(e[1], 10), s = Number.parseInt(e[2], 10);
   return Number.isNaN(t) || Number.isNaN(s) || s < 0 || s > 59 || t < 0 || t > 24 || t === 24 && s !== 0 ? null : t * 60 + s;
 }
-function ea(n) {
+function aa(n) {
   if (!n)
     return [];
   const e = n.replace(/\s+/g, " ").replace(/\s*[\u2013-]\s*/g, "-").trim();
   if (!e)
     return [];
   if (e.includes("-")) {
-    const [s, a] = e.split("-"), o = Ke(s), u = Ke(a);
+    const [s, a] = e.split("-"), o = Ye(s), u = Ye(a);
     if (o === -1 || u === -1)
       return [];
     const d = [];
@@ -2816,29 +2816,29 @@ function ea(n) {
       ;
     return Array.from(new Set(d));
   }
-  const t = Ke(e);
+  const t = Ye(e);
   return t === -1 ? [] : [t];
 }
-function Ke(n = "") {
+function Ye(n = "") {
   const e = n.slice(0, 3).toLowerCase();
   return de.findIndex(
     (s) => s.toLowerCase() === e
   );
 }
-function ta(n) {
+function ra(n) {
   if (!n || typeof n != "string")
     return [];
-  const t = n.split(",").map((s) => s.trim()).flatMap(ea);
+  const t = n.split(",").map((s) => s.trim()).flatMap(aa);
   return Array.from(new Set(t));
 }
-function sa(n) {
+function ia(n) {
   const e = de.map(() => []);
   return Object.entries(n || {}).forEach(([t, s]) => {
-    const a = ta(t);
+    const a = ra(t);
     if (!a.length || !s || /closed/i.test(String(s)))
       return;
     String(s).split(",").map((u) => u.trim()).filter(Boolean).forEach((u) => {
-      const d = u.replace(/\u2013/g, "-"), [i, c] = d.split("-").map((p) => p.trim()), l = Ot(i), f = Ot(c);
+      const d = u.replace(/\u2013/g, "-"), [i, c] = d.split("-").map((p) => p.trim()), l = Pt(i), f = Pt(c);
       l === null || f === null || Number.isNaN(l) || Number.isNaN(f) || a.forEach((p) => {
         if (l === f)
           e[p].push({ start: 0, end: 1440 });
@@ -2856,7 +2856,7 @@ function sa(n) {
     ).sort((s, a) => s.start - a.start)
   );
 }
-function na() {
+function oa() {
   var c, l, f;
   const n = /* @__PURE__ */ new Date(), t = new Intl.DateTimeFormat("en-US", {
     timeZone: "Asia/Jerusalem",
@@ -2870,22 +2870,22 @@ function na() {
     minutes: d * 60 + i
   };
 }
-function as(n) {
+function is(n) {
   if (!n || typeof n != "object")
     return !0;
-  const { dayIndex: e, minutes: t } = na();
+  const { dayIndex: e, minutes: t } = oa();
   if (e === -1 || Number.isNaN(t))
     return !0;
-  const a = sa(n)[e];
+  const a = ia(n)[e];
   return !a || a.length === 0 ? !1 : a.some(
     (o) => t >= o.start && t < o.end
   );
 }
-const Pt = { en: ts, he: ss, ar: ns };
+const Tt = { en: ns, he: as, ar: rs };
 function xe(n, e) {
-  return (Pt[e] || Pt.en).items.find((s) => s.id === n);
+  return (Tt[e] || Tt.en).items.find((s) => s.id === n);
 }
-function aa(n, e, t) {
+function ca(n, e, t) {
   var p, g, m, x, b, N;
   const s = (_, y) => {
     var j;
@@ -2918,25 +2918,25 @@ function aa(n, e, t) {
       const E = [];
       if (S.options) {
         const O = xe(S.id, t.language);
-        for (const [k, C] of Object.entries(S.options)) {
-          if (C == null || C === "" || Array.isArray(C) && C.length === 0)
+        for (const [C, k] of Object.entries(S.options)) {
+          if (k == null || k === "" || Array.isArray(k) && k.length === 0)
             continue;
-          const D = s(k, O), B = (z = O == null ? void 0 : O.options) == null ? void 0 : z[k];
-          let W = C;
+          const D = s(C, O), B = (z = O == null ? void 0 : O.options) == null ? void 0 : z[C];
+          let W = k;
           if (B && B.choices)
-            if (Array.isArray(C))
-              W = C.map((q) => {
+            if (Array.isArray(k))
+              W = k.map((q) => {
                 const L = B.choices[q];
                 return typeof L == "string" ? L : (L == null ? void 0 : L.name) || `Choice ${q}`;
               }).join(", ");
-            else if (typeof C == "number" && B.choices[C]) {
-              const q = B.choices[C];
-              W = typeof q == "string" ? q : (q == null ? void 0 : q.name) || `Choice ${C}`;
+            else if (typeof k == "number" && B.choices[k]) {
+              const q = B.choices[k];
+              W = typeof q == "string" ? q : (q == null ? void 0 : q.name) || `Choice ${k}`;
             } else {
               const q = B.choices.find(
-                (L) => (typeof L == "string" ? L : L.name) === C
+                (L) => (typeof L == "string" ? L : L.name) === k
               );
-              W = typeof q == "string" ? q : (q == null ? void 0 : q.name) || C;
+              W = typeof q == "string" ? q : (q == null ? void 0 : q.name) || k;
             }
           E.push(`${D}: ${W}`);
         }
@@ -2967,23 +2967,23 @@ function aa(n, e, t) {
         if (E == null || E === "" || Array.isArray(E) && E.length === 0)
           continue;
         const z = s(T, S), O = (j = S == null ? void 0 : S.options) == null ? void 0 : j[T];
-        let k = E;
+        let C = E;
         if (O && O.choices)
           if (Array.isArray(E))
-            k = E.map((C) => {
-              const D = O.choices[C];
-              return typeof D == "string" ? D : (D == null ? void 0 : D.name) || `Choice ${C}`;
+            C = E.map((k) => {
+              const D = O.choices[k];
+              return typeof D == "string" ? D : (D == null ? void 0 : D.name) || `Choice ${k}`;
             }).join(", ");
           else if (typeof E == "number" && O.choices[E]) {
-            const C = O.choices[E];
-            k = typeof C == "string" ? C : (C == null ? void 0 : C.name) || `Choice ${E}`;
+            const k = O.choices[E];
+            C = typeof k == "string" ? k : (k == null ? void 0 : k.name) || `Choice ${E}`;
           } else {
-            const C = O.choices.find(
+            const k = O.choices.find(
               (D) => (typeof D == "string" ? D : D.name) === E
             );
-            k = typeof C == "string" ? C : (C == null ? void 0 : C.name) || E;
+            C = typeof k == "string" ? k : (k == null ? void 0 : k.name) || E;
           }
-        w.push(`${z}: ${k}`);
+        w.push(`${z}: ${C}`);
       }
     }
     d.push(`${y + 1}. ${_.name}`), d.push(`   ${e("wa_quantity")}: ${_.quantity}`), w.length > 0 && w.forEach((S) => {
@@ -3000,8 +3000,8 @@ function aa(n, e, t) {
   return a ? d.push(`${f} 🙏`) : d.push(`${f} 🙏`), d.join(`
 `);
 }
-function ch({ open: n, onClose: e }) {
-  const { state: t, dispatch: s } = nt(), { t: a, i18n: o } = X(), u = kt(t.items), d = aa(t, a, o), [i, c] = A.useState(!1), [l, f] = A.useState(!1), [p, g] = A.useState(!1);
+function lh({ open: n, onClose: e }) {
+  const { state: t, dispatch: s } = at(), { t: a, i18n: o } = X(), u = Et(t.items), d = ca(t, a, o), [i, c] = A.useState(!1), [l, f] = A.useState(!1), [p, g] = A.useState(!1);
   A.useEffect(() => {
     n || (c(!1), g(!1));
   }, [n]);
@@ -3014,7 +3014,7 @@ function ch({ open: n, onClose: e }) {
       desc: (S == null ? void 0 : S.desc) || ""
     };
   }), x = document.dir === "rtl", b = x ? "left-0" : "right-0", N = x ? "border-r" : "border-l", _ = x ? "-translate-x-full" : "translate-x-full", y = () => {
-    if (P.hours && !as(P.hours)) {
+    if (P.hours && !is(P.hours)) {
       g(!0);
       return;
     }
@@ -3026,25 +3026,25 @@ function ch({ open: n, onClose: e }) {
   }, w = async () => {
     var S, T, E;
     try {
-      const z = t.items || [], O = kt(z), k = z.reduce((C, D) => C + D.quantity, 0);
-      Zn({
+      const z = t.items || [], O = Et(z), C = z.reduce((k, D) => k + D.quantity, 0);
+      na({
         orderType: ((S = t.customer) == null ? void 0 : S.type) || "unknown",
-        itemCount: k,
+        itemCount: C,
         totalAmount: O,
         customerName: ((T = t.customer) == null ? void 0 : T.name) || "anonymous",
         customerPhone: ((E = t.customer) == null ? void 0 : E.phone) || "not provided",
-        items: z.map((C) => ({
-          id: C.id,
-          name: C.name || `Item ${C.id}`,
-          quantity: C.quantity,
-          price: C.price || 0,
-          totalPrice: C.totalPrice || C.price || 0,
-          options: C.options || {}
+        items: z.map((k) => ({
+          id: k.id,
+          name: k.name || `Item ${k.id}`,
+          quantity: k.quantity,
+          price: k.price || 0,
+          totalPrice: k.totalPrice || k.price || 0,
+          options: k.options || {}
         })),
         whatsappMessage: d
         // This contains the full formatted WhatsApp message
-      }).catch((C) => {
-        console.warn("Failed to track order, but continuing with WhatsApp:", C);
+      }).catch((k) => {
+        console.warn("Failed to track order, but continuing with WhatsApp:", k);
       });
     } catch (z) {
       console.warn("Error in order tracking, but continuing with WhatsApp:", z);
@@ -3052,7 +3052,7 @@ function ch({ open: n, onClose: e }) {
     const j = `https://wa.me/${P.whatsapp}?text=${encodeURIComponent(d)}`;
     window.open(j, "_blank"), c(!1);
   };
-  return Yt(
+  return Jt(
     /* @__PURE__ */ r.jsxs("div", { className: `fixed inset-0 z-[10000] ${n ? "" : "pointer-events-none"}`, children: [
       /* @__PURE__ */ r.jsx(
         "div",
@@ -3092,21 +3092,21 @@ function ch({ open: n, onClose: e }) {
                     {
                       className: "text-red-400",
                       onClick: () => s({ type: "REMOVE", key: j.key }),
-                      children: /* @__PURE__ */ r.jsx(dn, { size: 16 })
+                      children: /* @__PURE__ */ r.jsx(gn, { size: 16 })
                     }
                   )
                 ] }),
                 (() => {
                   const S = xe(j.id, o.language), T = (S == null ? void 0 : S.options) || {}, E = j.options || {}, z = {};
-                  return Object.entries(E).forEach(([O, k]) => {
-                    k !== null && k !== "" && (!Array.isArray(k) || k.length > 0) && (z[O] = k);
-                  }), Object.entries(T).forEach(([O, k]) => {
-                    !z[O] && k.choices && k.choices.length > 0 && k.type === "select" && (z[O] = 0);
-                  }), /* @__PURE__ */ r.jsx("div", { className: "text-xs text-white/60", children: Object.entries(z).map(([O, k]) => {
+                  return Object.entries(E).forEach(([O, C]) => {
+                    C !== null && C !== "" && (!Array.isArray(C) || C.length > 0) && (z[O] = C);
+                  }), Object.entries(T).forEach(([O, C]) => {
+                    !z[O] && C.choices && C.choices.length > 0 && C.type === "select" && (z[O] = 0);
+                  }), /* @__PURE__ */ r.jsx("div", { className: "text-xs text-white/60", children: Object.entries(z).map(([O, C]) => {
                     var q;
-                    if (!k && k !== 0)
+                    if (!C && C !== 0)
                       return null;
-                    const C = (q = S == null ? void 0 : S.options) == null ? void 0 : q[O], D = (C == null ? void 0 : C.label) || {
+                    const k = (q = S == null ? void 0 : S.options) == null ? void 0 : q[O], D = (k == null ? void 0 : k.label) || {
                       size: a("opt_size"),
                       extras: a("opt_extras"),
                       notes: a("opt_notes"),
@@ -3116,21 +3116,21 @@ function ch({ open: n, onClose: e }) {
                       bread: a("opt_bread"),
                       wrap: a("opt_wrap")
                     }[O] || O;
-                    let B = k, W = 0;
-                    if (C && C.choices)
-                      if (Array.isArray(k))
-                        B = k.map((L) => {
-                          const U = C.choices[L];
+                    let B = C, W = 0;
+                    if (k && k.choices)
+                      if (Array.isArray(C))
+                        B = C.map((L) => {
+                          const U = k.choices[L];
                           return U && typeof U == "object" && U.price && (W += U.price), typeof U == "string" ? U : (U == null ? void 0 : U.name) || `Choice ${L}`;
                         }).join(", ");
-                      else if (typeof k == "number" && C.choices[k]) {
-                        const L = C.choices[k];
-                        L && typeof L == "object" && L.price && (W = L.price), B = typeof L == "string" ? L : (L == null ? void 0 : L.name) || `Choice ${k}`;
+                      else if (typeof C == "number" && k.choices[C]) {
+                        const L = k.choices[C];
+                        L && typeof L == "object" && L.price && (W = L.price), B = typeof L == "string" ? L : (L == null ? void 0 : L.name) || `Choice ${C}`;
                       } else {
-                        const L = C.choices.find(
-                          (U) => (typeof U == "string" ? U : U.name) === k
+                        const L = k.choices.find(
+                          (U) => (typeof U == "string" ? U : U.name) === C
                         );
-                        L && typeof L == "object" && L.price && (W = L.price), B = typeof L == "string" ? L : (L == null ? void 0 : L.name) || k;
+                        L && typeof L == "object" && L.price && (W = L.price), B = typeof L == "string" ? L : (L == null ? void 0 : L.name) || C;
                       }
                     return /* @__PURE__ */ r.jsxs("div", { children: [
                       /* @__PURE__ */ r.jsxs("span", { className: "text-white/70", children: [
@@ -3153,7 +3153,7 @@ function ch({ open: n, onClose: e }) {
                     {
                       className: "tab",
                       onClick: () => s({ type: "DEC", key: j.key }),
-                      children: /* @__PURE__ */ r.jsx(cn, { size: 14 })
+                      children: /* @__PURE__ */ r.jsx(hn, { size: 14 })
                     }
                   ),
                   /* @__PURE__ */ r.jsx("div", { className: "min-w-[2rem] text-center", children: j.quantity }),
@@ -3162,7 +3162,7 @@ function ch({ open: n, onClose: e }) {
                     {
                       className: "tab",
                       onClick: () => s({ type: "INC", key: j.key }),
-                      children: /* @__PURE__ */ r.jsx(ln, { size: 14 })
+                      children: /* @__PURE__ */ r.jsx(fn, { size: 14 })
                     }
                   ),
                   /* @__PURE__ */ r.jsx("div", { className: "flex-1" }),
@@ -3233,7 +3233,7 @@ function ch({ open: n, onClose: e }) {
         /* @__PURE__ */ r.jsx("button", { className: "btn w-full", onClick: () => g(!1), children: a("close") })
       ] }) }) }),
       i && /* @__PURE__ */ r.jsx("div", { className: "absolute inset-0 z-20 flex items-center justify-center p-4", children: /* @__PURE__ */ r.jsx("div", { className: "bg-[var(--card)] border border-white/10 rounded-xl p-6 max-w-md w-full shadow-2xl", children: /* @__PURE__ */ r.jsxs("div", { className: "text-center", children: [
-        /* @__PURE__ */ r.jsx("div", { className: "w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4", children: /* @__PURE__ */ r.jsx(it, { size: 32, className: "text-blue-400" }) }),
+        /* @__PURE__ */ r.jsx("div", { className: "w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4", children: /* @__PURE__ */ r.jsx(ot, { size: 32, className: "text-blue-400" }) }),
         /* @__PURE__ */ r.jsx("h3", { className: "text-lg font-semibold mb-3", children: a("important_notice_cart") }),
         /* @__PURE__ */ r.jsxs("div", { className: "text-sm text-white/80 space-y-2 mb-6", children: [
           /* @__PURE__ */ r.jsxs("p", { children: [
@@ -3254,7 +3254,7 @@ function ch({ open: n, onClose: e }) {
     document.body
   );
 }
-function ra({ categories: n, current: e, onChange: t }) {
+function la({ categories: n, current: e, onChange: t }) {
   const { t: s } = X();
   return /* @__PURE__ */ r.jsxs("div", { className: "relative", children: [
     /* @__PURE__ */ r.jsx("div", { className: "absolute left-0 top-0 bottom-0 w-6 bg-gradient-to-r from-[var(--bg)] to-transparent z-10 pointer-events-none" }),
@@ -3283,7 +3283,7 @@ function ra({ categories: n, current: e, onChange: t }) {
     ] })
   ] });
 }
-function ia({ open: n, src: e, alt: t, onClose: s }) {
+function ua({ open: n, src: e, alt: t, onClose: s }) {
   if (A.useEffect(() => {
     if (!n)
       return;
@@ -3292,7 +3292,7 @@ function ia({ open: n, src: e, alt: t, onClose: s }) {
   }, [n, s]), !n)
     return null;
   const a = document.dir === "rtl" ? "left-3" : "right-3";
-  return Yt(
+  return Jt(
     /* @__PURE__ */ r.jsx(
       "div",
       {
@@ -3330,7 +3330,7 @@ function ia({ open: n, src: e, alt: t, onClose: s }) {
     document.body
   );
 }
-function Tt({ item: n, currency: e, onAdd: t, onPreview: s }) {
+function At({ item: n, currency: e, onAdd: t, onPreview: s }) {
   var o;
   const { t: a } = X();
   return /* @__PURE__ */ r.jsxs("div", { className: "card w-full md:w-full text-left overflow-hidden flex flex-col min-w-[280px] md:min-w-0 min-h-[320px]", children: [
@@ -3378,14 +3378,14 @@ function Tt({ item: n, currency: e, onAdd: t, onPreview: s }) {
         ] }, d);
       }) }) }),
       !n.noCart && /* @__PURE__ */ r.jsx("div", { className: "pt-2 mt-auto", children: /* @__PURE__ */ r.jsxs("button", { className: "btn w-full", onClick: () => t(n), children: [
-        /* @__PURE__ */ r.jsx(nn, { size: 18 }),
+        /* @__PURE__ */ r.jsx(ln, { size: 18 }),
         " ",
         a("add_to_cart")
       ] }) })
     ] })
   ] });
 }
-const oa = {
+const da = {
   type: "logger",
   log(n) {
     this.output("log", n);
@@ -3407,7 +3407,7 @@ class Re {
   }
   init(e) {
     let t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
-    this.prefix = t.prefix || "i18next:", this.logger = e || oa, this.options = t, this.debug = t.debug;
+    this.prefix = t.prefix || "i18next:", this.logger = e || da, this.options = t, this.debug = t.debug;
   }
   log() {
     for (var e = arguments.length, t = new Array(e), s = 0; s < e; s++)
@@ -3484,18 +3484,18 @@ function _e() {
   });
   return t.resolve = n, t.reject = e, t;
 }
-function At(n) {
+function Lt(n) {
   return n == null ? "" : "" + n;
 }
-function ca(n, e, t) {
+function pa(n, e, t) {
   n.forEach((s) => {
     e[s] && (t[s] = e[s]);
   });
 }
-const la = /###/g;
+const ha = /###/g;
 function ye(n, e, t) {
   function s(d) {
-    return d && d.indexOf("###") > -1 ? d.replace(la, ".") : d;
+    return d && d.indexOf("###") > -1 ? d.replace(ha, ".") : d;
   }
   function a() {
     return !n || typeof n == "string";
@@ -3513,7 +3513,7 @@ function ye(n, e, t) {
     k: s(o[u])
   };
 }
-function Lt(n, e, t) {
+function Mt(n, e, t) {
   const {
     obj: s,
     k: a
@@ -3527,7 +3527,7 @@ function Lt(n, e, t) {
     o = `${u[u.length - 1]}.${o}`, u = u.slice(0, u.length - 1), d = ye(n, u, Object), d && d.obj && typeof d.obj[`${d.k}.${o}`] < "u" && (d.obj = void 0);
   d.obj[`${d.k}.${o}`] = t;
 }
-function ua(n, e, t, s) {
+function fa(n, e, t, s) {
   const {
     obj: a,
     k: o
@@ -3542,19 +3542,19 @@ function Oe(n, e) {
   if (t)
     return t[s];
 }
-function da(n, e, t) {
+function ma(n, e, t) {
   const s = Oe(n, t);
   return s !== void 0 ? s : Oe(e, t);
 }
-function rs(n, e, t) {
+function os(n, e, t) {
   for (const s in e)
-    s !== "__proto__" && s !== "constructor" && (s in n ? typeof n[s] == "string" || n[s] instanceof String || typeof e[s] == "string" || e[s] instanceof String ? t && (n[s] = e[s]) : rs(n[s], e[s], t) : n[s] = e[s]);
+    s !== "__proto__" && s !== "constructor" && (s in n ? typeof n[s] == "string" || n[s] instanceof String || typeof e[s] == "string" || e[s] instanceof String ? t && (n[s] = e[s]) : os(n[s], e[s], t) : n[s] = e[s]);
   return n;
 }
 function ce(n) {
   return n.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
 }
-var pa = {
+var ga = {
   "&": "&amp;",
   "<": "&lt;",
   ">": "&gt;",
@@ -3562,10 +3562,10 @@ var pa = {
   "'": "&#39;",
   "/": "&#x2F;"
 };
-function ha(n) {
-  return typeof n == "string" ? n.replace(/[&<>"'\/]/g, (e) => pa[e]) : n;
+function _a(n) {
+  return typeof n == "string" ? n.replace(/[&<>"'\/]/g, (e) => ga[e]) : n;
 }
-class fa {
+class xa {
   constructor(e) {
     this.capacity = e, this.regExpMap = /* @__PURE__ */ new Map(), this.regExpQueue = [];
   }
@@ -3577,13 +3577,13 @@ class fa {
     return this.regExpQueue.length === this.capacity && this.regExpMap.delete(this.regExpQueue.shift()), this.regExpMap.set(e, s), this.regExpQueue.push(e), s;
   }
 }
-const ma = [" ", ",", "?", "!", ";"], ga = new fa(20);
-function _a(n, e, t) {
+const ya = [" ", ",", "?", "!", ";"], ba = new xa(20);
+function va(n, e, t) {
   e = e || "", t = t || "";
-  const s = ma.filter((u) => e.indexOf(u) < 0 && t.indexOf(u) < 0);
+  const s = ya.filter((u) => e.indexOf(u) < 0 && t.indexOf(u) < 0);
   if (s.length === 0)
     return !0;
-  const a = ga.getRegExp(`(${s.map((u) => u === "?" ? "\\?" : u).join("|")})`);
+  const a = ba.getRegExp(`(${s.map((u) => u === "?" ? "\\?" : u).join("|")})`);
   let o = !a.test(n);
   if (!o) {
     const u = n.indexOf(t);
@@ -3591,7 +3591,7 @@ function _a(n, e, t) {
   }
   return o;
 }
-function tt(n, e) {
+function st(n, e) {
   let t = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : ".";
   if (!n)
     return;
@@ -3617,7 +3617,7 @@ function tt(n, e) {
 function Pe(n) {
   return n && n.indexOf("_") > 0 ? n.replace("_", "-") : n;
 }
-class Mt extends Ie {
+class It extends Ie {
   constructor(e) {
     let t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {
       ns: ["translation"],
@@ -3638,7 +3638,7 @@ class Mt extends Ie {
     let d;
     e.indexOf(".") > -1 ? d = e.split(".") : (d = [e, t], s && (Array.isArray(s) ? d.push(...s) : typeof s == "string" && o ? d.push(...s.split(o)) : d.push(s)));
     const i = Oe(this.data, d);
-    return !i && !t && !s && e.indexOf(".") > -1 && (e = d[0], t = d[1], s = d.slice(2).join(".")), i || !u || typeof s != "string" ? i : tt(this.data && this.data[e] && this.data[e][t], s, o);
+    return !i && !t && !s && e.indexOf(".") > -1 && (e = d[0], t = d[1], s = d.slice(2).join(".")), i || !u || typeof s != "string" ? i : st(this.data && this.data[e] && this.data[e][t], s, o);
   }
   addResource(e, t, s, a) {
     let o = arguments.length > 4 && arguments[4] !== void 0 ? arguments[4] : {
@@ -3646,7 +3646,7 @@ class Mt extends Ie {
     };
     const u = o.keySeparator !== void 0 ? o.keySeparator : this.options.keySeparator;
     let d = [e, t];
-    s && (d = d.concat(u ? s.split(u) : s)), e.indexOf(".") > -1 && (d = e.split("."), a = t, t = d[1]), this.addNamespaces(t), Lt(this.data, d, a), o.silent || this.emit("added", e, t, s, a);
+    s && (d = d.concat(u ? s.split(u) : s)), e.indexOf(".") > -1 && (d = e.split("."), a = t, t = d[1]), this.addNamespaces(t), Mt(this.data, d, a), o.silent || this.emit("added", e, t, s, a);
   }
   addResources(e, t, s) {
     let a = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : {
@@ -3665,10 +3665,10 @@ class Mt extends Ie {
     }, d = [e, t];
     e.indexOf(".") > -1 && (d = e.split("."), a = s, s = t, t = d[1]), this.addNamespaces(t);
     let i = Oe(this.data, d) || {};
-    u.skipCopy || (s = JSON.parse(JSON.stringify(s))), a ? rs(i, s, o) : i = {
+    u.skipCopy || (s = JSON.parse(JSON.stringify(s))), a ? os(i, s, o) : i = {
       ...i,
       ...s
-    }, Lt(this.data, d, i), u.silent || this.emit("added", e, t, s);
+    }, Mt(this.data, d, i), u.silent || this.emit("added", e, t, s);
   }
   removeResourceBundle(e, t) {
     this.hasResourceBundle(e, t) && delete this.data[e][t], this.removeNamespaces(t), this.emit("removed", e, t);
@@ -3692,7 +3692,7 @@ class Mt extends Ie {
     return this.data;
   }
 }
-var is = {
+var cs = {
   processors: {},
   addPostProcessor(n) {
     this.processors[n.name] = n;
@@ -3703,11 +3703,11 @@ var is = {
     }), e;
   }
 };
-const It = {};
+const zt = {};
 class Te extends Ie {
   constructor(e) {
     let t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
-    super(), ca(["resourceStore", "languageUtils", "pluralResolver", "interpolator", "backendConnector", "i18nFormat", "utils"], e, this), this.options = t, this.options.keySeparator === void 0 && (this.options.keySeparator = "."), this.logger = te.create("translator");
+    super(), pa(["resourceStore", "languageUtils", "pluralResolver", "interpolator", "backendConnector", "i18nFormat", "utils"], e, this), this.options = t, this.options.keySeparator === void 0 && (this.options.keySeparator = "."), this.logger = te.create("translator");
   }
   changeLanguage(e) {
     e && (this.language = e);
@@ -3726,7 +3726,7 @@ class Te extends Ie {
     s === void 0 && (s = ":");
     const a = t.keySeparator !== void 0 ? t.keySeparator : this.options.keySeparator;
     let o = t.ns || this.options.defaultNS || [];
-    const u = s && e.indexOf(s) > -1, d = !this.options.userDefinedKeySeparator && !t.keySeparator && !this.options.userDefinedNsSeparator && !t.nsSeparator && !_a(e, s, a);
+    const u = s && e.indexOf(s) > -1, d = !this.options.userDefinedKeySeparator && !t.keySeparator && !this.options.userDefinedNsSeparator && !t.nsSeparator && !va(e, s, a);
     if (u && !d) {
       const i = e.match(this.interpolator.nestingRegexp);
       if (i && i.length > 0)
@@ -3804,11 +3804,11 @@ class Te extends Ie {
       let w = !1, j = !1;
       const S = t.count !== void 0 && typeof t.count != "string", T = Te.hasDefaultValue(t), E = S ? this.pluralResolver.getSuffix(c, t.count, t) : "", z = t.ordinal && S ? this.pluralResolver.getSuffix(c, t.count, {
         ordinal: !1
-      }) : "", O = S && !t.ordinal && t.count === 0 && this.pluralResolver.shouldUseIntlApi(), k = O && t[`defaultValue${this.options.pluralSeparator}zero`] || t[`defaultValue${E}`] || t[`defaultValue${z}`] || t.defaultValue;
-      !this.isValidLookup(p) && T && (w = !0, p = k), this.isValidLookup(p) || (j = !0, p = u);
-      const D = (t.missingKeyNoValueFallbackToKey || this.options.missingKeyNoValueFallbackToKey) && j ? void 0 : p, B = T && k !== p && this.options.updateMissing;
+      }) : "", O = S && !t.ordinal && t.count === 0 && this.pluralResolver.shouldUseIntlApi(), C = O && t[`defaultValue${this.options.pluralSeparator}zero`] || t[`defaultValue${E}`] || t[`defaultValue${z}`] || t.defaultValue;
+      !this.isValidLookup(p) && T && (w = !0, p = C), this.isValidLookup(p) || (j = !0, p = u);
+      const D = (t.missingKeyNoValueFallbackToKey || this.options.missingKeyNoValueFallbackToKey) && j ? void 0 : p, B = T && C !== p && this.options.updateMissing;
       if (j || w || B) {
-        if (this.logger.log(B ? "updateKey" : "missingKey", c, i, u, B ? k : p), o) {
+        if (this.logger.log(B ? "updateKey" : "missingKey", c, i, u, B ? C : p), o) {
           const U = this.resolve(u, {
             ...t,
             keySeparator: !1
@@ -3829,9 +3829,9 @@ class Te extends Ie {
         this.options.saveMissing && (this.options.saveMissingPlurals && S ? W.forEach((U) => {
           const ee = this.pluralResolver.getSuffixes(U, t);
           O && t[`defaultValue${this.options.pluralSeparator}zero`] && ee.indexOf(`${this.options.pluralSeparator}zero`) < 0 && ee.push(`${this.options.pluralSeparator}zero`), ee.forEach((se) => {
-            L([U], u + se, t[`defaultValue${se}`] || k);
+            L([U], u + se, t[`defaultValue${se}`] || C);
           });
-        }) : L(W, u, k));
+        }) : L(W, u, C));
       }
       p = this.extendTranslation(p, e, t, f, s), j && p === u && this.options.appendNamespaceToMissingKey && (p = `${i}:${u}`), (j || w) && this.options.parseMissingKeyHandler && (this.options.compatibilityAPI !== "v1" ? p = this.options.parseMissingKeyHandler(this.options.appendNamespaceToMissingKey ? `${i}:${u}` : u, w ? p : void 0) : p = this.options.parseMissingKeyHandler(p));
     }
@@ -3875,7 +3875,7 @@ class Te extends Ie {
       }, s)), s.interpolation && this.interpolator.reset();
     }
     const d = s.postProcess || this.options.postProcess, i = typeof d == "string" ? [d] : d;
-    return e != null && i && i.length && s.applyPostProcessor !== !1 && (e = is.handle(i, e, t, this.options && this.options.postProcessPassResolved ? {
+    return e != null && i && i.length && s.applyPostProcessor !== !1 && (e = cs.handle(i, e, t, this.options && this.options.postProcessPassResolved ? {
       i18nResolved: {
         ...a,
         usedParams: this.getUsedParamsDetails(s)
@@ -3894,7 +3894,7 @@ class Te extends Ie {
       this.options.fallbackNS && (f = f.concat(this.options.fallbackNS));
       const p = t.count !== void 0 && typeof t.count != "string", g = p && !t.ordinal && t.count === 0 && this.pluralResolver.shouldUseIntlApi(), m = t.context !== void 0 && (typeof t.context == "string" || typeof t.context == "number") && t.context !== "", x = t.lngs ? t.lngs : this.languageUtils.toResolveHierarchy(t.lng || this.language, t.fallbackLng);
       f.forEach((b) => {
-        this.isValidLookup(s) || (d = b, !It[`${x[0]}-${b}`] && this.utils && this.utils.hasLoadedNamespace && !this.utils.hasLoadedNamespace(d) && (It[`${x[0]}-${b}`] = !0, this.logger.warn(`key "${a}" for languages "${x.join(", ")}" won't get resolved as namespace "${d}" was not yet loaded`, "This means something IS WRONG in your setup. You access the t function before i18next.init / i18next.loadNamespace / i18next.changeLanguage was done. Wait for the callback or Promise to resolve before accessing it!!!")), x.forEach((N) => {
+        this.isValidLookup(s) || (d = b, !zt[`${x[0]}-${b}`] && this.utils && this.utils.hasLoadedNamespace && !this.utils.hasLoadedNamespace(d) && (zt[`${x[0]}-${b}`] = !0, this.logger.warn(`key "${a}" for languages "${x.join(", ")}" won't get resolved as namespace "${d}" was not yet loaded`, "This means something IS WRONG in your setup. You access the t function before i18next.init / i18next.loadNamespace / i18next.changeLanguage was done. Wait for the callback or Promise to resolve before accessing it!!!")), x.forEach((N) => {
           if (this.isValidLookup(s))
             return;
           u = N;
@@ -3954,10 +3954,10 @@ class Te extends Ie {
     return !1;
   }
 }
-function Ye(n) {
+function Je(n) {
   return n.charAt(0).toUpperCase() + n.slice(1);
 }
-class zt {
+class Ft {
   constructor(e) {
     this.options = e, this.supportedLngs = this.options.supportedLngs || !1, this.logger = te.create("languageUtils");
   }
@@ -3977,7 +3977,7 @@ class zt {
     if (typeof e == "string" && e.indexOf("-") > -1) {
       const t = ["hans", "hant", "latn", "cyrl", "cans", "mong", "arab"];
       let s = e.split("-");
-      return this.options.lowerCaseLng ? s = s.map((a) => a.toLowerCase()) : s.length === 2 ? (s[0] = s[0].toLowerCase(), s[1] = s[1].toUpperCase(), t.indexOf(s[1].toLowerCase()) > -1 && (s[1] = Ye(s[1].toLowerCase()))) : s.length === 3 && (s[0] = s[0].toLowerCase(), s[1].length === 2 && (s[1] = s[1].toUpperCase()), s[0] !== "sgn" && s[2].length === 2 && (s[2] = s[2].toUpperCase()), t.indexOf(s[1].toLowerCase()) > -1 && (s[1] = Ye(s[1].toLowerCase())), t.indexOf(s[2].toLowerCase()) > -1 && (s[2] = Ye(s[2].toLowerCase()))), s.join("-");
+      return this.options.lowerCaseLng ? s = s.map((a) => a.toLowerCase()) : s.length === 2 ? (s[0] = s[0].toLowerCase(), s[1] = s[1].toUpperCase(), t.indexOf(s[1].toLowerCase()) > -1 && (s[1] = Je(s[1].toLowerCase()))) : s.length === 3 && (s[0] = s[0].toLowerCase(), s[1].length === 2 && (s[1] = s[1].toUpperCase()), s[0] !== "sgn" && s[2].length === 2 && (s[2] = s[2].toUpperCase()), t.indexOf(s[1].toLowerCase()) > -1 && (s[1] = Je(s[1].toLowerCase())), t.indexOf(s[2].toLowerCase()) > -1 && (s[2] = Je(s[2].toLowerCase()))), s.join("-");
     }
     return this.options.cleanCode || this.options.lowerCaseLng ? e.toLowerCase() : e;
   }
@@ -4026,7 +4026,7 @@ class zt {
     }), a;
   }
 }
-let xa = [{
+let wa = [{
   lngs: ["ach", "ak", "am", "arn", "br", "fil", "gun", "ln", "mfe", "mg", "mi", "oc", "pt", "pt-BR", "tg", "tl", "ti", "tr", "uz", "wa"],
   nr: [1, 2],
   fc: 1
@@ -4118,7 +4118,7 @@ let xa = [{
   lngs: ["he", "iw"],
   nr: [1, 2, 20, 21],
   fc: 22
-}], ya = {
+}], ja = {
   1: function(n) {
     return +(n > 1);
   },
@@ -4186,7 +4186,7 @@ let xa = [{
     return n == 1 ? 0 : n == 2 ? 1 : (n < 0 || n > 10) && n % 10 == 0 ? 2 : 3;
   }
 };
-const ba = ["v1", "v2", "v3"], va = ["v4"], Ft = {
+const Na = ["v1", "v2", "v3"], $a = ["v4"], Dt = {
   zero: 0,
   one: 1,
   two: 2,
@@ -4194,21 +4194,21 @@ const ba = ["v1", "v2", "v3"], va = ["v4"], Ft = {
   many: 4,
   other: 5
 };
-function wa() {
+function Sa() {
   const n = {};
-  return xa.forEach((e) => {
+  return wa.forEach((e) => {
     e.lngs.forEach((t) => {
       n[t] = {
         numbers: e.nr,
-        plurals: ya[e.fc]
+        plurals: ja[e.fc]
       };
     });
   }), n;
 }
-class ja {
+class ka {
   constructor(e) {
     let t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
-    this.languageUtils = e, this.options = t, this.logger = te.create("pluralResolver"), (!this.options.compatibilityJSON || va.includes(this.options.compatibilityJSON)) && (typeof Intl > "u" || !Intl.PluralRules) && (this.options.compatibilityJSON = "v3", this.logger.error("Your environment seems not to be Intl API compatible, use an Intl.PluralRules polyfill. Will fallback to the compatibilityJSON v3 format handling.")), this.rules = wa();
+    this.languageUtils = e, this.options = t, this.logger = te.create("pluralResolver"), (!this.options.compatibilityJSON || $a.includes(this.options.compatibilityJSON)) && (typeof Intl > "u" || !Intl.PluralRules) && (this.options.compatibilityJSON = "v3", this.logger.error("Your environment seems not to be Intl API compatible, use an Intl.PluralRules polyfill. Will fallback to the compatibilityJSON v3 format handling.")), this.rules = Sa();
   }
   addRule(e, t) {
     this.rules[e] = t;
@@ -4237,7 +4237,7 @@ class ja {
   getSuffixes(e) {
     let t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
     const s = this.getRule(e, t);
-    return s ? this.shouldUseIntlApi() ? s.resolvedOptions().pluralCategories.sort((a, o) => Ft[a] - Ft[o]).map((a) => `${this.options.prepend}${t.ordinal ? `ordinal${this.options.prepend}` : ""}${a}`) : s.numbers.map((a) => this.getSuffix(e, a, t)) : [];
+    return s ? this.shouldUseIntlApi() ? s.resolvedOptions().pluralCategories.sort((a, o) => Dt[a] - Dt[o]).map((a) => `${this.options.prepend}${t.ordinal ? `ordinal${this.options.prepend}` : ""}${a}`) : s.numbers.map((a) => this.getSuffix(e, a, t)) : [];
   }
   getSuffix(e, t) {
     let s = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : {};
@@ -4252,14 +4252,14 @@ class ja {
     return this.options.compatibilityJSON === "v1" ? a === 1 ? "" : typeof a == "number" ? `_plural_${a.toString()}` : o() : this.options.compatibilityJSON === "v2" || this.options.simplifyPluralSuffix && e.numbers.length === 2 && e.numbers[0] === 1 ? o() : this.options.prepend && s.toString() ? this.options.prepend + s.toString() : s.toString();
   }
   shouldUseIntlApi() {
-    return !ba.includes(this.options.compatibilityJSON);
+    return !Na.includes(this.options.compatibilityJSON);
   }
 }
-function Dt(n, e, t) {
-  let s = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : ".", a = arguments.length > 4 && arguments[4] !== void 0 ? arguments[4] : !0, o = da(n, e, t);
-  return !o && a && typeof t == "string" && (o = tt(n, t, s), o === void 0 && (o = tt(e, t, s))), o;
+function Ut(n, e, t) {
+  let s = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : ".", a = arguments.length > 4 && arguments[4] !== void 0 ? arguments[4] : !0, o = ma(n, e, t);
+  return !o && a && typeof t == "string" && (o = st(n, t, s), o === void 0 && (o = st(e, t, s))), o;
 }
-class Na {
+class Ca {
   constructor() {
     let e = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
     this.logger = te.create("interpolator"), this.options = e, this.format = e.interpolation && e.interpolation.format || ((t) => t), this.init(e);
@@ -4270,7 +4270,7 @@ class Na {
       escapeValue: !0
     });
     const t = e.interpolation;
-    this.escape = t.escape !== void 0 ? t.escape : ha, this.escapeValue = t.escapeValue !== void 0 ? t.escapeValue : !0, this.useRawValueToEscape = t.useRawValueToEscape !== void 0 ? t.useRawValueToEscape : !1, this.prefix = t.prefix ? ce(t.prefix) : t.prefixEscaped || "{{", this.suffix = t.suffix ? ce(t.suffix) : t.suffixEscaped || "}}", this.formatSeparator = t.formatSeparator ? t.formatSeparator : t.formatSeparator || ",", this.unescapePrefix = t.unescapeSuffix ? "" : t.unescapePrefix || "-", this.unescapeSuffix = this.unescapePrefix ? "" : t.unescapeSuffix || "", this.nestingPrefix = t.nestingPrefix ? ce(t.nestingPrefix) : t.nestingPrefixEscaped || ce("$t("), this.nestingSuffix = t.nestingSuffix ? ce(t.nestingSuffix) : t.nestingSuffixEscaped || ce(")"), this.nestingOptionsSeparator = t.nestingOptionsSeparator ? t.nestingOptionsSeparator : t.nestingOptionsSeparator || ",", this.maxReplaces = t.maxReplaces ? t.maxReplaces : 1e3, this.alwaysFormat = t.alwaysFormat !== void 0 ? t.alwaysFormat : !1, this.resetRegExp();
+    this.escape = t.escape !== void 0 ? t.escape : _a, this.escapeValue = t.escapeValue !== void 0 ? t.escapeValue : !0, this.useRawValueToEscape = t.useRawValueToEscape !== void 0 ? t.useRawValueToEscape : !1, this.prefix = t.prefix ? ce(t.prefix) : t.prefixEscaped || "{{", this.suffix = t.suffix ? ce(t.suffix) : t.suffixEscaped || "}}", this.formatSeparator = t.formatSeparator ? t.formatSeparator : t.formatSeparator || ",", this.unescapePrefix = t.unescapeSuffix ? "" : t.unescapePrefix || "-", this.unescapeSuffix = this.unescapePrefix ? "" : t.unescapeSuffix || "", this.nestingPrefix = t.nestingPrefix ? ce(t.nestingPrefix) : t.nestingPrefixEscaped || ce("$t("), this.nestingSuffix = t.nestingSuffix ? ce(t.nestingSuffix) : t.nestingSuffixEscaped || ce(")"), this.nestingOptionsSeparator = t.nestingOptionsSeparator ? t.nestingOptionsSeparator : t.nestingOptionsSeparator || ",", this.maxReplaces = t.maxReplaces ? t.maxReplaces : 1e3, this.alwaysFormat = t.alwaysFormat !== void 0 ? t.alwaysFormat : !1, this.resetRegExp();
   }
   reset() {
     this.options && this.init(this.options);
@@ -4287,7 +4287,7 @@ class Na {
     }
     const l = (m) => {
       if (m.indexOf(this.formatSeparator) < 0) {
-        const _ = Dt(t, i, m, this.options.keySeparator, this.options.ignoreJSONStructure);
+        const _ = Ut(t, i, m, this.options.keySeparator, this.options.ignoreJSONStructure);
         return this.alwaysFormat ? this.format(_, void 0, s, {
           ...a,
           ...t,
@@ -4295,7 +4295,7 @@ class Na {
         }) : _;
       }
       const x = m.split(this.formatSeparator), b = x.shift().trim(), N = x.join(this.formatSeparator).trim();
-      return this.format(Dt(t, i, b, this.options.keySeparator, this.options.ignoreJSONStructure), N, s, {
+      return this.format(Ut(t, i, b, this.options.keySeparator, this.options.ignoreJSONStructure), N, s, {
         ...a,
         ...t,
         interpolationkey: b
@@ -4324,7 +4324,7 @@ class Na {
           } else
             this.logger.warn(`missed to pass in variable ${x} for interpolating ${e}`), u = "";
         else
-          typeof u != "string" && !this.useRawValueToEscape && (u = At(u));
+          typeof u != "string" && !this.useRawValueToEscape && (u = Lt(u));
         const b = m.safeValue(u);
         if (e = e.replace(o[0], b), p ? (m.regex.lastIndex += u.length, m.regex.lastIndex -= o[0].length) : m.regex.lastIndex = 0, d++, d >= this.maxReplaces)
           break;
@@ -4364,7 +4364,7 @@ class Na {
       }
       if (o = t(d.call(this, a[1].trim(), u), u), o && a[0] === e && typeof o != "string")
         return o;
-      typeof o != "string" && (o = At(o)), o || (this.logger.warn(`missed to resolve ${a[1]} for nesting ${e}`), o = ""), c && (o = i.reduce((l, f) => this.format(l, f, s.lng, {
+      typeof o != "string" && (o = Lt(o)), o || (this.logger.warn(`missed to resolve ${a[1]} for nesting ${e}`), o = ""), c && (o = i.reduce((l, f) => this.format(l, f, s.lng, {
         ...s,
         interpolationkey: a[1].trim()
       }), o.trim())), e = e.replace(a[0], o), this.regexp.lastIndex = 0;
@@ -4372,7 +4372,7 @@ class Na {
     return e;
   }
 }
-function $a(n) {
+function Ea(n) {
   let e = n.toLowerCase().trim();
   const t = {};
   if (n.indexOf("(") > -1) {
@@ -4399,7 +4399,7 @@ function le(n) {
     return d || (d = n(Pe(a), o), e[u] = d), d(s);
   };
 }
-class Sa {
+class Ra {
   constructor() {
     let e = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
     this.logger = te.create("formatter"), this.options = e, this.formats = {
@@ -4454,7 +4454,7 @@ class Sa {
       const {
         formatName: c,
         formatOptions: l
-      } = $a(i);
+      } = Ea(i);
       if (this.formats[c]) {
         let f = d;
         try {
@@ -4474,10 +4474,10 @@ class Sa {
     }, e);
   }
 }
-function Ca(n, e) {
+function Oa(n, e) {
   n.pending[e] !== void 0 && (delete n.pending[e], n.pendingCount--);
 }
-class ka extends Ie {
+class Pa extends Ie {
   constructor(e, t, s) {
     let a = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : {};
     super(), this.backend = e, this.store = t, this.services = s, this.languageUtils = s.languageUtils, this.options = a, this.logger = te.create("backendConnector"), this.waitingReads = [], this.maxParallelReads = a.maxParallelReads || 10, this.readingCalls = 0, this.maxRetries = a.maxRetries >= 0 ? a.maxRetries : 5, this.retryTimeout = a.retryTimeout >= 1 ? a.retryTimeout : 350, this.state = {}, this.queue = [], this.backend && this.backend.init && this.backend.init(s, a.backend, a);
@@ -4510,7 +4510,7 @@ class ka extends Ie {
     }), this.state[e] = t ? -1 : 2;
     const d = {};
     this.queue.forEach((i) => {
-      ua(i.loaded, [o], u), Ca(i, e), t && i.errors.push(t), i.pendingCount === 0 && !i.done && (Object.keys(i.loaded).forEach((c) => {
+      fa(i.loaded, [o], u), Oa(i, e), t && i.errors.push(t), i.pendingCount === 0 && !i.done && (Object.keys(i.loaded).forEach((c) => {
         d[c] || (d[c] = {});
         const l = i.loaded[c];
         l.length && l.forEach((f) => {
@@ -4613,7 +4613,7 @@ class ka extends Ie {
     }
   }
 }
-function Ut() {
+function Bt() {
   return {
     debug: !1,
     initImmediate: !0,
@@ -4672,12 +4672,12 @@ function Ut() {
     }
   };
 }
-function Bt(n) {
+function Vt(n) {
   return typeof n.ns == "string" && (n.ns = [n.ns]), typeof n.fallbackLng == "string" && (n.fallbackLng = [n.fallbackLng]), typeof n.fallbackNS == "string" && (n.fallbackNS = [n.fallbackNS]), n.supportedLngs && n.supportedLngs.indexOf("cimode") < 0 && (n.supportedLngs = n.supportedLngs.concat(["cimode"])), n;
 }
-function Ce() {
+function ke() {
 }
-function Ea(n) {
+function Ta(n) {
   Object.getOwnPropertyNames(Object.getPrototypeOf(n)).forEach((t) => {
     typeof n[t] == "function" && (n[t] = n[t].bind(n));
   });
@@ -4685,9 +4685,9 @@ function Ea(n) {
 class ve extends Ie {
   constructor() {
     let e = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {}, t = arguments.length > 1 ? arguments[1] : void 0;
-    if (super(), this.options = Bt(e), this.services = {}, this.logger = te, this.modules = {
+    if (super(), this.options = Vt(e), this.services = {}, this.logger = te, this.modules = {
       external: []
-    }, Ea(this), t && !this.isInitialized && !e.isClone) {
+    }, Ta(this), t && !this.isInitialized && !e.isClone) {
       if (!this.options.initImmediate)
         return this.init(e, t), this;
       setTimeout(() => {
@@ -4699,11 +4699,11 @@ class ve extends Ie {
     var e = this;
     let t = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {}, s = arguments.length > 1 ? arguments[1] : void 0;
     this.isInitializing = !0, typeof t == "function" && (s = t, t = {}), !t.defaultNS && t.defaultNS !== !1 && t.ns && (typeof t.ns == "string" ? t.defaultNS = t.ns : t.ns.indexOf("translation") < 0 && (t.defaultNS = t.ns[0]));
-    const a = Ut();
+    const a = Bt();
     this.options = {
       ...a,
       ...this.options,
-      ...Bt(t)
+      ...Vt(t)
     }, this.options.compatibilityAPI !== "v1" && (this.options.interpolation = {
       ...a.interpolation,
       ...this.options.interpolation
@@ -4714,17 +4714,17 @@ class ve extends Ie {
     if (!this.options.isClone) {
       this.modules.logger ? te.init(o(this.modules.logger), this.options) : te.init(null, this.options);
       let l;
-      this.modules.formatter ? l = this.modules.formatter : typeof Intl < "u" && (l = Sa);
-      const f = new zt(this.options);
-      this.store = new Mt(this.options.resources, this.options);
+      this.modules.formatter ? l = this.modules.formatter : typeof Intl < "u" && (l = Ra);
+      const f = new Ft(this.options);
+      this.store = new It(this.options.resources, this.options);
       const p = this.services;
-      p.logger = te, p.resourceStore = this.store, p.languageUtils = f, p.pluralResolver = new ja(f, {
+      p.logger = te, p.resourceStore = this.store, p.languageUtils = f, p.pluralResolver = new ka(f, {
         prepend: this.options.pluralSeparator,
         compatibilityJSON: this.options.compatibilityJSON,
         simplifyPluralSuffix: this.options.simplifyPluralSuffix
-      }), l && (!this.options.interpolation.format || this.options.interpolation.format === a.interpolation.format) && (p.formatter = o(l), p.formatter.init(p, this.options), this.options.interpolation.format = p.formatter.format.bind(p.formatter)), p.interpolator = new Na(this.options), p.utils = {
+      }), l && (!this.options.interpolation.format || this.options.interpolation.format === a.interpolation.format) && (p.formatter = o(l), p.formatter.init(p, this.options), this.options.interpolation.format = p.formatter.format.bind(p.formatter)), p.interpolator = new Ca(this.options), p.utils = {
         hasLoadedNamespace: this.hasLoadedNamespace.bind(this)
-      }, p.backendConnector = new ka(o(this.modules.backend), p.resourceStore, p, this.options), p.backendConnector.on("*", function(g) {
+      }, p.backendConnector = new Pa(o(this.modules.backend), p.resourceStore, p, this.options), p.backendConnector.on("*", function(g) {
         for (var m = arguments.length, x = new Array(m > 1 ? m - 1 : 0), b = 1; b < m; b++)
           x[b - 1] = arguments[b];
         e.emit(g, ...x);
@@ -4736,7 +4736,7 @@ class ve extends Ie {
         g.init && g.init(this);
       });
     }
-    if (this.format = this.options.interpolation.format, s || (s = Ce), this.options.fallbackLng && !this.services.languageDetector && !this.options.lng) {
+    if (this.format = this.options.interpolation.format, s || (s = ke), this.options.fallbackLng && !this.services.languageDetector && !this.options.lng) {
       const l = this.services.languageUtils.getFallbackCodes(this.options.fallbackLng);
       l.length > 0 && l[0] !== "dev" && (this.options.lng = l[0]);
     }
@@ -4760,7 +4760,7 @@ class ve extends Ie {
     return this.options.resources || !this.options.initImmediate ? c() : setTimeout(c, 0), i;
   }
   loadResources(e) {
-    let s = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : Ce;
+    let s = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : ke;
     const a = typeof e == "string" ? e : this.language;
     if (typeof e == "function" && (s = e), !this.options.resources || this.options.partialBundledLanguages) {
       if (a && a.toLowerCase() === "cimode" && (!this.options.preload || this.options.preload.length === 0))
@@ -4780,7 +4780,7 @@ class ve extends Ie {
   }
   reloadResources(e, t, s) {
     const a = _e();
-    return e || (e = this.languages), t || (t = this.options.ns), s || (s = Ce), this.services.backendConnector.reload(e, t, (o) => {
+    return e || (e = this.languages), t || (t = this.options.ns), s || (s = ke), this.services.backendConnector.reload(e, t, (o) => {
       a.resolve(), s(o);
     }), a;
   }
@@ -4789,7 +4789,7 @@ class ve extends Ie {
       throw new Error("You are passing an undefined module! Please check the object you are passing to i18next.use()");
     if (!e.type)
       throw new Error("You are passing a wrong module! Please check the object you are passing to i18next.use()");
-    return e.type === "backend" && (this.modules.backend = e), (e.type === "logger" || e.log && e.warn && e.error) && (this.modules.logger = e), e.type === "languageDetector" && (this.modules.languageDetector = e), e.type === "i18nFormat" && (this.modules.i18nFormat = e), e.type === "postProcessor" && is.addPostProcessor(e), e.type === "formatter" && (this.modules.formatter = e), e.type === "3rdParty" && this.modules.external.push(e), this;
+    return e.type === "backend" && (this.modules.backend = e), (e.type === "logger" || e.log && e.warn && e.error) && (this.modules.logger = e), e.type === "languageDetector" && (this.modules.languageDetector = e), e.type === "i18nFormat" && (this.modules.i18nFormat = e), e.type === "postProcessor" && cs.addPostProcessor(e), e.type === "formatter" && (this.modules.formatter = e), e.type === "3rdParty" && this.modules.external.push(e), this;
   }
   setResolvedLanguage(e) {
     if (!(!e || !this.languages) && !(["cimode", "dev"].indexOf(e) > -1))
@@ -4890,7 +4890,7 @@ class ve extends Ie {
   dir(e) {
     if (e || (e = this.resolvedLanguage || (this.languages && this.languages.length > 0 ? this.languages[0] : this.language)), !e)
       return "rtl";
-    const t = ["ar", "shu", "sqr", "ssh", "xaa", "yhd", "yud", "aao", "abh", "abv", "acm", "acq", "acw", "acx", "acy", "adf", "ads", "aeb", "aec", "afb", "ajp", "apc", "apd", "arb", "arq", "ars", "ary", "arz", "auz", "avl", "ayh", "ayl", "ayn", "ayp", "bbz", "pga", "he", "iw", "ps", "pbt", "pbu", "pst", "prp", "prd", "ug", "ur", "ydd", "yds", "yih", "ji", "yi", "hbo", "men", "xmn", "fa", "jpr", "peo", "pes", "prs", "dv", "sam", "ckb"], s = this.services && this.services.languageUtils || new zt(Ut());
+    const t = ["ar", "shu", "sqr", "ssh", "xaa", "yhd", "yud", "aao", "abh", "abv", "acm", "acq", "acw", "acx", "acy", "adf", "ads", "aeb", "aec", "afb", "ajp", "apc", "apd", "arb", "arq", "ars", "ary", "arz", "auz", "avl", "ayh", "ayl", "ayn", "ayp", "bbz", "pga", "he", "iw", "ps", "pbt", "pbu", "pst", "prp", "prd", "ug", "ur", "ydd", "yds", "yih", "ji", "yi", "hbo", "men", "xmn", "fa", "jpr", "peo", "pes", "prs", "dv", "sam", "ckb"], s = this.services && this.services.languageUtils || new Ft(Bt());
     return t.indexOf(s.getLanguagePartFromCode(e)) > -1 || e.toLowerCase().indexOf("-arab") > 1 ? "rtl" : "ltr";
   }
   static createInstance() {
@@ -4898,7 +4898,7 @@ class ve extends Ie {
     return new ve(e, t);
   }
   cloneInstance() {
-    let e = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {}, t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : Ce;
+    let e = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {}, t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : ke;
     const s = e.forkResourceStore;
     s && delete e.forkResourceStore;
     const a = {
@@ -4912,7 +4912,7 @@ class ve extends Ie {
       ...this.services
     }, o.services.utils = {
       hasLoadedNamespace: o.hasLoadedNamespace.bind(o)
-    }, s && (o.store = new Mt(this.store.data, a), o.services.resourceStore = o.store), o.translator = new Te(o.services, a), o.translator.on("*", function(d) {
+    }, s && (o.store = new It(this.store.data, a), o.services.resourceStore = o.store), o.translator = new Te(o.services, a), o.translator.on("*", function(d) {
       for (var i = arguments.length, c = new Array(i > 1 ? i - 1 : 0), l = 1; l < i; l++)
         c[l - 1] = arguments[l];
       o.emit(d, ...c);
@@ -4930,498 +4930,498 @@ class ve extends Ie {
     };
   }
 }
-const Y = ve.createInstance();
-Y.createInstance = ve.createInstance;
-Y.createInstance;
-Y.dir;
-Y.init;
-Y.loadResources;
-Y.reloadResources;
-Y.use;
-Y.changeLanguage;
-Y.getFixedT;
-Y.t;
-Y.exists;
-Y.setDefaultNamespace;
-Y.hasLoadedNamespace;
-Y.loadNamespaces;
-Y.loadLanguages;
-const Ra = "New order from template menu", Oa = "Total", Pa = "Name", Ta = "Type", Aa = "Time/Table", La = "Size", Ma = "Extras", Ia = "Notes", za = "Doneness", Fa = "Sugar", Da = "Pasta Type", Ua = "Bread", Ba = "Menu", Va = "Contact", qa = "All", Wa = "Search dishes...", Ha = "Call", Ka = "WhatsApp", Ya = "Location", Ja = "Address", Qa = "Opening Hours", Ga = "Add to Cart", Xa = "Added", Za = "Customize", er = "Size", tr = "Extras", sr = "Notes", nr = "Cart", ar = "items", rr = "Your cart is empty", ir = "Clear cart", or = "Send via WhatsApp", cr = "Total", lr = "Name", ur = "Order type", dr = "Pickup", pr = "Delivery", hr = "Time/Table", fr = "Message preview", mr = "QR", gr = "Instagram", _r = "Base price", xr = "Extras", yr = "Reservation", br = "Book a Table", vr = "Date", wr = "Time", jr = "Area", Nr = "Number of Guests", $r = "Your Name", Sr = "Phone Number", Cr = "Special Requests", kr = "Send Reservation Request", Er = "Reservation request sent!", Rr = "Please wait for confirmation from the restaurant.", Or = "If you don't receive a response within 15 minutes, please call the restaurant.", Pr = "Please wait for confirmation from the restaurant for your order.", Tr = "If you don't receive a response within 5 minutes, please call the restaurant.", Ar = "Today", Lr = "Tomorrow", Mr = "Reserve your table at our restaurant and enjoy an unforgettable dining experience. We look forward to welcoming you!", Ir = "Choose your preferred date", zr = "Select time slot", Fr = "Number of people", Dr = "Important Notice", Ur = "Need immediate assistance? Call us:", Br = "Any special requests or notes...", Vr = "Guest", qr = "Guests", Wr = "Table Reservation Request", Hr = "Date:", Kr = "Time:", Yr = "Area:", Jr = "Guests:", Qr = "Name:", Gr = "Phone:", Xr = "Notes:", Zr = "Please confirm this reservation.", ei = "Thank you! 🙏", ti = "Sun–Thu:", si = "Fri:", ni = "Sat:", ai = "Important Notice", ri = "Delivery fees not included in total price", ii = "Continue to WhatsApp", oi = "Cancel", ci = "The restaurant is currently closed. Please try again during opening hours.", li = "Close", ui = "🍽️ NEW ORDER REQUEST", di = "📋 ORDER ITEMS:", pi = "👤 CUSTOMER INFORMATION:", hi = "Order Type", fi = "Name", mi = "Phone", gi = "Qty", _i = "Item", xi = "Options", yi = "Please confirm this order. Thank you! 🙏", bi = "Served until 13:00", vi = "Sunday", wi = "Monday", ji = "Tuesday", Ni = "Wednesday", $i = "Thursday", Si = "Friday", Ci = "Saturday", ki = "For illustration only", Ei = "Terms of Service", Ri = "Privacy Policy", Oi = "Accessibility Statement", Pi = "Last updated", Ti = "Acceptance of Terms", Ai = "By using our website and services, you agree to comply with these terms of service.", Li = "Service Usage", Mi = "Our website is designed for browsing our menu, placing orders via WhatsApp, and making reservations.", Ii = "Orders and Reservations", zi = "All orders are processed through WhatsApp. Reservations are subject to availability and confirmation.", Fi = "Payment Terms", Di = "Payment is handled directly at the restaurant. Online orders are for convenience and confirmation only.", Ui = "Limitation of Liability", Bi = "We are not responsible for third-party services such as WhatsApp. Use of external services is subject to their terms.", Vi = "Changes to Terms", qi = "We may update these terms from time to time. Continued use constitutes acceptance of revised terms.", Wi = "Information Collection", Hi = "We respect your privacy. Our website does not use cookies or online tracking. Information is stored locally in your browser (LocalStorage) for continuity, and may include name and order preferences (personal/family).", Ki = "Information Usage", Yi = "We only use information to provide our services and improve your experience. We do not share personal data with third parties.", Ji = "Cookies and Tracking", Qi = "Our website does not use cookies or tracking technologies. All data is stored locally in your browser.", Gi = "WhatsApp Integration", Xi = "Order placement occurs through WhatsApp (external service). WhatsApp usage is subject to WhatsApp's terms and privacy policy.", Zi = "Data Storage", eo = "Data is stored locally on your device and on WhatsApp for order processing and communication purposes.", to = "User Rights", so = "For any questions or requests regarding your data, please contact us through our contact page.", no = "Our Commitment", ao = "We are committed to making our website accessible according to Israeli Standard TI 5568 based on WCAG 2.0 Level AA. Our goal is to provide an accessible, equal, and comfortable user experience for all users.", ro = "Accessibility Standards", io = "Our website follows modern accessibility guidelines including keyboard navigation, screen reader compatibility, and clear visual design.", oo = "Accessibility Features", co = "The website includes proper heading structure, alternative text for images, keyboard navigation support, and responsive design for various devices and assistive technologies.", lo = "Accessibility Contact", uo = "If you encounter any accessibility issues or have suggestions for improvement, please contact us via phone or WhatsApp listed on our contact page.", po = "Customer name is required before sending to WhatsApp", ho = "Back to Menu", fo = "Closed", mo = "The restaurant is currently closed. Orders can be placed only during opening hours.", go = "Got it", _o = {
-  wa_header: Ra,
-  wa_total: Oa,
-  wa_name: Pa,
-  wa_type: Ta,
-  wa_time: Aa,
-  opt_size: La,
-  opt_extras: Ma,
-  opt_notes: Ia,
-  opt_doneness: za,
-  opt_sugar: Fa,
-  opt_pasta_type: Da,
-  opt_bread: Ua,
-  menu: Ba,
-  contact: Va,
-  all: qa,
-  search_placeholder: Wa,
-  call: Ha,
-  whatsapp: Ka,
-  location: Ya,
-  address: Ja,
-  open_hours: Qa,
-  add_to_cart: Ga,
-  added: Xa,
-  customize: Za,
-  size: er,
-  extras: tr,
-  notes: sr,
-  cart: nr,
-  items: ar,
-  empty_cart: rr,
-  clear_cart: ir,
-  checkout: or,
-  total: cr,
-  customer_name: lr,
-  order_type: ur,
-  pickup: dr,
-  delivery: pr,
-  time_or_table: hr,
-  message_preview: fr,
-  qr: mr,
-  instagram: gr,
-  base_price: _r,
-  extras_total: xr,
-  reservation: yr,
-  book_table: br,
-  reservation_date: vr,
-  reservation_time: wr,
-  reservation_area: jr,
-  reservation_guests: Nr,
-  reservation_name: $r,
-  reservation_phone: Sr,
-  reservation_notes: Cr,
-  send_reservation: kr,
-  reservation_sent: Er,
-  reservation_wait: Rr,
-  reservation_no_response: Or,
-  order_wait: Pr,
-  order_no_response: Tr,
-  today: Ar,
-  tomorrow: Lr,
-  reservation_description: Mr,
-  choose_date: Ir,
-  select_time: zr,
-  number_people: Fr,
-  important_notice: Dr,
-  need_assistance: Ur,
-  special_requests_placeholder: Br,
-  guests_singular: Vr,
-  guests_plural: qr,
-  reservation_request: Wr,
-  date_label: Hr,
-  time_label: Kr,
-  area_label: Yr,
-  guests_label: Jr,
-  name_label: Qr,
-  phone_label: Gr,
-  notes_label: Xr,
-  confirm_reservation: Zr,
-  thank_you: ei,
-  sun_thu: ti,
-  fri: si,
-  sat: ni,
-  important_notice_cart: ai,
-  delivery_notice: ri,
-  continue_to_whatsapp: ii,
-  cancel: oi,
-  restaurant_closed_message: ci,
-  close: li,
-  wa_order_header: ui,
-  wa_order_items: di,
-  wa_customer_info: pi,
-  wa_order_type: hi,
-  wa_customer_name: fi,
-  wa_customer_phone: mi,
-  wa_quantity: gi,
-  wa_item: _i,
-  wa_options: xi,
-  wa_confirm_order: yi,
-  served_until_13: bi,
-  day_sun: vi,
-  day_mon: wi,
-  day_tue: ji,
-  day_wed: Ni,
-  day_thu: $i,
-  day_fri: Si,
-  day_sat: Ci,
+const K = ve.createInstance();
+K.createInstance = ve.createInstance;
+K.createInstance;
+K.dir;
+K.init;
+K.loadResources;
+K.reloadResources;
+K.use;
+K.changeLanguage;
+K.getFixedT;
+K.t;
+K.exists;
+K.setDefaultNamespace;
+K.hasLoadedNamespace;
+K.loadNamespaces;
+K.loadLanguages;
+const Aa = "New order from template menu", La = "Total", Ma = "Name", Ia = "Type", za = "Time/Table", Fa = "Size", Da = "Extras", Ua = "Notes", Ba = "Doneness", Va = "Sugar", qa = "Pasta Type", Wa = "Bread", Ha = "Menu", Ka = "Contact", Ya = "All", Ja = "Search dishes...", Qa = "Call", Ga = "WhatsApp", Xa = "Location", Za = "Address", er = "Opening Hours", tr = "Add to Cart", sr = "Added", nr = "Customize", ar = "Size", rr = "Extras", ir = "Notes", or = "Cart", cr = "items", lr = "Your cart is empty", ur = "Clear cart", dr = "Send via WhatsApp", pr = "Total", hr = "Name", fr = "Order type", mr = "Pickup", gr = "Delivery", _r = "Time/Table", xr = "Message preview", yr = "QR", br = "Instagram", vr = "Base price", wr = "Extras", jr = "Reservation", Nr = "Book a Table", $r = "Date", Sr = "Time", kr = "Area", Cr = "Number of Guests", Er = "Your Name", Rr = "Phone Number", Or = "Special Requests", Pr = "Send Reservation Request", Tr = "Reservation request sent!", Ar = "Please wait for confirmation from the restaurant.", Lr = "If you don't receive a response within 15 minutes, please call the restaurant.", Mr = "Please wait for confirmation from the restaurant for your order.", Ir = "If you don't receive a response within 5 minutes, please call the restaurant.", zr = "Today", Fr = "Tomorrow", Dr = "Reserve your table at our restaurant and enjoy an unforgettable dining experience. We look forward to welcoming you!", Ur = "Choose your preferred date", Br = "Select time slot", Vr = "Number of people", qr = "Important Notice", Wr = "Need immediate assistance? Call us:", Hr = "Any special requests or notes...", Kr = "Guest", Yr = "Guests", Jr = "Table Reservation Request", Qr = "Date:", Gr = "Time:", Xr = "Area:", Zr = "Guests:", ei = "Name:", ti = "Phone:", si = "Notes:", ni = "Please confirm this reservation.", ai = "Thank you! 🙏", ri = "Sun–Thu:", ii = "Fri:", oi = "Sat:", ci = "Important Notice", li = "Delivery fees not included in total price", ui = "Continue to WhatsApp", di = "Cancel", pi = "The restaurant is currently closed. Please try again during opening hours.", hi = "Close", fi = "🍽️ NEW ORDER REQUEST", mi = "📋 ORDER ITEMS:", gi = "👤 CUSTOMER INFORMATION:", _i = "Order Type", xi = "Name", yi = "Phone", bi = "Qty", vi = "Item", wi = "Options", ji = "Please confirm this order. Thank you! 🙏", Ni = "Served until 13:00", $i = "Sunday", Si = "Monday", ki = "Tuesday", Ci = "Wednesday", Ei = "Thursday", Ri = "Friday", Oi = "Saturday", Pi = "For illustration only", Ti = "Terms of Service", Ai = "Privacy Policy", Li = "Accessibility Statement", Mi = "Last updated", Ii = "Acceptance of Terms", zi = "By using our website and services, you agree to comply with these terms of service.", Fi = "Service Usage", Di = "Our website is designed for browsing our menu, placing orders via WhatsApp, and making reservations.", Ui = "Orders and Reservations", Bi = "All orders are processed through WhatsApp. Reservations are subject to availability and confirmation.", Vi = "Payment Terms", qi = "Payment is handled directly at the restaurant. Online orders are for convenience and confirmation only.", Wi = "Limitation of Liability", Hi = "We are not responsible for third-party services such as WhatsApp. Use of external services is subject to their terms.", Ki = "Changes to Terms", Yi = "We may update these terms from time to time. Continued use constitutes acceptance of revised terms.", Ji = "Information Collection", Qi = "We respect your privacy. Our website does not use cookies or online tracking. Information is stored locally in your browser (LocalStorage) for continuity, and may include name and order preferences (personal/family).", Gi = "Information Usage", Xi = "We only use information to provide our services and improve your experience. We do not share personal data with third parties.", Zi = "Cookies and Tracking", eo = "Our website does not use cookies or tracking technologies. All data is stored locally in your browser.", to = "WhatsApp Integration", so = "Order placement occurs through WhatsApp (external service). WhatsApp usage is subject to WhatsApp's terms and privacy policy.", no = "Data Storage", ao = "Data is stored locally on your device and on WhatsApp for order processing and communication purposes.", ro = "User Rights", io = "For any questions or requests regarding your data, please contact us through our contact page.", oo = "Our Commitment", co = "We are committed to making our website accessible according to Israeli Standard TI 5568 based on WCAG 2.0 Level AA. Our goal is to provide an accessible, equal, and comfortable user experience for all users.", lo = "Accessibility Standards", uo = "Our website follows modern accessibility guidelines including keyboard navigation, screen reader compatibility, and clear visual design.", po = "Accessibility Features", ho = "The website includes proper heading structure, alternative text for images, keyboard navigation support, and responsive design for various devices and assistive technologies.", fo = "Accessibility Contact", mo = "If you encounter any accessibility issues or have suggestions for improvement, please contact us via phone or WhatsApp listed on our contact page.", go = "Customer name is required before sending to WhatsApp", _o = "Back to Menu", xo = "Closed", yo = "The restaurant is currently closed. Orders can be placed only during opening hours.", bo = "Got it", ls = {
+  wa_header: Aa,
+  wa_total: La,
+  wa_name: Ma,
+  wa_type: Ia,
+  wa_time: za,
+  opt_size: Fa,
+  opt_extras: Da,
+  opt_notes: Ua,
+  opt_doneness: Ba,
+  opt_sugar: Va,
+  opt_pasta_type: qa,
+  opt_bread: Wa,
+  menu: Ha,
+  contact: Ka,
+  all: Ya,
+  search_placeholder: Ja,
+  call: Qa,
+  whatsapp: Ga,
+  location: Xa,
+  address: Za,
+  open_hours: er,
+  add_to_cart: tr,
+  added: sr,
+  customize: nr,
+  size: ar,
+  extras: rr,
+  notes: ir,
+  cart: or,
+  items: cr,
+  empty_cart: lr,
+  clear_cart: ur,
+  checkout: dr,
+  total: pr,
+  customer_name: hr,
+  order_type: fr,
+  pickup: mr,
+  delivery: gr,
+  time_or_table: _r,
+  message_preview: xr,
+  qr: yr,
+  instagram: br,
+  base_price: vr,
+  extras_total: wr,
+  reservation: jr,
+  book_table: Nr,
+  reservation_date: $r,
+  reservation_time: Sr,
+  reservation_area: kr,
+  reservation_guests: Cr,
+  reservation_name: Er,
+  reservation_phone: Rr,
+  reservation_notes: Or,
+  send_reservation: Pr,
+  reservation_sent: Tr,
+  reservation_wait: Ar,
+  reservation_no_response: Lr,
+  order_wait: Mr,
+  order_no_response: Ir,
+  today: zr,
+  tomorrow: Fr,
+  reservation_description: Dr,
+  choose_date: Ur,
+  select_time: Br,
+  number_people: Vr,
+  important_notice: qr,
+  need_assistance: Wr,
+  special_requests_placeholder: Hr,
+  guests_singular: Kr,
+  guests_plural: Yr,
+  reservation_request: Jr,
+  date_label: Qr,
+  time_label: Gr,
+  area_label: Xr,
+  guests_label: Zr,
+  name_label: ei,
+  phone_label: ti,
+  notes_label: si,
+  confirm_reservation: ni,
+  thank_you: ai,
+  sun_thu: ri,
+  fri: ii,
+  sat: oi,
+  important_notice_cart: ci,
+  delivery_notice: li,
+  continue_to_whatsapp: ui,
+  cancel: di,
+  restaurant_closed_message: pi,
+  close: hi,
+  wa_order_header: fi,
+  wa_order_items: mi,
+  wa_customer_info: gi,
+  wa_order_type: _i,
+  wa_customer_name: xi,
+  wa_customer_phone: yi,
+  wa_quantity: bi,
+  wa_item: vi,
+  wa_options: wi,
+  wa_confirm_order: ji,
+  served_until_13: Ni,
+  day_sun: $i,
+  day_mon: Si,
+  day_tue: ki,
+  day_wed: Ci,
+  day_thu: Ei,
+  day_fri: Ri,
+  day_sat: Oi,
   "day_tue-sat": "Tuesday-Saturday",
   "day_mon-sat": "Monday-Saturday",
-  for_illustration_only: ki,
-  terms_of_service: Ei,
-  privacy_policy: Ri,
-  accessibility_statement: Oi,
-  last_updated: Pi,
-  terms_acceptance: Ti,
-  terms_acceptance_text: Ai,
-  terms_service_usage: Li,
-  terms_service_usage_text: Mi,
-  terms_orders: Ii,
-  terms_orders_text: zi,
-  terms_payment: Fi,
-  terms_payment_text: Di,
-  terms_liability: Ui,
-  terms_liability_text: Bi,
-  terms_changes: Vi,
-  terms_changes_text: qi,
-  privacy_info_collection: Wi,
-  privacy_info_collection_text: Hi,
-  privacy_info_usage: Ki,
-  privacy_info_usage_text: Yi,
-  privacy_cookies: Ji,
-  privacy_cookies_text: Qi,
-  privacy_whatsapp: Gi,
-  privacy_whatsapp_text: Xi,
-  privacy_data_storage: Zi,
-  privacy_data_storage_text: eo,
-  privacy_user_rights: to,
-  privacy_user_rights_text: so,
-  accessibility_commitment: no,
-  accessibility_commitment_text: ao,
-  accessibility_standards: ro,
-  accessibility_standards_text: io,
-  accessibility_features: oo,
-  accessibility_features_text: co,
-  accessibility_contact: lo,
-  accessibility_contact_text: uo,
-  name_required: po,
-  back_to_menu: ho,
-  closed: fo,
-  closed_popup_message: mo,
-  got_it_button: go
-}, xo = "הזמנה חדשה מתפריט התבנית", yo = "סך הכול", bo = "שם", vo = "סוג", wo = "שעה/שולחן", jo = "גודל", No = "תוספות", $o = "הערות", So = "דרגת עשייה", Co = "סוכר", ko = "סוג פסטה", Eo = "לחם", Ro = "תפריט", Oo = "צור קשר", Po = "הכל", To = "חיפוש מנות...", Ao = "התקשר", Lo = "וואטסאפ", Mo = "מיקום", Io = "כתובת", zo = "שעות פתיחה", Fo = "להוסיף לסל", Do = "נוסף", Uo = "התאמה", Bo = "גודל", Vo = "תוספות", qo = "הערות", Wo = "הסל", Ho = "פריטים", Ko = "הסל ריק", Yo = "נקה סל", Jo = "שלח בוואטסאפ", Qo = "סך הכל", Go = "שם", Xo = "סוג הזמנה", Zo = "איסוף עצמי", ec = "משלוח", tc = "שעה/שולחן", sc = "תצוגה מקדימה", nc = "QR", ac = "אינסטגרם", rc = "מחיר בסיס", ic = "תוספות", oc = "הזמנת שולחן", cc = "הזמן שולחן", lc = "תאריך", uc = "שעה", dc = "אזור", pc = "מספר אורחים", hc = "השם שלך", fc = "מספר טלפון", mc = "בקשות מיוחדות", gc = "שלח בקשת הזמנה", _c = "בקשת ההזמנה נשלחה!", xc = "אנא המתן לאישור מהמסעדה.", yc = "אם לא תקבל תגובה תוך 15 דקות, אנא התקשר למסעדה.", bc = "אנא המתן לאישור מהמסעדה עבור ההזמנה שלך.", vc = "אם לא תקבל תגובה תוך 5 דקות, אנא התקשר למסעדה.", wc = "היום", jc = "מחר", Nc = "הזמן שולחן במסעדה שלנו ותהנה מחווית אוכל בלתי נשכחת. אנחנו מצפים לראות אותך!", $c = "בחר את התאריך המועדף עליך", Sc = "בחר זמן", Cc = "מספר אנשים", kc = "הודעה חשובה", Ec = "צריך עזרה מיידית? התקשר אלינו:", Rc = "בקשות מיוחדות או הערות...", Oc = "אורח", Pc = "אורחים", Tc = "בקשת הזמנת שולחן", Ac = "תאריך:", Lc = "שעה:", Mc = "אזור:", Ic = "אורחים:", zc = "שם:", Fc = "טלפון:", Dc = "הערות:", Uc = "אנא אשר את ההזמנה הזו.", Bc = "תודה! 🙏", Vc = "א׳-ה׳:", qc = "ו׳:", Wc = "ש׳:", Hc = "הודעה חשובה", Kc = "עמלת משלוח לא כלולה במחיר הכולל", Yc = "המשך לווטסאפ", Jc = "ביטול", Qc = "🍽️ בקשת הזמנה חדשה", Gc = "📋 פריטי ההזמנה:", Xc = "👤 פרטי הלקוח:", Zc = "סוג הזמנה", el = "שם", tl = "טלפון", sl = "כמות", nl = "פריט", al = "אפשרויות", rl = "אנא אשר את ההזמנה הזו. תודה! 🙏", il = "מוגש עד 13:00", ol = "ראשון", cl = "שני", ll = "שלישי", ul = "רביעי", dl = "חמישי", pl = "שישי", hl = "שבת", fl = "להמחשה בלבד", ml = "תנאי שימוש", gl = "מדיניות פרטיות", _l = "הצהרת נגישות", xl = "תאריך עדכון אחרון", yl = "אחריות", bl = "אין אחריות לשירותי צד-שלישי (כגון WhatsApp). כל שימוש בשירותים חיצוניים כפוף לתנאורים.", vl = "שינויים בתנאים", wl = "יתכן שנעדכן שינויים בתנאי השימוש מעת לעת. המשך השימוש כהסכמה לתנאים כפופה.", jl = "יצירת קשר בנושא נגישות", Nl = "אם נתקלתם בבעיה או הצעה לשיפור, נעמוד לכפות אליכן בטלפון או בוואטסאפ המופיעים במיקום יצירת קשר.", $l = "מטרת עיכוב היחידי", Sl = "האתר מכיל לפרטים, בחירת פריטים, והזמנת מקום לוואטסאפ של המטעדה.", Cl = "זכויות המשתמש", kl = "כפי שלאה או בקשה לחתיקה מידע, נעמוד לכפות אליכן דרך עמוד יצירת קשר.", El = "תאריך עדכון אחרון", Rl = "26.9.2025", Ol = "אחריות", Pl = "אין אחריות לשירותי צד-שלישי (כגון WhatsApp). כל שימוש בשירותים חיצוניים כפוף לתנאורים.", Tl = "שינויים בתנאים", Al = "יתכן שנעדכן שינויים בתנאי השימוש מעת לעת. המשך השימוש כהסכמה לתנאים כפופה.", Ll = "מדיניות פרטיות", Ml = "אנו מכבדים את פרטיותכם. האתר אינו מפעיל עוגיות (cookies) ואינו מבצע מעקב אינטרנטי. המידע שמורן בעלות הקרייות ומורה מקומית בדפדפן (LocalStorage) לצורך המשכיות כבב, ויכול לכלול שם ופוטר המנה (אישי/משפחה).", Il = "מטרת עיכוב היחידי", zl = "שליחת הזמנה/פנירה מתבצעת באמצעות WhatsApp (שירות חיצוני). על כן, השימוש ב-WhatsApp כפוף לתנאי השימוש ומדיניות הפרטיות של WhatsApp.", Fl = "מטרת עיכוב היחידי", Dl = "האתר מכיל לפרטים, בחירת פריטים, והזמנת מקום לוואטסאפ של המטעדה.", Ul = "זכויות המשתמש", Bl = "כפי שלאה או בקשה לחתיקה מידע, נעמוד לכפות אליכן דרך עמוד יצירת קשר.", Vl = "הצהרת נגישות", ql = 'אנו פועלים להנגיש את האתר בהתאם לתקן הישראלי ת"י 5568 הכמבוס על 2.0 WCAG ברמה AA. מטרתנו להנביח חווית שימוש נגישה, שוויונית ונוחה לכלל המשתמשים.', Wl = "יצירת קשר בנושא נגישות", Hl = "אם נתקלתם בבעיה או הצעה לשיפור, נעמוד לכפות אליכן בטלפון או בוואטסאפ המופיעים במיקום יצירת קשר.", Kl = "מטרת עיכוב היחידי", Yl = "האתר מכיל לפרטים, בחירת פריטים, והזמנת מקום לוואטסאפ של המטעדה.", Jl = "יצירת קשר בנושא נגישות", Ql = "אם נתקלתם בבעיה או הצעה לשיפור, נעמוד לכפות אליכן בטלפון או בוואטסאפ המופיעים במיקום יצירת קשר.", Gl = "שם הלקוח נדרש לפני שליחה לוואטסאפ", Xl = "חזרה לתפריט", Zl = "סגור", eu = "המסעדה סגורה כעת. נסה שוב בשעות הפתיחה.", tu = "סגור", su = "המסעדה סגורה כעת. ניתן לבצע הזמנות רק במהלך שעות הפתיחה.", nu = "הבנתי", au = {
-  wa_header: xo,
-  wa_total: yo,
-  wa_name: bo,
-  wa_type: vo,
-  wa_time: wo,
-  opt_size: jo,
-  opt_extras: No,
-  opt_notes: $o,
-  opt_doneness: So,
-  opt_sugar: Co,
-  opt_pasta_type: ko,
-  opt_bread: Eo,
-  menu: Ro,
-  contact: Oo,
-  all: Po,
-  search_placeholder: To,
-  call: Ao,
-  whatsapp: Lo,
-  location: Mo,
-  address: Io,
-  open_hours: zo,
-  add_to_cart: Fo,
-  added: Do,
-  customize: Uo,
-  size: Bo,
-  extras: Vo,
-  notes: qo,
-  cart: Wo,
-  items: Ho,
-  empty_cart: Ko,
-  clear_cart: Yo,
-  checkout: Jo,
-  total: Qo,
-  customer_name: Go,
-  order_type: Xo,
-  pickup: Zo,
-  delivery: ec,
-  time_or_table: tc,
-  message_preview: sc,
-  qr: nc,
-  instagram: ac,
-  base_price: rc,
-  extras_total: ic,
-  reservation: oc,
-  book_table: cc,
-  reservation_date: lc,
-  reservation_time: uc,
-  reservation_area: dc,
-  reservation_guests: pc,
-  reservation_name: hc,
-  reservation_phone: fc,
-  reservation_notes: mc,
-  send_reservation: gc,
-  reservation_sent: _c,
-  reservation_wait: xc,
-  reservation_no_response: yc,
-  order_wait: bc,
-  order_no_response: vc,
-  today: wc,
-  tomorrow: jc,
-  reservation_description: Nc,
-  choose_date: $c,
-  select_time: Sc,
-  number_people: Cc,
-  important_notice: kc,
-  need_assistance: Ec,
-  special_requests_placeholder: Rc,
-  guests_singular: Oc,
-  guests_plural: Pc,
-  reservation_request: Tc,
-  date_label: Ac,
-  time_label: Lc,
-  area_label: Mc,
-  guests_label: Ic,
-  name_label: zc,
-  phone_label: Fc,
-  notes_label: Dc,
-  confirm_reservation: Uc,
-  thank_you: Bc,
-  sun_thu: Vc,
-  fri: qc,
-  sat: Wc,
-  important_notice_cart: Hc,
-  delivery_notice: Kc,
-  continue_to_whatsapp: Yc,
-  cancel: Jc,
-  wa_order_header: Qc,
-  wa_order_items: Gc,
-  wa_customer_info: Xc,
-  wa_order_type: Zc,
-  wa_customer_name: el,
-  wa_customer_phone: tl,
-  wa_quantity: sl,
-  wa_item: nl,
-  wa_options: al,
-  wa_confirm_order: rl,
-  served_until_13: il,
-  day_sun: ol,
-  day_mon: cl,
-  day_tue: ll,
-  day_wed: ul,
-  day_thu: dl,
-  day_fri: pl,
-  day_sat: hl,
+  for_illustration_only: Pi,
+  terms_of_service: Ti,
+  privacy_policy: Ai,
+  accessibility_statement: Li,
+  last_updated: Mi,
+  terms_acceptance: Ii,
+  terms_acceptance_text: zi,
+  terms_service_usage: Fi,
+  terms_service_usage_text: Di,
+  terms_orders: Ui,
+  terms_orders_text: Bi,
+  terms_payment: Vi,
+  terms_payment_text: qi,
+  terms_liability: Wi,
+  terms_liability_text: Hi,
+  terms_changes: Ki,
+  terms_changes_text: Yi,
+  privacy_info_collection: Ji,
+  privacy_info_collection_text: Qi,
+  privacy_info_usage: Gi,
+  privacy_info_usage_text: Xi,
+  privacy_cookies: Zi,
+  privacy_cookies_text: eo,
+  privacy_whatsapp: to,
+  privacy_whatsapp_text: so,
+  privacy_data_storage: no,
+  privacy_data_storage_text: ao,
+  privacy_user_rights: ro,
+  privacy_user_rights_text: io,
+  accessibility_commitment: oo,
+  accessibility_commitment_text: co,
+  accessibility_standards: lo,
+  accessibility_standards_text: uo,
+  accessibility_features: po,
+  accessibility_features_text: ho,
+  accessibility_contact: fo,
+  accessibility_contact_text: mo,
+  name_required: go,
+  back_to_menu: _o,
+  closed: xo,
+  closed_popup_message: yo,
+  got_it_button: bo
+}, vo = "הזמנה חדשה מתפריט התבנית", wo = "סך הכול", jo = "שם", No = "סוג", $o = "שעה/שולחן", So = "גודל", ko = "תוספות", Co = "הערות", Eo = "דרגת עשייה", Ro = "סוכר", Oo = "סוג פסטה", Po = "לחם", To = "תפריט", Ao = "צור קשר", Lo = "הכל", Mo = "חיפוש מנות...", Io = "התקשר", zo = "וואטסאפ", Fo = "מיקום", Do = "כתובת", Uo = "שעות פתיחה", Bo = "להוסיף לסל", Vo = "נוסף", qo = "התאמה", Wo = "גודל", Ho = "תוספות", Ko = "הערות", Yo = "הסל", Jo = "פריטים", Qo = "הסל ריק", Go = "נקה סל", Xo = "שלח בוואטסאפ", Zo = "סך הכל", ec = "שם", tc = "סוג הזמנה", sc = "איסוף עצמי", nc = "משלוח", ac = "שעה/שולחן", rc = "תצוגה מקדימה", ic = "QR", oc = "אינסטגרם", cc = "מחיר בסיס", lc = "תוספות", uc = "הזמנת שולחן", dc = "הזמן שולחן", pc = "תאריך", hc = "שעה", fc = "אזור", mc = "מספר אורחים", gc = "השם שלך", _c = "מספר טלפון", xc = "בקשות מיוחדות", yc = "שלח בקשת הזמנה", bc = "בקשת ההזמנה נשלחה!", vc = "אנא המתן לאישור מהמסעדה.", wc = "אם לא תקבל תגובה תוך 15 דקות, אנא התקשר למסעדה.", jc = "אנא המתן לאישור מהמסעדה עבור ההזמנה שלך.", Nc = "אם לא תקבל תגובה תוך 5 דקות, אנא התקשר למסעדה.", $c = "היום", Sc = "מחר", kc = "הזמן שולחן במסעדה שלנו ותהנה מחווית אוכל בלתי נשכחת. אנחנו מצפים לראות אותך!", Cc = "בחר את התאריך המועדף עליך", Ec = "בחר זמן", Rc = "מספר אנשים", Oc = "הודעה חשובה", Pc = "צריך עזרה מיידית? התקשר אלינו:", Tc = "בקשות מיוחדות או הערות...", Ac = "אורח", Lc = "אורחים", Mc = "בקשת הזמנת שולחן", Ic = "תאריך:", zc = "שעה:", Fc = "אזור:", Dc = "אורחים:", Uc = "שם:", Bc = "טלפון:", Vc = "הערות:", qc = "אנא אשר את ההזמנה הזו.", Wc = "תודה! 🙏", Hc = "א׳-ה׳:", Kc = "ו׳:", Yc = "ש׳:", Jc = "הודעה חשובה", Qc = "עמלת משלוח לא כלולה במחיר הכולל", Gc = "המשך לווטסאפ", Xc = "ביטול", Zc = "🍽️ בקשת הזמנה חדשה", el = "📋 פריטי ההזמנה:", tl = "👤 פרטי הלקוח:", sl = "סוג הזמנה", nl = "שם", al = "טלפון", rl = "כמות", il = "פריט", ol = "אפשרויות", cl = "אנא אשר את ההזמנה הזו. תודה! 🙏", ll = "מוגש עד 13:00", ul = "ראשון", dl = "שני", pl = "שלישי", hl = "רביעי", fl = "חמישי", ml = "שישי", gl = "שבת", _l = "להמחשה בלבד", xl = "תנאי שימוש", yl = "מדיניות פרטיות", bl = "הצהרת נגישות", vl = "תאריך עדכון אחרון", wl = "אחריות", jl = "אין אחריות לשירותי צד-שלישי (כגון WhatsApp). כל שימוש בשירותים חיצוניים כפוף לתנאורים.", Nl = "שינויים בתנאים", $l = "יתכן שנעדכן שינויים בתנאי השימוש מעת לעת. המשך השימוש כהסכמה לתנאים כפופה.", Sl = "יצירת קשר בנושא נגישות", kl = "אם נתקלתם בבעיה או הצעה לשיפור, נעמוד לכפות אליכן בטלפון או בוואטסאפ המופיעים במיקום יצירת קשר.", Cl = "מטרת עיכוב היחידי", El = "האתר מכיל לפרטים, בחירת פריטים, והזמנת מקום לוואטסאפ של המטעדה.", Rl = "זכויות המשתמש", Ol = "כפי שלאה או בקשה לחתיקה מידע, נעמוד לכפות אליכן דרך עמוד יצירת קשר.", Pl = "תאריך עדכון אחרון", Tl = "26.9.2025", Al = "אחריות", Ll = "אין אחריות לשירותי צד-שלישי (כגון WhatsApp). כל שימוש בשירותים חיצוניים כפוף לתנאורים.", Ml = "שינויים בתנאים", Il = "יתכן שנעדכן שינויים בתנאי השימוש מעת לעת. המשך השימוש כהסכמה לתנאים כפופה.", zl = "מדיניות פרטיות", Fl = "אנו מכבדים את פרטיותכם. האתר אינו מפעיל עוגיות (cookies) ואינו מבצע מעקב אינטרנטי. המידע שמורן בעלות הקרייות ומורה מקומית בדפדפן (LocalStorage) לצורך המשכיות כבב, ויכול לכלול שם ופוטר המנה (אישי/משפחה).", Dl = "מטרת עיכוב היחידי", Ul = "שליחת הזמנה/פנירה מתבצעת באמצעות WhatsApp (שירות חיצוני). על כן, השימוש ב-WhatsApp כפוף לתנאי השימוש ומדיניות הפרטיות של WhatsApp.", Bl = "מטרת עיכוב היחידי", Vl = "האתר מכיל לפרטים, בחירת פריטים, והזמנת מקום לוואטסאפ של המטעדה.", ql = "זכויות המשתמש", Wl = "כפי שלאה או בקשה לחתיקה מידע, נעמוד לכפות אליכן דרך עמוד יצירת קשר.", Hl = "הצהרת נגישות", Kl = 'אנו פועלים להנגיש את האתר בהתאם לתקן הישראלי ת"י 5568 הכמבוס על 2.0 WCAG ברמה AA. מטרתנו להנביח חווית שימוש נגישה, שוויונית ונוחה לכלל המשתמשים.', Yl = "יצירת קשר בנושא נגישות", Jl = "אם נתקלתם בבעיה או הצעה לשיפור, נעמוד לכפות אליכן בטלפון או בוואטסאפ המופיעים במיקום יצירת קשר.", Ql = "מטרת עיכוב היחידי", Gl = "האתר מכיל לפרטים, בחירת פריטים, והזמנת מקום לוואטסאפ של המטעדה.", Xl = "יצירת קשר בנושא נגישות", Zl = "אם נתקלתם בבעיה או הצעה לשיפור, נעמוד לכפות אליכן בטלפון או בוואטסאפ המופיעים במיקום יצירת קשר.", eu = "שם הלקוח נדרש לפני שליחה לוואטסאפ", tu = "חזרה לתפריט", su = "סגור", nu = "המסעדה סגורה כעת. נסה שוב בשעות הפתיחה.", au = "סגור", ru = "המסעדה סגורה כעת. ניתן לבצע הזמנות רק במהלך שעות הפתיחה.", iu = "הבנתי", us = {
+  wa_header: vo,
+  wa_total: wo,
+  wa_name: jo,
+  wa_type: No,
+  wa_time: $o,
+  opt_size: So,
+  opt_extras: ko,
+  opt_notes: Co,
+  opt_doneness: Eo,
+  opt_sugar: Ro,
+  opt_pasta_type: Oo,
+  opt_bread: Po,
+  menu: To,
+  contact: Ao,
+  all: Lo,
+  search_placeholder: Mo,
+  call: Io,
+  whatsapp: zo,
+  location: Fo,
+  address: Do,
+  open_hours: Uo,
+  add_to_cart: Bo,
+  added: Vo,
+  customize: qo,
+  size: Wo,
+  extras: Ho,
+  notes: Ko,
+  cart: Yo,
+  items: Jo,
+  empty_cart: Qo,
+  clear_cart: Go,
+  checkout: Xo,
+  total: Zo,
+  customer_name: ec,
+  order_type: tc,
+  pickup: sc,
+  delivery: nc,
+  time_or_table: ac,
+  message_preview: rc,
+  qr: ic,
+  instagram: oc,
+  base_price: cc,
+  extras_total: lc,
+  reservation: uc,
+  book_table: dc,
+  reservation_date: pc,
+  reservation_time: hc,
+  reservation_area: fc,
+  reservation_guests: mc,
+  reservation_name: gc,
+  reservation_phone: _c,
+  reservation_notes: xc,
+  send_reservation: yc,
+  reservation_sent: bc,
+  reservation_wait: vc,
+  reservation_no_response: wc,
+  order_wait: jc,
+  order_no_response: Nc,
+  today: $c,
+  tomorrow: Sc,
+  reservation_description: kc,
+  choose_date: Cc,
+  select_time: Ec,
+  number_people: Rc,
+  important_notice: Oc,
+  need_assistance: Pc,
+  special_requests_placeholder: Tc,
+  guests_singular: Ac,
+  guests_plural: Lc,
+  reservation_request: Mc,
+  date_label: Ic,
+  time_label: zc,
+  area_label: Fc,
+  guests_label: Dc,
+  name_label: Uc,
+  phone_label: Bc,
+  notes_label: Vc,
+  confirm_reservation: qc,
+  thank_you: Wc,
+  sun_thu: Hc,
+  fri: Kc,
+  sat: Yc,
+  important_notice_cart: Jc,
+  delivery_notice: Qc,
+  continue_to_whatsapp: Gc,
+  cancel: Xc,
+  wa_order_header: Zc,
+  wa_order_items: el,
+  wa_customer_info: tl,
+  wa_order_type: sl,
+  wa_customer_name: nl,
+  wa_customer_phone: al,
+  wa_quantity: rl,
+  wa_item: il,
+  wa_options: ol,
+  wa_confirm_order: cl,
+  served_until_13: ll,
+  day_sun: ul,
+  day_mon: dl,
+  day_tue: pl,
+  day_wed: hl,
+  day_thu: fl,
+  day_fri: ml,
+  day_sat: gl,
   "day_tue-sat": "שלישי-שבת",
   "day_mon-sat": "שני-שבת",
-  for_illustration_only: fl,
-  terms_of_service: ml,
-  privacy_policy: gl,
-  accessibility_statement: _l,
-  last_updated: xl,
-  terms_acceptance: yl,
-  terms_acceptance_text: bl,
-  terms_service_usage: vl,
-  terms_service_usage_text: wl,
-  terms_orders: jl,
-  terms_orders_text: Nl,
-  terms_payment: $l,
-  terms_payment_text: Sl,
-  terms_liability: Cl,
-  terms_liability_text: kl,
-  terms_changes: El,
-  terms_changes_text: Rl,
-  privacy_info_collection: Ol,
-  privacy_info_collection_text: Pl,
-  privacy_info_usage: Tl,
-  privacy_info_usage_text: Al,
-  privacy_cookies: Ll,
-  privacy_cookies_text: Ml,
-  privacy_whatsapp: Il,
-  privacy_whatsapp_text: zl,
-  privacy_data_storage: Fl,
-  privacy_data_storage_text: Dl,
-  privacy_user_rights: Ul,
-  privacy_user_rights_text: Bl,
-  accessibility_commitment: Vl,
-  accessibility_commitment_text: ql,
-  accessibility_standards: Wl,
-  accessibility_standards_text: Hl,
-  accessibility_features: Kl,
-  accessibility_features_text: Yl,
-  accessibility_contact: Jl,
-  accessibility_contact_text: Ql,
-  name_required: Gl,
-  back_to_menu: Xl,
-  closed: Zl,
-  restaurant_closed_message: eu,
-  close: tu,
-  closed_popup_message: su,
-  got_it_button: nu
-}, ru = "طلب جديد عبر قائمة القالب", iu = "الإجمالي", ou = "الاسم", cu = "النوع", lu = "ساعة/طاولة", uu = "الحجم", du = "إضافات", pu = "ملاحظات", hu = "درجة الاستواء", fu = "سكر", mu = "نوع المعكرونة", gu = "الخبز", _u = "القائمة", xu = "تواصل", yu = "الكل", bu = "ابحث عن طبق...", vu = "اتصال", wu = "واتساب", ju = "الموقع", Nu = "العنوان", $u = "ساعات العمل", Su = "أضف إلى السلة", Cu = "تمت الإضافة", ku = "تخصيص", Eu = "الحجم", Ru = "إضافات", Ou = "ملاحظات", Pu = "السلة", Tu = "عنصر", Au = "السلة فارغة", Lu = "تفريغ السلة", Mu = "إرسال عبر واتساب", Iu = "الإجمالي", zu = "الاسم", Fu = "نوع الطلب", Du = "استلام", Uu = "توصيل", Bu = "ساعة/طاولة", Vu = "نص الرسالة", qu = "QR", Wu = "إنستغرام", Hu = "السعر الأساسي", Ku = "الإضافات", Yu = "حجز طاولة", Ju = "احجز طاولة", Qu = "التاريخ", Gu = "الوقت", Xu = "المنطقة", Zu = "عدد الضيوف", ed = "اسمك", td = "رقم الهاتف", sd = "طلبات خاصة", nd = "إرسال طلب الحجز", ad = "تم إرسال طلب الحجز!", rd = "يرجى انتظار التأكيد من المطعم.", id = "إذا لم تتلق رداً خلال 15 دقيقة، يرجى الاتصال بالمطعم.", od = "يرجى انتظار التأكيد من المطعم لطلبك.", cd = "إذا لم تتلق رداً خلال 5 دقائق، يرجى الاتصال بالمطعم.", ld = "اليوم", ud = "غداً", dd = "احجز طاولتك في مطعمنا واستمتع بتجربة طعام لا تُنسى. نحن نتطلع لاستقبالك!", pd = "اختر التاريخ المفضل لديك", hd = "اختر الوقت", fd = "عدد الأشخاص", md = "إشعار مهم", gd = "تحتاج مساعدة فورية؟ اتصل بنا:", _d = "أي طلبات خاصة أو ملاحظات...", xd = "ضيف", yd = "ضيوف", bd = "طلب حجز طاولة", vd = "التاريخ:", wd = "الوقت:", jd = "المنطقة:", Nd = "الضيوف:", $d = "الاسم:", Sd = "الهاتف:", Cd = "ملاحظات:", kd = "يرجى تأكيد هذا الحجز.", Ed = "شكراً لك! 🙏", Rd = "الأحد-الخميس:", Od = "الجمعة:", Pd = "السبت:", Td = "إشعار مهم", Ad = "رسوم التوصيل غير مشمولة في السعر الإجمالي", Ld = "متابعة إلى واتساب", Md = "إلغاء", Id = "🍽️ طلب جديد", zd = "📋 عناصر الطلب:", Fd = "👤 معلومات العميل:", Dd = "نوع الطلب", Ud = "الاسم", Bd = "الهاتف", Vd = "الكمية", qd = "العنصر", Wd = "الخيارات", Hd = "يرجى تأكيد هذا الطلب. شكراً لك! 🙏", Kd = "يُقدم حتى 13:00", Yd = "الأحد", Jd = "الاثنين", Qd = "الثلاثاء", Gd = "الأربعاء", Xd = "الخميس", Zd = "الجمعة", ep = "السبت", tp = "شروط الخدمة", sp = "سياسة الخصوصية", np = "بيان إمكانية الوصول", ap = "آخر تحديث", rp = "قبول الشروط", ip = "باستخدام موقعنا وخدماتنا، فإنك توافق على الالتزام بشروط الخدمة هذه.", op = "استخدام الخدمة", cp = "تم تصميم موقعنا لتصفح القائمة وتقديم الطلبات عبر واتساب وإجراء الحجوزات.", lp = "الطلبات والحجوزات", up = "جميع الطلبات تتم معالجتها عبر واتساب. الحجوزات تخضع للتوفر والتأكيد.", dp = "شروط الدفع", pp = "يتم التعامل مع الدفع مباشرة في المطعم. الطلبات عبر الإنترنت للراحة والتأكيد فقط.", hp = "حدود المسؤولية", fp = "نحن غير مسؤولين عن خدمات الطرف الثالث مثل واتساب. استخدام الخدمات الخارجية يخضع لشروطها.", mp = "تغييرات الشروط", gp = "قد نقوم بتحديث هذه الشروط من وقت لآخر. الاستخدام المستمر يشكل قبولاً للشروط المنقحة.", _p = "جمع المعلومات", xp = "نحن نحترم خصوصيتك. موقعنا لا يستخدم ملفات تعريف الارتباط أو التتبع عبر الإنترنت. يتم تخزين المعلومات محلياً في متصفحك للاستمرارية، وقد تشمل الاسم وتفضيلات الطلب.", yp = "استخدام المعلومات", bp = "نستخدم المعلومات فقط لتقديم خدماتنا وتحسين تجربتك. لا نشارك البيانات الشخصية مع أطراف ثالثة.", vp = "ملفات تعريف الارتباط والتتبع", wp = "موقعنا لا يستخدم ملفات تعريف الارتباط أو تقنيات التتبع. جميع البيانات مخزنة محلياً في متصفحك.", jp = "تكامل واتساب", Np = "تقديم الطلبات يتم عبر واتساب (خدمة خارجية). استخدام واتساب يخضع لشروط وسياسة خصوصية واتساب.", $p = "تخزين البيانات", Sp = "يتم تخزين البيانات محلياً على جهازك وعلى واتساب لمعالجة الطلبات وأغراض التواصل.", Cp = "حقوق المستخدم", kp = "لأي أسئلة أو طلبات بخصوص بياناتك، يرجى التواصل معنا عبر صفحة الاتصال.", Ep = "التزامنا", Rp = "نحن ملتزمون بجعل موقعنا قابلاً للوصول وفقاً للمعايير الحديثة. هدفنا توفير تجربة مستخدم متاحة ومتساوية ومريحة لجميع المستخدمين.", Op = "معايير إمكانية الوصول", Pp = "يتبع موقعنا إرشادات إمكانية الوصول الحديثة بما في ذلك التنقل بلوحة المفاتيح وتوافق قارئ الشاشة والتصميم البصري الواضح.", Tp = "ميزات إمكانية الوصول", Ap = "يتضمن الموقع هيكل عناوين مناسب ونص بديل للصور ودعم التنقل بلوحة المفاتيح وتصميم متجاوب لمختلف الأجهزة والتقنيات المساعدة.", Lp = "التواصل بخصوص إمكانية الوصول", Mp = "إذا واجهت أي مشاكل في إمكانية الوصول أو لديك اقتراحات للتحسين، يرجى التواصل معنا عبر الهاتف أو واتساب المدرجين في صفحة الاتصال.", Ip = "اسم العميل مطلوب قبل الإرسال إلى واتساب", zp = "العودة إلى القائمة", Fp = "مغلق", Dp = "للتوضيح فقط", Up = "المطعم مغلق حالياً. الرجاء المحاولة خلال ساعات العمل.", Bp = "إغلاق", Vp = "المطعم مغلق حالياً. يمكن تقديم الطلبات فقط خلال ساعات العمل.", qp = "حسنًا", Wp = {
-  wa_header: ru,
-  wa_total: iu,
-  wa_name: ou,
-  wa_type: cu,
-  wa_time: lu,
-  opt_size: uu,
-  opt_extras: du,
-  opt_notes: pu,
-  opt_doneness: hu,
-  opt_sugar: fu,
-  opt_pasta_type: mu,
-  opt_bread: gu,
-  menu: _u,
-  contact: xu,
-  all: yu,
-  search_placeholder: bu,
-  call: vu,
-  whatsapp: wu,
-  location: ju,
-  address: Nu,
-  open_hours: $u,
-  add_to_cart: Su,
-  added: Cu,
-  customize: ku,
-  size: Eu,
-  extras: Ru,
-  notes: Ou,
-  cart: Pu,
-  items: Tu,
-  empty_cart: Au,
-  clear_cart: Lu,
-  checkout: Mu,
-  total: Iu,
-  customer_name: zu,
-  order_type: Fu,
-  pickup: Du,
-  delivery: Uu,
-  time_or_table: Bu,
-  message_preview: Vu,
-  qr: qu,
-  instagram: Wu,
-  base_price: Hu,
-  extras_total: Ku,
-  reservation: Yu,
-  book_table: Ju,
-  reservation_date: Qu,
-  reservation_time: Gu,
-  reservation_area: Xu,
-  reservation_guests: Zu,
-  reservation_name: ed,
-  reservation_phone: td,
-  reservation_notes: sd,
-  send_reservation: nd,
-  reservation_sent: ad,
-  reservation_wait: rd,
-  reservation_no_response: id,
-  order_wait: od,
-  order_no_response: cd,
-  today: ld,
-  tomorrow: ud,
-  reservation_description: dd,
-  choose_date: pd,
-  select_time: hd,
-  number_people: fd,
-  important_notice: md,
-  need_assistance: gd,
-  special_requests_placeholder: _d,
-  guests_singular: xd,
-  guests_plural: yd,
-  reservation_request: bd,
-  date_label: vd,
-  time_label: wd,
-  area_label: jd,
-  guests_label: Nd,
-  name_label: $d,
-  phone_label: Sd,
-  notes_label: Cd,
-  confirm_reservation: kd,
-  thank_you: Ed,
-  sun_thu: Rd,
-  fri: Od,
-  sat: Pd,
-  important_notice_cart: Td,
-  delivery_notice: Ad,
-  continue_to_whatsapp: Ld,
-  cancel: Md,
-  wa_order_header: Id,
-  wa_order_items: zd,
-  wa_customer_info: Fd,
-  wa_order_type: Dd,
-  wa_customer_name: Ud,
-  wa_customer_phone: Bd,
-  wa_quantity: Vd,
-  wa_item: qd,
-  wa_options: Wd,
-  wa_confirm_order: Hd,
-  served_until_13: Kd,
-  day_sun: Yd,
-  day_mon: Jd,
-  day_tue: Qd,
-  day_wed: Gd,
-  day_thu: Xd,
-  day_fri: Zd,
-  day_sat: ep,
+  for_illustration_only: _l,
+  terms_of_service: xl,
+  privacy_policy: yl,
+  accessibility_statement: bl,
+  last_updated: vl,
+  terms_acceptance: wl,
+  terms_acceptance_text: jl,
+  terms_service_usage: Nl,
+  terms_service_usage_text: $l,
+  terms_orders: Sl,
+  terms_orders_text: kl,
+  terms_payment: Cl,
+  terms_payment_text: El,
+  terms_liability: Rl,
+  terms_liability_text: Ol,
+  terms_changes: Pl,
+  terms_changes_text: Tl,
+  privacy_info_collection: Al,
+  privacy_info_collection_text: Ll,
+  privacy_info_usage: Ml,
+  privacy_info_usage_text: Il,
+  privacy_cookies: zl,
+  privacy_cookies_text: Fl,
+  privacy_whatsapp: Dl,
+  privacy_whatsapp_text: Ul,
+  privacy_data_storage: Bl,
+  privacy_data_storage_text: Vl,
+  privacy_user_rights: ql,
+  privacy_user_rights_text: Wl,
+  accessibility_commitment: Hl,
+  accessibility_commitment_text: Kl,
+  accessibility_standards: Yl,
+  accessibility_standards_text: Jl,
+  accessibility_features: Ql,
+  accessibility_features_text: Gl,
+  accessibility_contact: Xl,
+  accessibility_contact_text: Zl,
+  name_required: eu,
+  back_to_menu: tu,
+  closed: su,
+  restaurant_closed_message: nu,
+  close: au,
+  closed_popup_message: ru,
+  got_it_button: iu
+}, ou = "طلب جديد عبر قائمة القالب", cu = "الإجمالي", lu = "الاسم", uu = "النوع", du = "ساعة/طاولة", pu = "الحجم", hu = "إضافات", fu = "ملاحظات", mu = "درجة الاستواء", gu = "سكر", _u = "نوع المعكرونة", xu = "الخبز", yu = "القائمة", bu = "تواصل", vu = "الكل", wu = "ابحث عن طبق...", ju = "اتصال", Nu = "واتساب", $u = "الموقع", Su = "العنوان", ku = "ساعات العمل", Cu = "أضف إلى السلة", Eu = "تمت الإضافة", Ru = "تخصيص", Ou = "الحجم", Pu = "إضافات", Tu = "ملاحظات", Au = "السلة", Lu = "عنصر", Mu = "السلة فارغة", Iu = "تفريغ السلة", zu = "إرسال عبر واتساب", Fu = "الإجمالي", Du = "الاسم", Uu = "نوع الطلب", Bu = "استلام", Vu = "توصيل", qu = "ساعة/طاولة", Wu = "نص الرسالة", Hu = "QR", Ku = "إنستغرام", Yu = "السعر الأساسي", Ju = "الإضافات", Qu = "حجز طاولة", Gu = "احجز طاولة", Xu = "التاريخ", Zu = "الوقت", ed = "المنطقة", td = "عدد الضيوف", sd = "اسمك", nd = "رقم الهاتف", ad = "طلبات خاصة", rd = "إرسال طلب الحجز", id = "تم إرسال طلب الحجز!", od = "يرجى انتظار التأكيد من المطعم.", cd = "إذا لم تتلق رداً خلال 15 دقيقة، يرجى الاتصال بالمطعم.", ld = "يرجى انتظار التأكيد من المطعم لطلبك.", ud = "إذا لم تتلق رداً خلال 5 دقائق، يرجى الاتصال بالمطعم.", dd = "اليوم", pd = "غداً", hd = "احجز طاولتك في مطعمنا واستمتع بتجربة طعام لا تُنسى. نحن نتطلع لاستقبالك!", fd = "اختر التاريخ المفضل لديك", md = "اختر الوقت", gd = "عدد الأشخاص", _d = "إشعار مهم", xd = "تحتاج مساعدة فورية؟ اتصل بنا:", yd = "أي طلبات خاصة أو ملاحظات...", bd = "ضيف", vd = "ضيوف", wd = "طلب حجز طاولة", jd = "التاريخ:", Nd = "الوقت:", $d = "المنطقة:", Sd = "الضيوف:", kd = "الاسم:", Cd = "الهاتف:", Ed = "ملاحظات:", Rd = "يرجى تأكيد هذا الحجز.", Od = "شكراً لك! 🙏", Pd = "الأحد-الخميس:", Td = "الجمعة:", Ad = "السبت:", Ld = "إشعار مهم", Md = "رسوم التوصيل غير مشمولة في السعر الإجمالي", Id = "متابعة إلى واتساب", zd = "إلغاء", Fd = "🍽️ طلب جديد", Dd = "📋 عناصر الطلب:", Ud = "👤 معلومات العميل:", Bd = "نوع الطلب", Vd = "الاسم", qd = "الهاتف", Wd = "الكمية", Hd = "العنصر", Kd = "الخيارات", Yd = "يرجى تأكيد هذا الطلب. شكراً لك! 🙏", Jd = "يُقدم حتى 13:00", Qd = "الأحد", Gd = "الاثنين", Xd = "الثلاثاء", Zd = "الأربعاء", ep = "الخميس", tp = "الجمعة", sp = "السبت", np = "شروط الخدمة", ap = "سياسة الخصوصية", rp = "بيان إمكانية الوصول", ip = "آخر تحديث", op = "قبول الشروط", cp = "باستخدام موقعنا وخدماتنا، فإنك توافق على الالتزام بشروط الخدمة هذه.", lp = "استخدام الخدمة", up = "تم تصميم موقعنا لتصفح القائمة وتقديم الطلبات عبر واتساب وإجراء الحجوزات.", dp = "الطلبات والحجوزات", pp = "جميع الطلبات تتم معالجتها عبر واتساب. الحجوزات تخضع للتوفر والتأكيد.", hp = "شروط الدفع", fp = "يتم التعامل مع الدفع مباشرة في المطعم. الطلبات عبر الإنترنت للراحة والتأكيد فقط.", mp = "حدود المسؤولية", gp = "نحن غير مسؤولين عن خدمات الطرف الثالث مثل واتساب. استخدام الخدمات الخارجية يخضع لشروطها.", _p = "تغييرات الشروط", xp = "قد نقوم بتحديث هذه الشروط من وقت لآخر. الاستخدام المستمر يشكل قبولاً للشروط المنقحة.", yp = "جمع المعلومات", bp = "نحن نحترم خصوصيتك. موقعنا لا يستخدم ملفات تعريف الارتباط أو التتبع عبر الإنترنت. يتم تخزين المعلومات محلياً في متصفحك للاستمرارية، وقد تشمل الاسم وتفضيلات الطلب.", vp = "استخدام المعلومات", wp = "نستخدم المعلومات فقط لتقديم خدماتنا وتحسين تجربتك. لا نشارك البيانات الشخصية مع أطراف ثالثة.", jp = "ملفات تعريف الارتباط والتتبع", Np = "موقعنا لا يستخدم ملفات تعريف الارتباط أو تقنيات التتبع. جميع البيانات مخزنة محلياً في متصفحك.", $p = "تكامل واتساب", Sp = "تقديم الطلبات يتم عبر واتساب (خدمة خارجية). استخدام واتساب يخضع لشروط وسياسة خصوصية واتساب.", kp = "تخزين البيانات", Cp = "يتم تخزين البيانات محلياً على جهازك وعلى واتساب لمعالجة الطلبات وأغراض التواصل.", Ep = "حقوق المستخدم", Rp = "لأي أسئلة أو طلبات بخصوص بياناتك، يرجى التواصل معنا عبر صفحة الاتصال.", Op = "التزامنا", Pp = "نحن ملتزمون بجعل موقعنا قابلاً للوصول وفقاً للمعايير الحديثة. هدفنا توفير تجربة مستخدم متاحة ومتساوية ومريحة لجميع المستخدمين.", Tp = "معايير إمكانية الوصول", Ap = "يتبع موقعنا إرشادات إمكانية الوصول الحديثة بما في ذلك التنقل بلوحة المفاتيح وتوافق قارئ الشاشة والتصميم البصري الواضح.", Lp = "ميزات إمكانية الوصول", Mp = "يتضمن الموقع هيكل عناوين مناسب ونص بديل للصور ودعم التنقل بلوحة المفاتيح وتصميم متجاوب لمختلف الأجهزة والتقنيات المساعدة.", Ip = "التواصل بخصوص إمكانية الوصول", zp = "إذا واجهت أي مشاكل في إمكانية الوصول أو لديك اقتراحات للتحسين، يرجى التواصل معنا عبر الهاتف أو واتساب المدرجين في صفحة الاتصال.", Fp = "اسم العميل مطلوب قبل الإرسال إلى واتساب", Dp = "العودة إلى القائمة", Up = "مغلق", Bp = "للتوضيح فقط", Vp = "المطعم مغلق حالياً. الرجاء المحاولة خلال ساعات العمل.", qp = "إغلاق", Wp = "المطعم مغلق حالياً. يمكن تقديم الطلبات فقط خلال ساعات العمل.", Hp = "حسنًا", ds = {
+  wa_header: ou,
+  wa_total: cu,
+  wa_name: lu,
+  wa_type: uu,
+  wa_time: du,
+  opt_size: pu,
+  opt_extras: hu,
+  opt_notes: fu,
+  opt_doneness: mu,
+  opt_sugar: gu,
+  opt_pasta_type: _u,
+  opt_bread: xu,
+  menu: yu,
+  contact: bu,
+  all: vu,
+  search_placeholder: wu,
+  call: ju,
+  whatsapp: Nu,
+  location: $u,
+  address: Su,
+  open_hours: ku,
+  add_to_cart: Cu,
+  added: Eu,
+  customize: Ru,
+  size: Ou,
+  extras: Pu,
+  notes: Tu,
+  cart: Au,
+  items: Lu,
+  empty_cart: Mu,
+  clear_cart: Iu,
+  checkout: zu,
+  total: Fu,
+  customer_name: Du,
+  order_type: Uu,
+  pickup: Bu,
+  delivery: Vu,
+  time_or_table: qu,
+  message_preview: Wu,
+  qr: Hu,
+  instagram: Ku,
+  base_price: Yu,
+  extras_total: Ju,
+  reservation: Qu,
+  book_table: Gu,
+  reservation_date: Xu,
+  reservation_time: Zu,
+  reservation_area: ed,
+  reservation_guests: td,
+  reservation_name: sd,
+  reservation_phone: nd,
+  reservation_notes: ad,
+  send_reservation: rd,
+  reservation_sent: id,
+  reservation_wait: od,
+  reservation_no_response: cd,
+  order_wait: ld,
+  order_no_response: ud,
+  today: dd,
+  tomorrow: pd,
+  reservation_description: hd,
+  choose_date: fd,
+  select_time: md,
+  number_people: gd,
+  important_notice: _d,
+  need_assistance: xd,
+  special_requests_placeholder: yd,
+  guests_singular: bd,
+  guests_plural: vd,
+  reservation_request: wd,
+  date_label: jd,
+  time_label: Nd,
+  area_label: $d,
+  guests_label: Sd,
+  name_label: kd,
+  phone_label: Cd,
+  notes_label: Ed,
+  confirm_reservation: Rd,
+  thank_you: Od,
+  sun_thu: Pd,
+  fri: Td,
+  sat: Ad,
+  important_notice_cart: Ld,
+  delivery_notice: Md,
+  continue_to_whatsapp: Id,
+  cancel: zd,
+  wa_order_header: Fd,
+  wa_order_items: Dd,
+  wa_customer_info: Ud,
+  wa_order_type: Bd,
+  wa_customer_name: Vd,
+  wa_customer_phone: qd,
+  wa_quantity: Wd,
+  wa_item: Hd,
+  wa_options: Kd,
+  wa_confirm_order: Yd,
+  served_until_13: Jd,
+  day_sun: Qd,
+  day_mon: Gd,
+  day_tue: Xd,
+  day_wed: Zd,
+  day_thu: ep,
+  day_fri: tp,
+  day_sat: sp,
   "day_tue-sat": "الثلاثاء-السبت",
   "day_mon-sat": "الاثنين-السبت",
-  terms_of_service: tp,
-  privacy_policy: sp,
-  accessibility_statement: np,
-  last_updated: ap,
-  terms_acceptance: rp,
-  terms_acceptance_text: ip,
-  terms_service_usage: op,
-  terms_service_usage_text: cp,
-  terms_orders: lp,
-  terms_orders_text: up,
-  terms_payment: dp,
-  terms_payment_text: pp,
-  terms_liability: hp,
-  terms_liability_text: fp,
-  terms_changes: mp,
-  terms_changes_text: gp,
-  privacy_info_collection: _p,
-  privacy_info_collection_text: xp,
-  privacy_info_usage: yp,
-  privacy_info_usage_text: bp,
-  privacy_cookies: vp,
-  privacy_cookies_text: wp,
-  privacy_whatsapp: jp,
-  privacy_whatsapp_text: Np,
-  privacy_data_storage: $p,
-  privacy_data_storage_text: Sp,
-  privacy_user_rights: Cp,
-  privacy_user_rights_text: kp,
-  accessibility_commitment: Ep,
-  accessibility_commitment_text: Rp,
-  accessibility_standards: Op,
-  accessibility_standards_text: Pp,
-  accessibility_features: Tp,
-  accessibility_features_text: Ap,
-  accessibility_contact: Lp,
-  accessibility_contact_text: Mp,
-  name_required: Ip,
-  back_to_menu: zp,
-  closed: Fp,
-  for_illustration_only: Dp,
-  restaurant_closed_message: Up,
-  close: Bp,
-  closed_popup_message: Vp,
-  got_it_button: qp
-}, Hp = {
-  en: { translation: _o },
-  he: { translation: au },
-  ar: { translation: Wp }
+  terms_of_service: np,
+  privacy_policy: ap,
+  accessibility_statement: rp,
+  last_updated: ip,
+  terms_acceptance: op,
+  terms_acceptance_text: cp,
+  terms_service_usage: lp,
+  terms_service_usage_text: up,
+  terms_orders: dp,
+  terms_orders_text: pp,
+  terms_payment: hp,
+  terms_payment_text: fp,
+  terms_liability: mp,
+  terms_liability_text: gp,
+  terms_changes: _p,
+  terms_changes_text: xp,
+  privacy_info_collection: yp,
+  privacy_info_collection_text: bp,
+  privacy_info_usage: vp,
+  privacy_info_usage_text: wp,
+  privacy_cookies: jp,
+  privacy_cookies_text: Np,
+  privacy_whatsapp: $p,
+  privacy_whatsapp_text: Sp,
+  privacy_data_storage: kp,
+  privacy_data_storage_text: Cp,
+  privacy_user_rights: Ep,
+  privacy_user_rights_text: Rp,
+  accessibility_commitment: Op,
+  accessibility_commitment_text: Pp,
+  accessibility_standards: Tp,
+  accessibility_standards_text: Ap,
+  accessibility_features: Lp,
+  accessibility_features_text: Mp,
+  accessibility_contact: Ip,
+  accessibility_contact_text: zp,
+  name_required: Fp,
+  back_to_menu: Dp,
+  closed: Up,
+  for_illustration_only: Bp,
+  restaurant_closed_message: Vp,
+  close: qp,
+  closed_popup_message: Wp,
+  got_it_button: Hp
+}, Kp = {
+  en: { translation: ls },
+  he: { translation: us },
+  ar: { translation: ds }
 };
-function os(n) {
+function ps(n) {
   const e = n === "ar" || n === "he" ? "rtl" : "ltr";
   document.documentElement.setAttribute("dir", e), document.documentElement.setAttribute("lang", n), console.log("🎯 TABLY CORE i18n is active! Language:", n, "Direction:", e);
 }
-Y.use(Nn).init({
-  resources: Hp,
+K.use(ts).init({
+  resources: Kp,
   lng: "he",
   fallbackLng: "en",
   interpolation: { escapeValue: !1 }
-}).then(() => os(Y.language));
-Y.on("languageChanged", os);
-function lh() {
-  const [n, e] = A.useState(Y.language), [t, s] = A.useState(!1), a = [
+}).then(() => ps(K.language));
+K.on("languageChanged", ps);
+function uh() {
+  const [n, e] = A.useState(K.language), [t, s] = A.useState(!1), a = [
     { code: "ar", name: "العربية" },
     { code: "he", name: "עברית" },
     { code: "en", name: "English" }
   ], o = a.find((d) => d.code === n) || a[0], u = (d) => {
-    e(d), Y.changeLanguage(d), s(!1);
+    e(d), K.changeLanguage(d), s(!1);
   };
   return /* @__PURE__ */ r.jsxs("div", { className: "relative", children: [
     /* @__PURE__ */ r.jsxs(
@@ -5431,11 +5431,11 @@ function lh() {
         className: "tab flex items-center gap-2 min-w-[80px] justify-between",
         children: [
           /* @__PURE__ */ r.jsxs("div", { className: "flex items-center gap-2", children: [
-            /* @__PURE__ */ r.jsx(an, { size: 16, className: "opacity-70" }),
+            /* @__PURE__ */ r.jsx(un, { size: 16, className: "opacity-70" }),
             /* @__PURE__ */ r.jsx("span", { className: "text-sm font-medium", children: o.code.toUpperCase() })
           ] }),
           /* @__PURE__ */ r.jsx(
-            sn,
+            cn,
             {
               size: 14,
               className: `opacity-70 transition-transform duration-200 ${t ? "rotate-180" : ""}`
@@ -5467,20 +5467,20 @@ function lh() {
     ] })
   ] });
 }
-const cs = Ht();
-function uh({ children: n }) {
-  const [e, t] = st(null), s = (a) => {
+const hs = Kt();
+function dh({ children: n }) {
+  const [e, t] = nt(null), s = (a) => {
     t(a), setTimeout(() => {
       t(null);
     }, 800);
   };
-  return /* @__PURE__ */ r.jsx(cs.Provider, { value: { animation: e, triggerAnimation: s }, children: n });
+  return /* @__PURE__ */ r.jsx(hs.Provider, { value: { animation: e, triggerAnimation: s }, children: n });
 }
-function Kp() {
-  return Kt(cs);
+function Yp() {
+  return Yt(hs);
 }
-function Yp({ open: n, onClose: e, item: t, onConfirm: s }) {
-  const { t: a } = X(), { triggerAnimation: o } = Kp(), [u, d] = A.useState(1), [i, c] = A.useState({}), l = () => {
+function Jp({ open: n, onClose: e, item: t, onConfirm: s }) {
+  const { t: a } = X(), { triggerAnimation: o } = Yp(), [u, d] = A.useState(1), [i, c] = A.useState({}), l = () => {
     if (!t)
       return 0;
     let g = 0;
@@ -5714,7 +5714,7 @@ function Yp({ open: n, onClose: e, item: t, onConfirm: s }) {
     ] })
   ] }) });
 }
-function Jp({ open: n, onClose: e }) {
+function Qp({ open: n, onClose: e }) {
   const { t, i18n: s } = X(), [a, o] = A.useState({
     date: (/* @__PURE__ */ new Date()).toISOString().split("T")[0],
     // Today as default
@@ -5799,7 +5799,7 @@ ${t("thank_you")}`, g = `https://wa.me/${P.reservation.whatsapp}?text=${encodeUR
               ] }),
               /* @__PURE__ */ r.jsxs("label", { className: "block space-y-1", children: [
                 /* @__PURE__ */ r.jsxs("div", { className: "text-sm text-white/80 flex items-center gap-2", children: [
-                  /* @__PURE__ */ r.jsx(Ge, { size: 14 }),
+                  /* @__PURE__ */ r.jsx(Xe, { size: 14 }),
                   t("reservation_time")
                 ] }),
                 /* @__PURE__ */ r.jsxs(
@@ -5818,7 +5818,7 @@ ${t("thank_you")}`, g = `https://wa.me/${P.reservation.whatsapp}?text=${encodeUR
               ] }),
               /* @__PURE__ */ r.jsxs("label", { className: "block space-y-1", children: [
                 /* @__PURE__ */ r.jsxs("div", { className: "text-sm text-white/80 flex items-center gap-2", children: [
-                  /* @__PURE__ */ r.jsx(rt, { size: 14 }),
+                  /* @__PURE__ */ r.jsx(it, { size: 14 }),
                   t("reservation_area")
                 ] }),
                 /* @__PURE__ */ r.jsxs(
@@ -5837,7 +5837,7 @@ ${t("thank_you")}`, g = `https://wa.me/${P.reservation.whatsapp}?text=${encodeUR
               ] }),
               /* @__PURE__ */ r.jsxs("label", { className: "block space-y-1", children: [
                 /* @__PURE__ */ r.jsxs("div", { className: "text-sm text-white/80 flex items-center gap-2", children: [
-                  /* @__PURE__ */ r.jsx(Gt, { size: 14 }),
+                  /* @__PURE__ */ r.jsx(Xt, { size: 14 }),
                   t("reservation_guests")
                 ] }),
                 /* @__PURE__ */ r.jsx(
@@ -5857,7 +5857,7 @@ ${t("thank_you")}`, g = `https://wa.me/${P.reservation.whatsapp}?text=${encodeUR
               ] }),
               /* @__PURE__ */ r.jsxs("label", { className: "block space-y-1", children: [
                 /* @__PURE__ */ r.jsxs("div", { className: "text-sm text-white/80 flex items-center gap-2", children: [
-                  /* @__PURE__ */ r.jsx(pn, { size: 14 }),
+                  /* @__PURE__ */ r.jsx(_n, { size: 14 }),
                   t("reservation_name")
                 ] }),
                 /* @__PURE__ */ r.jsx(
@@ -5873,7 +5873,7 @@ ${t("thank_you")}`, g = `https://wa.me/${P.reservation.whatsapp}?text=${encodeUR
               ] }),
               /* @__PURE__ */ r.jsxs("label", { className: "block space-y-1", children: [
                 /* @__PURE__ */ r.jsxs("div", { className: "text-sm text-white/80 flex items-center gap-2", children: [
-                  /* @__PURE__ */ r.jsx(ot, { size: 14 }),
+                  /* @__PURE__ */ r.jsx(ct, { size: 14 }),
                   t("reservation_phone")
                 ] }),
                 /* @__PURE__ */ r.jsx(
@@ -5889,7 +5889,7 @@ ${t("thank_you")}`, g = `https://wa.me/${P.reservation.whatsapp}?text=${encodeUR
               ] }),
               /* @__PURE__ */ r.jsxs("label", { className: "block space-y-1", children: [
                 /* @__PURE__ */ r.jsxs("div", { className: "text-sm text-white/80 flex items-center gap-2", children: [
-                  /* @__PURE__ */ r.jsx(on, { size: 14 }),
+                  /* @__PURE__ */ r.jsx(pn, { size: 14 }),
                   t("reservation_notes")
                 ] }),
                 /* @__PURE__ */ r.jsx(
@@ -5911,7 +5911,7 @@ ${t("thank_you")}`, g = `https://wa.me/${P.reservation.whatsapp}?text=${encodeUR
     }
   ) : null;
 }
-function Qp({ value: n, onChange: e }) {
+function Gp({ value: n, onChange: e }) {
   const { t } = X();
   return /* @__PURE__ */ r.jsx(
     "input",
@@ -5923,7 +5923,7 @@ function Qp({ value: n, onChange: e }) {
     }
   );
 }
-function dh() {
+function ph() {
   const { t: n } = X(), e = Le();
   return A.useEffect(() => {
     document.documentElement.scrollTop = 0, document.body.scrollTop = 0, setTimeout(() => {
@@ -5936,7 +5936,7 @@ function dh() {
         onClick: () => e("/"),
         className: "btn-outline flex items-center gap-2 mb-6",
         children: [
-          /* @__PURE__ */ r.jsx(at, { size: 16 }),
+          /* @__PURE__ */ r.jsx(rt, { size: 16 }),
           n("back_to_menu")
         ]
       }
@@ -5966,18 +5966,18 @@ function dh() {
     ] })
   ] }) });
 }
-function ph() {
+function hh() {
   const { t: n } = X();
   return /* @__PURE__ */ r.jsxs("div", { className: "py-10 max-w-3xl mx-auto space-y-4", children: [
     /* @__PURE__ */ r.jsx("h1", { className: "text-3xl font-bold", children: n("contact") }),
     /* @__PURE__ */ r.jsxs("div", { className: "card p-6 grid sm:grid-cols-2 gap-4", children: [
       /* @__PURE__ */ r.jsxs("a", { className: "btn", href: `tel:${P.phone}`, children: [
-        /* @__PURE__ */ r.jsx(ot, { size: 18 }),
+        /* @__PURE__ */ r.jsx(ct, { size: 18 }),
         " ",
         n("call")
       ] }),
       /* @__PURE__ */ r.jsxs("a", { className: "btn-outline", href: `https://wa.me/${P.whatsapp}`, children: [
-        /* @__PURE__ */ r.jsx(it, { size: 18 }),
+        /* @__PURE__ */ r.jsx(ot, { size: 18 }),
         " ",
         n("whatsapp")
       ] }),
@@ -5989,7 +5989,7 @@ function ph() {
           target: "_blank",
           rel: "noreferrer",
           children: [
-            /* @__PURE__ */ r.jsx(rn, { size: 18 }),
+            /* @__PURE__ */ r.jsx(dn, { size: 18 }),
             " ",
             n("instagram")
           ]
@@ -6005,7 +6005,7 @@ function ph() {
             P.address
           )}`,
           children: /* @__PURE__ */ r.jsxs("div", { className: "flex items-center gap-2 justify-center", children: [
-            /* @__PURE__ */ r.jsx(rt, { size: 18 }),
+            /* @__PURE__ */ r.jsx(it, { size: 18 }),
             " ",
             n("address"),
             ": ",
@@ -6028,18 +6028,18 @@ function ph() {
     )
   ] });
 }
-const Vt = { en: ts, he: ss, ar: ns };
-function hh() {
+const qt = { en: ns, he: as, ar: rs };
+function fh() {
   const { i18n: n, t: e } = X();
   Le();
-  const [t, s] = A.useState("all"), [a, o] = A.useState(""), [u, d] = A.useState(null), [i, c] = A.useState(null), [l, f] = A.useState(!1), { dispatch: p } = nt();
+  const [t, s] = A.useState("all"), [a, o] = A.useState(""), [u, d] = A.useState(null), [i, c] = A.useState(null), [l, f] = A.useState(!1), { dispatch: p } = at();
   A.useEffect(() => {
     try {
-      P.hours && !as(P.hours) && f(!0);
+      P.hours && !is(P.hours) && f(!0);
     } catch {
     }
   }, []);
-  const g = Vt[n.language] || Vt.ar, m = g.items.filter(
+  const g = qt[n.language] || qt.ar, m = g.items.filter(
     (_) => (_.name + " " + _.desc).toLowerCase().includes(a.toLowerCase())
   ), x = t === "all" ? m.reduce((_, y) => {
     const w = y.category;
@@ -6077,10 +6077,10 @@ function hh() {
     ] }),
     /* @__PURE__ */ r.jsxs("div", { className: "flex flex-col md:flex-row md:items-center gap-3 mb-4", children: [
       /* @__PURE__ */ r.jsx("h1", { className: "text-3xl font-bold tracking-tight flex-1", children: e("menu") }),
-      /* @__PURE__ */ r.jsx("div", { className: "md:w-64", children: /* @__PURE__ */ r.jsx(Qp, { value: a, onChange: o }) })
+      /* @__PURE__ */ r.jsx("div", { className: "md:w-64", children: /* @__PURE__ */ r.jsx(Gp, { value: a, onChange: o }) })
     ] }),
     /* @__PURE__ */ r.jsx(
-      ra,
+      la,
       {
         categories: g.categories,
         current: t,
@@ -6105,7 +6105,7 @@ function hh() {
           /* @__PURE__ */ r.jsx("div", { className: "h-px bg-gradient-to-r from-transparent via-white/20 to-transparent flex-1" })
         ] }),
         /* @__PURE__ */ r.jsx("div", { className: "flex gap-4 overflow-x-auto pb-4 no-scrollbar items-stretch md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:overflow-x-visible md:pb-0", children: y.map((w) => /* @__PURE__ */ r.jsx(
-          Tt,
+          At,
           {
             item: w,
             currency: P.currency,
@@ -6133,7 +6133,7 @@ function hh() {
           /* @__PURE__ */ r.jsx("div", { className: "h-px bg-gradient-to-r from-transparent via-white/20 to-transparent flex-1" })
         ] }),
         /* @__PURE__ */ r.jsx("div", { className: "grid sm:grid-cols-2 lg:grid-cols-3 gap-4 items-stretch", children: x.map((_) => /* @__PURE__ */ r.jsx(
-          Tt,
+          At,
           {
             item: _,
             currency: P.currency,
@@ -6145,7 +6145,7 @@ function hh() {
       ] })
     ),
     /* @__PURE__ */ r.jsx(
-      Yp,
+      Jp,
       {
         open: !!u,
         item: u,
@@ -6154,7 +6154,7 @@ function hh() {
       }
     ),
     /* @__PURE__ */ r.jsx(
-      ia,
+      ua,
       {
         open: !!i,
         src: i == null ? void 0 : i.src,
@@ -6172,7 +6172,7 @@ function hh() {
     ] })
   ] });
 }
-function fh() {
+function mh() {
   const { t: n } = X(), e = Le();
   return A.useEffect(() => {
     document.documentElement.scrollTop = 0, document.body.scrollTop = 0, setTimeout(() => {
@@ -6185,7 +6185,7 @@ function fh() {
         onClick: () => e("/"),
         className: "btn-outline flex items-center gap-2 mb-6",
         children: [
-          /* @__PURE__ */ r.jsx(at, { size: 16 }),
+          /* @__PURE__ */ r.jsx(rt, { size: 16 }),
           n("back_to_menu")
         ]
       }
@@ -6223,20 +6223,20 @@ function fh() {
     ] })
   ] }) });
 }
-var Gp = Object.defineProperty, Ae = Object.getOwnPropertySymbols, ls = Object.prototype.hasOwnProperty, us = Object.prototype.propertyIsEnumerable, qt = (n, e, t) => e in n ? Gp(n, e, { enumerable: !0, configurable: !0, writable: !0, value: t }) : n[e] = t, we = (n, e) => {
+var Xp = Object.defineProperty, Ae = Object.getOwnPropertySymbols, fs = Object.prototype.hasOwnProperty, ms = Object.prototype.propertyIsEnumerable, Wt = (n, e, t) => e in n ? Xp(n, e, { enumerable: !0, configurable: !0, writable: !0, value: t }) : n[e] = t, we = (n, e) => {
   for (var t in e || (e = {}))
-    ls.call(e, t) && qt(n, t, e[t]);
+    fs.call(e, t) && Wt(n, t, e[t]);
   if (Ae)
     for (var t of Ae(e))
-      us.call(e, t) && qt(n, t, e[t]);
+      ms.call(e, t) && Wt(n, t, e[t]);
   return n;
-}, ct = (n, e) => {
+}, lt = (n, e) => {
   var t = {};
   for (var s in n)
-    ls.call(n, s) && e.indexOf(s) < 0 && (t[s] = n[s]);
+    fs.call(n, s) && e.indexOf(s) < 0 && (t[s] = n[s]);
   if (n != null && Ae)
     for (var s of Ae(n))
-      e.indexOf(s) < 0 && us.call(n, s) && (t[s] = n[s]);
+      e.indexOf(s) < 0 && ms.call(n, s) && (t[s] = n[s]);
   return t;
 };
 /**
@@ -6670,13 +6670,13 @@ var ue = re;
  * Copyright (c) Paul O'Shannessy
  * SPDX-License-Identifier: ISC
  */
-var ds = {
+var gs = {
   L: ue.QrCode.Ecc.LOW,
   M: ue.QrCode.Ecc.MEDIUM,
   Q: ue.QrCode.Ecc.QUARTILE,
   H: ue.QrCode.Ecc.HIGH
-}, ps = 128, hs = "L", fs = "#FFFFFF", ms = "#000000", gs = !1, lt = 4, Xp = 0.1;
-function _s(n, e = 0) {
+}, _s = 128, xs = "L", ys = "#FFFFFF", bs = "#000000", vs = !1, ut = 4, Zp = 0.1;
+function ws(n, e = 0) {
   const t = [];
   return n.forEach(function(s, a) {
     let o = null;
@@ -6695,13 +6695,13 @@ function _s(n, e = 0) {
     });
   }), t.join("");
 }
-function xs(n, e) {
+function js(n, e) {
   return n.slice().map((t, s) => s < e.y || s >= e.y + e.h ? t : t.map((a, o) => o < e.x || o >= e.x + e.w ? a : !1));
 }
-function ys(n, e, t, s) {
+function Ns(n, e, t, s) {
   if (s == null)
     return null;
-  const a = t ? lt : 0, o = n.length + a * 2, u = Math.floor(e * Xp), d = o / e, i = (s.width || u) * d, c = (s.height || u) * d, l = s.x == null ? n.length / 2 - i / 2 : s.x * d, f = s.y == null ? n.length / 2 - c / 2 : s.y * d;
+  const a = t ? ut : 0, o = n.length + a * 2, u = Math.floor(e * Zp), d = o / e, i = (s.width || u) * d, c = (s.height || u) * d, l = s.x == null ? n.length / 2 - i / 2 : s.x * d, f = s.y == null ? n.length / 2 - c / 2 : s.y * d;
   let p = null;
   if (s.excavate) {
     let g = Math.floor(l), m = Math.floor(f), x = Math.ceil(i + l - g), b = Math.ceil(c + f - m);
@@ -6709,7 +6709,7 @@ function ys(n, e, t, s) {
   }
   return { x: l, y: f, h: c, w: i, excavation: p };
 }
-var Zp = function() {
+var eh = function() {
   try {
     new Path2D().addPath(new Path2D());
   } catch {
@@ -6717,17 +6717,17 @@ var Zp = function() {
   }
   return !0;
 }();
-function eh(n) {
+function th(n) {
   const e = n, {
     value: t,
-    size: s = ps,
-    level: a = hs,
-    bgColor: o = fs,
-    fgColor: u = ms,
-    includeMargin: d = gs,
+    size: s = _s,
+    level: a = xs,
+    bgColor: o = ys,
+    fgColor: u = bs,
+    includeMargin: d = vs,
     style: i,
     imageSettings: c
-  } = e, l = ct(e, [
+  } = e, l = lt(e, [
     "value",
     "size",
     "level",
@@ -6736,20 +6736,20 @@ function eh(n) {
     "includeMargin",
     "style",
     "imageSettings"
-  ]), f = c == null ? void 0 : c.src, p = ke(null), g = ke(null), [m, x] = st(!1);
+  ]), f = c == null ? void 0 : c.src, p = Ce(null), g = Ce(null), [m, x] = nt(!1);
   be(() => {
     if (p.current != null) {
       const _ = p.current, y = _.getContext("2d");
       if (!y)
         return;
-      let w = ue.QrCode.encodeText(t, ds[a]).getModules();
-      const j = d ? lt : 0, S = w.length + j * 2, T = ys(w, s, d, c), E = g.current, z = T != null && E !== null && E.complete && E.naturalHeight !== 0 && E.naturalWidth !== 0;
-      z && T.excavation != null && (w = xs(w, T.excavation));
+      let w = ue.QrCode.encodeText(t, gs[a]).getModules();
+      const j = d ? ut : 0, S = w.length + j * 2, T = Ns(w, s, d, c), E = g.current, z = T != null && E !== null && E.complete && E.naturalHeight !== 0 && E.naturalWidth !== 0;
+      z && T.excavation != null && (w = js(w, T.excavation));
       const O = window.devicePixelRatio || 1;
       _.height = _.width = s * O;
-      const k = s / S * O;
-      y.scale(k, k), y.fillStyle = o, y.fillRect(0, 0, S, S), y.fillStyle = u, Zp ? y.fill(new Path2D(_s(w, j))) : w.forEach(function(C, D) {
-        C.forEach(function(B, W) {
+      const C = s / S * O;
+      y.scale(C, C), y.fillStyle = o, y.fillRect(0, 0, S, S), y.fillStyle = u, eh ? y.fill(new Path2D(ws(w, j))) : w.forEach(function(k, D) {
+        k.forEach(function(B, W) {
           B && y.fillRect(W + j, D + j, 1, 1);
         });
       }), z && y.drawImage(E, T.x + j, T.y + j, T.w, T.h);
@@ -6774,16 +6774,16 @@ function eh(n) {
     ref: p
   }, l)), N);
 }
-function th(n) {
+function sh(n) {
   const e = n, {
     value: t,
-    size: s = ps,
-    level: a = hs,
-    bgColor: o = fs,
-    fgColor: u = ms,
-    includeMargin: d = gs,
+    size: s = _s,
+    level: a = xs,
+    bgColor: o = ys,
+    fgColor: u = bs,
+    includeMargin: d = vs,
     imageSettings: i
-  } = e, c = ct(e, [
+  } = e, c = lt(e, [
     "value",
     "size",
     "level",
@@ -6792,10 +6792,10 @@ function th(n) {
     "includeMargin",
     "imageSettings"
   ]);
-  let l = ue.QrCode.encodeText(t, ds[a]).getModules();
-  const f = d ? lt : 0, p = l.length + f * 2, g = ys(l, s, d, i);
+  let l = ue.QrCode.encodeText(t, gs[a]).getModules();
+  const f = d ? ut : 0, p = l.length + f * 2, g = Ns(l, s, d, i);
   let m = null;
-  i != null && g != null && (g.excavation != null && (l = xs(l, g.excavation)), m = /* @__PURE__ */ A.createElement("image", {
+  i != null && g != null && (g.excavation != null && (l = js(l, g.excavation)), m = /* @__PURE__ */ A.createElement("image", {
     xlinkHref: i.src,
     height: g.h,
     width: g.w,
@@ -6803,7 +6803,7 @@ function th(n) {
     y: g.y + f,
     preserveAspectRatio: "none"
   }));
-  const x = _s(l, f);
+  const x = ws(l, f);
   return /* @__PURE__ */ A.createElement("svg", we({
     height: s,
     width: s,
@@ -6818,11 +6818,11 @@ function th(n) {
     shapeRendering: "crispEdges"
   }), m);
 }
-var sh = (n) => {
-  const e = n, { renderAs: t } = e, s = ct(e, ["renderAs"]);
-  return t === "svg" ? /* @__PURE__ */ A.createElement(th, we({}, s)) : /* @__PURE__ */ A.createElement(eh, we({}, s));
+var nh = (n) => {
+  const e = n, { renderAs: t } = e, s = lt(e, ["renderAs"]);
+  return t === "svg" ? /* @__PURE__ */ A.createElement(sh, we({}, s)) : /* @__PURE__ */ A.createElement(th, we({}, s));
 };
-function mh() {
+function gh() {
   const { t: n } = X(), [e, t] = A.useState(window.location.origin), s = A.useRef(null), a = () => {
     const o = s.current.querySelector("canvas");
     if (!o)
@@ -6833,13 +6833,13 @@ function mh() {
   return /* @__PURE__ */ r.jsxs("div", { className: "py-10 max-w-lg mx-auto space-y-4 text-center", children: [
     /* @__PURE__ */ r.jsx("h1", { className: "text-3xl font-bold", children: n("qr") }),
     /* @__PURE__ */ r.jsxs("div", { className: "card p-6 flex flex-col items-center gap-4", children: [
-      /* @__PURE__ */ r.jsx("div", { ref: s, className: "bg-white p-4 rounded-2xl", children: /* @__PURE__ */ r.jsx(sh, { value: e, size: 256, includeMargin: !0 }) }),
+      /* @__PURE__ */ r.jsx("div", { ref: s, className: "bg-white p-4 rounded-2xl", children: /* @__PURE__ */ r.jsx(nh, { value: e, size: 256, includeMargin: !0 }) }),
       /* @__PURE__ */ r.jsx("input", { value: e, onChange: (o) => t(o.target.value), className: "w-full" }),
       /* @__PURE__ */ r.jsx("button", { className: "btn w-full", onClick: a, children: "PNG" })
     ] })
   ] });
 }
-function gh() {
+function _h() {
   const { t: n, i18n: e } = X(), [t, s] = A.useState(!1), a = (o) => e.language === "ar" ? o.name_ar : e.language === "he" ? o.name_he : o.name;
   return /* @__PURE__ */ r.jsxs("div", { className: "py-8", children: [
     /* @__PURE__ */ r.jsxs("div", { className: "text-center mb-8", children: [
@@ -6849,7 +6849,7 @@ function gh() {
     /* @__PURE__ */ r.jsxs("div", { className: "grid md:grid-cols-2 gap-6 mb-8", children: [
       /* @__PURE__ */ r.jsxs("div", { className: "card p-6", children: [
         /* @__PURE__ */ r.jsxs("h3", { className: "text-lg font-semibold mb-4 flex items-center gap-2", children: [
-          /* @__PURE__ */ r.jsx(Ge, { size: 20 }),
+          /* @__PURE__ */ r.jsx(Xe, { size: 20 }),
           n("open_hours")
         ] }),
         /* @__PURE__ */ r.jsxs("div", { className: "space-y-2 text-sm", children: [
@@ -6869,7 +6869,7 @@ function gh() {
       ] }),
       /* @__PURE__ */ r.jsxs("div", { className: "card p-6", children: [
         /* @__PURE__ */ r.jsxs("h3", { className: "text-lg font-semibold mb-4 flex items-center gap-2", children: [
-          /* @__PURE__ */ r.jsx(rt, { size: 20 }),
+          /* @__PURE__ */ r.jsx(it, { size: 20 }),
           n("reservation_area")
         ] }),
         /* @__PURE__ */ r.jsx("div", { className: "space-y-2", children: P.reservation.areas.map((o) => /* @__PURE__ */ r.jsxs("div", { className: "flex items-center gap-2 text-sm", children: [
@@ -6893,7 +6893,7 @@ function gh() {
           /* @__PURE__ */ r.jsx("div", { className: "text-xs text-white/60", children: n("choose_date") })
         ] }),
         /* @__PURE__ */ r.jsxs("div", { className: "text-center", children: [
-          /* @__PURE__ */ r.jsx("div", { className: "w-12 h-12 bg-blue-400/20 rounded-full flex items-center justify-center mx-auto mb-2", children: /* @__PURE__ */ r.jsx(Ge, { size: 24, className: "text-blue-400" }) }),
+          /* @__PURE__ */ r.jsx("div", { className: "w-12 h-12 bg-blue-400/20 rounded-full flex items-center justify-center mx-auto mb-2", children: /* @__PURE__ */ r.jsx(Xe, { size: 24, className: "text-blue-400" }) }),
           /* @__PURE__ */ r.jsxs("div", { className: "text-sm font-medium", children: [
             "2. ",
             n("reservation_time")
@@ -6901,7 +6901,7 @@ function gh() {
           /* @__PURE__ */ r.jsx("div", { className: "text-xs text-white/60", children: n("select_time") })
         ] }),
         /* @__PURE__ */ r.jsxs("div", { className: "text-center", children: [
-          /* @__PURE__ */ r.jsx("div", { className: "w-12 h-12 bg-purple-400/20 rounded-full flex items-center justify-center mx-auto mb-2", children: /* @__PURE__ */ r.jsx(Gt, { size: 24, className: "text-purple-400" }) }),
+          /* @__PURE__ */ r.jsx("div", { className: "w-12 h-12 bg-purple-400/20 rounded-full flex items-center justify-center mx-auto mb-2", children: /* @__PURE__ */ r.jsx(Xt, { size: 24, className: "text-purple-400" }) }),
           /* @__PURE__ */ r.jsxs("div", { className: "text-sm font-medium", children: [
             "3. ",
             n("reservation_guests")
@@ -6920,7 +6920,7 @@ function gh() {
     ] }),
     /* @__PURE__ */ r.jsxs("div", { className: "card p-6 bg-blue-500/10 border-blue-500/20", children: [
       /* @__PURE__ */ r.jsxs("h3", { className: "text-lg font-semibold mb-3 flex items-center gap-2", children: [
-        /* @__PURE__ */ r.jsx(it, { size: 20 }),
+        /* @__PURE__ */ r.jsx(ot, { size: 20 }),
         n("important_notice")
       ] }),
       /* @__PURE__ */ r.jsxs("div", { className: "space-y-2 text-sm text-white/80", children: [
@@ -6934,7 +6934,7 @@ function gh() {
         ] })
       ] }),
       /* @__PURE__ */ r.jsxs("div", { className: "mt-4 flex items-center gap-2 text-sm", children: [
-        /* @__PURE__ */ r.jsx(ot, { size: 16 }),
+        /* @__PURE__ */ r.jsx(ct, { size: 16 }),
         /* @__PURE__ */ r.jsxs("span", { children: [
           n("need_assistance"),
           " "
@@ -6942,10 +6942,10 @@ function gh() {
         /* @__PURE__ */ r.jsx("a", { href: `tel:${P.phone}`, className: "text-green-400 hover:underline", children: P.phone })
       ] })
     ] }),
-    /* @__PURE__ */ r.jsx(Jp, { open: t, onClose: () => s(!1) })
+    /* @__PURE__ */ r.jsx(Qp, { open: t, onClose: () => s(!1) })
   ] });
 }
-function _h() {
+function xh() {
   const { t: n } = X(), e = Le();
   return A.useEffect(() => {
     document.documentElement.scrollTop = 0, document.body.scrollTop = 0, setTimeout(() => {
@@ -6958,7 +6958,7 @@ function _h() {
         onClick: () => e("/"),
         className: "btn-outline flex items-center gap-2 mb-6",
         children: [
-          /* @__PURE__ */ r.jsx(at, { size: 16 }),
+          /* @__PURE__ */ r.jsx(rt, { size: 16 }),
           n("back_to_menu")
         ]
       }
@@ -6996,29 +6996,66 @@ function _h() {
     ] })
   ] }) });
 }
+function yh(n = "en", e = {}) {
+  const t = {
+    resources: ze,
+    lng: n,
+    fallbackLng: "en",
+    interpolation: { escapeValue: !1 },
+    ...e
+  };
+  return K.use(ts).init(t);
+}
+function bh() {
+  return ze;
+}
+function vh(n) {
+  return Object.values(ze).every(
+    (e) => e.translation && e.translation[n] !== void 0
+  );
+}
+function wh() {
+  const n = /* @__PURE__ */ new Set();
+  return Object.values(ze).forEach((e) => {
+    e.translation && Object.keys(e.translation).forEach((t) => n.add(t));
+  }), Array.from(n);
+}
+const ze = {
+  en: { translation: ls },
+  he: { translation: us },
+  ar: { translation: ds }
+};
 export {
-  dh as AccessibilityPage,
-  uh as AnimationProvider,
-  oh as CartButton,
-  ch as CartDrawer,
-  ih as CartProvider,
-  ra as CategoryTabs,
-  ph as ContactPage,
-  ia as ImageLightbox,
-  Tt as ItemCard,
-  lh as LanguageSwitcher,
-  hh as MenuPage,
-  Yp as OptionModal,
-  fh as PrivacyPage,
-  mh as QRPage,
-  Jp as ReservationModal,
-  gh as ReservationPage,
-  Qp as SearchBar,
-  _h as TermsPage,
-  os as applyDir,
-  kt as cartTotal,
-  Y as i18n,
-  as as isRestaurantOpen,
-  Kp as useAnimation,
-  nt as useCart
+  ph as AccessibilityPage,
+  dh as AnimationProvider,
+  ch as CartButton,
+  lh as CartDrawer,
+  oh as CartProvider,
+  la as CategoryTabs,
+  hh as ContactPage,
+  ua as ImageLightbox,
+  At as ItemCard,
+  uh as LanguageSwitcher,
+  fh as MenuPage,
+  Jp as OptionModal,
+  mh as PrivacyPage,
+  gh as QRPage,
+  Qp as ReservationModal,
+  _h as ReservationPage,
+  Gp as SearchBar,
+  xh as TermsPage,
+  ps as applyDir,
+  ds as arLocales,
+  Et as cartTotal,
+  ls as enLocales,
+  wh as getAllTranslationKeys,
+  bh as getTablyLocaleResources,
+  vh as hasTranslationKey,
+  us as heLocales,
+  K as i18n,
+  yh as initializeTablyI18n,
+  is as isRestaurantOpen,
+  ze as localeResources,
+  Yp as useAnimation,
+  at as useCart
 };
