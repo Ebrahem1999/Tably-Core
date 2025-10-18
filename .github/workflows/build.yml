@@ -111,3 +111,4 @@ jobs:
           
           # Trigger updates for all projects
           trigger_repo_update "main" "Ebrahem1999"
+          trigger_repo_update "zuwade" "Ebrahem1999"
