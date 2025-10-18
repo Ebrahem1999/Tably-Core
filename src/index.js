@@ -39,13 +39,5 @@ export { default as enLocales } from './locales/en.json'
 export { default as heLocales } from './locales/he.json'
 export { default as arLocales } from './locales/ar.json'
 
-// Locale Resources (for advanced usage)
-import en from './locales/en.json'
-import he from './locales/he.json'
-import ar from './locales/ar.json'
-
-export const localeResources = {
-  en: { translation: en },
-  he: { translation: he },
-  ar: { translation: ar }
-}
+// Re-export localeResources from i18nSetup
+export { localeResources } from './utils/i18nSetup.js'

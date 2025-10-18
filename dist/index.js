@@ -6996,6 +6996,11 @@ function xh() {
     ] })
   ] }) });
 }
+const ze = {
+  en: { translation: ls },
+  he: { translation: us },
+  ar: { translation: ds }
+};
 function yh(n = "en", e = {}) {
   const t = {
     resources: ze,
@@ -7020,11 +7025,6 @@ function wh() {
     e.translation && Object.keys(e.translation).forEach((t) => n.add(t));
   }), Array.from(n);
 }
-const ze = {
-  en: { translation: ls },
-  he: { translation: us },
-  ar: { translation: ds }
-};
 export {
   ph as AccessibilityPage,
   dh as AnimationProvider,

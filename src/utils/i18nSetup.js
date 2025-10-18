@@ -1,6 +1,14 @@
 import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
-import { localeResources } from '../index.js'
+import en from '../locales/en.json'
+import he from '../locales/he.json'
+import ar from '../locales/ar.json'
+
+export const localeResources = {
+  en: { translation: en },
+  he: { translation: he },
+  ar: { translation: ar }
+}
 
 /**
  * Initialize i18n with Tably Core's locale resources
