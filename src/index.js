@@ -31,8 +31,3 @@ import './styles/index.css'
 
 // i18n
 export { default as i18n, applyDir } from './i18n.js'
-
-// Locales (for advanced usage)
-export { default as enLocales } from './locales/en.json'
-export { default as heLocales } from './locales/he.json'
-export { default as arLocales } from './locales/ar.json'
