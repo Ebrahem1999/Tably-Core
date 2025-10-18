@@ -17,7 +17,6 @@ export { CartProvider, useCart, cartTotal } from './store/cart.jsx'
 // Pages
 export { default as AccessibilityPage } from './pages/Accessibility.jsx'
 export { default as ContactPage } from './pages/Contact.jsx'
-export { default as MenuPage } from './pages/Menu.jsx'
 export { default as PrivacyPage } from './pages/Privacy.jsx'
 export { default as QRPage } from './pages/QR.jsx'
 export { default as ReservationPage } from './pages/Reservation.jsx'
