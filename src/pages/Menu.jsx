@@ -2,9 +2,6 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import config from "../data/config.json";
-import en from "../data/menu.en.json";
-import he from "../data/menu.he.json";
-import ar from "../data/menu.ar.json";
 import CategoryTabs from "../components/CategoryTabs";
 import SearchBar from "../components/SearchBar";
 import ItemCard from "../components/ItemCard";
@@ -13,10 +10,7 @@ import ImageLightbox from "../components/ImageLightbox";
 import { useCart } from "../store/cart";
 import { isRestaurantOpen } from "../utils/timeUtils";
 
-
-const MENUS = { en, he, ar };
-
-export default function MenuPage() {
+export default function MenuPage({ menuData }) {
   const { i18n, t } = useTranslation();
   const navigate = useNavigate();
   const [category, setCategory] = React.useState("all");
@@ -36,7 +30,7 @@ export default function MenuPage() {
     }
   }, []);
 
-  const menu = MENUS[i18n.language] || MENUS.ar;
+  const menu = menuData?.[i18n.language] || menuData?.ar || { items: [], categories: [] };
   const filteredItems = menu.items.filter((it) =>
     (it.name + " " + it.desc).toLowerCase().includes(search.toLowerCase())
   );

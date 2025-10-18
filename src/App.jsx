@@ -9,7 +9,12 @@ import TermsPage from "./pages/Terms";
 import PrivacyPage from "./pages/Privacy";
 import AccessibilityPage from "./pages/Accessibility";
 import config from "./data/config.json";
+import en from "./data/menu.en.json";
+import he from "./data/menu.he.json";
+import ar from "./data/menu.ar.json";
 import { LanguageSwitcher } from "./components/LanguageSwitcher";
+
+const MENUS = { en, he, ar };
 import { Phone, MapPin, MessageCircle, Instagram, Calendar } from "lucide-react";
 import { CartButton } from "./components/CartButton";
 import { CartDrawer } from "./components/CartDrawer";
@@ -64,7 +69,7 @@ function Header() {
           <CartButton onClick={() => setOpen(true)} />
         </div>
       </div>
-      <CartDrawer open={open} onClose={() => setOpen(false)} />
+      <CartDrawer open={open} onClose={() => setOpen(false)} menuData={MENUS} />
     </header>
   );
 }
@@ -194,7 +199,7 @@ function AppContent() {
       <Header />
       <main className="max-w-6xl mx-auto px-4">
         <Routes>
-          <Route path="/" element={<MenuPage />} />
+          <Route path="/" element={<MenuPage menuData={MENUS} />} />
           <Route path="/contact" element={<ContactPage />} />
           {config.reservation.enabled && (
             <Route path="/reservation" element={<ReservationPage />} />

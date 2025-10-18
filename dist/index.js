@@ -1,5 +1,5 @@
-import L, { forwardRef as Wt, createElement as Je, createContext as Ht, useContext as Kt, useState as st, useRef as ke, useEffect as be, useCallback as Ks } from "react";
-import { createPortal as Yt } from "react-dom";
+import L, { forwardRef as Bt, createElement as Je, createContext as qt, useContext as Wt, useState as st, useRef as Ee, useEffect as be, useCallback as Vs } from "react";
+import { createPortal as Ht } from "react-dom";
 import { useNavigate as Le } from "react-router-dom";
 var Qe = { exports: {} }, me = {};
 /**
@@ -11,21 +11,21 @@ var Qe = { exports: {} }, me = {};
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-var St;
-function Ys() {
-  if (St)
+var Ct;
+function Bs() {
+  if (Ct)
     return me;
-  St = 1;
+  Ct = 1;
   var n = L, e = Symbol.for("react.element"), t = Symbol.for("react.fragment"), s = Object.prototype.hasOwnProperty, a = n.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner, o = { key: !0, ref: !0, __self: !0, __source: !0 };
-  function u(d, i, c) {
-    var l, f = {}, p = null, g = null;
-    c !== void 0 && (p = "" + c), i.key !== void 0 && (p = "" + i.key), i.ref !== void 0 && (g = i.ref);
-    for (l in i)
-      s.call(i, l) && !o.hasOwnProperty(l) && (f[l] = i[l]);
-    if (d && d.defaultProps)
-      for (l in i = d.defaultProps, i)
-        f[l] === void 0 && (f[l] = i[l]);
-    return { $$typeof: e, type: d, key: p, ref: g, props: f, _owner: a.current };
+  function u(f, r, c) {
+    var l, p = {}, d = null, g = null;
+    c !== void 0 && (d = "" + c), r.key !== void 0 && (d = "" + r.key), r.ref !== void 0 && (g = r.ref);
+    for (l in r)
+      s.call(r, l) && !o.hasOwnProperty(l) && (p[l] = r[l]);
+    if (f && f.defaultProps)
+      for (l in r = f.defaultProps, r)
+        p[l] === void 0 && (p[l] = r[l]);
+    return { $$typeof: e, type: f, key: d, ref: g, props: p, _owner: a.current };
   }
   return me.Fragment = t, me.jsx = u, me.jsxs = u, me;
 }
@@ -39,57 +39,57 @@ var ge = {};
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-var Ct;
-function Js() {
-  return Ct || (Ct = 1, process.env.NODE_ENV !== "production" && function() {
-    var n = L, e = Symbol.for("react.element"), t = Symbol.for("react.portal"), s = Symbol.for("react.fragment"), a = Symbol.for("react.strict_mode"), o = Symbol.for("react.profiler"), u = Symbol.for("react.provider"), d = Symbol.for("react.context"), i = Symbol.for("react.forward_ref"), c = Symbol.for("react.suspense"), l = Symbol.for("react.suspense_list"), f = Symbol.for("react.memo"), p = Symbol.for("react.lazy"), g = Symbol.for("react.offscreen"), m = Symbol.iterator, x = "@@iterator";
-    function b(h) {
+var St;
+function qs() {
+  return St || (St = 1, process.env.NODE_ENV !== "production" && function() {
+    var n = L, e = Symbol.for("react.element"), t = Symbol.for("react.portal"), s = Symbol.for("react.fragment"), a = Symbol.for("react.strict_mode"), o = Symbol.for("react.profiler"), u = Symbol.for("react.provider"), f = Symbol.for("react.context"), r = Symbol.for("react.forward_ref"), c = Symbol.for("react.suspense"), l = Symbol.for("react.suspense_list"), p = Symbol.for("react.memo"), d = Symbol.for("react.lazy"), g = Symbol.for("react.offscreen"), m = Symbol.iterator, x = "@@iterator";
+    function y(h) {
       if (h === null || typeof h != "object")
         return null;
-      var v = m && h[m] || h[x];
-      return typeof v == "function" ? v : null;
+      var b = m && h[m] || h[x];
+      return typeof b == "function" ? b : null;
     }
-    var N = n.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
-    function _(h) {
+    var j = n.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+    function v(h) {
       {
-        for (var v = arguments.length, $ = new Array(v > 1 ? v - 1 : 0), R = 1; R < v; R++)
-          $[R - 1] = arguments[R];
-        y("error", h, $);
+        for (var b = arguments.length, N = new Array(b > 1 ? b - 1 : 0), O = 1; O < b; O++)
+          N[O - 1] = arguments[O];
+        _("error", h, N);
       }
     }
-    function y(h, v, $) {
+    function _(h, b, N) {
       {
-        var R = N.ReactDebugCurrentFrame, F = R.getStackAddendum();
-        F !== "" && (v += "%s", $ = $.concat([F]));
-        var V = $.map(function(I) {
-          return String(I);
+        var O = j.ReactDebugCurrentFrame, D = O.getStackAddendum();
+        D !== "" && (b += "%s", N = N.concat([D]));
+        var V = N.map(function(F) {
+          return String(F);
         });
-        V.unshift("Warning: " + v), Function.prototype.apply.call(console[h], console, V);
+        V.unshift("Warning: " + b), Function.prototype.apply.call(console[h], console, V);
       }
     }
-    var w = !1, j = !1, S = !1, T = !1, E = !1, z;
-    z = Symbol.for("react.module.reference");
-    function O(h) {
-      return !!(typeof h == "string" || typeof h == "function" || h === s || h === o || E || h === a || h === c || h === l || T || h === g || w || j || S || typeof h == "object" && h !== null && (h.$$typeof === p || h.$$typeof === f || h.$$typeof === u || h.$$typeof === d || h.$$typeof === i || // This needs to include all possible module reference object
+    var w = !1, C = !1, S = !1, E = !1, T = !1, A;
+    A = Symbol.for("react.module.reference");
+    function z(h) {
+      return !!(typeof h == "string" || typeof h == "function" || h === s || h === o || T || h === a || h === c || h === l || E || h === g || w || C || S || typeof h == "object" && h !== null && (h.$$typeof === d || h.$$typeof === p || h.$$typeof === u || h.$$typeof === f || h.$$typeof === r || // This needs to include all possible module reference object
       // types supported by any Flight configuration anywhere since
       // we don't know which Flight build this will end up being used
       // with.
-      h.$$typeof === z || h.getModuleId !== void 0));
+      h.$$typeof === A || h.getModuleId !== void 0));
     }
-    function k(h, v, $) {
-      var R = h.displayName;
-      if (R)
-        return R;
-      var F = v.displayName || v.name || "";
-      return F !== "" ? $ + "(" + F + ")" : $;
+    function R(h, b, N) {
+      var O = h.displayName;
+      if (O)
+        return O;
+      var D = b.displayName || b.name || "";
+      return D !== "" ? N + "(" + D + ")" : N;
     }
-    function C(h) {
+    function M(h) {
       return h.displayName || "Context";
     }
-    function D(h) {
+    function $(h) {
       if (h == null)
         return null;
-      if (typeof h.tag == "number" && _("Received an unexpected object in getComponentNameFromType(). This is likely a bug in React. Please file an issue."), typeof h == "function")
+      if (typeof h.tag == "number" && v("Received an unexpected object in getComponentNameFromType(). This is likely a bug in React. Please file an issue."), typeof h == "function")
         return h.displayName || h.name || null;
       if (typeof h == "string")
         return h;
@@ -109,21 +109,21 @@ function Js() {
       }
       if (typeof h == "object")
         switch (h.$$typeof) {
-          case d:
-            var v = h;
-            return C(v) + ".Consumer";
-          case u:
-            var $ = h;
-            return C($._context) + ".Provider";
-          case i:
-            return k(h, h.render, "ForwardRef");
           case f:
-            var R = h.displayName || null;
-            return R !== null ? R : D(h.type) || "Memo";
-          case p: {
-            var F = h, V = F._payload, I = F._init;
+            var b = h;
+            return M(b) + ".Consumer";
+          case u:
+            var N = h;
+            return M(N._context) + ".Provider";
+          case r:
+            return R(h, h.render, "ForwardRef");
+          case p:
+            var O = h.displayName || null;
+            return O !== null ? O : $(h.type) || "Memo";
+          case d: {
+            var D = h, V = D._payload, F = D._init;
             try {
-              return D(I(V));
+              return $(F(V));
             } catch {
               return null;
             }
@@ -131,14 +131,14 @@ function Js() {
         }
       return null;
     }
-    var B = Object.assign, W = 0, q, A, U, ee, se, pe, ut;
+    var U = Object.assign, B = 0, Y, W, k, q, se, fe, ut;
     function dt() {
     }
     dt.__reactDisabledLog = !0;
-    function bs() {
+    function ms() {
       {
-        if (W === 0) {
-          q = console.log, A = console.info, U = console.warn, ee = console.error, se = console.group, pe = console.groupCollapsed, ut = console.groupEnd;
+        if (B === 0) {
+          Y = console.log, W = console.info, k = console.warn, q = console.error, se = console.group, fe = console.groupCollapsed, ut = console.groupEnd;
           var h = {
             configurable: !0,
             enumerable: !0,
@@ -155,146 +155,146 @@ function Js() {
             groupEnd: h
           });
         }
-        W++;
+        B++;
       }
     }
-    function vs() {
+    function gs() {
       {
-        if (W--, W === 0) {
+        if (B--, B === 0) {
           var h = {
             configurable: !0,
             enumerable: !0,
             writable: !0
           };
           Object.defineProperties(console, {
-            log: B({}, h, {
+            log: U({}, h, {
+              value: Y
+            }),
+            info: U({}, h, {
+              value: W
+            }),
+            warn: U({}, h, {
+              value: k
+            }),
+            error: U({}, h, {
               value: q
             }),
-            info: B({}, h, {
-              value: A
-            }),
-            warn: B({}, h, {
-              value: U
-            }),
-            error: B({}, h, {
-              value: ee
-            }),
-            group: B({}, h, {
+            group: U({}, h, {
               value: se
             }),
-            groupCollapsed: B({}, h, {
-              value: pe
+            groupCollapsed: U({}, h, {
+              value: fe
             }),
-            groupEnd: B({}, h, {
+            groupEnd: U({}, h, {
               value: ut
             })
           });
         }
-        W < 0 && _("disabledDepth fell below zero. This is a bug in React. Please file an issue.");
+        B < 0 && v("disabledDepth fell below zero. This is a bug in React. Please file an issue.");
       }
     }
-    var ze = N.ReactCurrentDispatcher, Fe;
-    function je(h, v, $) {
+    var Fe = j.ReactCurrentDispatcher, ze;
+    function je(h, b, N) {
       {
-        if (Fe === void 0)
+        if (ze === void 0)
           try {
             throw Error();
-          } catch (F) {
-            var R = F.stack.trim().match(/\n( *(at )?)/);
-            Fe = R && R[1] || "";
+          } catch (D) {
+            var O = D.stack.trim().match(/\n( *(at )?)/);
+            ze = O && O[1] || "";
           }
         return `
-` + Fe + h;
+` + ze + h;
       }
     }
-    var De = !1, Ne;
+    var Ue = !1, Ne;
     {
-      var ws = typeof WeakMap == "function" ? WeakMap : Map;
-      Ne = new ws();
+      var _s = typeof WeakMap == "function" ? WeakMap : Map;
+      Ne = new _s();
     }
-    function pt(h, v) {
-      if (!h || De)
+    function ft(h, b) {
+      if (!h || Ue)
         return "";
       {
-        var $ = Ne.get(h);
-        if ($ !== void 0)
-          return $;
+        var N = Ne.get(h);
+        if (N !== void 0)
+          return N;
       }
-      var R;
-      De = !0;
-      var F = Error.prepareStackTrace;
+      var O;
+      Ue = !0;
+      var D = Error.prepareStackTrace;
       Error.prepareStackTrace = void 0;
       var V;
-      V = ze.current, ze.current = null, bs();
+      V = Fe.current, Fe.current = null, ms();
       try {
-        if (v) {
-          var I = function() {
+        if (b) {
+          var F = function() {
             throw Error();
           };
-          if (Object.defineProperty(I.prototype, "props", {
+          if (Object.defineProperty(F.prototype, "props", {
             set: function() {
               throw Error();
             }
           }), typeof Reflect == "object" && Reflect.construct) {
             try {
-              Reflect.construct(I, []);
-            } catch (G) {
-              R = G;
+              Reflect.construct(F, []);
+            } catch (X) {
+              O = X;
             }
-            Reflect.construct(h, [], I);
+            Reflect.construct(h, [], F);
           } else {
             try {
-              I.call();
-            } catch (G) {
-              R = G;
+              F.call();
+            } catch (X) {
+              O = X;
             }
-            h.call(I.prototype);
+            h.call(F.prototype);
           }
         } else {
           try {
             throw Error();
-          } catch (G) {
-            R = G;
+          } catch (X) {
+            O = X;
           }
           h();
         }
-      } catch (G) {
-        if (G && R && typeof G.stack == "string") {
-          for (var M = G.stack.split(`
-`), Q = R.stack.split(`
-`), H = M.length - 1, K = Q.length - 1; H >= 1 && K >= 0 && M[H] !== Q[K]; )
+      } catch (X) {
+        if (X && O && typeof X.stack == "string") {
+          for (var I = X.stack.split(`
+`), G = O.stack.split(`
+`), H = I.length - 1, K = G.length - 1; H >= 1 && K >= 0 && I[H] !== G[K]; )
             K--;
           for (; H >= 1 && K >= 0; H--, K--)
-            if (M[H] !== Q[K]) {
+            if (I[H] !== G[K]) {
               if (H !== 1 || K !== 1)
                 do
-                  if (H--, K--, K < 0 || M[H] !== Q[K]) {
-                    var Z = `
-` + M[H].replace(" at new ", " at ");
-                    return h.displayName && Z.includes("<anonymous>") && (Z = Z.replace("<anonymous>", h.displayName)), typeof h == "function" && Ne.set(h, Z), Z;
+                  if (H--, K--, K < 0 || I[H] !== G[K]) {
+                    var ee = `
+` + I[H].replace(" at new ", " at ");
+                    return h.displayName && ee.includes("<anonymous>") && (ee = ee.replace("<anonymous>", h.displayName)), typeof h == "function" && Ne.set(h, ee), ee;
                   }
                 while (H >= 1 && K >= 0);
               break;
             }
         }
       } finally {
-        De = !1, ze.current = V, vs(), Error.prepareStackTrace = F;
+        Ue = !1, Fe.current = V, gs(), Error.prepareStackTrace = D;
       }
       var oe = h ? h.displayName || h.name : "", ne = oe ? je(oe) : "";
       return typeof h == "function" && Ne.set(h, ne), ne;
     }
-    function js(h, v, $) {
-      return pt(h, !1);
+    function xs(h, b, N) {
+      return ft(h, !1);
     }
-    function Ns(h) {
-      var v = h.prototype;
-      return !!(v && v.isReactComponent);
+    function ys(h) {
+      var b = h.prototype;
+      return !!(b && b.isReactComponent);
     }
-    function $e(h, v, $) {
+    function $e(h, b, N) {
       if (h == null)
         return "";
       if (typeof h == "function")
-        return pt(h, Ns(h));
+        return ft(h, ys(h));
       if (typeof h == "string")
         return je(h);
       switch (h) {
@@ -305,58 +305,58 @@ function Js() {
       }
       if (typeof h == "object")
         switch (h.$$typeof) {
-          case i:
-            return js(h.render);
-          case f:
-            return $e(h.type, v, $);
-          case p: {
-            var R = h, F = R._payload, V = R._init;
+          case r:
+            return xs(h.render);
+          case p:
+            return $e(h.type, b, N);
+          case d: {
+            var O = h, D = O._payload, V = O._init;
             try {
-              return $e(V(F), v, $);
+              return $e(V(D), b, N);
             } catch {
             }
           }
         }
       return "";
     }
-    var he = Object.prototype.hasOwnProperty, ht = {}, ft = N.ReactDebugCurrentFrame;
-    function Se(h) {
+    var he = Object.prototype.hasOwnProperty, ht = {}, pt = j.ReactDebugCurrentFrame;
+    function Ce(h) {
       if (h) {
-        var v = h._owner, $ = $e(h.type, h._source, v ? v.type : null);
-        ft.setExtraStackFrame($);
+        var b = h._owner, N = $e(h.type, h._source, b ? b.type : null);
+        pt.setExtraStackFrame(N);
       } else
-        ft.setExtraStackFrame(null);
+        pt.setExtraStackFrame(null);
     }
-    function $s(h, v, $, R, F) {
+    function bs(h, b, N, O, D) {
       {
         var V = Function.call.bind(he);
-        for (var I in h)
-          if (V(h, I)) {
-            var M = void 0;
+        for (var F in h)
+          if (V(h, F)) {
+            var I = void 0;
             try {
-              if (typeof h[I] != "function") {
-                var Q = Error((R || "React class") + ": " + $ + " type `" + I + "` is invalid; it must be a function, usually from the `prop-types` package, but received `" + typeof h[I] + "`.This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`.");
-                throw Q.name = "Invariant Violation", Q;
+              if (typeof h[F] != "function") {
+                var G = Error((O || "React class") + ": " + N + " type `" + F + "` is invalid; it must be a function, usually from the `prop-types` package, but received `" + typeof h[F] + "`.This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`.");
+                throw G.name = "Invariant Violation", G;
               }
-              M = h[I](v, I, R, $, null, "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED");
+              I = h[F](b, F, O, N, null, "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED");
             } catch (H) {
-              M = H;
+              I = H;
             }
-            M && !(M instanceof Error) && (Se(F), _("%s: type specification of %s `%s` is invalid; the type checker function must return `null` or an `Error` but returned a %s. You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument).", R || "React class", $, I, typeof M), Se(null)), M instanceof Error && !(M.message in ht) && (ht[M.message] = !0, Se(F), _("Failed %s type: %s", $, M.message), Se(null));
+            I && !(I instanceof Error) && (Ce(D), v("%s: type specification of %s `%s` is invalid; the type checker function must return `null` or an `Error` but returned a %s. You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument).", O || "React class", N, F, typeof I), Ce(null)), I instanceof Error && !(I.message in ht) && (ht[I.message] = !0, Ce(D), v("Failed %s type: %s", N, I.message), Ce(null));
           }
       }
     }
-    var Ss = Array.isArray;
-    function Ue(h) {
-      return Ss(h);
+    var vs = Array.isArray;
+    function De(h) {
+      return vs(h);
     }
-    function Cs(h) {
+    function ws(h) {
       {
-        var v = typeof Symbol == "function" && Symbol.toStringTag, $ = v && h[Symbol.toStringTag] || h.constructor.name || "Object";
-        return $;
+        var b = typeof Symbol == "function" && Symbol.toStringTag, N = b && h[Symbol.toStringTag] || h.constructor.name || "Object";
+        return N;
       }
     }
-    function ks(h) {
+    function js(h) {
       try {
         return mt(h), !1;
       } catch {
@@ -367,112 +367,112 @@ function Js() {
       return "" + h;
     }
     function gt(h) {
-      if (ks(h))
-        return _("The provided key is an unsupported type %s. This value must be coerced to a string before before using it here.", Cs(h)), mt(h);
+      if (js(h))
+        return v("The provided key is an unsupported type %s. This value must be coerced to a string before before using it here.", ws(h)), mt(h);
     }
-    var fe = N.ReactCurrentOwner, Es = {
+    var pe = j.ReactCurrentOwner, Ns = {
       key: !0,
       ref: !0,
       __self: !0,
       __source: !0
-    }, _t, xt, Be;
-    Be = {};
-    function Rs(h) {
+    }, _t, xt, Ve;
+    Ve = {};
+    function $s(h) {
       if (he.call(h, "ref")) {
-        var v = Object.getOwnPropertyDescriptor(h, "ref").get;
-        if (v && v.isReactWarning)
+        var b = Object.getOwnPropertyDescriptor(h, "ref").get;
+        if (b && b.isReactWarning)
           return !1;
       }
       return h.ref !== void 0;
     }
-    function Os(h) {
+    function Cs(h) {
       if (he.call(h, "key")) {
-        var v = Object.getOwnPropertyDescriptor(h, "key").get;
-        if (v && v.isReactWarning)
+        var b = Object.getOwnPropertyDescriptor(h, "key").get;
+        if (b && b.isReactWarning)
           return !1;
       }
       return h.key !== void 0;
     }
-    function Ps(h, v) {
-      if (typeof h.ref == "string" && fe.current && v && fe.current.stateNode !== v) {
-        var $ = D(fe.current.type);
-        Be[$] || (_('Component "%s" contains the string ref "%s". Support for string refs will be removed in a future major release. This case cannot be automatically converted to an arrow function. We ask you to manually fix this case by using useRef() or createRef() instead. Learn more about using refs safely here: https://reactjs.org/link/strict-mode-string-ref', D(fe.current.type), h.ref), Be[$] = !0);
+    function Ss(h, b) {
+      if (typeof h.ref == "string" && pe.current && b && pe.current.stateNode !== b) {
+        var N = $(pe.current.type);
+        Ve[N] || (v('Component "%s" contains the string ref "%s". Support for string refs will be removed in a future major release. This case cannot be automatically converted to an arrow function. We ask you to manually fix this case by using useRef() or createRef() instead. Learn more about using refs safely here: https://reactjs.org/link/strict-mode-string-ref', $(pe.current.type), h.ref), Ve[N] = !0);
       }
     }
-    function Ts(h, v) {
+    function Es(h, b) {
       {
-        var $ = function() {
-          _t || (_t = !0, _("%s: `key` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://reactjs.org/link/special-props)", v));
+        var N = function() {
+          _t || (_t = !0, v("%s: `key` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://reactjs.org/link/special-props)", b));
         };
-        $.isReactWarning = !0, Object.defineProperty(h, "key", {
-          get: $,
+        N.isReactWarning = !0, Object.defineProperty(h, "key", {
+          get: N,
           configurable: !0
         });
       }
     }
-    function As(h, v) {
+    function ks(h, b) {
       {
-        var $ = function() {
-          xt || (xt = !0, _("%s: `ref` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://reactjs.org/link/special-props)", v));
+        var N = function() {
+          xt || (xt = !0, v("%s: `ref` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://reactjs.org/link/special-props)", b));
         };
-        $.isReactWarning = !0, Object.defineProperty(h, "ref", {
-          get: $,
+        N.isReactWarning = !0, Object.defineProperty(h, "ref", {
+          get: N,
           configurable: !0
         });
       }
     }
-    var Ls = function(h, v, $, R, F, V, I) {
-      var M = {
+    var Rs = function(h, b, N, O, D, V, F) {
+      var I = {
         // This tag allows us to uniquely identify this as a React Element
         $$typeof: e,
         // Built-in properties that belong on the element
         type: h,
-        key: v,
-        ref: $,
-        props: I,
+        key: b,
+        ref: N,
+        props: F,
         // Record the component responsible for creating this element.
         _owner: V
       };
-      return M._store = {}, Object.defineProperty(M._store, "validated", {
+      return I._store = {}, Object.defineProperty(I._store, "validated", {
         configurable: !1,
         enumerable: !1,
         writable: !0,
         value: !1
-      }), Object.defineProperty(M, "_self", {
+      }), Object.defineProperty(I, "_self", {
         configurable: !1,
         enumerable: !1,
         writable: !1,
-        value: R
-      }), Object.defineProperty(M, "_source", {
+        value: O
+      }), Object.defineProperty(I, "_source", {
         configurable: !1,
         enumerable: !1,
         writable: !1,
-        value: F
-      }), Object.freeze && (Object.freeze(M.props), Object.freeze(M)), M;
+        value: D
+      }), Object.freeze && (Object.freeze(I.props), Object.freeze(I)), I;
     };
-    function Ms(h, v, $, R, F) {
+    function Os(h, b, N, O, D) {
       {
-        var V, I = {}, M = null, Q = null;
-        $ !== void 0 && (gt($), M = "" + $), Os(v) && (gt(v.key), M = "" + v.key), Rs(v) && (Q = v.ref, Ps(v, F));
-        for (V in v)
-          he.call(v, V) && !Es.hasOwnProperty(V) && (I[V] = v[V]);
+        var V, F = {}, I = null, G = null;
+        N !== void 0 && (gt(N), I = "" + N), Cs(b) && (gt(b.key), I = "" + b.key), $s(b) && (G = b.ref, Ss(b, D));
+        for (V in b)
+          he.call(b, V) && !Ns.hasOwnProperty(V) && (F[V] = b[V]);
         if (h && h.defaultProps) {
           var H = h.defaultProps;
           for (V in H)
-            I[V] === void 0 && (I[V] = H[V]);
+            F[V] === void 0 && (F[V] = H[V]);
         }
-        if (M || Q) {
+        if (I || G) {
           var K = typeof h == "function" ? h.displayName || h.name || "Unknown" : h;
-          M && Ts(I, K), Q && As(I, K);
+          I && Es(F, K), G && ks(F, K);
         }
-        return Ls(h, M, Q, F, R, fe.current, I);
+        return Rs(h, I, G, D, O, pe.current, F);
       }
     }
-    var Ve = N.ReactCurrentOwner, yt = N.ReactDebugCurrentFrame;
+    var Be = j.ReactCurrentOwner, yt = j.ReactDebugCurrentFrame;
     function ie(h) {
       if (h) {
-        var v = h._owner, $ = $e(h.type, h._source, v ? v.type : null);
-        yt.setExtraStackFrame($);
+        var b = h._owner, N = $e(h.type, h._source, b ? b.type : null);
+        yt.setExtraStackFrame(N);
       } else
         yt.setExtraStackFrame(null);
     }
@@ -483,8 +483,8 @@ function Js() {
     }
     function bt() {
       {
-        if (Ve.current) {
-          var h = D(Ve.current.type);
+        if (Be.current) {
+          var h = $(Be.current.type);
           if (h)
             return `
 
@@ -493,167 +493,167 @@ Check the render method of \`` + h + "`.";
         return "";
       }
     }
-    function Is(h) {
+    function Ps(h) {
       {
         if (h !== void 0) {
-          var v = h.fileName.replace(/^.*[\\\/]/, ""), $ = h.lineNumber;
+          var b = h.fileName.replace(/^.*[\\\/]/, ""), N = h.lineNumber;
           return `
 
-Check your code at ` + v + ":" + $ + ".";
+Check your code at ` + b + ":" + N + ".";
         }
         return "";
       }
     }
     var vt = {};
-    function zs(h) {
+    function As(h) {
       {
-        var v = bt();
-        if (!v) {
-          var $ = typeof h == "string" ? h : h.displayName || h.name;
-          $ && (v = `
+        var b = bt();
+        if (!b) {
+          var N = typeof h == "string" ? h : h.displayName || h.name;
+          N && (b = `
 
-Check the top-level render call using <` + $ + ">.");
+Check the top-level render call using <` + N + ">.");
         }
-        return v;
+        return b;
       }
     }
-    function wt(h, v) {
+    function wt(h, b) {
       {
         if (!h._store || h._store.validated || h.key != null)
           return;
         h._store.validated = !0;
-        var $ = zs(v);
-        if (vt[$])
+        var N = As(b);
+        if (vt[N])
           return;
-        vt[$] = !0;
-        var R = "";
-        h && h._owner && h._owner !== Ve.current && (R = " It was passed a child from " + D(h._owner.type) + "."), ie(h), _('Each child in a list should have a unique "key" prop.%s%s See https://reactjs.org/link/warning-keys for more information.', $, R), ie(null);
+        vt[N] = !0;
+        var O = "";
+        h && h._owner && h._owner !== Be.current && (O = " It was passed a child from " + $(h._owner.type) + "."), ie(h), v('Each child in a list should have a unique "key" prop.%s%s See https://reactjs.org/link/warning-keys for more information.', N, O), ie(null);
       }
     }
-    function jt(h, v) {
+    function jt(h, b) {
       {
         if (typeof h != "object")
           return;
-        if (Ue(h))
-          for (var $ = 0; $ < h.length; $++) {
-            var R = h[$];
-            We(R) && wt(R, v);
+        if (De(h))
+          for (var N = 0; N < h.length; N++) {
+            var O = h[N];
+            We(O) && wt(O, b);
           }
         else if (We(h))
           h._store && (h._store.validated = !0);
         else if (h) {
-          var F = b(h);
-          if (typeof F == "function" && F !== h.entries)
-            for (var V = F.call(h), I; !(I = V.next()).done; )
-              We(I.value) && wt(I.value, v);
+          var D = y(h);
+          if (typeof D == "function" && D !== h.entries)
+            for (var V = D.call(h), F; !(F = V.next()).done; )
+              We(F.value) && wt(F.value, b);
         }
       }
     }
-    function Fs(h) {
+    function Ts(h) {
       {
-        var v = h.type;
-        if (v == null || typeof v == "string")
+        var b = h.type;
+        if (b == null || typeof b == "string")
           return;
-        var $;
-        if (typeof v == "function")
-          $ = v.propTypes;
-        else if (typeof v == "object" && (v.$$typeof === i || // Note: Memo only checks outer props here.
+        var N;
+        if (typeof b == "function")
+          N = b.propTypes;
+        else if (typeof b == "object" && (b.$$typeof === r || // Note: Memo only checks outer props here.
         // Inner props are checked in the reconciler.
-        v.$$typeof === f))
-          $ = v.propTypes;
+        b.$$typeof === p))
+          N = b.propTypes;
         else
           return;
-        if ($) {
-          var R = D(v);
-          $s($, h.props, "prop", R, h);
-        } else if (v.PropTypes !== void 0 && !qe) {
+        if (N) {
+          var O = $(b);
+          bs(N, h.props, "prop", O, h);
+        } else if (b.PropTypes !== void 0 && !qe) {
           qe = !0;
-          var F = D(v);
-          _("Component %s declared `PropTypes` instead of `propTypes`. Did you misspell the property assignment?", F || "Unknown");
+          var D = $(b);
+          v("Component %s declared `PropTypes` instead of `propTypes`. Did you misspell the property assignment?", D || "Unknown");
         }
-        typeof v.getDefaultProps == "function" && !v.getDefaultProps.isReactClassApproved && _("getDefaultProps is only used on classic React.createClass definitions. Use a static property named `defaultProps` instead.");
+        typeof b.getDefaultProps == "function" && !b.getDefaultProps.isReactClassApproved && v("getDefaultProps is only used on classic React.createClass definitions. Use a static property named `defaultProps` instead.");
       }
     }
-    function Ds(h) {
+    function Ls(h) {
       {
-        for (var v = Object.keys(h.props), $ = 0; $ < v.length; $++) {
-          var R = v[$];
-          if (R !== "children" && R !== "key") {
-            ie(h), _("Invalid prop `%s` supplied to `React.Fragment`. React.Fragment can only have `key` and `children` props.", R), ie(null);
+        for (var b = Object.keys(h.props), N = 0; N < b.length; N++) {
+          var O = b[N];
+          if (O !== "children" && O !== "key") {
+            ie(h), v("Invalid prop `%s` supplied to `React.Fragment`. React.Fragment can only have `key` and `children` props.", O), ie(null);
             break;
           }
         }
-        h.ref !== null && (ie(h), _("Invalid attribute `ref` supplied to `React.Fragment`."), ie(null));
+        h.ref !== null && (ie(h), v("Invalid attribute `ref` supplied to `React.Fragment`."), ie(null));
       }
     }
     var Nt = {};
-    function $t(h, v, $, R, F, V) {
+    function $t(h, b, N, O, D, V) {
       {
-        var I = O(h);
-        if (!I) {
-          var M = "";
-          (h === void 0 || typeof h == "object" && h !== null && Object.keys(h).length === 0) && (M += " You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.");
-          var Q = Is(F);
-          Q ? M += Q : M += bt();
+        var F = z(h);
+        if (!F) {
+          var I = "";
+          (h === void 0 || typeof h == "object" && h !== null && Object.keys(h).length === 0) && (I += " You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.");
+          var G = Ps(D);
+          G ? I += G : I += bt();
           var H;
-          h === null ? H = "null" : Ue(h) ? H = "array" : h !== void 0 && h.$$typeof === e ? (H = "<" + (D(h.type) || "Unknown") + " />", M = " Did you accidentally export a JSX literal instead of a component?") : H = typeof h, _("React.jsx: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s", H, M);
+          h === null ? H = "null" : De(h) ? H = "array" : h !== void 0 && h.$$typeof === e ? (H = "<" + ($(h.type) || "Unknown") + " />", I = " Did you accidentally export a JSX literal instead of a component?") : H = typeof h, v("React.jsx: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s", H, I);
         }
-        var K = Ms(h, v, $, F, V);
+        var K = Os(h, b, N, D, V);
         if (K == null)
           return K;
-        if (I) {
-          var Z = v.children;
-          if (Z !== void 0)
-            if (R)
-              if (Ue(Z)) {
-                for (var oe = 0; oe < Z.length; oe++)
-                  jt(Z[oe], h);
-                Object.freeze && Object.freeze(Z);
+        if (F) {
+          var ee = b.children;
+          if (ee !== void 0)
+            if (O)
+              if (De(ee)) {
+                for (var oe = 0; oe < ee.length; oe++)
+                  jt(ee[oe], h);
+                Object.freeze && Object.freeze(ee);
               } else
-                _("React.jsx: Static children should always be an array. You are likely explicitly calling React.jsxs or React.jsxDEV. Use the Babel transform instead.");
+                v("React.jsx: Static children should always be an array. You are likely explicitly calling React.jsxs or React.jsxDEV. Use the Babel transform instead.");
             else
-              jt(Z, h);
+              jt(ee, h);
         }
-        if (he.call(v, "key")) {
-          var ne = D(h), G = Object.keys(v).filter(function(Hs) {
-            return Hs !== "key";
-          }), He = G.length > 0 ? "{key: someKey, " + G.join(": ..., ") + ": ...}" : "{key: someKey}";
+        if (he.call(b, "key")) {
+          var ne = $(h), X = Object.keys(b).filter(function(Ds) {
+            return Ds !== "key";
+          }), He = X.length > 0 ? "{key: someKey, " + X.join(": ..., ") + ": ...}" : "{key: someKey}";
           if (!Nt[ne + He]) {
-            var Ws = G.length > 0 ? "{" + G.join(": ..., ") + ": ...}" : "{}";
-            _(`A props object containing a "key" prop is being spread into JSX:
+            var Us = X.length > 0 ? "{" + X.join(": ..., ") + ": ...}" : "{}";
+            v(`A props object containing a "key" prop is being spread into JSX:
   let props = %s;
   <%s {...props} />
 React keys must be passed directly to JSX without using spread:
   let props = %s;
-  <%s key={someKey} {...props} />`, He, ne, Ws, ne), Nt[ne + He] = !0;
+  <%s key={someKey} {...props} />`, He, ne, Us, ne), Nt[ne + He] = !0;
           }
         }
-        return h === s ? Ds(K) : Fs(K), K;
+        return h === s ? Ls(K) : Ts(K), K;
       }
     }
-    function Us(h, v, $) {
-      return $t(h, v, $, !0);
+    function Ms(h, b, N) {
+      return $t(h, b, N, !0);
     }
-    function Bs(h, v, $) {
-      return $t(h, v, $, !1);
+    function Is(h, b, N) {
+      return $t(h, b, N, !1);
     }
-    var Vs = Bs, qs = Us;
-    ge.Fragment = s, ge.jsx = Vs, ge.jsxs = qs;
+    var Fs = Is, zs = Ms;
+    ge.Fragment = s, ge.jsx = Fs, ge.jsxs = zs;
   }()), ge;
 }
-process.env.NODE_ENV === "production" ? Qe.exports = Ys() : Qe.exports = Js();
-var r = Qe.exports;
-const Jt = L.createContext(null);
-function Qs(n, e) {
+process.env.NODE_ENV === "production" ? Qe.exports = Bs() : Qe.exports = qs();
+var i = Qe.exports;
+const Kt = L.createContext(null);
+function Ws(n, e) {
   if (!n.options || !e)
     return 0;
   let t = 0;
   return Object.entries(n.options).forEach(([s, a]) => {
     if (a.type === "multi" && e[s] && e[s].forEach((u) => {
-      let d;
-      typeof u == "number" ? d = a.choices[u] : d = a.choices.find(
-        (i) => (typeof i == "string" ? i : i.name) === u
-      ), d && typeof d == "object" && d.price && (t += d.price);
+      let f;
+      typeof u == "number" ? f = a.choices[u] : f = a.choices.find(
+        (r) => (typeof r == "string" ? r : r.name) === u
+      ), f && typeof f == "object" && f.price && (t += f.price);
     }), a.type === "select" && e[s] !== void 0) {
       let o;
       typeof e[s] == "number" ? o = a.choices[e[s]] : o = a.choices.find(
@@ -662,7 +662,7 @@ function Qs(n, e) {
     }
   }), t;
 }
-const Gs = (() => {
+const Hs = (() => {
   try {
     const n = localStorage.getItem("qr_cart");
     return n ? JSON.parse(n) : { items: [], customer: { name: "", type: "pickup", timeOrTable: "" } };
@@ -670,24 +670,24 @@ const Gs = (() => {
     return { items: [], customer: { name: "", type: "pickup", timeOrTable: "" } };
   }
 })();
-function Xs(n, e) {
+function Ks(n, e) {
   switch (e.type) {
     case "ADD": {
-      const { item: t, quantity: s, options: a } = e.payload, o = JSON.stringify({ id: t.id, options: a }), u = n.items.find((l) => l.key === o), d = Qs(t, a), i = t.price + d;
+      const { item: t, quantity: s, options: a } = e.payload, o = JSON.stringify({ id: t.id, options: a }), u = n.items.find((l) => l.key === o), f = Ws(t, a), r = t.price + f;
       let c;
       return u ? c = n.items.map((l) => l.key === o ? {
         ...l,
         quantity: l.quantity + s,
-        totalPrice: i,
-        extraCharges: d
+        totalPrice: r,
+        extraCharges: f
       } : l) : c = [...n.items, {
         key: o,
         id: t.id,
         options: a,
         quantity: s,
-        totalPrice: i,
+        totalPrice: r,
         basePrice: t.price,
-        extraCharges: d
+        extraCharges: f
       }], { ...n, items: c };
     }
     case "REMOVE":
@@ -712,18 +712,18 @@ function Xs(n, e) {
       return n;
   }
 }
-function ah({ children: n }) {
-  const [e, t] = L.useReducer(Xs, Gs);
+function Wf({ children: n }) {
+  const [e, t] = L.useReducer(Ks, Hs);
   L.useEffect(() => {
     localStorage.setItem("qr_cart", JSON.stringify(e));
   }, [e]);
   const s = L.useMemo(() => ({ state: e, dispatch: t }), [e]);
-  return /* @__PURE__ */ r.jsx(Jt.Provider, { value: s, children: n });
+  return /* @__PURE__ */ i.jsx(Kt.Provider, { value: s, children: n });
 }
 function nt() {
-  return L.useContext(Jt);
+  return L.useContext(Kt);
 }
-function kt(n) {
+function Et(n) {
   return n.reduce((e, t) => e + (t.totalPrice || t.price) * t.quantity, 0);
 }
 /**
@@ -732,14 +732,14 @@ function kt(n) {
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const Zs = (n) => n.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase(), Qt = (...n) => n.filter((e, t, s) => !!e && e.trim() !== "" && s.indexOf(e) === t).join(" ").trim();
+const Ys = (n) => n.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase(), Yt = (...n) => n.filter((e, t, s) => !!e && e.trim() !== "" && s.indexOf(e) === t).join(" ").trim();
 /**
  * @license lucide-react v0.460.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-var en = {
+var Js = {
   xmlns: "http://www.w3.org/2000/svg",
   width: 24,
   height: 24,
@@ -756,7 +756,7 @@ var en = {
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const tn = Wt(
+const Qs = Bt(
   ({
     color: n = "currentColor",
     size: e = 24,
@@ -765,18 +765,18 @@ const tn = Wt(
     className: a = "",
     children: o,
     iconNode: u,
-    ...d
-  }, i) => Je(
+    ...f
+  }, r) => Je(
     "svg",
     {
-      ref: i,
-      ...en,
+      ref: r,
+      ...Js,
       width: e,
       height: e,
       stroke: n,
       strokeWidth: s ? Number(t) * 24 / Number(e) : t,
-      className: Qt("lucide", a),
-      ...d
+      className: Yt("lucide", a),
+      ...f
     },
     [
       ...u.map(([c, l]) => Je(c, l)),
@@ -790,12 +790,12 @@ const tn = Wt(
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const J = (n, e) => {
-  const t = Wt(
-    ({ className: s, ...a }, o) => Je(tn, {
+const Q = (n, e) => {
+  const t = Bt(
+    ({ className: s, ...a }, o) => Je(Qs, {
       ref: o,
       iconNode: e,
-      className: Qt(`lucide-${Zs(n)}`, s),
+      className: Yt(`lucide-${Ys(n)}`, s),
       ...a
     })
   );
@@ -807,7 +807,7 @@ const J = (n, e) => {
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const at = J("ArrowLeft", [
+const rt = Q("ArrowLeft", [
   ["path", { d: "m12 19-7-7 7-7", key: "1l729n" }],
   ["path", { d: "M19 12H5", key: "x3x0zl" }]
 ]);
@@ -817,7 +817,7 @@ const at = J("ArrowLeft", [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const Ee = J("Calendar", [
+const ke = Q("Calendar", [
   ["path", { d: "M8 2v4", key: "1cmpym" }],
   ["path", { d: "M16 2v4", key: "4m81vk" }],
   ["rect", { width: "18", height: "18", x: "3", y: "4", rx: "2", key: "1hopcy" }],
@@ -829,7 +829,7 @@ const Ee = J("Calendar", [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const sn = J("CirclePlus", [
+const Gs = Q("CirclePlus", [
   ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
   ["path", { d: "M8 12h8", key: "1wcyev" }],
   ["path", { d: "M12 8v8", key: "napkw2" }]
@@ -840,7 +840,7 @@ const sn = J("CirclePlus", [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const Ge = J("Clock", [
+const Ge = Q("Clock", [
   ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
   ["polyline", { points: "12 6 12 12 16 14", key: "68esgv" }]
 ]);
@@ -850,7 +850,7 @@ const Ge = J("Clock", [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const nn = J("Instagram", [
+const Xs = Q("Instagram", [
   ["rect", { width: "20", height: "20", x: "2", y: "2", rx: "5", ry: "5", key: "2e1cvw" }],
   ["path", { d: "M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z", key: "9exkf1" }],
   ["line", { x1: "17.5", x2: "17.51", y1: "6.5", y2: "6.5", key: "r4j83e" }]
@@ -861,7 +861,7 @@ const nn = J("Instagram", [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const rt = J("MapPin", [
+const at = Q("MapPin", [
   [
     "path",
     {
@@ -877,7 +877,7 @@ const rt = J("MapPin", [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const it = J("MessageCircle", [
+const it = Q("MessageCircle", [
   ["path", { d: "M7.9 20A9 9 0 1 0 4 16.1L2 22Z", key: "vv11sd" }]
 ]);
 /**
@@ -886,7 +886,7 @@ const it = J("MessageCircle", [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const an = J("MessageSquare", [
+const Zs = Q("MessageSquare", [
   ["path", { d: "M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z", key: "1lielz" }]
 ]);
 /**
@@ -895,14 +895,14 @@ const an = J("MessageSquare", [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const rn = J("Minus", [["path", { d: "M5 12h14", key: "1ays0h" }]]);
+const en = Q("Minus", [["path", { d: "M5 12h14", key: "1ays0h" }]]);
 /**
  * @license lucide-react v0.460.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const ot = J("Phone", [
+const ot = Q("Phone", [
   [
     "path",
     {
@@ -917,7 +917,7 @@ const ot = J("Phone", [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const on = J("Plus", [
+const tn = Q("Plus", [
   ["path", { d: "M5 12h14", key: "1ays0h" }],
   ["path", { d: "M12 5v14", key: "s699le" }]
 ]);
@@ -927,7 +927,7 @@ const on = J("Plus", [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const cn = J("ShoppingCart", [
+const sn = Q("ShoppingCart", [
   ["circle", { cx: "8", cy: "21", r: "1", key: "jimo8o" }],
   ["circle", { cx: "19", cy: "21", r: "1", key: "13723u" }],
   [
@@ -944,7 +944,7 @@ const cn = J("ShoppingCart", [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const ln = J("Trash2", [
+const nn = Q("Trash2", [
   ["path", { d: "M3 6h18", key: "d0wm0j" }],
   ["path", { d: "M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6", key: "4alrt4" }],
   ["path", { d: "M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2", key: "v07s0e" }],
@@ -957,7 +957,7 @@ const ln = J("Trash2", [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const un = J("User", [
+const rn = Q("User", [
   ["path", { d: "M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2", key: "975kel" }],
   ["circle", { cx: "12", cy: "7", r: "4", key: "17ys0d" }]
 ]);
@@ -967,7 +967,7 @@ const un = J("User", [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const Gt = J("Users", [
+const Jt = Q("Users", [
   ["path", { d: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2", key: "1yyitq" }],
   ["circle", { cx: "9", cy: "7", r: "4", key: "nufk8" }],
   ["path", { d: "M22 21v-2a4 4 0 0 0-3-3.87", key: "kshegd" }],
@@ -979,29 +979,29 @@ const Gt = J("Users", [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const Me = J("X", [
+const Me = Q("X", [
   ["path", { d: "M18 6 6 18", key: "1bl5f8" }],
   ["path", { d: "m6 6 12 12", key: "d8bk6v" }]
 ]);
-function rh({ onClick: n }) {
+function Hf({ onClick: n }) {
   const { state: e } = nt(), t = e.items.reduce((s, a) => s + a.quantity, 0);
-  return /* @__PURE__ */ r.jsxs("button", { onClick: n, className: "relative tab", children: [
-    /* @__PURE__ */ r.jsx(cn, { size: 18 }),
-    t > 0 && /* @__PURE__ */ r.jsx("span", { className: "absolute -top-2 -end-2 bg-red-500 text-white text-xs rounded-full px-2 py-0.5", children: t })
+  return /* @__PURE__ */ i.jsxs("button", { onClick: n, className: "relative tab", children: [
+    /* @__PURE__ */ i.jsx(sn, { size: 18 }),
+    t > 0 && /* @__PURE__ */ i.jsx("span", { className: "absolute -top-2 -end-2 bg-red-500 text-white text-xs rounded-full px-2 py-0.5", children: t })
   ] });
 }
-const dn = (n, e, t, s) => {
-  var o, u, d, i;
+const an = (n, e, t, s) => {
+  var o, u, f, r;
   const a = [t, {
     code: e,
     ...s || {}
   }];
   if ((u = (o = n == null ? void 0 : n.services) == null ? void 0 : o.logger) != null && u.forward)
     return n.services.logger.forward(a, "warn", "react-i18next::", !0);
-  ae(a[0]) && (a[0] = `react-i18next:: ${a[0]}`), (i = (d = n == null ? void 0 : n.services) == null ? void 0 : d.logger) != null && i.warn ? n.services.logger.warn(...a) : console != null && console.warn && console.warn(...a);
-}, Et = {}, Xe = (n, e, t, s) => {
-  ae(t) && Et[t] || (ae(t) && (Et[t] = /* @__PURE__ */ new Date()), dn(n, e, t, s));
-}, Xt = (n, e) => () => {
+  re(a[0]) && (a[0] = `react-i18next:: ${a[0]}`), (r = (f = n == null ? void 0 : n.services) == null ? void 0 : f.logger) != null && r.warn ? n.services.logger.warn(...a) : console != null && console.warn && console.warn(...a);
+}, kt = {}, Xe = (n, e, t, s) => {
+  re(t) && kt[t] || (re(t) && (kt[t] = /* @__PURE__ */ new Date()), an(n, e, t, s));
+}, Qt = (n, e) => () => {
   if (n.isInitialized)
     e();
   else {
@@ -1013,14 +1013,14 @@ const dn = (n, e, t, s) => {
     n.on("initialized", t);
   }
 }, Ze = (n, e, t) => {
-  n.loadNamespaces(e, Xt(n, t));
+  n.loadNamespaces(e, Qt(n, t));
 }, Rt = (n, e, t, s) => {
-  if (ae(t) && (t = [t]), n.options.preload && n.options.preload.indexOf(e) > -1)
+  if (re(t) && (t = [t]), n.options.preload && n.options.preload.indexOf(e) > -1)
     return Ze(n, t, s);
   t.forEach((a) => {
     n.options.ns.indexOf(a) < 0 && n.options.ns.push(a);
-  }), n.loadLanguages(e, Xt(n, s));
-}, pn = (n, e, t = {}) => !e.languages || !e.languages.length ? (Xe(e, "NO_LANGUAGES", "i18n.languages were undefined or empty", {
+  }), n.loadLanguages(e, Qt(n, s));
+}, on = (n, e, t = {}) => !e.languages || !e.languages.length ? (Xe(e, "NO_LANGUAGES", "i18n.languages were undefined or empty", {
   languages: e.languages
 }), !0) : e.hasLoadedNamespace(n, {
   lng: t.lng,
@@ -1029,7 +1029,7 @@ const dn = (n, e, t, s) => {
     if (((o = t.bindI18n) == null ? void 0 : o.indexOf("languageChanging")) > -1 && s.services.backendConnector.backend && s.isLanguageChangingTo && !a(s.isLanguageChangingTo, n))
       return !1;
   }
-}), ae = (n) => typeof n == "string", hn = (n) => typeof n == "object" && n !== null, fn = /&(?:amp|#38|lt|#60|gt|#62|apos|#39|quot|#34|nbsp|#160|copy|#169|reg|#174|hellip|#8230|#x2F|#47);/g, mn = {
+}), re = (n) => typeof n == "string", cn = (n) => typeof n == "object" && n !== null, ln = /&(?:amp|#38|lt|#60|gt|#62|apos|#39|quot|#34|nbsp|#160|copy|#169|reg|#174|hellip|#8230|#x2F|#47);/g, un = {
   "&amp;": "&",
   "&#38;": "&",
   "&lt;": "<",
@@ -1050,7 +1050,7 @@ const dn = (n, e, t, s) => {
   "&#8230;": "…",
   "&#x2F;": "/",
   "&#47;": "/"
-}, gn = (n) => mn[n], _n = (n) => n.replace(fn, gn);
+}, dn = (n) => un[n], fn = (n) => n.replace(ln, dn);
 let et = {
   bindI18n: "languageChanged",
   bindI18nStore: "",
@@ -1059,24 +1059,24 @@ let et = {
   transWrapTextNodes: "",
   transKeepBasicHtmlNodesFor: ["br", "strong", "i", "p"],
   useSuspense: !0,
-  unescape: _n
+  unescape: fn
 };
-const xn = (n = {}) => {
+const hn = (n = {}) => {
   et = {
     ...et,
     ...n
   };
-}, yn = () => et;
-let Zt;
-const bn = (n) => {
-  Zt = n;
-}, vn = () => Zt, wn = {
+}, pn = () => et;
+let Gt;
+const mn = (n) => {
+  Gt = n;
+}, gn = () => Gt, _n = {
   type: "3rdParty",
   init(n) {
-    xn(n.options.react), bn(n);
+    hn(n.options.react), mn(n);
   }
-}, jn = Ht();
-class Nn {
+}, xn = qt();
+class yn {
   constructor() {
     this.usedNamespaces = {};
   }
@@ -1089,81 +1089,81 @@ class Nn {
     return Object.keys(this.usedNamespaces);
   }
 }
-const $n = (n, e) => {
-  const t = ke();
+const bn = (n, e) => {
+  const t = Ee();
   return be(() => {
     t.current = e ? t.current : n;
   }, [n, e]), t.current;
-}, es = (n, e, t, s) => n.getFixedT(e, t, s), Sn = (n, e, t, s) => Ks(es(n, e, t, s), [n, e, t, s]), X = (n, e = {}) => {
-  var w, j, S, T;
+}, Xt = (n, e, t, s) => n.getFixedT(e, t, s), vn = (n, e, t, s) => Vs(Xt(n, e, t, s), [n, e, t, s]), Z = (n, e = {}) => {
+  var w, C, S, E;
   const {
     i18n: t
   } = e, {
     i18n: s,
     defaultNS: a
-  } = Kt(jn) || {}, o = t || s || vn();
-  if (o && !o.reportNamespaces && (o.reportNamespaces = new Nn()), !o) {
+  } = Wt(xn) || {}, o = t || s || gn();
+  if (o && !o.reportNamespaces && (o.reportNamespaces = new yn()), !o) {
     Xe(o, "NO_I18NEXT_INSTANCE", "useTranslation: You will need to pass in an i18next instance by using initReactI18next");
-    const E = (O, k) => ae(k) ? k : hn(k) && ae(k.defaultValue) ? k.defaultValue : Array.isArray(O) ? O[O.length - 1] : O, z = [E, {}, !1];
-    return z.t = E, z.i18n = {}, z.ready = !1, z;
+    const T = (z, R) => re(R) ? R : cn(R) && re(R.defaultValue) ? R.defaultValue : Array.isArray(z) ? z[z.length - 1] : z, A = [T, {}, !1];
+    return A.t = T, A.i18n = {}, A.ready = !1, A;
   }
   (w = o.options.react) != null && w.wait && Xe(o, "DEPRECATED_OPTION", "useTranslation: It seems you are still using the old wait option, you may migrate to the new useSuspense behaviour.");
   const u = {
-    ...yn(),
+    ...pn(),
     ...o.options.react,
     ...e
   }, {
-    useSuspense: d,
-    keyPrefix: i
+    useSuspense: f,
+    keyPrefix: r
   } = u;
-  let c = n || a || ((j = o.options) == null ? void 0 : j.defaultNS);
-  c = ae(c) ? [c] : c || ["translation"], (T = (S = o.reportNamespaces).addUsedNamespaces) == null || T.call(S, c);
-  const l = (o.isInitialized || o.initializedStoreOnce) && c.every((E) => pn(E, o, u)), f = Sn(o, e.lng || null, u.nsMode === "fallback" ? c : c[0], i), p = () => f, g = () => es(o, e.lng || null, u.nsMode === "fallback" ? c : c[0], i), [m, x] = st(p);
-  let b = c.join();
-  e.lng && (b = `${e.lng}${b}`);
-  const N = $n(b), _ = ke(!0);
+  let c = n || a || ((C = o.options) == null ? void 0 : C.defaultNS);
+  c = re(c) ? [c] : c || ["translation"], (E = (S = o.reportNamespaces).addUsedNamespaces) == null || E.call(S, c);
+  const l = (o.isInitialized || o.initializedStoreOnce) && c.every((T) => on(T, o, u)), p = vn(o, e.lng || null, u.nsMode === "fallback" ? c : c[0], r), d = () => p, g = () => Xt(o, e.lng || null, u.nsMode === "fallback" ? c : c[0], r), [m, x] = st(d);
+  let y = c.join();
+  e.lng && (y = `${e.lng}${y}`);
+  const j = bn(y), v = Ee(!0);
   be(() => {
     const {
-      bindI18n: E,
-      bindI18nStore: z
+      bindI18n: T,
+      bindI18nStore: A
     } = u;
-    _.current = !0, !l && !d && (e.lng ? Rt(o, e.lng, c, () => {
-      _.current && x(g);
+    v.current = !0, !l && !f && (e.lng ? Rt(o, e.lng, c, () => {
+      v.current && x(g);
     }) : Ze(o, c, () => {
-      _.current && x(g);
-    })), l && N && N !== b && _.current && x(g);
-    const O = () => {
-      _.current && x(g);
+      v.current && x(g);
+    })), l && j && j !== y && v.current && x(g);
+    const z = () => {
+      v.current && x(g);
     };
-    return E && (o == null || o.on(E, O)), z && (o == null || o.store.on(z, O)), () => {
-      _.current = !1, o && (E == null || E.split(" ").forEach((k) => o.off(k, O))), z && o && z.split(" ").forEach((k) => o.store.off(k, O));
+    return T && (o == null || o.on(T, z)), A && (o == null || o.store.on(A, z)), () => {
+      v.current = !1, o && (T == null || T.split(" ").forEach((R) => o.off(R, z))), A && o && A.split(" ").forEach((R) => o.store.off(R, z));
     };
-  }, [o, b]), be(() => {
-    _.current && l && x(p);
-  }, [o, i, l]);
-  const y = [m, o, l];
-  if (y.t = m, y.i18n = o, y.ready = l, l || !l && !d)
-    return y;
-  throw new Promise((E) => {
-    e.lng ? Rt(o, e.lng, c, () => E()) : Ze(o, c, () => E());
+  }, [o, y]), be(() => {
+    v.current && l && x(d);
+  }, [o, r, l]);
+  const _ = [m, o, l];
+  if (_.t = m, _.i18n = o, _.ready = l, l || !l && !f)
+    return _;
+  throw new Promise((T) => {
+    e.lng ? Rt(o, e.lng, c, () => T()) : Ze(o, c, () => T());
   });
-}, Cn = "zuwade", kn = "Zuwade", En = "/zuwade-logo.jpg", Rn = "+972-54-750-7503", On = "+972547507503", Pn = "Zuwade TA", Tn = "קסטרו שפרעם", An = {
+}, wn = "zuwade", jn = "Zuwade", Nn = "/zuwade-logo.jpg", $n = "+972-54-750-7503", Cn = "+972547507503", Sn = "Zuwade TA", En = "קסטרו שפרעם", kn = {
   lat: 32.81557,
   lng: 35.152813
-}, Ln = "zuwade.ta", Mn = {
+}, Rn = "zuwade.ta", On = {
   "Mon-Sat": "09:00-19:00",
   Sun: "Closed"
-}, In = {
+}, Pn = {
   primary: "#10b981",
   accent: "#0ea5e9",
   bg: "#0b0f14",
   card: "#121821",
   text: "#e5e7eb"
-}, zn = [
+}, An = [
   "ar",
   "he",
   "en"
-], Fn = "₪", Dn = {
+], Tn = "₪", Ln = {
   enabled: !1,
   areas: [
     {
@@ -1201,1549 +1201,24 @@ const $n = (n, e) => {
   max_advance_days: 7,
   whatsapp: "+972547507503"
 }, P = {
-  slug: Cn,
-  name: kn,
-  logo: En,
-  phone: Rn,
-  whatsapp: On,
-  address: Pn,
-  waze_name: Tn,
-  coords: An,
-  instagram: Ln,
-  hours: Mn,
-  theme: In,
-  languages: zn,
-  currency: Fn,
-  reservation: Dn
-}, Un = {
-  name: "Zuwade",
-  brand_subtitle: "TAKE AWAY"
-}, Bn = [
-  {
-    id: "toasts",
-    title: "Toasts",
-    emoji: "🧀"
-  },
-  {
-    id: "sandwiches",
-    title: "Sandwiches",
-    emoji: "🥪"
-  },
-  {
-    id: "salads",
-    title: "Salads",
-    emoji: "🥗"
-  },
-  {
-    id: "baguette_tortilla",
-    title: "Tortillas/Baguettes/Plate",
-    emoji: "🌯"
-  },
-  {
-    id: "soft_drinks",
-    title: "Soft Drinks",
-    emoji: "🥤"
-  }
-], Vn = [
-  {
-    id: "toast_classic",
-    name: "Castle Toast",
-    desc: "Yellow cheese, Bulgarian cheese, olives, tomatoes, butter, tomato spread, pesto.",
-    price: 35,
-    image: "/images/toast_classic.png",
-    category: "toasts",
-    tags: [
-      "Vegetarian"
-    ],
-    options: {
-      notes: {
-        type: "text",
-        label: "Notes"
-      }
-    }
-  },
-  {
-    id: "toast_golden",
-    name: "Golden Toast",
-    desc: "Yellow cheese, shoulder cold cuts, olives, garlic, sweet chili, pesto.",
-    price: 35,
-    image: "/images/golden_toast.png",
-    category: "toasts",
-    tags: [
-      "Vegetarian"
-    ],
-    options: {
-      notes: {
-        type: "text",
-        label: "Notes"
-      }
-    }
-  },
-  {
-    id: "toast_omelet",
-    name: "Omelet Toast",
-    desc: "Omelet, yellow cheese, tomato, labneh.",
-    price: 35,
-    image: "/images/toast_omelet.png",
-    category: "toasts",
-    options: {
-      notes: {
-        type: "text",
-        label: "Notes"
-      }
-    }
-  },
-  {
-    id: "toast_pizza",
-    name: "Pizza Toast",
-    desc: "Yellow cheese, tomato, olives, corn, onion, pizza sauce.",
-    price: 35,
-    image: "/images/toast_pizza.png",
-    category: "toasts",
-    options: {
-      notes: {
-        type: "text",
-        label: "Notes"
-      }
-    }
-  },
-  {
-    id: "sand_zawadi",
-    name: "Zuwade Sandwich",
-    desc: "Turkey, shoulder cold cuts, Italian cold cut, lettuce, tomato, cucumber, garlic-dill mayo.",
-    price: 40,
-    image: "/images/sand_zawadi.png",
-    category: "sandwiches",
-    options: {
-      notes: {
-        type: "text",
-        label: "Notes"
-      }
-    }
-  },
-  {
-    id: "sand_tuna",
-    name: "Tuna Sandwich",
-    desc: "Tuna, lettuce, tomato, pickled cucumber, mayo or garlic-dill.",
-    price: 35,
-    image: "/images/sand_tuna.png",
-    category: "sandwiches",
-    options: {
-      notes: {
-        type: "text",
-        label: "Notes"
-      }
-    }
-  },
-  {
-    id: "sand_healthy",
-    name: "Healthy Sandwich",
-    desc: "Avocado, lettuce, tomatoes, tuna and eggs.",
-    price: 35,
-    image: "/images/sand_healthy.png",
-    category: "sandwiches",
-    tags: [
-      "Vegan"
-    ],
-    options: {
-      notes: {
-        type: "text",
-        label: "Notes"
-      }
-    }
-  },
-  {
-    id: "salad_fattoush",
-    name: "Fattoush Salad",
-    desc: "Lettuce, tomato, cucumber, purple onion, black olives, grated Bulgarian cheese with za'atar.",
-    price: 50,
-    image: "/images/salad_fattoush.jpg",
-    category: "salads",
-    tags: [
-      "Vegetarian"
-    ],
-    options: {
-      notes: {
-        type: "text",
-        label: "Notes"
-      }
-    }
-  },
-  {
-    id: "salad_tabbouleh",
-    name: "Tabbouleh Salad",
-    desc: "Bulgur, cherry tomatoes, parsley, mint, green onion, lemon and olive oil.",
-    price: 50,
-    image: "/images/salad_tabbouleh.jpg",
-    category: "salads",
-    tags: [
-      "Vegetarian"
-    ],
-    options: {
-      notes: {
-        type: "text",
-        label: "Notes"
-      }
-    }
-  },
-  {
-    id: "salad_chicken_tuna",
-    name: "Chicken Salad",
-    desc: "Lettuce, tomato, bell pepper, purple onion, radish, chicken breast pieces.",
-    price: 50,
-    image: "/images/salad_chicken_tuna.png",
-    category: "salads",
-    options: {
-      notes: {
-        type: "text",
-        label: "Notes"
-      }
-    }
-  },
-  {
-    id: "baguette_chicken",
-    name: "Chicken",
-    desc: "Seasoned chicken breast on the plancha, lettuce, tomato, pickled cucumber.",
-    price: 40,
-    image: "/images/baguette_chicken.png",
-    category: "baguette_tortilla",
-    options: {
-      wrap: {
-        type: "select",
-        label: "Served in",
-        choices: [
-          {
-            name: "Baguette",
-            price: 0
-          },
-          {
-            name: "Tortilla",
-            price: 0
-          },
-          {
-            name: "Plate",
-            price: 10
-          }
-        ]
-      },
-      extra: {
-        type: "multi",
-        label: "extra",
-        choices: [
-          {
-            name: "cheese",
-            price: 5
-          },
-          {
-            name: "fries",
-            price: 10
-          }
-        ]
-      },
-      notes: {
-        type: "text",
-        label: "Notes"
-      }
-    }
-  },
-  {
-    id: "baguette_pargit",
-    name: "Pargit",
-    desc: "Juicy chicken thigh pieces, lettuce, tomato, purple onion.",
-    price: 40,
-    image: "/images/baguette_pargit.jpg",
-    category: "baguette_tortilla",
-    options: {
-      wrap: {
-        type: "select",
-        label: "Served in",
-        choices: [
-          {
-            name: "Baguette",
-            price: 0
-          },
-          {
-            name: "Tortilla",
-            price: 0
-          },
-          {
-            name: "Plate",
-            price: 10
-          }
-        ]
-      },
-      extra: {
-        type: "multi",
-        label: "extra",
-        choices: [
-          {
-            name: "cheese",
-            price: 5
-          },
-          {
-            name: "fries",
-            price: 10
-          }
-        ]
-      },
-      notes: {
-        type: "text",
-        label: "Notes"
-      }
-    }
-  },
-  {
-    id: "baguette_schnitzel",
-    name: "Schnitzel",
-    desc: "Crispy schnitzel, lettuce, tomato, pickled cucumber, mayo.",
-    price: 40,
-    image: "/images/baguette_schnitzel.png",
-    category: "baguette_tortilla",
-    options: {
-      wrap: {
-        type: "select",
-        label: "Served in",
-        choices: [
-          {
-            name: "Baguette",
-            price: 0
-          },
-          {
-            name: "Tortilla",
-            price: 0
-          },
-          {
-            name: "Plate",
-            price: 10
-          }
-        ]
-      },
-      extra: {
-        type: "multi",
-        label: "extra",
-        choices: [
-          {
-            name: "cheese",
-            price: 5
-          },
-          {
-            name: "fries",
-            price: 10
-          }
-        ]
-      },
-      notes: {
-        type: "text",
-        label: "Notes"
-      }
-    }
-  },
-  {
-    id: "shawarma_chicken",
-    name: "Chicken Shawarma",
-    desc: "Juicy chicken shawarma, salads of your choice.",
-    price: 50,
-    image: "/images/shawarma_chickenn.jpg",
-    category: "baguette_tortilla",
-    options: {
-      wrap: {
-        type: "select",
-        label: "Served in",
-        choices: [
-          {
-            name: "Baguette",
-            price: 0
-          },
-          {
-            name: "Tortilla",
-            price: 0
-          },
-          {
-            name: "Plate",
-            price: 0
-          }
-        ]
-      },
-      extra: {
-        type: "multi",
-        label: "extra",
-        choices: [
-          {
-            name: "fries",
-            price: 10
-          }
-        ]
-      },
-      notes: {
-        type: "text",
-        label: "Notes"
-      }
-    }
-  },
-  {
-    id: "shawarma_beef",
-    name: "Beef Shawarma",
-    desc: "House-seasoned veal shawarma, salads of your choice.",
-    price: 50,
-    image: "/images/shawarma_beef.jpg",
-    category: "baguette_tortilla",
-    options: {
-      wrap: {
-        type: "select",
-        label: "Served in",
-        choices: [
-          {
-            name: "Baguette",
-            price: 0
-          },
-          {
-            name: "Tortilla",
-            price: 0
-          },
-          {
-            name: "Plate",
-            price: 0
-          }
-        ]
-      },
-      extra: {
-        type: "multi",
-        label: "extra",
-        choices: [
-          {
-            name: "fries",
-            price: 10
-          }
-        ]
-      },
-      notes: {
-        type: "text",
-        label: "Notes"
-      }
-    }
-  },
-  {
-    id: "fanta",
-    name: "Fanta",
-    desc: "",
-    price: 7,
-    image: "/images/fanta.jpg",
-    category: "soft_drinks",
-    options: {
-      notes: {
-        type: "text",
-        label: "Notes"
-      }
-    }
-  },
-  {
-    id: "sprite",
-    name: "Sprite",
-    desc: "",
-    price: 7,
-    image: "/images/sprite.jpg",
-    category: "soft_drinks",
-    options: {
-      notes: {
-        type: "text",
-        label: "Notes"
-      }
-    }
-  },
-  {
-    id: "coca_cola",
-    name: "Coca Cola",
-    desc: "",
-    price: 7,
-    image: "/images/cola.jpg",
-    category: "soft_drinks",
-    options: {
-      notes: {
-        type: "text",
-        label: "Notes"
-      }
-    }
-  },
-  {
-    id: "coca_cola_zero",
-    name: "Coca Cola Zero",
-    desc: "",
-    price: 7,
-    image: "/images/cola_zero.jpg",
-    category: "soft_drinks",
-    options: {
-      notes: {
-        type: "text",
-        label: "Notes"
-      }
-    }
-  },
-  {
-    id: "xl",
-    name: "XL",
-    desc: "",
-    price: 7,
-    image: "/images/xl.jpg",
-    category: "soft_drinks",
-    options: {
-      notes: {
-        type: "text",
-        label: "Notes"
-      }
-    }
-  },
-  {
-    id: "xl_ten",
-    name: "XL Ten",
-    desc: "",
-    price: 7,
-    image: "/images/xl_ten.jpg",
-    category: "soft_drinks",
-    options: {
-      notes: {
-        type: "text",
-        label: "Notes"
-      }
-    }
-  },
-  {
-    id: "mineral_water",
-    name: "Mineral Water",
-    desc: "",
-    price: 7,
-    image: "/images/mineral_water.jpg",
-    category: "soft_drinks",
-    options: {
-      notes: {
-        type: "text",
-        label: "Notes"
-      }
-    }
-  }
-], ts = {
-  restaurant: Un,
-  categories: Bn,
-  items: Vn
-}, qn = {
-  name: "זוואדי",
-  brand_subtitle: "TAKE AWAY"
-}, Wn = [
-  {
-    id: "toasts",
-    title: "טוסטים",
-    emoji: "🧀"
-  },
-  {
-    id: "sandwiches",
-    title: "כריכים",
-    emoji: "🥪"
-  },
-  {
-    id: "salads",
-    title: "סלטים",
-    emoji: "🥗"
-  },
-  {
-    id: "baguette_tortilla",
-    title: "טורטיות/בגטים/בצלחת",
-    emoji: "🌯"
-  },
-  {
-    id: "soft_drinks",
-    title: "שתייה קלה",
-    emoji: "🥤"
-  }
-], Hn = [
-  {
-    id: "toast_classic",
-    name: "טוסט המבצר",
-    desc: "צהובה, בולגרית, זיתים, עגבניות, חמאה,ממרח עגבנייה ופסטו.",
-    price: 35,
-    image: "/images/toast_classic.png",
-    category: "toasts",
-    tags: [
-      "צמחוני"
-    ],
-    options: {
-      notes: {
-        type: "text",
-        label: "הערות"
-      }
-    }
-  },
-  {
-    id: "toast_golden",
-    name: "גולדן טוסט",
-    desc: "צהובה, כתף, זיתים, שום, צ׳ילי מתוק, פסטו.",
-    price: 35,
-    image: "/images/golden_toast.png",
-    category: "toasts",
-    tags: [
-      "צמחוני"
-    ],
-    options: {
-      notes: {
-        type: "text",
-        label: "הערות"
-      }
-    }
-  },
-  {
-    id: "toast_omelet",
-    name: "טוסט חביתה",
-    desc: "חביתה, צהובה, עגבניה, לבנה.",
-    price: 35,
-    image: "/images/toast_omelet.png",
-    category: "toasts",
-    options: {
-      notes: {
-        type: "text",
-        label: "הערות"
-      }
-    }
-  },
-  {
-    id: "toast_pizza",
-    name: "טוסט פיצה",
-    desc: "צהובה, עגבניה, זיתים, תירס, בצל, רוטב פיצה.",
-    price: 35,
-    image: "/images/toast_pizza.png",
-    category: "toasts",
-    options: {
-      notes: {
-        type: "text",
-        label: "הערות"
-      }
-    }
-  },
-  {
-    id: "sand_zawadi",
-    name: "כריך זוואדי",
-    desc: "הודו, כתף, איטלקי, חסה, עגבניה, מלפפון, מיונז שום-שמיר.",
-    price: 40,
-    image: "/images/sand_zawadi.png",
-    category: "sandwiches",
-    options: {
-      notes: {
-        type: "text",
-        label: "הערות"
-      }
-    }
-  },
-  {
-    id: "sand_tuna",
-    name: "כריך טונה",
-    desc: "טונה, חסה, עגבניה, מלפפון חמוץ, מיונז/שום שמיר.",
-    price: 35,
-    image: "/images/sand_tuna.png",
-    category: "sandwiches",
-    options: {
-      notes: {
-        type: "text",
-        label: "הערות"
-      }
-    }
-  },
-  {
-    id: "sand_healthy",
-    name: "כריך בריאות",
-    desc: "אבוקדו, חסה, עגבניות, טונה וביצים.",
-    price: 35,
-    image: "/images/sand_healthy.png",
-    category: "sandwiches",
-    tags: [
-      "טבעוני"
-    ],
-    notes: {
-      type: "text",
-      label: "הערות"
-    }
-  },
-  {
-    id: "salad_fattoush",
-    name: "סלט פטוש",
-    desc: "חסה, עגבניה, מלפפון, בצל סגול, זיתים שחורים, בולגרית מגורדת זעתר.",
-    price: 50,
-    image: "/images/salad_fattoush.jpg",
-    category: "salads",
-    tags: [
-      "צמחוני"
-    ],
-    options: {
-      notes: {
-        type: "text",
-        label: "הערות"
-      }
-    }
-  },
-  {
-    id: "salad_tabbouleh",
-    name: "סלט טאבולה",
-    desc: "בורגול, עגבניה שירי, פטרוזיליה, נענע, בצל ירוק, לימון ושמן זית.",
-    price: 50,
-    image: "/images/salad_tabbouleh.jpg",
-    category: "salads",
-    tags: [
-      "צמחוני"
-    ],
-    options: {
-      notes: {
-        type: "text",
-        label: "הערות"
-      }
-    }
-  },
-  {
-    id: "salad_chicken_tuna",
-    name: "סלט עוף",
-    desc: "חסה, עגבניה, גמבה, בצל סגול, צנון, נתחים חזה עוף.",
-    price: 50,
-    image: "/images/salad_chicken_tuna.png",
-    category: "salads",
-    options: {
-      notes: {
-        type: "text",
-        label: "הערות"
-      }
-    }
-  },
-  {
-    id: "baguette_chicken",
-    name: "צ׳יקן",
-    desc: "חזה עוף מתובל על הפלאנצ׳ה, חסה, עגבניה, מלפפון חמוץ.",
-    price: 40,
-    image: "/images/baguette_chicken.png",
-    category: "baguette_tortilla",
-    options: {
-      wrap: {
-        type: "select",
-        label: "מוגש ב",
-        choices: [
-          {
-            name: "באגט",
-            price: 0
-          },
-          {
-            name: "טורטייה",
-            price: 0
-          },
-          {
-            name: "צלחת",
-            price: 10
-          }
-        ]
-      },
-      extra: {
-        type: "multi",
-        label: "תוספות",
-        choices: [
-          {
-            name: "גבינה",
-            price: 5
-          },
-          {
-            name: "צ'יפס",
-            price: 10
-          }
-        ]
-      },
-      notes: {
-        type: "text",
-        label: "הערות"
-      }
-    }
-  },
-  {
-    id: "baguette_pargit",
-    name: "פרגית",
-    desc: "נתחי פרגית עסיסיים, חסה, עגבניה, בצל סגול.",
-    price: 40,
-    image: "/images/baguette_pargit.jpg",
-    category: "baguette_tortilla",
-    options: {
-      wrap: {
-        type: "select",
-        label: "מוגש ב",
-        choices: [
-          {
-            name: "באגט",
-            price: 0
-          },
-          {
-            name: "טורטייה",
-            price: 0
-          },
-          {
-            name: "צלחת",
-            price: 10
-          }
-        ]
-      },
-      extra: {
-        type: "multi",
-        label: "תוספות",
-        choices: [
-          {
-            name: "גבינה",
-            price: 5
-          },
-          {
-            name: "צ'יפס",
-            price: 10
-          }
-        ]
-      },
-      notes: {
-        type: "text",
-        label: "הערות"
-      }
-    }
-  },
-  {
-    id: "baguette_schnitzel",
-    name: " שניצל",
-    desc: "שניצל קריספי, חסה, עגבניה, מלפפון חמוץ, מיונז.",
-    price: 40,
-    image: "/images/baguette_schnitzel.png",
-    category: "baguette_tortilla",
-    options: {
-      wrap: {
-        type: "select",
-        label: "מוגש ב",
-        choices: [
-          {
-            name: "באגט",
-            price: 0
-          },
-          {
-            name: "טורטייה",
-            price: 0
-          },
-          {
-            name: "צלחת",
-            price: 10
-          }
-        ]
-      },
-      extra: {
-        type: "multi",
-        label: "תוספות",
-        choices: [
-          {
-            name: "גבינה",
-            price: 5
-          },
-          {
-            name: "צ'יפס",
-            price: 10
-          }
-        ]
-      },
-      notes: {
-        type: "text",
-        label: "הערות"
-      }
-    }
-  },
-  {
-    id: "shawarma_chicken",
-    name: "שווארמה עוף",
-    desc: "שווארמה עוף עסיסית, סלטים לבחירה.",
-    price: 50,
-    image: "/images/shawarma_chickenn.jpg",
-    category: "baguette_tortilla",
-    options: {
-      wrap: {
-        type: "select",
-        label: "מוגש ב",
-        choices: [
-          {
-            name: "באגט",
-            price: 0
-          },
-          {
-            name: "טורטייה",
-            price: 0
-          },
-          {
-            name: "צלחת",
-            price: 0
-          }
-        ]
-      },
-      extra: {
-        type: "multi",
-        label: "תוספות",
-        choices: [
-          {
-            name: "צ'יפס",
-            price: 10
-          }
-        ]
-      },
-      notes: {
-        type: "text",
-        label: "הערות"
-      }
-    }
-  },
-  {
-    id: "shawarma_beef",
-    name: "שווארמה עגל",
-    desc: "שווארמה עגל בתיבול הבית, סלטים לבחירה.",
-    price: 50,
-    image: "/images/shawarma_beef.jpg",
-    category: "baguette_tortilla",
-    options: {
-      wrap: {
-        type: "select",
-        label: "מוגש ב",
-        choices: [
-          {
-            name: "באגט",
-            price: 0
-          },
-          {
-            name: "טורטייה",
-            price: 0
-          },
-          {
-            name: "צלחת",
-            price: 0
-          }
-        ]
-      },
-      extra: {
-        type: "multi",
-        label: "תוספות",
-        choices: [
-          {
-            name: "צ'יפס",
-            price: 10
-          }
-        ]
-      },
-      notes: {
-        type: "text",
-        label: "הערות"
-      }
-    }
-  },
-  {
-    id: "fanta",
-    name: "פנטה",
-    desc: "",
-    price: 7,
-    image: "/images/fanta.jpg",
-    category: "soft_drinks",
-    options: {
-      notes: {
-        type: "text",
-        label: "הערות"
-      }
-    }
-  },
-  {
-    id: "sprite",
-    name: "ספרייט",
-    desc: "",
-    price: 7,
-    image: "/images/sprite.jpg",
-    category: "soft_drinks",
-    options: {
-      notes: {
-        type: "text",
-        label: "הערות"
-      }
-    }
-  },
-  {
-    id: "coca_cola",
-    name: "קוקה קולה",
-    desc: "",
-    price: 7,
-    image: "/images/cola.jpg",
-    category: "soft_drinks",
-    options: {
-      notes: {
-        type: "text",
-        label: "הערות"
-      }
-    }
-  },
-  {
-    id: "coca_cola_zero",
-    name: "קולה זירו",
-    desc: "",
-    price: 7,
-    image: "/images/cola_zero.jpg",
-    category: "soft_drinks",
-    options: {
-      notes: {
-        type: "text",
-        label: "הערות"
-      }
-    }
-  },
-  {
-    id: "xl",
-    name: "XL",
-    desc: "",
-    price: 7,
-    image: "/images/xl.jpg",
-    category: "soft_drinks",
-    options: {
-      notes: {
-        type: "text",
-        label: "הערות"
-      }
-    }
-  },
-  {
-    id: "xl_ten",
-    name: "XL Ten",
-    desc: "",
-    price: 7,
-    image: "/images/xl_ten.jpg",
-    category: "soft_drinks",
-    options: {
-      notes: {
-        type: "text",
-        label: "הערות"
-      }
-    }
-  },
-  {
-    id: "mineral_water",
-    name: "מים מינרלים",
-    desc: "",
-    price: 7,
-    image: "/images/mineral_water.jpg",
-    category: "soft_drinks",
-    options: {
-      notes: {
-        type: "text",
-        label: "הערות"
-      }
-    }
-  }
-], ss = {
-  restaurant: qn,
-  categories: Wn,
-  items: Hn
-}, Kn = {
-  name: "زواوي",
-  brand_subtitle: "TAKE AWAY"
-}, Yn = [
-  {
-    id: "toasts",
-    title: "توست",
-    emoji: "🧀"
-  },
-  {
-    id: "sandwiches",
-    title: "سندويشات",
-    emoji: "🥪"
-  },
-  {
-    id: "salads",
-    title: "سلطات",
-    emoji: "🥗"
-  },
-  {
-    id: "baguette_tortilla",
-    title: "تورتيلا/باجيت/صحن",
-    emoji: "🌯"
-  },
-  {
-    id: "soft_drinks",
-    title: "مشروبات غازية",
-    emoji: "🥤"
-  }
-], Jn = [
-  {
-    id: "toast_classic",
-    name: "توست القلعة",
-    desc: "جبنة صفراء، جبنة بلغارية، زيتون، طماطم، زبدة، معجون طماطم، بيستو.",
-    price: 35,
-    image: "/images/toast_classic.png",
-    category: "toasts",
-    tags: [
-      "نباتي"
-    ],
-    options: {
-      notes: {
-        type: "text",
-        label: "ملاحظات"
-      }
-    }
-  },
-  {
-    id: "toast_golden",
-    name: "توست ذهبي",
-    desc: "جبنة صفراء، شرائح كتف ديك رومي، زيتون، ثوم، تشيلي حلو، بيستو.",
-    price: 35,
-    image: "/images/golden_toast.png",
-    category: "toasts",
-    tags: [
-      "نباتي"
-    ],
-    options: {
-      notes: {
-        type: "text",
-        label: "ملاحظات"
-      }
-    }
-  },
-  {
-    id: "toast_omelet",
-    name: "توست عجة",
-    desc: "عجة، جبنة صفراء، طماطم، لبنة.",
-    price: 35,
-    image: "/images/toast_omelet.png",
-    category: "toasts",
-    options: {
-      notes: {
-        type: "text",
-        label: "ملاحظات"
-      }
-    }
-  },
-  {
-    id: "toast_pizza",
-    name: "توست بيزا",
-    desc: "جبنة صفراء، طماطم، زيتون، ذرة، بصل، صلصة بيتزا.",
-    price: 35,
-    image: "/images/toast_pizza.png",
-    category: "toasts",
-    options: {
-      notes: {
-        type: "text",
-        label: "ملاحظات"
-      }
-    }
-  },
-  {
-    id: "sand_zawadi",
-    name: "سندويش زوادي",
-    desc: "ديك رومي، شرائح كتف، لحم إيطالي، خس، طماطم، خيار، مايونيز بالثوم والشبت.",
-    price: 40,
-    image: "/images/sand_zawadi.png",
-    category: "sandwiches",
-    options: {
-      notes: {
-        type: "text",
-        label: "ملاحظات"
-      }
-    }
-  },
-  {
-    id: "sand_tuna",
-    name: "سندويش تونة",
-    desc: "تونة، خس، طماطم، خيار مخلل، مايونيز أو صلصة ثوم-شبت.",
-    price: 35,
-    image: "/images/sand_tuna.png",
-    category: "sandwiches",
-    options: {
-      notes: {
-        type: "text",
-        label: "ملاحظات"
-      }
-    }
-  },
-  {
-    id: "sand_healthy",
-    name: "سندويش صحي",
-    desc: "أفوكادو، خس، طماطم، تونة وبيض.",
-    price: 35,
-    image: "/images/sand_healthy.png",
-    category: "sandwiches",
-    tags: [
-      "نباتي"
-    ],
-    options: {
-      notes: {
-        type: "text",
-        label: "ملاحظات"
-      }
-    }
-  },
-  {
-    id: "salad_fattoush",
-    name: "سلطة فتوش",
-    desc: "خس، طماطم، خيار، بصل بنفسجي، زيتون أسود، جبنة بلغارية مبشورة بالزعتر.",
-    price: 50,
-    image: "/images/salad_fattoush.jpg",
-    category: "salads",
-    tags: [
-      "نباتي"
-    ],
-    options: {
-      notes: {
-        type: "text",
-        label: "ملاحظات"
-      }
-    }
-  },
-  {
-    id: "salad_tabbouleh",
-    name: "سلطة تبولة",
-    desc: "برغل، طماطم كرزية، بقدونس، نعناع، بصل أخضر، ليمون وزيت زيتون.",
-    price: 50,
-    image: "/images/salad_tabbouleh.jpg",
-    category: "salads",
-    tags: [
-      "نباتي"
-    ],
-    options: {
-      notes: {
-        type: "text",
-        label: "ملاحظات"
-      }
-    }
-  },
-  {
-    id: "salad_chicken_tuna",
-    name: "سلطة دجاج",
-    desc: "خس، طماطم، فلفل حلو، بصل بنفسجي، فجل، قطع صدر دجاج.",
-    price: 50,
-    image: "/images/salad_chicken_tuna.png",
-    category: "salads",
-    options: {
-      notes: {
-        type: "text",
-        label: "ملاحظات"
-      }
-    }
-  },
-  {
-    id: "baguette_chicken",
-    name: "دجاج",
-    desc: "صدر دجاج متبل على البلانشا، خس، طماطم، خيار مخلل.",
-    price: 40,
-    image: "/images/baguette_chicken.png",
-    category: "baguette_tortilla",
-    options: {
-      wrap: {
-        type: "select",
-        label: "يُقدم في",
-        choices: [
-          {
-            name: "باجيت",
-            price: 0
-          },
-          {
-            name: "تورتيلا",
-            price: 0
-          },
-          {
-            name: "صحن",
-            price: 10
-          }
-        ]
-      },
-      extra: {
-        type: "multi",
-        label: "اضافات",
-        choices: [
-          {
-            name: "جبنة",
-            price: 5
-          },
-          {
-            name: "بطاطس مقلي",
-            price: 10
-          }
-        ]
-      },
-      notes: {
-        type: "text",
-        label: "ملاحظات"
-      }
-    }
-  },
-  {
-    id: "baguette_pargit",
-    name: "فرجيت",
-    desc: "قطع فخذ دجاج عصارية، خس، طماطم، بصل بنفسجي.",
-    price: 40,
-    image: "/images/baguette_pargit.jpg",
-    category: "baguette_tortilla",
-    options: {
-      wrap: {
-        type: "select",
-        label: "يُقدم في",
-        choices: [
-          {
-            name: "باجيت",
-            price: 0
-          },
-          {
-            name: "تورتيلا",
-            price: 0
-          },
-          {
-            name: "صحن",
-            price: 10
-          }
-        ]
-      },
-      extra: {
-        type: "multi",
-        label: "اضافات",
-        choices: [
-          {
-            name: "جبنة",
-            price: 5
-          },
-          {
-            name: "بطاطس مقلي",
-            price: 10
-          }
-        ]
-      },
-      notes: {
-        type: "text",
-        label: "ملاحظات"
-      }
-    }
-  },
-  {
-    id: "baguette_schnitzel",
-    name: "شنيصل",
-    desc: "شنيتسل مقرمش، خس، طماطم، خيار مخلل، مايونيز.",
-    price: 40,
-    image: "/images/baguette_schnitzel.png",
-    category: "baguette_tortilla",
-    options: {
-      wrap: {
-        type: "select",
-        label: "يُقدم في",
-        choices: [
-          {
-            name: "باجيت",
-            price: 0
-          },
-          {
-            name: "تورتيلا",
-            price: 0
-          },
-          {
-            name: "صحن",
-            price: 10
-          }
-        ]
-      },
-      extra: {
-        type: "multi",
-        label: "اضافات",
-        choices: [
-          {
-            name: "جبنة",
-            price: 5
-          },
-          {
-            name: "بطاطس مقلي",
-            price: 10
-          }
-        ]
-      },
-      notes: {
-        type: "text",
-        label: "ملاحظات"
-      }
-    }
-  },
-  {
-    id: "shawarma_chicken",
-    name: "شاورما دجاج",
-    desc: "شاورما دجاج عصارية، سلطات حسب الاختيار.",
-    price: 50,
-    image: "/images/shawarma_chickenn.jpg",
-    category: "baguette_tortilla",
-    options: {
-      wrap: {
-        type: "select",
-        label: "يُقدم في",
-        choices: [
-          {
-            name: "باجيت",
-            price: 0
-          },
-          {
-            name: "تورتيلا",
-            price: 0
-          },
-          {
-            name: "صحن",
-            price: 0
-          }
-        ]
-      },
-      extra: {
-        type: "multi",
-        label: "اضافات",
-        choices: [
-          {
-            name: "بطاطس مقلي",
-            price: 10
-          }
-        ]
-      },
-      notes: {
-        type: "text",
-        label: "ملاحظات"
-      }
-    }
-  },
-  {
-    id: "shawarma_beef",
-    name: "شاورما عجل",
-    desc: "شاورما عجل بتتبيلة البيت، سلطات حسب الاختيار.",
-    price: 50,
-    image: "/images/shawarma_beef.jpg",
-    category: "baguette_tortilla",
-    options: {
-      wrap: {
-        type: "select",
-        label: "يُقدم في",
-        choices: [
-          {
-            name: "باجيت",
-            price: 0
-          },
-          {
-            name: "تورتيلا",
-            price: 0
-          },
-          {
-            name: "صحن",
-            price: 0
-          }
-        ]
-      },
-      extra: {
-        type: "multi",
-        label: "اضافات",
-        choices: [
-          {
-            name: "بطاطس مقلي",
-            price: 10
-          }
-        ]
-      },
-      notes: {
-        type: "text",
-        label: "ملاحظات"
-      }
-    }
-  },
-  {
-    id: "fanta",
-    name: "فانتا",
-    desc: "",
-    price: 7,
-    image: "/images/fanta.jpg",
-    category: "soft_drinks",
-    options: {
-      notes: {
-        type: "text",
-        label: "ملاحظات"
-      }
-    }
-  },
-  {
-    id: "sprite",
-    name: "سبرايت",
-    desc: "",
-    price: 7,
-    image: "/images/sprite.jpg",
-    category: "soft_drinks",
-    options: {
-      notes: {
-        type: "text",
-        label: "ملاحظات"
-      }
-    }
-  },
-  {
-    id: "coca_cola",
-    name: "كوكا كولا",
-    desc: "",
-    price: 7,
-    image: "/images/cola.jpg",
-    category: "soft_drinks",
-    options: {
-      notes: {
-        type: "text",
-        label: "ملاحظات"
-      }
-    }
-  },
-  {
-    id: "coca_cola_zero",
-    name: "كولا زيرو",
-    desc: "",
-    price: 7,
-    image: "/images/cola_zero.jpg",
-    category: "soft_drinks",
-    options: {
-      notes: {
-        type: "text",
-        label: "ملاحظات"
-      }
-    }
-  },
-  {
-    id: "xl",
-    name: "XL",
-    desc: "",
-    price: 7,
-    image: "/images/xl.jpg",
-    category: "soft_drinks",
-    options: {
-      notes: {
-        type: "text",
-        label: "ملاحظات"
-      }
-    }
-  },
-  {
-    id: "xl_ten",
-    name: "XL Ten",
-    desc: "",
-    price: 7,
-    image: "/images/xl_ten.jpg",
-    category: "soft_drinks",
-    options: {
-      notes: {
-        type: "text",
-        label: "ملاحظات"
-      }
-    }
-  },
-  {
-    id: "mineral_water",
-    name: "مياه معدنية",
-    desc: "",
-    price: 7,
-    image: "/images/mineral_water.jpg",
-    category: "soft_drinks",
-    options: {
-      notes: {
-        type: "text",
-        label: "ملاحظات"
-      }
-    }
-  }
-], ns = {
-  restaurant: Kn,
-  categories: Yn,
-  items: Jn
-}, Qn = "https://79vup8a13c.execute-api.eu-central-1.amazonaws.com", Gn = async (n = {}) => {
+  slug: wn,
+  name: jn,
+  logo: Nn,
+  phone: $n,
+  whatsapp: Cn,
+  address: Sn,
+  waze_name: En,
+  coords: kn,
+  instagram: Rn,
+  hours: On,
+  theme: Pn,
+  languages: An,
+  currency: Tn,
+  reservation: Ln
+}, Mn = "https://79vup8a13c.execute-api.eu-central-1.amazonaws.com", In = async (n = {}) => {
   console.log("🛒 Tracking order submission...");
   try {
-    const e = `${Qn}/api/analytics/order`, t = {
+    const e = `${Mn}/api/analytics/order`, t = {
       timestamp: (/* @__PURE__ */ new Date()).toISOString(),
       tablyname: "Zuwade",
       orderType: n.orderType || "unknown",
@@ -2780,7 +1255,7 @@ function Ot(n) {
   const t = Number.parseInt(e[1], 10), s = Number.parseInt(e[2], 10);
   return Number.isNaN(t) || Number.isNaN(s) || s < 0 || s > 59 || t < 0 || t > 24 || t === 24 && s !== 0 ? null : t * 60 + s;
 }
-function Xn(n) {
+function Fn(n) {
   if (!n)
     return [];
   const e = n.replace(/\s+/g, " ").replace(/\s*[\u2013-]\s*/g, "-").trim();
@@ -2790,11 +1265,11 @@ function Xn(n) {
     const [s, a] = e.split("-"), o = Ke(s), u = Ke(a);
     if (o === -1 || u === -1)
       return [];
-    const d = [];
-    let i = o;
-    for (d.push(i); i !== u && (i = (i + 1) % de.length, d.push(i), !(d.length > de.length)); )
+    const f = [];
+    let r = o;
+    for (f.push(r); r !== u && (r = (r + 1) % de.length, f.push(r), !(f.length > de.length)); )
       ;
-    return Array.from(new Set(d));
+    return Array.from(new Set(f));
   }
   const t = Ke(e);
   return t === -1 ? [] : [t];
@@ -2805,28 +1280,28 @@ function Ke(n = "") {
     (s) => s.toLowerCase() === e
   );
 }
-function Zn(n) {
+function zn(n) {
   if (!n || typeof n != "string")
     return [];
-  const t = n.split(",").map((s) => s.trim()).flatMap(Xn);
+  const t = n.split(",").map((s) => s.trim()).flatMap(Fn);
   return Array.from(new Set(t));
 }
-function ea(n) {
+function Un(n) {
   const e = de.map(() => []);
   return Object.entries(n || {}).forEach(([t, s]) => {
-    const a = Zn(t);
+    const a = zn(t);
     if (!a.length || !s || /closed/i.test(String(s)))
       return;
     String(s).split(",").map((u) => u.trim()).filter(Boolean).forEach((u) => {
-      const d = u.replace(/\u2013/g, "-"), [i, c] = d.split("-").map((p) => p.trim()), l = Ot(i), f = Ot(c);
-      l === null || f === null || Number.isNaN(l) || Number.isNaN(f) || a.forEach((p) => {
-        if (l === f)
-          e[p].push({ start: 0, end: 1440 });
-        else if (l < f)
-          e[p].push({ start: l, end: f });
-        else if (e[p].push({ start: l, end: 1440 }), f > 0) {
-          const g = (p + 1) % de.length;
-          e[g].push({ start: 0, end: f });
+      const f = u.replace(/\u2013/g, "-"), [r, c] = f.split("-").map((d) => d.trim()), l = Ot(r), p = Ot(c);
+      l === null || p === null || Number.isNaN(l) || Number.isNaN(p) || a.forEach((d) => {
+        if (l === p)
+          e[d].push({ start: 0, end: 1440 });
+        else if (l < p)
+          e[d].push({ start: l, end: p });
+        else if (e[d].push({ start: l, end: 1440 }), p > 0) {
+          const g = (d + 1) % de.length;
+          e[g].push({ start: 0, end: p });
         }
       });
     });
@@ -2836,41 +1311,40 @@ function ea(n) {
     ).sort((s, a) => s.start - a.start)
   );
 }
-function ta() {
-  var c, l, f;
+function Dn() {
+  var c, l, p;
   const n = /* @__PURE__ */ new Date(), t = new Intl.DateTimeFormat("en-US", {
     timeZone: "Asia/Jerusalem",
     weekday: "short",
     hour12: !1,
     hour: "2-digit",
     minute: "2-digit"
-  }).formatToParts(n), s = ((c = t.find((p) => p.type === "weekday")) == null ? void 0 : c.value) ?? "", a = ((l = t.find((p) => p.type === "hour")) == null ? void 0 : l.value) ?? "0", o = ((f = t.find((p) => p.type === "minute")) == null ? void 0 : f.value) ?? "0", u = de.findIndex((p) => p === s), d = Number.parseInt(a, 10), i = Number.parseInt(o, 10);
+  }).formatToParts(n), s = ((c = t.find((d) => d.type === "weekday")) == null ? void 0 : c.value) ?? "", a = ((l = t.find((d) => d.type === "hour")) == null ? void 0 : l.value) ?? "0", o = ((p = t.find((d) => d.type === "minute")) == null ? void 0 : p.value) ?? "0", u = de.findIndex((d) => d === s), f = Number.parseInt(a, 10), r = Number.parseInt(o, 10);
   return {
     dayIndex: u,
-    minutes: d * 60 + i
+    minutes: f * 60 + r
   };
 }
-function as(n) {
+function Zt(n) {
   if (!n || typeof n != "object")
     return !0;
-  const { dayIndex: e, minutes: t } = ta();
+  const { dayIndex: e, minutes: t } = Dn();
   if (e === -1 || Number.isNaN(t))
     return !0;
-  const a = ea(n)[e];
+  const a = Un(n)[e];
   return !a || a.length === 0 ? !1 : a.some(
     (o) => t >= o.start && t < o.end
   );
 }
-const Pt = { en: ts, he: ss, ar: ns };
-function xe(n, e) {
-  return (Pt[e] || Pt.en).items.find((s) => s.id === n);
+function xe(n, e, t) {
+  return ((t == null ? void 0 : t[e]) || (t == null ? void 0 : t.en) || { items: [] }).items.find((a) => a.id === n);
 }
-function sa(n, e, t) {
-  var p, g, m, x, b, N;
-  const s = (_, y) => {
-    var j;
-    const w = (j = y == null ? void 0 : y.options) == null ? void 0 : j[_];
-    return (w == null ? void 0 : w.label) || {
+function Vn(n, e, t, s) {
+  var g, m, x, y, j, v;
+  const a = (_, w) => {
+    var S;
+    const C = (S = w == null ? void 0 : w.options) == null ? void 0 : S[_];
+    return (C == null ? void 0 : C.label) || {
       size: e("opt_size"),
       extras: e("opt_extras"),
       notes: e("opt_notes"),
@@ -2880,367 +1354,367 @@ function sa(n, e, t) {
       bread: e("opt_bread"),
       wrap: e("opt_wrap")
     }[_] || _;
-  }, a = t.language === "ar" || t.language === "he", o = n.items.map((_) => {
-    const y = xe(_.id, t.language);
+  }, o = t.language === "ar" || t.language === "he", u = n.items.map((_) => {
+    const w = xe(_.id, t.language, s);
     return {
       ..._,
-      name: (y == null ? void 0 : y.name) || `Item ${_.id}`,
-      image: (y == null ? void 0 : y.image) || "/placeholder.jpg",
-      desc: (y == null ? void 0 : y.desc) || ""
+      name: (w == null ? void 0 : w.name) || `Item ${_.id}`,
+      image: (w == null ? void 0 : w.image) || "/placeholder.jpg",
+      desc: (w == null ? void 0 : w.desc) || ""
     };
-  }), u = (_) => _, d = [];
-  if (a) {
+  }), f = (_) => _, r = [];
+  if (o) {
     const _ = e("wa_order_header").replace(/[🍽️📋👤🙏]/g, "").trim();
-    d.push(u(`${_} 🍽️`)), d.push("");
-    const y = e("wa_order_items").replace(/[🍽️📋👤🙏]/g, "").trim();
-    d.push(u(`${y} 📋`)), o.forEach((S, T) => {
+    r.push(f(`${_} 🍽️`)), r.push("");
+    const w = e("wa_order_items").replace(/[🍽️📋👤🙏]/g, "").trim();
+    r.push(f(`${w} 📋`)), u.forEach((E, T) => {
       var z;
-      const E = [];
-      if (S.options) {
-        const O = xe(S.id, t.language);
-        for (const [k, C] of Object.entries(S.options)) {
-          if (C == null || C === "" || Array.isArray(C) && C.length === 0)
+      const A = [];
+      if (E.options) {
+        const R = xe(E.id, t.language, s);
+        for (const [M, $] of Object.entries(E.options)) {
+          if ($ == null || $ === "" || Array.isArray($) && $.length === 0)
             continue;
-          const D = s(k, O), B = (z = O == null ? void 0 : O.options) == null ? void 0 : z[k];
-          let W = C;
+          const U = a(M, R), B = (z = R == null ? void 0 : R.options) == null ? void 0 : z[M];
+          let Y = $;
           if (B && B.choices)
-            if (Array.isArray(C))
-              W = C.map((q) => {
-                const A = B.choices[q];
-                return typeof A == "string" ? A : (A == null ? void 0 : A.name) || `Choice ${q}`;
+            if (Array.isArray($))
+              Y = $.map((W) => {
+                const k = B.choices[W];
+                return typeof k == "string" ? k : (k == null ? void 0 : k.name) || `Choice ${W}`;
               }).join(", ");
-            else if (typeof C == "number" && B.choices[C]) {
-              const q = B.choices[C];
-              W = typeof q == "string" ? q : (q == null ? void 0 : q.name) || `Choice ${C}`;
+            else if (typeof $ == "number" && B.choices[$]) {
+              const W = B.choices[$];
+              Y = typeof W == "string" ? W : (W == null ? void 0 : W.name) || `Choice ${$}`;
             } else {
-              const q = B.choices.find(
-                (A) => (typeof A == "string" ? A : A.name) === C
+              const W = B.choices.find(
+                (k) => (typeof k == "string" ? k : k.name) === $
               );
-              W = typeof q == "string" ? q : (q == null ? void 0 : q.name) || C;
+              Y = typeof W == "string" ? W : (W == null ? void 0 : W.name) || $;
             }
-          E.push(`${D}: ${W}`);
+          A.push(`${U}: ${Y}`);
         }
       }
-      d.push(u(`${T + 1}. ${S.name}`)), d.push(u(`   ${e("wa_quantity")}: ${S.quantity}`)), E.length > 0 && E.forEach((O) => {
-        d.push(u(`   ${O}`));
-      }), d.push("");
+      r.push(f(`${T + 1}. ${E.name}`)), r.push(f(`   ${e("wa_quantity")}: ${E.quantity}`)), A.length > 0 && A.forEach((R) => {
+        r.push(f(`   ${R}`));
+      }), r.push("");
     });
-    const w = e("wa_customer_info").replace(/[🍽️📋👤🙏]/g, "").trim();
-    if (d.push(u(`${w} 👤`)), (p = n.customer) != null && p.name && (d.push(`${e("wa_customer_name")}: ${n.customer.name}`), d.push("")), (g = n.customer) != null && g.phone && d.push(`${e("wa_customer_phone")}: ${n.customer.phone}`), (m = n.customer) != null && m.type) {
-      const S = n.customer.type === "delivery" ? e("delivery") : e("pickup"), T = n.customer.type === "delivery" ? "🚚" : "🏪";
-      d.push(`${e("wa_order_type")}:`), d.push(`• ${S} ${T}`), d.push("");
+    const C = e("wa_customer_info").replace(/[🍽️📋👤🙏]/g, "").trim();
+    if (r.push(f(`${C} 👤`)), (g = n.customer) != null && g.name && (r.push(`${e("wa_customer_name")}: ${n.customer.name}`), r.push("")), (m = n.customer) != null && m.phone && r.push(`${e("wa_customer_phone")}: ${n.customer.phone}`), (x = n.customer) != null && x.type) {
+      const E = n.customer.type === "delivery" ? e("delivery") : e("pickup"), T = n.customer.type === "delivery" ? "🚚" : "🏪";
+      r.push(`${e("wa_order_type")}:`), r.push(`• ${E} ${T}`), r.push("");
     }
-    d.push("");
-    const j = e("wa_confirm_order").replace(/[🍽️📋👤🙏]/g, "").trim();
-    return d.push(u(`${j} 🙏`)), d.join(`
+    r.push("");
+    const S = e("wa_confirm_order").replace(/[🍽️📋👤🙏]/g, "").trim();
+    return r.push(f(`${S} 🙏`)), r.join(`
 `);
   }
-  const i = e("wa_order_header").replace(/[🍽️📋👤🙏]/g, "").trim();
-  d.push(`🍽️ ${i}`), d.push("");
-  const c = e("wa_order_items").replace(/[🍽️📋👤🙏]/g, "").trim();
-  d.push(`📋 ${c}`), o.forEach((_, y) => {
-    var j;
-    const w = [];
+  const c = e("wa_order_header").replace(/[🍽️📋👤🙏]/g, "").trim();
+  r.push(`🍽️ ${c}`), r.push("");
+  const l = e("wa_order_items").replace(/[🍽️📋👤🙏]/g, "").trim();
+  r.push(`📋 ${l}`), u.forEach((_, w) => {
+    var S;
+    const C = [];
     if (_.options) {
-      const S = xe(_.id, t.language);
-      for (const [T, E] of Object.entries(_.options)) {
-        if (E == null || E === "" || Array.isArray(E) && E.length === 0)
+      const E = xe(_.id, t.language, s);
+      for (const [T, A] of Object.entries(_.options)) {
+        if (A == null || A === "" || Array.isArray(A) && A.length === 0)
           continue;
-        const z = s(T, S), O = (j = S == null ? void 0 : S.options) == null ? void 0 : j[T];
-        let k = E;
-        if (O && O.choices)
-          if (Array.isArray(E))
-            k = E.map((C) => {
-              const D = O.choices[C];
-              return typeof D == "string" ? D : (D == null ? void 0 : D.name) || `Choice ${C}`;
+        const z = a(T, E), R = (S = E == null ? void 0 : E.options) == null ? void 0 : S[T];
+        let M = A;
+        if (R && R.choices)
+          if (Array.isArray(A))
+            M = A.map(($) => {
+              const U = R.choices[$];
+              return typeof U == "string" ? U : (U == null ? void 0 : U.name) || `Choice ${$}`;
             }).join(", ");
-          else if (typeof E == "number" && O.choices[E]) {
-            const C = O.choices[E];
-            k = typeof C == "string" ? C : (C == null ? void 0 : C.name) || `Choice ${E}`;
+          else if (typeof A == "number" && R.choices[A]) {
+            const $ = R.choices[A];
+            M = typeof $ == "string" ? $ : ($ == null ? void 0 : $.name) || `Choice ${A}`;
           } else {
-            const C = O.choices.find(
-              (D) => (typeof D == "string" ? D : D.name) === E
+            const $ = R.choices.find(
+              (U) => (typeof U == "string" ? U : U.name) === A
             );
-            k = typeof C == "string" ? C : (C == null ? void 0 : C.name) || E;
+            M = typeof $ == "string" ? $ : ($ == null ? void 0 : $.name) || A;
           }
-        w.push(`${z}: ${k}`);
+        C.push(`${z}: ${M}`);
       }
     }
-    d.push(`${y + 1}. ${_.name}`), d.push(`   ${e("wa_quantity")}: ${_.quantity}`), w.length > 0 && w.forEach((S) => {
-      d.push(`   ${S}`);
-    }), d.push("");
+    r.push(`${w + 1}. ${_.name}`), r.push(`   ${e("wa_quantity")}: ${_.quantity}`), C.length > 0 && C.forEach((E) => {
+      r.push(`   ${E}`);
+    }), r.push("");
   });
-  const l = e("wa_customer_info").replace(/[🍽️📋👤🙏]/g, "").trim();
-  if (a ? d.push(`${l} 👤`) : d.push(`👤 ${l}`), (x = n.customer) != null && x.name && (d.push(`${e("wa_customer_name")}: ${n.customer.name}`), d.push("")), (b = n.customer) != null && b.phone && d.push(`${e("wa_customer_phone")}: ${n.customer.phone}`), (N = n.customer) != null && N.type) {
-    const _ = n.customer.type === "delivery" ? e("delivery") : e("pickup"), y = n.customer.type === "delivery" ? "🚚" : "🏪";
-    d.push(`${e("wa_order_type")}:`), d.push(`• ${_} ${y}`), d.push("");
+  const p = e("wa_customer_info").replace(/[🍽️📋👤🙏]/g, "").trim();
+  if (o ? r.push(`${p} 👤`) : r.push(`👤 ${p}`), (y = n.customer) != null && y.name && (r.push(`${e("wa_customer_name")}: ${n.customer.name}`), r.push("")), (j = n.customer) != null && j.phone && r.push(`${e("wa_customer_phone")}: ${n.customer.phone}`), (v = n.customer) != null && v.type) {
+    const _ = n.customer.type === "delivery" ? e("delivery") : e("pickup"), w = n.customer.type === "delivery" ? "🚚" : "🏪";
+    r.push(`${e("wa_order_type")}:`), r.push(`• ${_} ${w}`), r.push("");
   }
-  d.push("");
-  const f = e("wa_confirm_order").replace(/[🍽️📋👤🙏]/g, "").trim();
-  return a ? d.push(`${f} 🙏`) : d.push(`${f} 🙏`), d.join(`
+  r.push("");
+  const d = e("wa_confirm_order").replace(/[🍽️📋👤🙏]/g, "").trim();
+  return o ? r.push(`${d} 🙏`) : r.push(`${d} 🙏`), r.join(`
 `);
 }
-function ih({ open: n, onClose: e }) {
-  const { state: t, dispatch: s } = nt(), { t: a, i18n: o } = X(), u = kt(t.items), d = sa(t, a, o), [i, c] = L.useState(!1), [l, f] = L.useState(!1), [p, g] = L.useState(!1);
+function Kf({ open: n, onClose: e, menuData: t }) {
+  const { state: s, dispatch: a } = nt(), { t: o, i18n: u } = Z(), f = Et(s.items), r = Vn(s, o, u, t), [c, l] = L.useState(!1), [p, d] = L.useState(!1), [g, m] = L.useState(!1);
   L.useEffect(() => {
-    n || (c(!1), g(!1));
+    n || (l(!1), m(!1));
   }, [n]);
-  const m = t.items.map((j) => {
-    const S = xe(j.id, o.language);
+  const x = s.items.map((S) => {
+    const E = xe(S.id, u.language, t);
     return {
-      ...j,
-      name: (S == null ? void 0 : S.name) || `Item ${j.id}`,
-      image: (S == null ? void 0 : S.image) || "/placeholder.jpg",
-      desc: (S == null ? void 0 : S.desc) || ""
+      ...S,
+      name: (E == null ? void 0 : E.name) || `Item ${S.id}`,
+      image: (E == null ? void 0 : E.image) || "/placeholder.jpg",
+      desc: (E == null ? void 0 : E.desc) || ""
     };
-  }), x = document.dir === "rtl", b = x ? "left-0" : "right-0", N = x ? "border-r" : "border-l", _ = x ? "-translate-x-full" : "translate-x-full", y = () => {
-    if (P.hours && !as(P.hours)) {
-      g(!0);
+  }), y = document.dir === "rtl", j = y ? "left-0" : "right-0", v = y ? "border-r" : "border-l", _ = y ? "-translate-x-full" : "translate-x-full", w = () => {
+    if (P.hours && !Zt(P.hours)) {
+      m(!0);
       return;
     }
-    if (!t.customer.name || t.customer.name.trim() === "") {
-      f(!0);
+    if (!s.customer.name || s.customer.name.trim() === "") {
+      d(!0);
       return;
     }
-    f(!1), c(!0);
-  }, w = async () => {
-    var S, T, E;
+    d(!1), l(!0);
+  }, C = async () => {
+    var E, T, A;
     try {
-      const z = t.items || [], O = kt(z), k = z.reduce((C, D) => C + D.quantity, 0);
-      Gn({
-        orderType: ((S = t.customer) == null ? void 0 : S.type) || "unknown",
-        itemCount: k,
-        totalAmount: O,
-        customerName: ((T = t.customer) == null ? void 0 : T.name) || "anonymous",
-        customerPhone: ((E = t.customer) == null ? void 0 : E.phone) || "not provided",
-        items: z.map((C) => ({
-          id: C.id,
-          name: C.name || `Item ${C.id}`,
-          quantity: C.quantity,
-          price: C.price || 0,
-          totalPrice: C.totalPrice || C.price || 0,
-          options: C.options || {}
+      const z = s.items || [], R = Et(z), M = z.reduce(($, U) => $ + U.quantity, 0);
+      In({
+        orderType: ((E = s.customer) == null ? void 0 : E.type) || "unknown",
+        itemCount: M,
+        totalAmount: R,
+        customerName: ((T = s.customer) == null ? void 0 : T.name) || "anonymous",
+        customerPhone: ((A = s.customer) == null ? void 0 : A.phone) || "not provided",
+        items: z.map(($) => ({
+          id: $.id,
+          name: $.name || `Item ${$.id}`,
+          quantity: $.quantity,
+          price: $.price || 0,
+          totalPrice: $.totalPrice || $.price || 0,
+          options: $.options || {}
         })),
-        whatsappMessage: d
+        whatsappMessage: r
         // This contains the full formatted WhatsApp message
-      }).catch((C) => {
-        console.warn("Failed to track order, but continuing with WhatsApp:", C);
+      }).catch(($) => {
+        console.warn("Failed to track order, but continuing with WhatsApp:", $);
       });
     } catch (z) {
       console.warn("Error in order tracking, but continuing with WhatsApp:", z);
     }
-    const j = `https://wa.me/${P.whatsapp}?text=${encodeURIComponent(d)}`;
-    window.open(j, "_blank"), c(!1);
+    const S = `https://wa.me/${P.whatsapp}?text=${encodeURIComponent(r)}`;
+    window.open(S, "_blank"), l(!1);
   };
-  return Yt(
-    /* @__PURE__ */ r.jsxs("div", { className: `fixed inset-0 z-[10000] ${n ? "" : "pointer-events-none"}`, children: [
-      /* @__PURE__ */ r.jsx(
+  return Ht(
+    /* @__PURE__ */ i.jsxs("div", { className: `fixed inset-0 z-[10000] ${n ? "" : "pointer-events-none"}`, children: [
+      /* @__PURE__ */ i.jsx(
         "div",
         {
           className: `absolute inset-0 z-0 bg-black/60 transition-opacity ${n ? "opacity-100" : "opacity-0"}`,
           onClick: e
         }
       ),
-      /* @__PURE__ */ r.jsxs(
+      /* @__PURE__ */ i.jsxs(
         "aside",
         {
-          className: `absolute top-0 ${b} z-10
+          className: `absolute top-0 ${j} z-10
         h-full w-full sm:w-[430px]
         bg-[var(--card)] shadow-2xl overflow-hidden
         flex flex-col
-        ${N} border-white/10
+        ${v} border-white/10
         transform transition-transform ${n ? "translate-x-0" : _}`,
           children: [
-            /* @__PURE__ */ r.jsxs("div", { className: "p-4 flex items-center justify-between border-b border-white/10", children: [
-              /* @__PURE__ */ r.jsx("div", { className: "text-lg font-semibold", children: a("cart") }),
-              /* @__PURE__ */ r.jsx("button", { className: "tab", onClick: e, children: /* @__PURE__ */ r.jsx(Me, {}) })
+            /* @__PURE__ */ i.jsxs("div", { className: "p-4 flex items-center justify-between border-b border-white/10", children: [
+              /* @__PURE__ */ i.jsx("div", { className: "text-lg font-semibold", children: o("cart") }),
+              /* @__PURE__ */ i.jsx("button", { className: "tab", onClick: e, children: /* @__PURE__ */ i.jsx(Me, {}) })
             ] }),
-            /* @__PURE__ */ r.jsx("div", { className: "flex-1 p-4 space-y-3 overflow-auto", children: m.length === 0 ? /* @__PURE__ */ r.jsx("div", { className: "h-full flex items-center justify-center text-white/60 text-lg font-medium", children: a("empty_cart") }) : m.map((j) => /* @__PURE__ */ r.jsx("div", { className: "card p-3", children: /* @__PURE__ */ r.jsxs("div", { className: "flex gap-3", children: [
-              /* @__PURE__ */ r.jsx(
+            /* @__PURE__ */ i.jsx("div", { className: "flex-1 p-4 space-y-3 overflow-auto", children: x.length === 0 ? /* @__PURE__ */ i.jsx("div", { className: "h-full flex items-center justify-center text-white/60 text-lg font-medium", children: o("empty_cart") }) : x.map((S) => /* @__PURE__ */ i.jsx("div", { className: "card p-3", children: /* @__PURE__ */ i.jsxs("div", { className: "flex gap-3", children: [
+              /* @__PURE__ */ i.jsx(
                 "img",
                 {
-                  src: j.image,
-                  alt: j.name,
+                  src: S.image,
+                  alt: S.name,
                   className: "w-16 h-16 object-cover rounded-lg"
                 }
               ),
-              /* @__PURE__ */ r.jsxs("div", { className: "flex-1", children: [
-                /* @__PURE__ */ r.jsxs("div", { className: "flex items-center justify-between", children: [
-                  /* @__PURE__ */ r.jsx("div", { className: "font-semibold", children: j.name }),
-                  /* @__PURE__ */ r.jsx(
+              /* @__PURE__ */ i.jsxs("div", { className: "flex-1", children: [
+                /* @__PURE__ */ i.jsxs("div", { className: "flex items-center justify-between", children: [
+                  /* @__PURE__ */ i.jsx("div", { className: "font-semibold", children: S.name }),
+                  /* @__PURE__ */ i.jsx(
                     "button",
                     {
                       className: "text-red-400",
-                      onClick: () => s({ type: "REMOVE", key: j.key }),
-                      children: /* @__PURE__ */ r.jsx(ln, { size: 16 })
+                      onClick: () => a({ type: "REMOVE", key: S.key }),
+                      children: /* @__PURE__ */ i.jsx(nn, { size: 16 })
                     }
                   )
                 ] }),
                 (() => {
-                  const S = xe(j.id, o.language), T = (S == null ? void 0 : S.options) || {}, E = j.options || {}, z = {};
-                  return Object.entries(E).forEach(([O, k]) => {
-                    k !== null && k !== "" && (!Array.isArray(k) || k.length > 0) && (z[O] = k);
-                  }), Object.entries(T).forEach(([O, k]) => {
-                    !z[O] && k.choices && k.choices.length > 0 && k.type === "select" && (z[O] = 0);
-                  }), /* @__PURE__ */ r.jsx("div", { className: "text-xs text-white/60", children: Object.entries(z).map(([O, k]) => {
-                    var q;
-                    if (!k && k !== 0)
+                  const E = xe(S.id, u.language, t), T = (E == null ? void 0 : E.options) || {}, A = S.options || {}, z = {};
+                  return Object.entries(A).forEach(([R, M]) => {
+                    M !== null && M !== "" && (!Array.isArray(M) || M.length > 0) && (z[R] = M);
+                  }), Object.entries(T).forEach(([R, M]) => {
+                    !z[R] && M.choices && M.choices.length > 0 && M.type === "select" && (z[R] = 0);
+                  }), /* @__PURE__ */ i.jsx("div", { className: "text-xs text-white/60", children: Object.entries(z).map(([R, M]) => {
+                    var W;
+                    if (!M && M !== 0)
                       return null;
-                    const C = (q = S == null ? void 0 : S.options) == null ? void 0 : q[O], D = (C == null ? void 0 : C.label) || {
-                      size: a("opt_size"),
-                      extras: a("opt_extras"),
-                      notes: a("opt_notes"),
-                      doneness: a("opt_doneness"),
-                      sugar: a("opt_sugar"),
-                      pasta_type: a("opt_pasta_type"),
-                      bread: a("opt_bread"),
-                      wrap: a("opt_wrap")
-                    }[O] || O;
-                    let B = k, W = 0;
-                    if (C && C.choices)
-                      if (Array.isArray(k))
-                        B = k.map((A) => {
-                          const U = C.choices[A];
-                          return U && typeof U == "object" && U.price && (W += U.price), typeof U == "string" ? U : (U == null ? void 0 : U.name) || `Choice ${A}`;
+                    const $ = (W = E == null ? void 0 : E.options) == null ? void 0 : W[R], U = ($ == null ? void 0 : $.label) || {
+                      size: o("opt_size"),
+                      extras: o("opt_extras"),
+                      notes: o("opt_notes"),
+                      doneness: o("opt_doneness"),
+                      sugar: o("opt_sugar"),
+                      pasta_type: o("opt_pasta_type"),
+                      bread: o("opt_bread"),
+                      wrap: o("opt_wrap")
+                    }[R] || R;
+                    let B = M, Y = 0;
+                    if ($ && $.choices)
+                      if (Array.isArray(M))
+                        B = M.map((k) => {
+                          const q = $.choices[k];
+                          return q && typeof q == "object" && q.price && (Y += q.price), typeof q == "string" ? q : (q == null ? void 0 : q.name) || `Choice ${k}`;
                         }).join(", ");
-                      else if (typeof k == "number" && C.choices[k]) {
-                        const A = C.choices[k];
-                        A && typeof A == "object" && A.price && (W = A.price), B = typeof A == "string" ? A : (A == null ? void 0 : A.name) || `Choice ${k}`;
+                      else if (typeof M == "number" && $.choices[M]) {
+                        const k = $.choices[M];
+                        k && typeof k == "object" && k.price && (Y = k.price), B = typeof k == "string" ? k : (k == null ? void 0 : k.name) || `Choice ${M}`;
                       } else {
-                        const A = C.choices.find(
-                          (U) => (typeof U == "string" ? U : U.name) === k
+                        const k = $.choices.find(
+                          (q) => (typeof q == "string" ? q : q.name) === M
                         );
-                        A && typeof A == "object" && A.price && (W = A.price), B = typeof A == "string" ? A : (A == null ? void 0 : A.name) || k;
+                        k && typeof k == "object" && k.price && (Y = k.price), B = typeof k == "string" ? k : (k == null ? void 0 : k.name) || M;
                       }
-                    return /* @__PURE__ */ r.jsxs("div", { children: [
-                      /* @__PURE__ */ r.jsxs("span", { className: "text-white/70", children: [
-                        D,
+                    return /* @__PURE__ */ i.jsxs("div", { children: [
+                      /* @__PURE__ */ i.jsxs("span", { className: "text-white/70", children: [
+                        U,
                         ":"
                       ] }),
                       " ",
                       B,
-                      W > 0 && /* @__PURE__ */ r.jsxs("span", { className: "text-green-400 ml-1", children: [
+                      Y > 0 && /* @__PURE__ */ i.jsxs("span", { className: "text-green-400 ml-1", children: [
                         "+",
-                        W,
+                        Y,
                         P.currency
                       ] })
-                    ] }, O);
+                    ] }, R);
                   }) });
                 })(),
-                /* @__PURE__ */ r.jsxs("div", { className: "flex items-center gap-2 pt-2", children: [
-                  /* @__PURE__ */ r.jsx(
+                /* @__PURE__ */ i.jsxs("div", { className: "flex items-center gap-2 pt-2", children: [
+                  /* @__PURE__ */ i.jsx(
                     "button",
                     {
                       className: "tab",
-                      onClick: () => s({ type: "DEC", key: j.key }),
-                      children: /* @__PURE__ */ r.jsx(rn, { size: 14 })
+                      onClick: () => a({ type: "DEC", key: S.key }),
+                      children: /* @__PURE__ */ i.jsx(en, { size: 14 })
                     }
                   ),
-                  /* @__PURE__ */ r.jsx("div", { className: "min-w-[2rem] text-center", children: j.quantity }),
-                  /* @__PURE__ */ r.jsx(
+                  /* @__PURE__ */ i.jsx("div", { className: "min-w-[2rem] text-center", children: S.quantity }),
+                  /* @__PURE__ */ i.jsx(
                     "button",
                     {
                       className: "tab",
-                      onClick: () => s({ type: "INC", key: j.key }),
-                      children: /* @__PURE__ */ r.jsx(on, { size: 14 })
+                      onClick: () => a({ type: "INC", key: S.key }),
+                      children: /* @__PURE__ */ i.jsx(tn, { size: 14 })
                     }
                   ),
-                  /* @__PURE__ */ r.jsx("div", { className: "flex-1" }),
-                  /* @__PURE__ */ r.jsxs("div", { className: "font-semibold", children: [
-                    (j.totalPrice || j.price) * j.quantity,
-                    (j.totalPrice || j.price) * j.quantity > 0 && P.currency
+                  /* @__PURE__ */ i.jsx("div", { className: "flex-1" }),
+                  /* @__PURE__ */ i.jsxs("div", { className: "font-semibold", children: [
+                    (S.totalPrice || S.price) * S.quantity,
+                    (S.totalPrice || S.price) * S.quantity > 0 && P.currency
                   ] })
                 ] })
               ] })
-            ] }) }, j.key)) }),
-            m.length > 0 && /* @__PURE__ */ r.jsxs("div", { className: "p-4 border-t border-white/10 space-y-3", children: [
-              /* @__PURE__ */ r.jsxs("div", { className: "grid grid-cols-2 gap-2", children: [
-                /* @__PURE__ */ r.jsxs("label", { className: "text-sm", children: [
-                  /* @__PURE__ */ r.jsxs("div", { className: "text-white/70", children: [
-                    a("customer_name"),
+            ] }) }, S.key)) }),
+            x.length > 0 && /* @__PURE__ */ i.jsxs("div", { className: "p-4 border-t border-white/10 space-y-3", children: [
+              /* @__PURE__ */ i.jsxs("div", { className: "grid grid-cols-2 gap-2", children: [
+                /* @__PURE__ */ i.jsxs("label", { className: "text-sm", children: [
+                  /* @__PURE__ */ i.jsxs("div", { className: "text-white/70", children: [
+                    o("customer_name"),
                     " ",
-                    /* @__PURE__ */ r.jsx("span", { className: "text-red-400", children: "*" })
+                    /* @__PURE__ */ i.jsx("span", { className: "text-red-400", children: "*" })
                   ] }),
-                  /* @__PURE__ */ r.jsx(
+                  /* @__PURE__ */ i.jsx(
                     "input",
                     {
-                      value: t.customer.name,
-                      onChange: (j) => {
-                        s({ type: "SET_CUSTOMER", payload: { name: j.target.value } }), l && j.target.value.trim() && f(!1);
+                      value: s.customer.name,
+                      onChange: (S) => {
+                        a({ type: "SET_CUSTOMER", payload: { name: S.target.value } }), p && S.target.value.trim() && d(!1);
                       },
-                      className: `w-full bg-[var(--card)] border rounded-lg px-3 py-2 text-white focus:ring-2 focus:ring-green-400/30 transition-all duration-200 ${l || !t.customer.name || t.customer.name.trim() === "" ? "border-red-400/50 focus:border-red-400" : "border-white/10 focus:border-green-400/50"}`,
-                      placeholder: a("customer_name")
+                      className: `w-full bg-[var(--card)] border rounded-lg px-3 py-2 text-white focus:ring-2 focus:ring-green-400/30 transition-all duration-200 ${p || !s.customer.name || s.customer.name.trim() === "" ? "border-red-400/50 focus:border-red-400" : "border-white/10 focus:border-green-400/50"}`,
+                      placeholder: o("customer_name")
                     }
                   ),
-                  l && /* @__PURE__ */ r.jsx("div", { className: "text-red-400 text-xs mt-1", children: a("name_required") })
+                  p && /* @__PURE__ */ i.jsx("div", { className: "text-red-400 text-xs mt-1", children: o("name_required") })
                 ] }),
-                /* @__PURE__ */ r.jsxs("label", { className: "text-sm", children: [
-                  /* @__PURE__ */ r.jsx("div", { className: "text-white/70", children: a("order_type") }),
-                  /* @__PURE__ */ r.jsxs(
+                /* @__PURE__ */ i.jsxs("label", { className: "text-sm", children: [
+                  /* @__PURE__ */ i.jsx("div", { className: "text-white/70", children: o("order_type") }),
+                  /* @__PURE__ */ i.jsxs(
                     "select",
                     {
-                      value: t.customer.type,
-                      onChange: (j) => s({ type: "SET_CUSTOMER", payload: { type: j.target.value } }),
+                      value: s.customer.type,
+                      onChange: (S) => a({ type: "SET_CUSTOMER", payload: { type: S.target.value } }),
                       children: [
-                        /* @__PURE__ */ r.jsx("option", { value: "pickup", children: a("pickup") }),
-                        /* @__PURE__ */ r.jsx("option", { value: "delivery", children: a("delivery") })
+                        /* @__PURE__ */ i.jsx("option", { value: "pickup", children: o("pickup") }),
+                        /* @__PURE__ */ i.jsx("option", { value: "delivery", children: o("delivery") })
                       ]
                     }
                   )
                 ] })
               ] }),
-              /* @__PURE__ */ r.jsxs("div", { className: "flex items-center justify-between", children: [
-                /* @__PURE__ */ r.jsx("button", { className: "btn-outline", onClick: () => s({ type: "CLEAR" }), children: a("clear_cart") }),
-                /* @__PURE__ */ r.jsxs("div", { className: "text-lg font-bold", children: [
-                  a("total"),
+              /* @__PURE__ */ i.jsxs("div", { className: "flex items-center justify-between", children: [
+                /* @__PURE__ */ i.jsx("button", { className: "btn-outline", onClick: () => a({ type: "CLEAR" }), children: o("clear_cart") }),
+                /* @__PURE__ */ i.jsxs("div", { className: "text-lg font-bold", children: [
+                  o("total"),
                   ": ",
-                  u,
-                  u > 0 && P.currency
+                  f,
+                  f > 0 && P.currency
                 ] })
               ] }),
-              t.customer.type === "delivery" && /* @__PURE__ */ r.jsx("div", { className: "bg-orange-500/10 border border-orange-500/20 rounded-lg p-3 text-sm", children: /* @__PURE__ */ r.jsxs("div", { className: "font-medium text-orange-400 mb-1", children: [
+              s.customer.type === "delivery" && /* @__PURE__ */ i.jsx("div", { className: "bg-orange-500/10 border border-orange-500/20 rounded-lg p-3 text-sm", children: /* @__PURE__ */ i.jsxs("div", { className: "font-medium text-orange-400 mb-1", children: [
                 "🚚 ",
-                a("delivery_notice")
+                o("delivery_notice")
               ] }) }),
-              /* @__PURE__ */ r.jsx("button", { className: "btn w-full", onClick: y, children: a("checkout") })
+              /* @__PURE__ */ i.jsx("button", { className: "btn w-full", onClick: w, children: o("checkout") })
             ] })
           ]
         }
       ),
-      p && /* @__PURE__ */ r.jsx("div", { className: "absolute inset-0 z-30 flex items-center justify-center p-4", children: /* @__PURE__ */ r.jsx("div", { className: "bg-[var(--card)] border border-red-500/30 rounded-xl p-6 max-w-md w-full shadow-2xl", children: /* @__PURE__ */ r.jsxs("div", { className: "text-center space-y-4", children: [
-        /* @__PURE__ */ r.jsx("h3", { className: "text-lg font-semibold", children: a("important_notice_cart") }),
-        /* @__PURE__ */ r.jsx("p", { className: "text-sm text-white/80", children: a("restaurant_closed_message") }),
-        /* @__PURE__ */ r.jsx("button", { className: "btn w-full", onClick: () => g(!1), children: a("close") })
+      g && /* @__PURE__ */ i.jsx("div", { className: "absolute inset-0 z-30 flex items-center justify-center p-4", children: /* @__PURE__ */ i.jsx("div", { className: "bg-[var(--card)] border border-red-500/30 rounded-xl p-6 max-w-md w-full shadow-2xl", children: /* @__PURE__ */ i.jsxs("div", { className: "text-center space-y-4", children: [
+        /* @__PURE__ */ i.jsx("h3", { className: "text-lg font-semibold", children: o("important_notice_cart") }),
+        /* @__PURE__ */ i.jsx("p", { className: "text-sm text-white/80", children: o("restaurant_closed_message") }),
+        /* @__PURE__ */ i.jsx("button", { className: "btn w-full", onClick: () => m(!1), children: o("close") })
       ] }) }) }),
-      i && /* @__PURE__ */ r.jsx("div", { className: "absolute inset-0 z-20 flex items-center justify-center p-4", children: /* @__PURE__ */ r.jsx("div", { className: "bg-[var(--card)] border border-white/10 rounded-xl p-6 max-w-md w-full shadow-2xl", children: /* @__PURE__ */ r.jsxs("div", { className: "text-center", children: [
-        /* @__PURE__ */ r.jsx("div", { className: "w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4", children: /* @__PURE__ */ r.jsx(it, { size: 32, className: "text-blue-400" }) }),
-        /* @__PURE__ */ r.jsx("h3", { className: "text-lg font-semibold mb-3", children: a("important_notice_cart") }),
-        /* @__PURE__ */ r.jsxs("div", { className: "text-sm text-white/80 space-y-2 mb-6", children: [
-          /* @__PURE__ */ r.jsxs("p", { children: [
+      c && /* @__PURE__ */ i.jsx("div", { className: "absolute inset-0 z-20 flex items-center justify-center p-4", children: /* @__PURE__ */ i.jsx("div", { className: "bg-[var(--card)] border border-white/10 rounded-xl p-6 max-w-md w-full shadow-2xl", children: /* @__PURE__ */ i.jsxs("div", { className: "text-center", children: [
+        /* @__PURE__ */ i.jsx("div", { className: "w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4", children: /* @__PURE__ */ i.jsx(it, { size: 32, className: "text-blue-400" }) }),
+        /* @__PURE__ */ i.jsx("h3", { className: "text-lg font-semibold mb-3", children: o("important_notice_cart") }),
+        /* @__PURE__ */ i.jsxs("div", { className: "text-sm text-white/80 space-y-2 mb-6", children: [
+          /* @__PURE__ */ i.jsxs("p", { children: [
             "• ",
-            a("order_wait")
+            o("order_wait")
           ] }),
-          /* @__PURE__ */ r.jsxs("p", { children: [
+          /* @__PURE__ */ i.jsxs("p", { children: [
             "• ",
-            a("order_no_response")
+            o("order_no_response")
           ] })
         ] }),
-        /* @__PURE__ */ r.jsxs("div", { className: "flex gap-3", children: [
-          /* @__PURE__ */ r.jsx("button", { className: "btn-outline flex-1", onClick: () => c(!1), children: a("cancel") }),
-          /* @__PURE__ */ r.jsx("button", { className: "btn flex-1", onClick: w, children: a("continue_to_whatsapp") })
+        /* @__PURE__ */ i.jsxs("div", { className: "flex gap-3", children: [
+          /* @__PURE__ */ i.jsx("button", { className: "btn-outline flex-1", onClick: () => l(!1), children: o("cancel") }),
+          /* @__PURE__ */ i.jsx("button", { className: "btn flex-1", onClick: C, children: o("continue_to_whatsapp") })
         ] })
       ] }) }) })
     ] }),
     document.body
   );
 }
-function na({ categories: n, current: e, onChange: t }) {
-  const { t: s } = X();
-  return /* @__PURE__ */ r.jsxs("div", { className: "relative", children: [
-    /* @__PURE__ */ r.jsx("div", { className: "absolute left-0 top-0 bottom-0 w-6 bg-gradient-to-r from-[var(--bg)] to-transparent z-10 pointer-events-none" }),
-    /* @__PURE__ */ r.jsx("div", { className: "absolute right-0 top-0 bottom-0 w-6 bg-gradient-to-l from-[var(--bg)] to-transparent z-10 pointer-events-none" }),
-    /* @__PURE__ */ r.jsxs("div", { className: "flex gap-2 overflow-x-auto py-3 px-2 no-scrollbar scroll-smooth", children: [
-      /* @__PURE__ */ r.jsx(
+function Bn({ categories: n, current: e, onChange: t }) {
+  const { t: s } = Z();
+  return /* @__PURE__ */ i.jsxs("div", { className: "relative", children: [
+    /* @__PURE__ */ i.jsx("div", { className: "absolute left-0 top-0 bottom-0 w-6 bg-gradient-to-r from-[var(--bg)] to-transparent z-10 pointer-events-none" }),
+    /* @__PURE__ */ i.jsx("div", { className: "absolute right-0 top-0 bottom-0 w-6 bg-gradient-to-l from-[var(--bg)] to-transparent z-10 pointer-events-none" }),
+    /* @__PURE__ */ i.jsxs("div", { className: "flex gap-2 overflow-x-auto py-3 px-2 no-scrollbar scroll-smooth", children: [
+      /* @__PURE__ */ i.jsx(
         "button",
         {
           className: `tab ${e === "all" ? "bg-green-500/20 border-green-400/50 text-green-400 ring-2 ring-green-400/30" : "hover:bg-white/5"} transition-all duration-200`,
@@ -3248,14 +1722,14 @@ function na({ categories: n, current: e, onChange: t }) {
           children: s("all")
         }
       ),
-      n.map((a) => /* @__PURE__ */ r.jsxs(
+      n.map((a) => /* @__PURE__ */ i.jsxs(
         "button",
         {
           className: `tab ${e === a.id ? "bg-green-500/20 border-green-400/50 text-green-400 ring-2 ring-green-400/30" : "hover:bg-white/5"} transition-all duration-200`,
           onClick: () => t(a.id),
           children: [
-            /* @__PURE__ */ r.jsx("span", { className: "text-lg", children: a.emoji }),
-            /* @__PURE__ */ r.jsx("span", { children: a.title })
+            /* @__PURE__ */ i.jsx("span", { className: "text-lg", children: a.emoji }),
+            /* @__PURE__ */ i.jsx("span", { children: a.title })
           ]
         },
         a.id
@@ -3263,7 +1737,7 @@ function na({ categories: n, current: e, onChange: t }) {
     ] })
   ] });
 }
-function aa({ open: n, src: e, alt: t, onClose: s }) {
+function qn({ open: n, src: e, alt: t, onClose: s }) {
   if (L.useEffect(() => {
     if (!n)
       return;
@@ -3272,19 +1746,19 @@ function aa({ open: n, src: e, alt: t, onClose: s }) {
   }, [n, s]), !n)
     return null;
   const a = document.dir === "rtl" ? "left-3" : "right-3";
-  return Yt(
-    /* @__PURE__ */ r.jsx(
+  return Ht(
+    /* @__PURE__ */ i.jsx(
       "div",
       {
         className: "fixed inset-0 z-[11000] bg-black/80 p-4 flex items-center justify-center cursor-zoom-out",
         onClick: s,
-        children: /* @__PURE__ */ r.jsxs(
+        children: /* @__PURE__ */ i.jsxs(
           "div",
           {
             className: "relative max-w-5xl w-full",
             onClick: (o) => o.stopPropagation(),
             children: [
-              /* @__PURE__ */ r.jsx(
+              /* @__PURE__ */ i.jsx(
                 "img",
                 {
                   src: e,
@@ -3293,13 +1767,13 @@ function aa({ open: n, src: e, alt: t, onClose: s }) {
                   draggable: "false"
                 }
               ),
-              /* @__PURE__ */ r.jsx(
+              /* @__PURE__ */ i.jsx(
                 "button",
                 {
                   "aria-label": "Close",
                   className: `absolute top-3 ${a} bg-black/60 hover:bg-black/80 text-white rounded-full p-2 cursor-pointer`,
                   onClick: s,
-                  children: /* @__PURE__ */ r.jsx(Me, { size: 18 })
+                  children: /* @__PURE__ */ i.jsx(Me, { size: 18 })
                 }
               )
             ]
@@ -3310,11 +1784,11 @@ function aa({ open: n, src: e, alt: t, onClose: s }) {
     document.body
   );
 }
-function Tt({ item: n, currency: e, onAdd: t, onPreview: s }) {
+function Pt({ item: n, currency: e, onAdd: t, onPreview: s }) {
   var o;
-  const { t: a } = X();
-  return /* @__PURE__ */ r.jsxs("div", { className: "card w-full md:w-full text-left overflow-hidden flex flex-col min-w-[280px] md:min-w-0 min-h-[320px]", children: [
-    /* @__PURE__ */ r.jsxs(
+  const { t: a } = Z();
+  return /* @__PURE__ */ i.jsxs("div", { className: "card w-full md:w-full text-left overflow-hidden flex flex-col min-w-[280px] md:min-w-0 min-h-[320px]", children: [
+    /* @__PURE__ */ i.jsxs(
       "div",
       {
         className: "aspect-[16/10] w-full overflow-hidden bg-black/30 relative group cursor-zoom-in",
@@ -3327,7 +1801,7 @@ function Tt({ item: n, currency: e, onAdd: t, onPreview: s }) {
         "aria-label": n.name,
         title: n.name,
         children: [
-          /* @__PURE__ */ r.jsx(
+          /* @__PURE__ */ i.jsx(
             "img",
             {
               src: n.image,
@@ -3335,64 +1809,64 @@ function Tt({ item: n, currency: e, onAdd: t, onPreview: s }) {
               className: "w-full h-full object-cover opacity-90 group-hover:opacity-100 transition"
             }
           ),
-          /* @__PURE__ */ r.jsx("div", { className: "absolute bottom-1 right-1 bg-black/40 text-white/80 text-[10px] px-1 py-0.5 rounded", children: a("for_illustration_only") })
+          /* @__PURE__ */ i.jsx("div", { className: "absolute bottom-1 right-1 bg-black/40 text-white/80 text-[10px] px-1 py-0.5 rounded", children: a("for_illustration_only") })
         ]
       }
     ),
-    /* @__PURE__ */ r.jsxs("div", { className: "p-4 flex flex-col gap-2 flex-1", children: [
-      /* @__PURE__ */ r.jsxs("div", { className: "flex items-center justify-between gap-4", children: [
-        /* @__PURE__ */ r.jsx("div", { className: "text-lg font-semibold", children: n.name }),
-        /* @__PURE__ */ r.jsxs("div", { className: "text-white/90 font-semibold", children: [
+    /* @__PURE__ */ i.jsxs("div", { className: "p-4 flex flex-col gap-2 flex-1", children: [
+      /* @__PURE__ */ i.jsxs("div", { className: "flex items-center justify-between gap-4", children: [
+        /* @__PURE__ */ i.jsx("div", { className: "text-lg font-semibold", children: n.name }),
+        /* @__PURE__ */ i.jsxs("div", { className: "text-white/90 font-semibold", children: [
           n.price,
           n.price > 0 && e
         ] })
       ] }),
-      /* @__PURE__ */ r.jsx("div", { className: "text-sm text-white/70 line-clamp-2", children: n.desc }),
-      ((o = n.options) == null ? void 0 : o.size) && /* @__PURE__ */ r.jsx("div", { className: "text-xs text-white/60", children: /* @__PURE__ */ r.jsx("div", { className: "flex flex-wrap gap-1", children: n.options.size.choices.map((u, d) => {
-        const i = typeof u == "string" ? u : u.name, c = typeof u == "object" ? u.price : 0, l = n.price + c;
-        return /* @__PURE__ */ r.jsxs("span", { className: "bg-white/10 px-2 py-1 rounded text-xs", children: [
-          i,
+      /* @__PURE__ */ i.jsx("div", { className: "text-sm text-white/70 line-clamp-2", children: n.desc }),
+      ((o = n.options) == null ? void 0 : o.size) && /* @__PURE__ */ i.jsx("div", { className: "text-xs text-white/60", children: /* @__PURE__ */ i.jsx("div", { className: "flex flex-wrap gap-1", children: n.options.size.choices.map((u, f) => {
+        const r = typeof u == "string" ? u : u.name, c = typeof u == "object" ? u.price : 0, l = n.price + c;
+        return /* @__PURE__ */ i.jsxs("span", { className: "bg-white/10 px-2 py-1 rounded text-xs", children: [
+          r,
           " ",
           l,
           l > 0 && e
-        ] }, d);
+        ] }, f);
       }) }) }),
-      !n.noCart && /* @__PURE__ */ r.jsx("div", { className: "pt-2 mt-auto", children: /* @__PURE__ */ r.jsxs("button", { className: "btn w-full", onClick: () => t(n), children: [
-        /* @__PURE__ */ r.jsx(sn, { size: 18 }),
+      !n.noCart && /* @__PURE__ */ i.jsx("div", { className: "pt-2 mt-auto", children: /* @__PURE__ */ i.jsxs("button", { className: "btn w-full", onClick: () => t(n), children: [
+        /* @__PURE__ */ i.jsx(Gs, { size: 18 }),
         " ",
         a("add_to_cart")
       ] }) })
     ] })
   ] });
 }
-const rs = Ht();
-function oh({ children: n }) {
+const es = qt();
+function Yf({ children: n }) {
   const [e, t] = st(null), s = (a) => {
     t(a), setTimeout(() => {
       t(null);
     }, 800);
   };
-  return /* @__PURE__ */ r.jsx(rs.Provider, { value: { animation: e, triggerAnimation: s }, children: n });
+  return /* @__PURE__ */ i.jsx(es.Provider, { value: { animation: e, triggerAnimation: s }, children: n });
 }
-function ra() {
-  return Kt(rs);
+function Wn() {
+  return Wt(es);
 }
-function ia({ open: n, onClose: e, item: t, onConfirm: s }) {
-  const { t: a } = X(), { triggerAnimation: o } = ra(), [u, d] = L.useState(1), [i, c] = L.useState({}), l = () => {
+function Hn({ open: n, onClose: e, item: t, onConfirm: s }) {
+  const { t: a } = Z(), { triggerAnimation: o } = Wn(), [u, f] = L.useState(1), [r, c] = L.useState({}), l = () => {
     if (!t)
       return 0;
     let g = 0;
     return t.options && Object.entries(t.options).forEach(([m, x]) => {
-      if (x.type === "multi" && i[m] && i[m].forEach((N) => {
-        const _ = x.choices.find(
-          (y) => (typeof y == "string" ? y : y.name) === N
+      if (x.type === "multi" && r[m] && r[m].forEach((j) => {
+        const v = x.choices.find(
+          (_) => (typeof _ == "string" ? _ : _.name) === j
         );
-        _ && typeof _ == "object" && _.price && (g += _.price);
-      }), x.type === "select" && i[m]) {
-        const b = x.choices.find(
-          (N) => (typeof N == "string" ? N : N.name) === i[m]
+        v && typeof v == "object" && v.price && (g += v.price);
+      }), x.type === "select" && r[m]) {
+        const y = x.choices.find(
+          (j) => (typeof j == "string" ? j : j.name) === r[m]
         );
-        b && typeof b == "object" && b.price && (g += b.price);
+        y && typeof y == "object" && y.price && (g += y.price);
       }
     }), (t.price + g) * u;
   };
@@ -3401,188 +1875,188 @@ function ia({ open: n, onClose: e, item: t, onConfirm: s }) {
       const g = {};
       for (const [m, x] of Object.entries(t.options))
         x.type === "single" && (g[m] = x.choices[0]), x.type === "select" && (g[m] = x.choices[0].name || x.choices[0]), x.type === "multi" && (g[m] = []), x.type === "text" && (g[m] = "");
-      c(g), d(1);
+      c(g), f(1);
     }
   }, [t]), !n || !t)
     return null;
-  const f = () => {
+  const p = () => {
     const g = {};
     t.options && Object.entries(t.options).forEach(([m, x]) => {
-      const b = i[m];
-      if (b != null && b !== "")
+      const y = r[m];
+      if (y != null && y !== "")
         if (x.type === "text")
-          g[m] = b;
-        else if (Array.isArray(b))
-          g[m] = b.map((N) => {
-            const _ = x.choices.findIndex(
-              (y) => (typeof y == "string" ? y : y.name) === N
+          g[m] = y;
+        else if (Array.isArray(y))
+          g[m] = y.map((j) => {
+            const v = x.choices.findIndex(
+              (_) => (typeof _ == "string" ? _ : _.name) === j
             );
-            return _ >= 0 ? _ : N;
+            return v >= 0 ? v : j;
           });
         else {
-          const N = x.choices.findIndex(
-            (_) => (typeof _ == "string" ? _ : _.name) === b
+          const j = x.choices.findIndex(
+            (v) => (typeof v == "string" ? v : v.name) === y
           );
-          g[m] = N >= 0 ? N : b;
+          g[m] = j >= 0 ? j : y;
         }
     }), s({ quantity: u, options: g }), e(), setTimeout(() => {
       o(t);
     }, 100);
-  }, p = (g, m) => {
+  }, d = (g, m) => {
     if (m.type === "single")
-      return /* @__PURE__ */ r.jsxs("label", { className: "block space-y-1", children: [
-        /* @__PURE__ */ r.jsx("div", { className: "text-sm text-white/80", children: m.label }),
-        /* @__PURE__ */ r.jsx(
+      return /* @__PURE__ */ i.jsxs("label", { className: "block space-y-1", children: [
+        /* @__PURE__ */ i.jsx("div", { className: "text-sm text-white/80", children: m.label }),
+        /* @__PURE__ */ i.jsx(
           "select",
           {
-            value: i[g],
-            onChange: (x) => c({ ...i, [g]: x.target.value }),
+            value: r[g],
+            onChange: (x) => c({ ...r, [g]: x.target.value }),
             className: "w-full bg-[var(--card)] border border-white/10 rounded-lg px-3 py-2 text-white focus:ring-2 focus:ring-green-400/30 focus:border-green-400/50 transition-all duration-200",
-            children: m.choices.map((x) => /* @__PURE__ */ r.jsx("option", { value: x, children: x }, x))
+            children: m.choices.map((x) => /* @__PURE__ */ i.jsx("option", { value: x, children: x }, x))
           }
         )
       ] });
     if (m.type === "select") {
-      const x = i[g], b = (N) => {
-        const _ = typeof N == "string" ? N : N.name;
-        c({ ...i, [g]: _ });
+      const x = r[g], y = (j) => {
+        const v = typeof j == "string" ? j : j.name;
+        c({ ...r, [g]: v });
       };
-      return /* @__PURE__ */ r.jsxs("div", { className: "space-y-1", children: [
-        /* @__PURE__ */ r.jsx("div", { className: "text-sm text-white/80", children: m.label }),
-        /* @__PURE__ */ r.jsx("div", { className: "flex flex-wrap gap-1.5 sm:gap-2", children: m.choices.map((N) => {
-          const _ = typeof N == "string" ? N : N.name, y = typeof N == "object" ? N.price : 0, w = x === _;
-          return /* @__PURE__ */ r.jsxs(
+      return /* @__PURE__ */ i.jsxs("div", { className: "space-y-1", children: [
+        /* @__PURE__ */ i.jsx("div", { className: "text-sm text-white/80", children: m.label }),
+        /* @__PURE__ */ i.jsx("div", { className: "flex flex-wrap gap-1.5 sm:gap-2", children: m.choices.map((j) => {
+          const v = typeof j == "string" ? j : j.name, _ = typeof j == "object" ? j.price : 0, w = x === v;
+          return /* @__PURE__ */ i.jsxs(
             "button",
             {
               type: "button",
-              onClick: () => b(N),
+              onClick: () => y(j),
               className: `tab text-xs sm:text-sm ${w ? "bg-green-500/20 border-green-400/50 text-green-400 ring-2 ring-green-400/30" : "hover:bg-white/5"} flex items-center gap-1 transition-all duration-200`,
               children: [
-                /* @__PURE__ */ r.jsx("span", { className: "truncate", children: _ }),
-                y > 0 && /* @__PURE__ */ r.jsxs("span", { className: "text-xs text-green-400 flex-shrink-0", children: [
+                /* @__PURE__ */ i.jsx("span", { className: "truncate", children: v }),
+                _ > 0 && /* @__PURE__ */ i.jsxs("span", { className: "text-xs text-green-400 flex-shrink-0", children: [
                   "+",
-                  y,
+                  _,
                   P.currency
                 ] })
               ]
             },
-            _
+            v
           );
         }) })
       ] });
     }
     if (m.type === "multi") {
-      const x = i[g] || [], b = (N) => {
-        const _ = typeof N == "string" ? N : N.name, w = x.includes(_) ? x.filter((j) => j !== _) : [...x, _];
-        c({ ...i, [g]: w });
+      const x = r[g] || [], y = (j) => {
+        const v = typeof j == "string" ? j : j.name, w = x.includes(v) ? x.filter((C) => C !== v) : [...x, v];
+        c({ ...r, [g]: w });
       };
-      return /* @__PURE__ */ r.jsxs("div", { className: "space-y-1", children: [
-        /* @__PURE__ */ r.jsx("div", { className: "text-sm text-white/80", children: m.label }),
-        /* @__PURE__ */ r.jsx("div", { className: "flex flex-wrap gap-1.5 sm:gap-2", children: m.choices.map((N) => {
-          const _ = typeof N == "string" ? N : N.name, y = typeof N == "object" ? N.price : 0, w = x.includes(_);
-          return /* @__PURE__ */ r.jsxs(
+      return /* @__PURE__ */ i.jsxs("div", { className: "space-y-1", children: [
+        /* @__PURE__ */ i.jsx("div", { className: "text-sm text-white/80", children: m.label }),
+        /* @__PURE__ */ i.jsx("div", { className: "flex flex-wrap gap-1.5 sm:gap-2", children: m.choices.map((j) => {
+          const v = typeof j == "string" ? j : j.name, _ = typeof j == "object" ? j.price : 0, w = x.includes(v);
+          return /* @__PURE__ */ i.jsxs(
             "button",
             {
               type: "button",
-              onClick: () => b(N),
+              onClick: () => y(j),
               className: `tab text-xs sm:text-sm ${w ? "bg-green-500/20 border-green-400/50 text-green-400 ring-2 ring-green-400/30" : "hover:bg-white/5"} flex items-center gap-1 transition-all duration-200`,
               children: [
-                /* @__PURE__ */ r.jsx("span", { className: "truncate", children: _ }),
-                y > 0 && /* @__PURE__ */ r.jsxs("span", { className: "text-xs text-green-400 flex-shrink-0", children: [
+                /* @__PURE__ */ i.jsx("span", { className: "truncate", children: v }),
+                _ > 0 && /* @__PURE__ */ i.jsxs("span", { className: "text-xs text-green-400 flex-shrink-0", children: [
                   "+",
-                  y,
+                  _,
                   P.currency
                 ] })
               ]
             },
-            _
+            v
           );
         }) })
       ] });
     }
-    return m.type === "text" ? /* @__PURE__ */ r.jsxs("label", { className: "block space-y-1", children: [
-      /* @__PURE__ */ r.jsx("div", { className: "text-sm text-white/80", children: m.label }),
-      /* @__PURE__ */ r.jsx(
+    return m.type === "text" ? /* @__PURE__ */ i.jsxs("label", { className: "block space-y-1", children: [
+      /* @__PURE__ */ i.jsx("div", { className: "text-sm text-white/80", children: m.label }),
+      /* @__PURE__ */ i.jsx(
         "textarea",
         {
           rows: 2,
-          value: i[g] || "",
-          onChange: (x) => c({ ...i, [g]: x.target.value }),
+          value: r[g] || "",
+          onChange: (x) => c({ ...r, [g]: x.target.value }),
           className: "w-full bg-[var(--card)] border border-white/10 rounded-lg px-3 py-2 text-white placeholder-white/40 focus:ring-2 focus:ring-green-400/30 focus:border-green-400/50 transition-all duration-200 resize-none"
         }
       )
     ] }) : null;
   };
-  return /* @__PURE__ */ r.jsx("div", { className: "fixed inset-0 z-[60] bg-black/70 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4", onClick: e, children: /* @__PURE__ */ r.jsxs("div", { className: "card max-w-lg sm:max-w-xl w-full max-h-[90vh] overflow-y-auto", onClick: (g) => g.stopPropagation(), children: [
-    /* @__PURE__ */ r.jsxs("div", { className: "relative", children: [
-      /* @__PURE__ */ r.jsx("img", { src: t.image, alt: t.name, className: "w-full h-48 sm:h-56 object-cover" }),
-      /* @__PURE__ */ r.jsx("button", { className: "absolute top-2 end-2 sm:top-3 sm:end-3 bg-black/60 rounded-full p-1.5 sm:p-2", onClick: e, children: /* @__PURE__ */ r.jsx(Me, { size: 16, className: "sm:w-5 sm:h-5" }) })
+  return /* @__PURE__ */ i.jsx("div", { className: "fixed inset-0 z-[60] bg-black/70 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4", onClick: e, children: /* @__PURE__ */ i.jsxs("div", { className: "card max-w-lg sm:max-w-xl w-full max-h-[90vh] overflow-y-auto", onClick: (g) => g.stopPropagation(), children: [
+    /* @__PURE__ */ i.jsxs("div", { className: "relative", children: [
+      /* @__PURE__ */ i.jsx("img", { src: t.image, alt: t.name, className: "w-full h-48 sm:h-56 object-cover" }),
+      /* @__PURE__ */ i.jsx("button", { className: "absolute top-2 end-2 sm:top-3 sm:end-3 bg-black/60 rounded-full p-1.5 sm:p-2", onClick: e, children: /* @__PURE__ */ i.jsx(Me, { size: 16, className: "sm:w-5 sm:h-5" }) })
     ] }),
-    /* @__PURE__ */ r.jsxs("div", { className: "p-3 sm:p-5 space-y-3", children: [
-      /* @__PURE__ */ r.jsxs("div", { className: "flex items-start justify-between gap-2", children: [
-        /* @__PURE__ */ r.jsx("div", { className: "text-lg sm:text-xl font-semibold flex-1 min-w-0", children: t.name }),
-        /* @__PURE__ */ r.jsxs("div", { className: "text-base sm:text-lg font-bold text-green-400 flex-shrink-0", children: [
+    /* @__PURE__ */ i.jsxs("div", { className: "p-3 sm:p-5 space-y-3", children: [
+      /* @__PURE__ */ i.jsxs("div", { className: "flex items-start justify-between gap-2", children: [
+        /* @__PURE__ */ i.jsx("div", { className: "text-lg sm:text-xl font-semibold flex-1 min-w-0", children: t.name }),
+        /* @__PURE__ */ i.jsxs("div", { className: "text-base sm:text-lg font-bold text-green-400 flex-shrink-0", children: [
           t.price,
           t.price > 0 && P.currency
         ] })
       ] }),
-      /* @__PURE__ */ r.jsx("div", { className: "text-sm sm:text-base text-white/70 line-clamp-2", children: t.desc }),
-      /* @__PURE__ */ r.jsx("div", { className: "grid gap-3", children: t.options && Object.entries(t.options).map(([g, m]) => /* @__PURE__ */ r.jsx("div", { children: p(g, m) }, g)) }),
+      /* @__PURE__ */ i.jsx("div", { className: "text-sm sm:text-base text-white/70 line-clamp-2", children: t.desc }),
+      /* @__PURE__ */ i.jsx("div", { className: "grid gap-3", children: t.options && Object.entries(t.options).map(([g, m]) => /* @__PURE__ */ i.jsx("div", { children: d(g, m) }, g)) }),
       (() => {
         if (l() - t.price * u > 0) {
           let m = 0, x = 0;
-          return t.options && Object.entries(t.options).forEach(([b, N]) => {
-            if (N.type === "select" && i[b]) {
-              const _ = N.choices.find(
-                (y) => (typeof y == "string" ? y : y.name) === i[b]
+          return t.options && Object.entries(t.options).forEach(([y, j]) => {
+            if (j.type === "select" && r[y]) {
+              const v = j.choices.find(
+                (_) => (typeof _ == "string" ? _ : _.name) === r[y]
               );
-              _ && typeof _ == "object" && _.price && (m += _.price * u);
+              v && typeof v == "object" && v.price && (m += v.price * u);
             } else
-              N.type === "multi" && i[b] && i[b].forEach((y) => {
-                const w = N.choices.find(
-                  (j) => (typeof j == "string" ? j : j.name) === y
+              j.type === "multi" && r[y] && r[y].forEach((_) => {
+                const w = j.choices.find(
+                  (C) => (typeof C == "string" ? C : C.name) === _
                 );
                 w && typeof w == "object" && w.price && (x += w.price * u);
               });
-          }), /* @__PURE__ */ r.jsxs("div", { className: "bg-black/20 border border-white/10 rounded-lg p-3 space-y-1", children: [
-            /* @__PURE__ */ r.jsxs("div", { className: "flex justify-between text-sm", children: [
-              /* @__PURE__ */ r.jsxs("span", { children: [
+          }), /* @__PURE__ */ i.jsxs("div", { className: "bg-black/20 border border-white/10 rounded-lg p-3 space-y-1", children: [
+            /* @__PURE__ */ i.jsxs("div", { className: "flex justify-between text-sm", children: [
+              /* @__PURE__ */ i.jsxs("span", { children: [
                 a("base_price"),
                 ":"
               ] }),
-              /* @__PURE__ */ r.jsxs("span", { children: [
+              /* @__PURE__ */ i.jsxs("span", { children: [
                 t.price * u,
                 t.price * u > 0 && P.currency
               ] })
             ] }),
-            m > 0 && /* @__PURE__ */ r.jsxs("div", { className: "flex justify-between text-sm text-green-400", children: [
-              /* @__PURE__ */ r.jsxs("span", { children: [
+            m > 0 && /* @__PURE__ */ i.jsxs("div", { className: "flex justify-between text-sm text-green-400", children: [
+              /* @__PURE__ */ i.jsxs("span", { children: [
                 a("opt_size"),
                 ":"
               ] }),
-              /* @__PURE__ */ r.jsxs("span", { children: [
+              /* @__PURE__ */ i.jsxs("span", { children: [
                 "+",
                 m,
                 P.currency
               ] })
             ] }),
-            x > 0 && /* @__PURE__ */ r.jsxs("div", { className: "flex justify-between text-sm text-green-400", children: [
-              /* @__PURE__ */ r.jsxs("span", { children: [
+            x > 0 && /* @__PURE__ */ i.jsxs("div", { className: "flex justify-between text-sm text-green-400", children: [
+              /* @__PURE__ */ i.jsxs("span", { children: [
                 a("opt_extras"),
                 ":"
               ] }),
-              /* @__PURE__ */ r.jsxs("span", { children: [
+              /* @__PURE__ */ i.jsxs("span", { children: [
                 "+",
                 x,
                 P.currency
               ] })
             ] }),
-            /* @__PURE__ */ r.jsxs("div", { className: "border-t border-white/10 pt-1 flex justify-between font-semibold", children: [
-              /* @__PURE__ */ r.jsxs("span", { children: [
+            /* @__PURE__ */ i.jsxs("div", { className: "border-t border-white/10 pt-1 flex justify-between font-semibold", children: [
+              /* @__PURE__ */ i.jsxs("span", { children: [
                 a("total"),
                 ":"
               ] }),
-              /* @__PURE__ */ r.jsxs("span", { className: "text-green-400", children: [
+              /* @__PURE__ */ i.jsxs("span", { className: "text-green-400", children: [
                 l(),
                 l() > 0 && P.currency
               ] })
@@ -3591,29 +2065,29 @@ function ia({ open: n, onClose: e, item: t, onConfirm: s }) {
         }
         return null;
       })(),
-      /* @__PURE__ */ r.jsxs("div", { className: "flex flex-col sm:flex-row items-center gap-3 pt-2 border-t border-white/10", children: [
-        /* @__PURE__ */ r.jsxs("div", { className: "flex items-center gap-2", children: [
-          /* @__PURE__ */ r.jsx("button", { className: "tab text-sm", onClick: () => d(Math.max(1, u - 1)), children: "-" }),
-          /* @__PURE__ */ r.jsx("div", { className: "min-w-[2rem] text-center text-sm", children: u }),
-          /* @__PURE__ */ r.jsx("button", { className: "tab text-sm", onClick: () => d(u + 1), children: "+" })
+      /* @__PURE__ */ i.jsxs("div", { className: "flex flex-col sm:flex-row items-center gap-3 pt-2 border-t border-white/10", children: [
+        /* @__PURE__ */ i.jsxs("div", { className: "flex items-center gap-2", children: [
+          /* @__PURE__ */ i.jsx("button", { className: "tab text-sm", onClick: () => f(Math.max(1, u - 1)), children: "-" }),
+          /* @__PURE__ */ i.jsx("div", { className: "min-w-[2rem] text-center text-sm", children: u }),
+          /* @__PURE__ */ i.jsx("button", { className: "tab text-sm", onClick: () => f(u + 1), children: "+" })
         ] }),
-        /* @__PURE__ */ r.jsxs("div", { className: "flex-1 text-center sm:text-right", children: [
-          /* @__PURE__ */ r.jsxs("div", { className: "text-xs sm:text-sm text-white/60", children: [
+        /* @__PURE__ */ i.jsxs("div", { className: "flex-1 text-center sm:text-right", children: [
+          /* @__PURE__ */ i.jsxs("div", { className: "text-xs sm:text-sm text-white/60", children: [
             a("total"),
             ":"
           ] }),
-          /* @__PURE__ */ r.jsxs("div", { className: "text-base sm:text-lg font-bold text-green-400", children: [
+          /* @__PURE__ */ i.jsxs("div", { className: "text-base sm:text-lg font-bold text-green-400", children: [
             l(),
             P.currency
           ] })
         ] }),
-        /* @__PURE__ */ r.jsx("button", { className: "btn w-full sm:w-auto text-sm sm:text-base", onClick: f, children: a("add_to_cart") })
+        /* @__PURE__ */ i.jsx("button", { className: "btn w-full sm:w-auto text-sm sm:text-base", onClick: p, children: a("add_to_cart") })
       ] })
     ] })
   ] }) });
 }
-function oa({ open: n, onClose: e }) {
-  const { t, i18n: s } = X(), [a, o] = L.useState({
+function Kn({ open: n, onClose: e }) {
+  const { t, i18n: s } = Z(), [a, o] = L.useState({
     date: (/* @__PURE__ */ new Date()).toISOString().split("T")[0],
     // Today as default
     time: "",
@@ -3622,12 +2096,12 @@ function oa({ open: n, onClose: e }) {
     name: "",
     phone: "",
     notes: ""
-  }), u = (c) => s.language === "ar" ? c.name_ar : s.language === "he" ? c.name_he : c.name, d = () => {
+  }), u = (c) => s.language === "ar" ? c.name_ar : s.language === "he" ? c.name_he : c.name, f = () => {
     const c = [], l = /* @__PURE__ */ new Date();
-    for (let f = 0; f < P.reservation.max_advance_days; f++) {
-      const p = new Date(l);
-      p.setDate(l.getDate() + f);
-      const g = p.toISOString().split("T")[0], m = p.toLocaleDateString(s.language, {
+    for (let p = 0; p < P.reservation.max_advance_days; p++) {
+      const d = new Date(l);
+      d.setDate(l.getDate() + p);
+      const g = d.toISOString().split("T")[0], m = d.toLocaleDateString(s.language, {
         weekday: "short",
         month: "short",
         day: "numeric"
@@ -3635,15 +2109,15 @@ function oa({ open: n, onClose: e }) {
       c.push({ value: g, label: m });
     }
     return c;
-  }, i = (c) => {
+  }, r = (c) => {
     c.preventDefault();
     const l = P.reservation.areas.find(
       (m) => m.id === a.area
-    ), f = l ? u(l) : a.area, p = `🍽️ *${t("reservation_request")}*
+    ), p = l ? u(l) : a.area, d = `🍽️ *${t("reservation_request")}*
 
 📅 *${t("date_label")}* ${new Date(a.date).toLocaleDateString(s.language)}
 🕐 *${t("time_label")}* ${a.time}
-📍 *${t("area_label")}* ${f}
+📍 *${t("area_label")}* ${p}
 👥 *${t("guests_label")}* ${a.guests}
 👤 *${t("name_label")}* ${a.name}
 📞 *${t("phone_label")}* ${a.phone}
@@ -3651,7 +2125,7 @@ ${a.notes ? `📝 *${t("notes_label")}* ${a.notes}` : ""}
 
 *${t("confirm_reservation")}*
 
-${t("thank_you")}`, g = `https://wa.me/${P.reservation.whatsapp}?text=${encodeURIComponent(p)}`;
+${t("thank_you")}`, g = `https://wa.me/${P.reservation.whatsapp}?text=${encodeURIComponent(d)}`;
     window.open(g, "_blank"), alert(
       t("reservation_sent") + `
 
@@ -3660,47 +2134,47 @@ ${t("thank_you")}`, g = `https://wa.me/${P.reservation.whatsapp}?text=${encodeUR
 ` + t("reservation_no_response")
     ), e();
   };
-  return n ? /* @__PURE__ */ r.jsx(
+  return n ? /* @__PURE__ */ i.jsx(
     "div",
     {
       className: "fixed inset-0 z-[60] bg-black/70 backdrop-blur-sm flex items-center justify-center p-4",
       onClick: e,
-      children: /* @__PURE__ */ r.jsxs(
+      children: /* @__PURE__ */ i.jsxs(
         "div",
         {
           className: "card max-w-md w-full overflow-hidden",
           onClick: (c) => c.stopPropagation(),
           children: [
-            /* @__PURE__ */ r.jsxs("div", { className: "p-5 border-b border-white/10 flex items-center justify-between", children: [
-              /* @__PURE__ */ r.jsxs("h2", { className: "text-xl font-semibold flex items-center gap-2", children: [
-                /* @__PURE__ */ r.jsx(Ee, { size: 20 }),
+            /* @__PURE__ */ i.jsxs("div", { className: "p-5 border-b border-white/10 flex items-center justify-between", children: [
+              /* @__PURE__ */ i.jsxs("h2", { className: "text-xl font-semibold flex items-center gap-2", children: [
+                /* @__PURE__ */ i.jsx(ke, { size: 20 }),
                 t("book_table")
               ] }),
-              /* @__PURE__ */ r.jsx("button", { className: "tab", onClick: e, children: /* @__PURE__ */ r.jsx(Me, { size: 16 }) })
+              /* @__PURE__ */ i.jsx("button", { className: "tab", onClick: e, children: /* @__PURE__ */ i.jsx(Me, { size: 16 }) })
             ] }),
-            /* @__PURE__ */ r.jsxs("form", { onSubmit: i, className: "p-5 space-y-4", children: [
-              /* @__PURE__ */ r.jsxs("label", { className: "block space-y-1", children: [
-                /* @__PURE__ */ r.jsxs("div", { className: "text-sm text-white/80 flex items-center gap-2", children: [
-                  /* @__PURE__ */ r.jsx(Ee, { size: 14 }),
+            /* @__PURE__ */ i.jsxs("form", { onSubmit: r, className: "p-5 space-y-4", children: [
+              /* @__PURE__ */ i.jsxs("label", { className: "block space-y-1", children: [
+                /* @__PURE__ */ i.jsxs("div", { className: "text-sm text-white/80 flex items-center gap-2", children: [
+                  /* @__PURE__ */ i.jsx(ke, { size: 14 }),
                   t("reservation_date")
                 ] }),
-                /* @__PURE__ */ r.jsx(
+                /* @__PURE__ */ i.jsx(
                   "select",
                   {
                     value: a.date,
                     onChange: (c) => o({ ...a, date: c.target.value }),
                     className: "w-full bg-[var(--card)] border border-white/10 rounded-lg px-3 py-2 text-white focus:ring-2 focus:ring-green-400/30 focus:border-green-400/50 transition-all duration-200",
                     required: !0,
-                    children: d().map((c) => /* @__PURE__ */ r.jsx("option", { value: c.value, children: c.label }, c.value))
+                    children: f().map((c) => /* @__PURE__ */ i.jsx("option", { value: c.value, children: c.label }, c.value))
                   }
                 )
               ] }),
-              /* @__PURE__ */ r.jsxs("label", { className: "block space-y-1", children: [
-                /* @__PURE__ */ r.jsxs("div", { className: "text-sm text-white/80 flex items-center gap-2", children: [
-                  /* @__PURE__ */ r.jsx(Ge, { size: 14 }),
+              /* @__PURE__ */ i.jsxs("label", { className: "block space-y-1", children: [
+                /* @__PURE__ */ i.jsxs("div", { className: "text-sm text-white/80 flex items-center gap-2", children: [
+                  /* @__PURE__ */ i.jsx(Ge, { size: 14 }),
                   t("reservation_time")
                 ] }),
-                /* @__PURE__ */ r.jsxs(
+                /* @__PURE__ */ i.jsxs(
                   "select",
                   {
                     value: a.time,
@@ -3708,18 +2182,18 @@ ${t("thank_you")}`, g = `https://wa.me/${P.reservation.whatsapp}?text=${encodeUR
                     className: "w-full bg-[var(--card)] border border-white/10 rounded-lg px-3 py-2 text-white focus:ring-2 focus:ring-green-400/30 focus:border-green-400/50 transition-all duration-200",
                     required: !0,
                     children: [
-                      /* @__PURE__ */ r.jsx("option", { value: "", children: t("reservation_time") }),
-                      P.reservation.time_slots.map((c) => /* @__PURE__ */ r.jsx("option", { value: c, children: c }, c))
+                      /* @__PURE__ */ i.jsx("option", { value: "", children: t("reservation_time") }),
+                      P.reservation.time_slots.map((c) => /* @__PURE__ */ i.jsx("option", { value: c, children: c }, c))
                     ]
                   }
                 )
               ] }),
-              /* @__PURE__ */ r.jsxs("label", { className: "block space-y-1", children: [
-                /* @__PURE__ */ r.jsxs("div", { className: "text-sm text-white/80 flex items-center gap-2", children: [
-                  /* @__PURE__ */ r.jsx(rt, { size: 14 }),
+              /* @__PURE__ */ i.jsxs("label", { className: "block space-y-1", children: [
+                /* @__PURE__ */ i.jsxs("div", { className: "text-sm text-white/80 flex items-center gap-2", children: [
+                  /* @__PURE__ */ i.jsx(at, { size: 14 }),
                   t("reservation_area")
                 ] }),
-                /* @__PURE__ */ r.jsxs(
+                /* @__PURE__ */ i.jsxs(
                   "select",
                   {
                     value: a.area,
@@ -3727,25 +2201,25 @@ ${t("thank_you")}`, g = `https://wa.me/${P.reservation.whatsapp}?text=${encodeUR
                     className: "w-full bg-[var(--card)] border border-white/10 rounded-lg px-3 py-2 text-white focus:ring-2 focus:ring-green-400/30 focus:border-green-400/50 transition-all duration-200",
                     required: !0,
                     children: [
-                      /* @__PURE__ */ r.jsx("option", { value: "", children: t("reservation_area") }),
-                      P.reservation.areas.map((c) => /* @__PURE__ */ r.jsx("option", { value: c.id, children: u(c) }, c.id))
+                      /* @__PURE__ */ i.jsx("option", { value: "", children: t("reservation_area") }),
+                      P.reservation.areas.map((c) => /* @__PURE__ */ i.jsx("option", { value: c.id, children: u(c) }, c.id))
                     ]
                   }
                 )
               ] }),
-              /* @__PURE__ */ r.jsxs("label", { className: "block space-y-1", children: [
-                /* @__PURE__ */ r.jsxs("div", { className: "text-sm text-white/80 flex items-center gap-2", children: [
-                  /* @__PURE__ */ r.jsx(Gt, { size: 14 }),
+              /* @__PURE__ */ i.jsxs("label", { className: "block space-y-1", children: [
+                /* @__PURE__ */ i.jsxs("div", { className: "text-sm text-white/80 flex items-center gap-2", children: [
+                  /* @__PURE__ */ i.jsx(Jt, { size: 14 }),
                   t("reservation_guests")
                 ] }),
-                /* @__PURE__ */ r.jsx(
+                /* @__PURE__ */ i.jsx(
                   "select",
                   {
                     value: a.guests,
                     onChange: (c) => o({ ...a, guests: parseInt(c.target.value) }),
                     className: "w-full bg-[var(--card)] border border-white/10 rounded-lg px-3 py-2 text-white focus:ring-2 focus:ring-green-400/30 focus:border-green-400/50 transition-all duration-200",
                     required: !0,
-                    children: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((c) => /* @__PURE__ */ r.jsxs("option", { value: c, children: [
+                    children: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((c) => /* @__PURE__ */ i.jsxs("option", { value: c, children: [
                       c,
                       " ",
                       t(c === 1 ? "guests_singular" : "guests_plural")
@@ -3753,12 +2227,12 @@ ${t("thank_you")}`, g = `https://wa.me/${P.reservation.whatsapp}?text=${encodeUR
                   }
                 )
               ] }),
-              /* @__PURE__ */ r.jsxs("label", { className: "block space-y-1", children: [
-                /* @__PURE__ */ r.jsxs("div", { className: "text-sm text-white/80 flex items-center gap-2", children: [
-                  /* @__PURE__ */ r.jsx(un, { size: 14 }),
+              /* @__PURE__ */ i.jsxs("label", { className: "block space-y-1", children: [
+                /* @__PURE__ */ i.jsxs("div", { className: "text-sm text-white/80 flex items-center gap-2", children: [
+                  /* @__PURE__ */ i.jsx(rn, { size: 14 }),
                   t("reservation_name")
                 ] }),
-                /* @__PURE__ */ r.jsx(
+                /* @__PURE__ */ i.jsx(
                   "input",
                   {
                     type: "text",
@@ -3769,12 +2243,12 @@ ${t("thank_you")}`, g = `https://wa.me/${P.reservation.whatsapp}?text=${encodeUR
                   }
                 )
               ] }),
-              /* @__PURE__ */ r.jsxs("label", { className: "block space-y-1", children: [
-                /* @__PURE__ */ r.jsxs("div", { className: "text-sm text-white/80 flex items-center gap-2", children: [
-                  /* @__PURE__ */ r.jsx(ot, { size: 14 }),
+              /* @__PURE__ */ i.jsxs("label", { className: "block space-y-1", children: [
+                /* @__PURE__ */ i.jsxs("div", { className: "text-sm text-white/80 flex items-center gap-2", children: [
+                  /* @__PURE__ */ i.jsx(ot, { size: 14 }),
                   t("reservation_phone")
                 ] }),
-                /* @__PURE__ */ r.jsx(
+                /* @__PURE__ */ i.jsx(
                   "input",
                   {
                     type: "tel",
@@ -3785,12 +2259,12 @@ ${t("thank_you")}`, g = `https://wa.me/${P.reservation.whatsapp}?text=${encodeUR
                   }
                 )
               ] }),
-              /* @__PURE__ */ r.jsxs("label", { className: "block space-y-1", children: [
-                /* @__PURE__ */ r.jsxs("div", { className: "text-sm text-white/80 flex items-center gap-2", children: [
-                  /* @__PURE__ */ r.jsx(an, { size: 14 }),
+              /* @__PURE__ */ i.jsxs("label", { className: "block space-y-1", children: [
+                /* @__PURE__ */ i.jsxs("div", { className: "text-sm text-white/80 flex items-center gap-2", children: [
+                  /* @__PURE__ */ i.jsx(Zs, { size: 14 }),
                   t("reservation_notes")
                 ] }),
-                /* @__PURE__ */ r.jsx(
+                /* @__PURE__ */ i.jsx(
                   "textarea",
                   {
                     rows: 3,
@@ -3801,7 +2275,7 @@ ${t("thank_you")}`, g = `https://wa.me/${P.reservation.whatsapp}?text=${encodeUR
                   }
                 )
               ] }),
-              /* @__PURE__ */ r.jsx("button", { type: "submit", className: "btn w-full", children: t("send_reservation") })
+              /* @__PURE__ */ i.jsx("button", { type: "submit", className: "btn w-full", children: t("send_reservation") })
             ] })
           ]
         }
@@ -3809,9 +2283,9 @@ ${t("thank_you")}`, g = `https://wa.me/${P.reservation.whatsapp}?text=${encodeUR
     }
   ) : null;
 }
-function ca({ value: n, onChange: e }) {
-  const { t } = X();
-  return /* @__PURE__ */ r.jsx(
+function Yn({ value: n, onChange: e }) {
+  const { t } = Z();
+  return /* @__PURE__ */ i.jsx(
     "input",
     {
       value: n,
@@ -3821,65 +2295,65 @@ function ca({ value: n, onChange: e }) {
     }
   );
 }
-function ch() {
-  const { t: n } = X(), e = Le();
+function Jf() {
+  const { t: n } = Z(), e = Le();
   return L.useEffect(() => {
     document.documentElement.scrollTop = 0, document.body.scrollTop = 0, setTimeout(() => {
       window.scrollTo({ top: 0, left: 0, behavior: "auto" });
     }, 0);
-  }, []), /* @__PURE__ */ r.jsx("div", { className: "py-8", children: /* @__PURE__ */ r.jsxs("div", { className: "max-w-4xl mx-auto", children: [
-    /* @__PURE__ */ r.jsxs(
+  }, []), /* @__PURE__ */ i.jsx("div", { className: "py-8", children: /* @__PURE__ */ i.jsxs("div", { className: "max-w-4xl mx-auto", children: [
+    /* @__PURE__ */ i.jsxs(
       "button",
       {
         onClick: () => e("/"),
         className: "btn-outline flex items-center gap-2 mb-6",
         children: [
-          /* @__PURE__ */ r.jsx(at, { size: 16 }),
+          /* @__PURE__ */ i.jsx(rt, { size: 16 }),
           n("back_to_menu")
         ]
       }
     ),
-    /* @__PURE__ */ r.jsx("h1", { className: "text-3xl font-bold mb-8", children: n("accessibility_statement") }),
-    /* @__PURE__ */ r.jsxs("div", { className: "space-y-6 text-white/80 leading-relaxed", children: [
-      /* @__PURE__ */ r.jsxs("section", { children: [
-        /* @__PURE__ */ r.jsx("h2", { className: "text-xl font-semibold mb-4 text-white", children: n("accessibility_commitment") }),
-        /* @__PURE__ */ r.jsx("p", { children: n("accessibility_commitment_text") })
+    /* @__PURE__ */ i.jsx("h1", { className: "text-3xl font-bold mb-8", children: n("accessibility_statement") }),
+    /* @__PURE__ */ i.jsxs("div", { className: "space-y-6 text-white/80 leading-relaxed", children: [
+      /* @__PURE__ */ i.jsxs("section", { children: [
+        /* @__PURE__ */ i.jsx("h2", { className: "text-xl font-semibold mb-4 text-white", children: n("accessibility_commitment") }),
+        /* @__PURE__ */ i.jsx("p", { children: n("accessibility_commitment_text") })
       ] }),
-      /* @__PURE__ */ r.jsxs("section", { children: [
-        /* @__PURE__ */ r.jsx("h2", { className: "text-xl font-semibold mb-4 text-white", children: n("accessibility_standards") }),
-        /* @__PURE__ */ r.jsx("p", { children: n("accessibility_standards_text") })
+      /* @__PURE__ */ i.jsxs("section", { children: [
+        /* @__PURE__ */ i.jsx("h2", { className: "text-xl font-semibold mb-4 text-white", children: n("accessibility_standards") }),
+        /* @__PURE__ */ i.jsx("p", { children: n("accessibility_standards_text") })
       ] }),
-      /* @__PURE__ */ r.jsxs("section", { children: [
-        /* @__PURE__ */ r.jsx("h2", { className: "text-xl font-semibold mb-4 text-white", children: n("accessibility_features") }),
-        /* @__PURE__ */ r.jsx("p", { children: n("accessibility_features_text") })
+      /* @__PURE__ */ i.jsxs("section", { children: [
+        /* @__PURE__ */ i.jsx("h2", { className: "text-xl font-semibold mb-4 text-white", children: n("accessibility_features") }),
+        /* @__PURE__ */ i.jsx("p", { children: n("accessibility_features_text") })
       ] }),
-      /* @__PURE__ */ r.jsxs("section", { children: [
-        /* @__PURE__ */ r.jsx("h2", { className: "text-xl font-semibold mb-4 text-white", children: n("accessibility_contact") }),
-        /* @__PURE__ */ r.jsx("p", { children: n("accessibility_contact_text") })
+      /* @__PURE__ */ i.jsxs("section", { children: [
+        /* @__PURE__ */ i.jsx("h2", { className: "text-xl font-semibold mb-4 text-white", children: n("accessibility_contact") }),
+        /* @__PURE__ */ i.jsx("p", { children: n("accessibility_contact_text") })
       ] }),
-      /* @__PURE__ */ r.jsxs("div", { className: "pt-6 border-t border-white/10 text-sm text-white/60", children: [
+      /* @__PURE__ */ i.jsxs("div", { className: "pt-6 border-t border-white/10 text-sm text-white/60", children: [
         n("last_updated"),
         ": 26.9.2025"
       ] })
     ] })
   ] }) });
 }
-function lh() {
-  const { t: n } = X();
-  return /* @__PURE__ */ r.jsxs("div", { className: "py-10 max-w-3xl mx-auto space-y-4", children: [
-    /* @__PURE__ */ r.jsx("h1", { className: "text-3xl font-bold", children: n("contact") }),
-    /* @__PURE__ */ r.jsxs("div", { className: "card p-6 grid sm:grid-cols-2 gap-4", children: [
-      /* @__PURE__ */ r.jsxs("a", { className: "btn", href: `tel:${P.phone}`, children: [
-        /* @__PURE__ */ r.jsx(ot, { size: 18 }),
+function Qf() {
+  const { t: n } = Z();
+  return /* @__PURE__ */ i.jsxs("div", { className: "py-10 max-w-3xl mx-auto space-y-4", children: [
+    /* @__PURE__ */ i.jsx("h1", { className: "text-3xl font-bold", children: n("contact") }),
+    /* @__PURE__ */ i.jsxs("div", { className: "card p-6 grid sm:grid-cols-2 gap-4", children: [
+      /* @__PURE__ */ i.jsxs("a", { className: "btn", href: `tel:${P.phone}`, children: [
+        /* @__PURE__ */ i.jsx(ot, { size: 18 }),
         " ",
         n("call")
       ] }),
-      /* @__PURE__ */ r.jsxs("a", { className: "btn-outline", href: `https://wa.me/${P.whatsapp}`, children: [
-        /* @__PURE__ */ r.jsx(it, { size: 18 }),
+      /* @__PURE__ */ i.jsxs("a", { className: "btn-outline", href: `https://wa.me/${P.whatsapp}`, children: [
+        /* @__PURE__ */ i.jsx(it, { size: 18 }),
         " ",
         n("whatsapp")
       ] }),
-      /* @__PURE__ */ r.jsxs(
+      /* @__PURE__ */ i.jsxs(
         "a",
         {
           className: "btn-outline",
@@ -3887,13 +2361,13 @@ function lh() {
           target: "_blank",
           rel: "noreferrer",
           children: [
-            /* @__PURE__ */ r.jsx(nn, { size: 18 }),
+            /* @__PURE__ */ i.jsx(Xs, { size: 18 }),
             " ",
             n("instagram")
           ]
         }
       ),
-      /* @__PURE__ */ r.jsx(
+      /* @__PURE__ */ i.jsx(
         "a",
         {
           className: "btn-outline sm:col-span-2",
@@ -3902,8 +2376,8 @@ function lh() {
           href: `https://maps.google.com/?q=${encodeURIComponent(
             P.address
           )}`,
-          children: /* @__PURE__ */ r.jsxs("div", { className: "flex items-center gap-2 justify-center", children: [
-            /* @__PURE__ */ r.jsx(rt, { size: 18 }),
+          children: /* @__PURE__ */ i.jsxs("div", { className: "flex items-center gap-2 justify-center", children: [
+            /* @__PURE__ */ i.jsx(at, { size: 18 }),
             " ",
             n("address"),
             ": ",
@@ -3912,7 +2386,7 @@ function lh() {
         }
       )
     ] }),
-    /* @__PURE__ */ r.jsx(
+    /* @__PURE__ */ i.jsx(
       "iframe",
       {
         className: "w-full h-80 rounded-2xl border border-white/10",
@@ -3926,29 +2400,28 @@ function lh() {
     )
   ] });
 }
-const At = { en: ts, he: ss, ar: ns };
-function uh() {
-  const { i18n: n, t: e } = X();
+function Gf({ menuData: n }) {
+  const { i18n: e, t } = Z();
   Le();
-  const [t, s] = L.useState("all"), [a, o] = L.useState(""), [u, d] = L.useState(null), [i, c] = L.useState(null), [l, f] = L.useState(!1), { dispatch: p } = nt();
+  const [s, a] = L.useState("all"), [o, u] = L.useState(""), [f, r] = L.useState(null), [c, l] = L.useState(null), [p, d] = L.useState(!1), { dispatch: g } = nt();
   L.useEffect(() => {
     try {
-      P.hours && !as(P.hours) && f(!0);
+      P.hours && !Zt(P.hours) && d(!0);
     } catch {
     }
   }, []);
-  const g = At[n.language] || At.ar, m = g.items.filter(
-    (_) => (_.name + " " + _.desc).toLowerCase().includes(a.toLowerCase())
-  ), x = t === "all" ? m.reduce((_, y) => {
-    const w = y.category;
-    return _[w] || (_[w] = []), _[w].push(y), _;
-  }, {}) : m.filter((_) => _.category === t), b = (_) => d(_), N = ({ quantity: _, options: y }) => {
-    p({ type: "ADD", payload: { item: u, quantity: _, options: y } });
+  const m = (n == null ? void 0 : n[e.language]) || (n == null ? void 0 : n.ar) || { items: [], categories: [] }, x = m.items.filter(
+    (_) => (_.name + " " + _.desc).toLowerCase().includes(o.toLowerCase())
+  ), y = s === "all" ? x.reduce((_, w) => {
+    const C = w.category;
+    return _[C] || (_[C] = []), _[C].push(w), _;
+  }, {}) : x.filter((_) => _.category === s), j = (_) => r(_), v = ({ quantity: _, options: w }) => {
+    g({ type: "ADD", payload: { item: f, quantity: _, options: w } });
   };
-  return /* @__PURE__ */ r.jsxs("div", { className: "py-8", children: [
-    /* @__PURE__ */ r.jsxs("div", { className: "mb-6 flex gap-3 overflow-x-auto pb-2 no-scrollbar", children: [
+  return /* @__PURE__ */ i.jsxs("div", { className: "py-8", children: [
+    /* @__PURE__ */ i.jsxs("div", { className: "mb-6 flex gap-3 overflow-x-auto pb-2 no-scrollbar", children: [
       P.reservation.enabled,
-      /* @__PURE__ */ r.jsxs(
+      /* @__PURE__ */ i.jsxs(
         "a",
         {
           href: P.coords ? `https://waze.com/ul?ll=${P.coords.lat},${P.coords.lng}&navigate=yes` : `https://waze.com/ul?q=${encodeURIComponent(P.waze_name)}&navigate=yes`,
@@ -3956,185 +2429,185 @@ function uh() {
           rel: "noreferrer",
           className: "btn-outline flex items-center gap-2 flex-shrink-0",
           children: [
-            /* @__PURE__ */ r.jsx("span", { children: "📍" }),
-            e("location")
+            /* @__PURE__ */ i.jsx("span", { children: "📍" }),
+            t("location")
           ]
         }
       ),
-      /* @__PURE__ */ r.jsxs(
+      /* @__PURE__ */ i.jsxs(
         "a",
         {
           href: `tel:${P.phone}`,
           className: "btn-outline flex items-center gap-2 flex-shrink-0",
           children: [
-            /* @__PURE__ */ r.jsx("span", { children: "📞" }),
-            e("call")
+            /* @__PURE__ */ i.jsx("span", { children: "📞" }),
+            t("call")
           ]
         }
       )
     ] }),
-    /* @__PURE__ */ r.jsxs("div", { className: "flex flex-col md:flex-row md:items-center gap-3 mb-4", children: [
-      /* @__PURE__ */ r.jsx("h1", { className: "text-3xl font-bold tracking-tight flex-1", children: e("menu") }),
-      /* @__PURE__ */ r.jsx("div", { className: "md:w-64", children: /* @__PURE__ */ r.jsx(ca, { value: a, onChange: o }) })
+    /* @__PURE__ */ i.jsxs("div", { className: "flex flex-col md:flex-row md:items-center gap-3 mb-4", children: [
+      /* @__PURE__ */ i.jsx("h1", { className: "text-3xl font-bold tracking-tight flex-1", children: t("menu") }),
+      /* @__PURE__ */ i.jsx("div", { className: "md:w-64", children: /* @__PURE__ */ i.jsx(Yn, { value: o, onChange: u }) })
     ] }),
-    /* @__PURE__ */ r.jsx(
-      na,
+    /* @__PURE__ */ i.jsx(
+      Bn,
       {
-        categories: g.categories,
-        current: t,
-        onChange: s
+        categories: m.categories,
+        current: s,
+        onChange: a
       }
     ),
-    t === "all" ? (
+    s === "all" ? (
       // Render grouped items with category headers
-      Object.entries(x).map(([_, y]) => /* @__PURE__ */ r.jsxs("div", { className: "mb-8 mt-4", children: [
-        /* @__PURE__ */ r.jsxs("div", { className: "flex items-center gap-3 mb-6", children: [
-          /* @__PURE__ */ r.jsx("div", { className: "h-px bg-gradient-to-r from-transparent via-white/20 to-transparent flex-1" }),
-          /* @__PURE__ */ r.jsx("div", { className: "bg-[var(--card)] border border-white/10 rounded-full px-4 py-2", children: (() => {
-            const w = g.categories.find((j) => j.id === _);
-            return /* @__PURE__ */ r.jsxs("div", { className: "flex flex-col items-center gap-1", children: [
-              /* @__PURE__ */ r.jsxs("h2", { className: "text-lg font-semibold text-white flex items-center gap-2", children: [
-                (w == null ? void 0 : w.emoji) && /* @__PURE__ */ r.jsx("span", { children: w.emoji }),
-                /* @__PURE__ */ r.jsx("span", { children: (w == null ? void 0 : w.title) || _ })
+      Object.entries(y).map(([_, w]) => /* @__PURE__ */ i.jsxs("div", { className: "mb-8 mt-4", children: [
+        /* @__PURE__ */ i.jsxs("div", { className: "flex items-center gap-3 mb-6", children: [
+          /* @__PURE__ */ i.jsx("div", { className: "h-px bg-gradient-to-r from-transparent via-white/20 to-transparent flex-1" }),
+          /* @__PURE__ */ i.jsx("div", { className: "bg-[var(--card)] border border-white/10 rounded-full px-4 py-2", children: (() => {
+            const C = m.categories.find((S) => S.id === _);
+            return /* @__PURE__ */ i.jsxs("div", { className: "flex flex-col items-center gap-1", children: [
+              /* @__PURE__ */ i.jsxs("h2", { className: "text-lg font-semibold text-white flex items-center gap-2", children: [
+                (C == null ? void 0 : C.emoji) && /* @__PURE__ */ i.jsx("span", { children: C.emoji }),
+                /* @__PURE__ */ i.jsx("span", { children: (C == null ? void 0 : C.title) || _ })
               ] }),
-              _ === "breakfast" && /* @__PURE__ */ r.jsx("div", { className: "text-xs text-white/60 bg-white/5 rounded-full px-2 py-1", children: e("served_until_13") })
+              _ === "breakfast" && /* @__PURE__ */ i.jsx("div", { className: "text-xs text-white/60 bg-white/5 rounded-full px-2 py-1", children: t("served_until_13") })
             ] });
           })() }),
-          /* @__PURE__ */ r.jsx("div", { className: "h-px bg-gradient-to-r from-transparent via-white/20 to-transparent flex-1" })
+          /* @__PURE__ */ i.jsx("div", { className: "h-px bg-gradient-to-r from-transparent via-white/20 to-transparent flex-1" })
         ] }),
-        /* @__PURE__ */ r.jsx("div", { className: "flex gap-4 overflow-x-auto pb-4 no-scrollbar items-stretch md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:overflow-x-visible md:pb-0", children: y.map((w) => /* @__PURE__ */ r.jsx(
-          Tt,
+        /* @__PURE__ */ i.jsx("div", { className: "flex gap-4 overflow-x-auto pb-4 no-scrollbar items-stretch md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:overflow-x-visible md:pb-0", children: w.map((C) => /* @__PURE__ */ i.jsx(
+          Pt,
           {
-            item: w,
+            item: C,
             currency: P.currency,
-            onAdd: b,
-            onPreview: (j) => c({ src: j.image, alt: j.name })
+            onAdd: j,
+            onPreview: (S) => l({ src: S.image, alt: S.name })
           },
-          w.id
+          C.id
         )) })
       ] }, _))
     ) : (
       // Render single category items with header
-      /* @__PURE__ */ r.jsxs("div", { className: "mt-4", children: [
-        /* @__PURE__ */ r.jsxs("div", { className: "flex items-center gap-3 mb-6", children: [
-          /* @__PURE__ */ r.jsx("div", { className: "h-px bg-gradient-to-r from-transparent via-white/20 to-transparent flex-1" }),
-          /* @__PURE__ */ r.jsx("div", { className: "bg-[var(--card)] border border-white/10 rounded-full px-4 py-2", children: (() => {
-            const _ = g.categories.find((y) => y.id === t);
-            return /* @__PURE__ */ r.jsxs("div", { className: "flex flex-col items-center gap-1", children: [
-              /* @__PURE__ */ r.jsxs("h2", { className: "text-lg font-semibold text-white flex items-center gap-2", children: [
-                (_ == null ? void 0 : _.emoji) && /* @__PURE__ */ r.jsx("span", { children: _.emoji }),
-                /* @__PURE__ */ r.jsx("span", { children: (_ == null ? void 0 : _.title) || t })
+      /* @__PURE__ */ i.jsxs("div", { className: "mt-4", children: [
+        /* @__PURE__ */ i.jsxs("div", { className: "flex items-center gap-3 mb-6", children: [
+          /* @__PURE__ */ i.jsx("div", { className: "h-px bg-gradient-to-r from-transparent via-white/20 to-transparent flex-1" }),
+          /* @__PURE__ */ i.jsx("div", { className: "bg-[var(--card)] border border-white/10 rounded-full px-4 py-2", children: (() => {
+            const _ = m.categories.find((w) => w.id === s);
+            return /* @__PURE__ */ i.jsxs("div", { className: "flex flex-col items-center gap-1", children: [
+              /* @__PURE__ */ i.jsxs("h2", { className: "text-lg font-semibold text-white flex items-center gap-2", children: [
+                (_ == null ? void 0 : _.emoji) && /* @__PURE__ */ i.jsx("span", { children: _.emoji }),
+                /* @__PURE__ */ i.jsx("span", { children: (_ == null ? void 0 : _.title) || s })
               ] }),
-              t === "breakfast" && /* @__PURE__ */ r.jsx("div", { className: "text-xs text-white/60 bg-white/5 rounded-full px-2 py-1", children: e("served_until_13") })
+              s === "breakfast" && /* @__PURE__ */ i.jsx("div", { className: "text-xs text-white/60 bg-white/5 rounded-full px-2 py-1", children: t("served_until_13") })
             ] });
           })() }),
-          /* @__PURE__ */ r.jsx("div", { className: "h-px bg-gradient-to-r from-transparent via-white/20 to-transparent flex-1" })
+          /* @__PURE__ */ i.jsx("div", { className: "h-px bg-gradient-to-r from-transparent via-white/20 to-transparent flex-1" })
         ] }),
-        /* @__PURE__ */ r.jsx("div", { className: "grid sm:grid-cols-2 lg:grid-cols-3 gap-4 items-stretch", children: x.map((_) => /* @__PURE__ */ r.jsx(
-          Tt,
+        /* @__PURE__ */ i.jsx("div", { className: "grid sm:grid-cols-2 lg:grid-cols-3 gap-4 items-stretch", children: y.map((_) => /* @__PURE__ */ i.jsx(
+          Pt,
           {
             item: _,
             currency: P.currency,
-            onAdd: b,
-            onPreview: (y) => c({ src: y.image, alt: y.name })
+            onAdd: j,
+            onPreview: (w) => l({ src: w.image, alt: w.name })
           },
           _.id
         )) })
       ] })
     ),
-    /* @__PURE__ */ r.jsx(
-      ia,
+    /* @__PURE__ */ i.jsx(
+      Hn,
       {
-        open: !!u,
-        item: u,
-        onClose: () => d(null),
-        onConfirm: N
+        open: !!f,
+        item: f,
+        onClose: () => r(null),
+        onConfirm: v
       }
     ),
-    /* @__PURE__ */ r.jsx(
-      aa,
+    /* @__PURE__ */ i.jsx(
+      qn,
       {
-        open: !!i,
-        src: i == null ? void 0 : i.src,
-        alt: i == null ? void 0 : i.alt,
-        onClose: () => c(null)
+        open: !!c,
+        src: c == null ? void 0 : c.src,
+        alt: c == null ? void 0 : c.alt,
+        onClose: () => l(null)
       }
     ),
-    l && /* @__PURE__ */ r.jsxs("div", { className: "fixed inset-0 z-[9000] flex items-center justify-center p-4", children: [
-      /* @__PURE__ */ r.jsx("div", { className: "absolute inset-0 bg-black/60" }),
-      /* @__PURE__ */ r.jsx("div", { className: "relative bg-[var(--card)] border border-white/10 rounded-xl p-6 max-w-md w-full shadow-2xl", children: /* @__PURE__ */ r.jsxs("div", { className: "text-center space-y-4", children: [
-        /* @__PURE__ */ r.jsx("h3", { className: "text-lg font-semibold", children: e("important_notice_cart") }),
-        /* @__PURE__ */ r.jsx("p", { className: "text-sm text-white/80", children: e("closed_popup_message") }),
-        /* @__PURE__ */ r.jsx("button", { className: "btn w-full", onClick: () => f(!1), children: e("got_it_button") })
+    p && /* @__PURE__ */ i.jsxs("div", { className: "fixed inset-0 z-[9000] flex items-center justify-center p-4", children: [
+      /* @__PURE__ */ i.jsx("div", { className: "absolute inset-0 bg-black/60" }),
+      /* @__PURE__ */ i.jsx("div", { className: "relative bg-[var(--card)] border border-white/10 rounded-xl p-6 max-w-md w-full shadow-2xl", children: /* @__PURE__ */ i.jsxs("div", { className: "text-center space-y-4", children: [
+        /* @__PURE__ */ i.jsx("h3", { className: "text-lg font-semibold", children: t("important_notice_cart") }),
+        /* @__PURE__ */ i.jsx("p", { className: "text-sm text-white/80", children: t("closed_popup_message") }),
+        /* @__PURE__ */ i.jsx("button", { className: "btn w-full", onClick: () => d(!1), children: t("got_it_button") })
       ] }) })
     ] })
   ] });
 }
-function dh() {
-  const { t: n } = X(), e = Le();
+function Xf() {
+  const { t: n } = Z(), e = Le();
   return L.useEffect(() => {
     document.documentElement.scrollTop = 0, document.body.scrollTop = 0, setTimeout(() => {
       window.scrollTo({ top: 0, left: 0, behavior: "auto" });
     }, 0);
-  }, []), /* @__PURE__ */ r.jsx("div", { className: "py-8", children: /* @__PURE__ */ r.jsxs("div", { className: "max-w-4xl mx-auto", children: [
-    /* @__PURE__ */ r.jsxs(
+  }, []), /* @__PURE__ */ i.jsx("div", { className: "py-8", children: /* @__PURE__ */ i.jsxs("div", { className: "max-w-4xl mx-auto", children: [
+    /* @__PURE__ */ i.jsxs(
       "button",
       {
         onClick: () => e("/"),
         className: "btn-outline flex items-center gap-2 mb-6",
         children: [
-          /* @__PURE__ */ r.jsx(at, { size: 16 }),
+          /* @__PURE__ */ i.jsx(rt, { size: 16 }),
           n("back_to_menu")
         ]
       }
     ),
-    /* @__PURE__ */ r.jsx("h1", { className: "text-3xl font-bold mb-8", children: n("privacy_policy") }),
-    /* @__PURE__ */ r.jsxs("div", { className: "space-y-6 text-white/80 leading-relaxed", children: [
-      /* @__PURE__ */ r.jsxs("section", { children: [
-        /* @__PURE__ */ r.jsx("h2", { className: "text-xl font-semibold mb-4 text-white", children: n("privacy_info_collection") }),
-        /* @__PURE__ */ r.jsx("p", { children: n("privacy_info_collection_text") })
+    /* @__PURE__ */ i.jsx("h1", { className: "text-3xl font-bold mb-8", children: n("privacy_policy") }),
+    /* @__PURE__ */ i.jsxs("div", { className: "space-y-6 text-white/80 leading-relaxed", children: [
+      /* @__PURE__ */ i.jsxs("section", { children: [
+        /* @__PURE__ */ i.jsx("h2", { className: "text-xl font-semibold mb-4 text-white", children: n("privacy_info_collection") }),
+        /* @__PURE__ */ i.jsx("p", { children: n("privacy_info_collection_text") })
       ] }),
-      /* @__PURE__ */ r.jsxs("section", { children: [
-        /* @__PURE__ */ r.jsx("h2", { className: "text-xl font-semibold mb-4 text-white", children: n("privacy_info_usage") }),
-        /* @__PURE__ */ r.jsx("p", { children: n("privacy_info_usage_text") })
+      /* @__PURE__ */ i.jsxs("section", { children: [
+        /* @__PURE__ */ i.jsx("h2", { className: "text-xl font-semibold mb-4 text-white", children: n("privacy_info_usage") }),
+        /* @__PURE__ */ i.jsx("p", { children: n("privacy_info_usage_text") })
       ] }),
-      /* @__PURE__ */ r.jsxs("section", { children: [
-        /* @__PURE__ */ r.jsx("h2", { className: "text-xl font-semibold mb-4 text-white", children: n("privacy_cookies") }),
-        /* @__PURE__ */ r.jsx("p", { children: n("privacy_cookies_text") })
+      /* @__PURE__ */ i.jsxs("section", { children: [
+        /* @__PURE__ */ i.jsx("h2", { className: "text-xl font-semibold mb-4 text-white", children: n("privacy_cookies") }),
+        /* @__PURE__ */ i.jsx("p", { children: n("privacy_cookies_text") })
       ] }),
-      /* @__PURE__ */ r.jsxs("section", { children: [
-        /* @__PURE__ */ r.jsx("h2", { className: "text-xl font-semibold mb-4 text-white", children: n("privacy_whatsapp") }),
-        /* @__PURE__ */ r.jsx("p", { children: n("privacy_whatsapp_text") })
+      /* @__PURE__ */ i.jsxs("section", { children: [
+        /* @__PURE__ */ i.jsx("h2", { className: "text-xl font-semibold mb-4 text-white", children: n("privacy_whatsapp") }),
+        /* @__PURE__ */ i.jsx("p", { children: n("privacy_whatsapp_text") })
       ] }),
-      /* @__PURE__ */ r.jsxs("section", { children: [
-        /* @__PURE__ */ r.jsx("h2", { className: "text-xl font-semibold mb-4 text-white", children: n("privacy_data_storage") }),
-        /* @__PURE__ */ r.jsx("p", { children: n("privacy_data_storage_text") })
+      /* @__PURE__ */ i.jsxs("section", { children: [
+        /* @__PURE__ */ i.jsx("h2", { className: "text-xl font-semibold mb-4 text-white", children: n("privacy_data_storage") }),
+        /* @__PURE__ */ i.jsx("p", { children: n("privacy_data_storage_text") })
       ] }),
-      /* @__PURE__ */ r.jsxs("section", { children: [
-        /* @__PURE__ */ r.jsx("h2", { className: "text-xl font-semibold mb-4 text-white", children: n("privacy_user_rights") }),
-        /* @__PURE__ */ r.jsx("p", { children: n("privacy_user_rights_text") })
+      /* @__PURE__ */ i.jsxs("section", { children: [
+        /* @__PURE__ */ i.jsx("h2", { className: "text-xl font-semibold mb-4 text-white", children: n("privacy_user_rights") }),
+        /* @__PURE__ */ i.jsx("p", { children: n("privacy_user_rights_text") })
       ] }),
-      /* @__PURE__ */ r.jsxs("div", { className: "pt-6 border-t border-white/10 text-sm text-white/60", children: [
+      /* @__PURE__ */ i.jsxs("div", { className: "pt-6 border-t border-white/10 text-sm text-white/60", children: [
         n("last_updated"),
         ": 26.9.2025"
       ] })
     ] })
   ] }) });
 }
-var la = Object.defineProperty, Re = Object.getOwnPropertySymbols, is = Object.prototype.hasOwnProperty, os = Object.prototype.propertyIsEnumerable, Lt = (n, e, t) => e in n ? la(n, e, { enumerable: !0, configurable: !0, writable: !0, value: t }) : n[e] = t, ve = (n, e) => {
+var Jn = Object.defineProperty, Re = Object.getOwnPropertySymbols, ts = Object.prototype.hasOwnProperty, ss = Object.prototype.propertyIsEnumerable, At = (n, e, t) => e in n ? Jn(n, e, { enumerable: !0, configurable: !0, writable: !0, value: t }) : n[e] = t, ve = (n, e) => {
   for (var t in e || (e = {}))
-    is.call(e, t) && Lt(n, t, e[t]);
+    ts.call(e, t) && At(n, t, e[t]);
   if (Re)
     for (var t of Re(e))
-      os.call(e, t) && Lt(n, t, e[t]);
+      ss.call(e, t) && At(n, t, e[t]);
   return n;
 }, ct = (n, e) => {
   var t = {};
   for (var s in n)
-    is.call(n, s) && e.indexOf(s) < 0 && (t[s] = n[s]);
+    ts.call(n, s) && e.indexOf(s) < 0 && (t[s] = n[s]);
   if (n != null && Re)
     for (var s of Re(n))
-      e.indexOf(s) < 0 && os.call(n, s) && (t[s] = n[s]);
+      e.indexOf(s) < 0 && ss.call(n, s) && (t[s] = n[s]);
   return t;
 };
 /**
@@ -4142,73 +2615,73 @@ var la = Object.defineProperty, Re = Object.getOwnPropertySymbols, is = Object.p
  * Copyright (c) Project Nayuki.
  * SPDX-License-Identifier: MIT
  */
-var re;
+var ae;
 ((n) => {
   const e = class {
-    constructor(i, c, l, f) {
-      if (this.version = i, this.errorCorrectionLevel = c, this.modules = [], this.isFunction = [], i < e.MIN_VERSION || i > e.MAX_VERSION)
+    constructor(r, c, l, p) {
+      if (this.version = r, this.errorCorrectionLevel = c, this.modules = [], this.isFunction = [], r < e.MIN_VERSION || r > e.MAX_VERSION)
         throw new RangeError("Version value out of range");
-      if (f < -1 || f > 7)
+      if (p < -1 || p > 7)
         throw new RangeError("Mask value out of range");
-      this.size = i * 4 + 17;
-      let p = [];
+      this.size = r * 4 + 17;
+      let d = [];
       for (let m = 0; m < this.size; m++)
-        p.push(!1);
+        d.push(!1);
       for (let m = 0; m < this.size; m++)
-        this.modules.push(p.slice()), this.isFunction.push(p.slice());
+        this.modules.push(d.slice()), this.isFunction.push(d.slice());
       this.drawFunctionPatterns();
       const g = this.addEccAndInterleave(l);
-      if (this.drawCodewords(g), f == -1) {
+      if (this.drawCodewords(g), p == -1) {
         let m = 1e9;
         for (let x = 0; x < 8; x++) {
           this.applyMask(x), this.drawFormatBits(x);
-          const b = this.getPenaltyScore();
-          b < m && (f = x, m = b), this.applyMask(x);
+          const y = this.getPenaltyScore();
+          y < m && (p = x, m = y), this.applyMask(x);
         }
       }
-      o(0 <= f && f <= 7), this.mask = f, this.applyMask(f), this.drawFormatBits(f), this.isFunction = [];
+      o(0 <= p && p <= 7), this.mask = p, this.applyMask(p), this.drawFormatBits(p), this.isFunction = [];
     }
-    static encodeText(i, c) {
-      const l = n.QrSegment.makeSegments(i);
+    static encodeText(r, c) {
+      const l = n.QrSegment.makeSegments(r);
       return e.encodeSegments(l, c);
     }
-    static encodeBinary(i, c) {
-      const l = n.QrSegment.makeBytes(i);
+    static encodeBinary(r, c) {
+      const l = n.QrSegment.makeBytes(r);
       return e.encodeSegments([l], c);
     }
-    static encodeSegments(i, c, l = 1, f = 40, p = -1, g = !0) {
-      if (!(e.MIN_VERSION <= l && l <= f && f <= e.MAX_VERSION) || p < -1 || p > 7)
+    static encodeSegments(r, c, l = 1, p = 40, d = -1, g = !0) {
+      if (!(e.MIN_VERSION <= l && l <= p && p <= e.MAX_VERSION) || d < -1 || d > 7)
         throw new RangeError("Invalid value");
       let m, x;
       for (m = l; ; m++) {
-        const y = e.getNumDataCodewords(m, c) * 8, w = d.getTotalBits(i, m);
-        if (w <= y) {
+        const _ = e.getNumDataCodewords(m, c) * 8, w = f.getTotalBits(r, m);
+        if (w <= _) {
           x = w;
           break;
         }
-        if (m >= f)
+        if (m >= p)
           throw new RangeError("Data too long");
       }
-      for (const y of [e.Ecc.MEDIUM, e.Ecc.QUARTILE, e.Ecc.HIGH])
-        g && x <= e.getNumDataCodewords(m, y) * 8 && (c = y);
-      let b = [];
-      for (const y of i) {
-        s(y.mode.modeBits, 4, b), s(y.numChars, y.mode.numCharCountBits(m), b);
-        for (const w of y.getData())
-          b.push(w);
+      for (const _ of [e.Ecc.MEDIUM, e.Ecc.QUARTILE, e.Ecc.HIGH])
+        g && x <= e.getNumDataCodewords(m, _) * 8 && (c = _);
+      let y = [];
+      for (const _ of r) {
+        s(_.mode.modeBits, 4, y), s(_.numChars, _.mode.numCharCountBits(m), y);
+        for (const w of _.getData())
+          y.push(w);
       }
-      o(b.length == x);
-      const N = e.getNumDataCodewords(m, c) * 8;
-      o(b.length <= N), s(0, Math.min(4, N - b.length), b), s(0, (8 - b.length % 8) % 8, b), o(b.length % 8 == 0);
-      for (let y = 236; b.length < N; y ^= 253)
-        s(y, 8, b);
-      let _ = [];
-      for (; _.length * 8 < b.length; )
-        _.push(0);
-      return b.forEach((y, w) => _[w >>> 3] |= y << 7 - (w & 7)), new e(m, c, _, p);
+      o(y.length == x);
+      const j = e.getNumDataCodewords(m, c) * 8;
+      o(y.length <= j), s(0, Math.min(4, j - y.length), y), s(0, (8 - y.length % 8) % 8, y), o(y.length % 8 == 0);
+      for (let _ = 236; y.length < j; _ ^= 253)
+        s(_, 8, y);
+      let v = [];
+      for (; v.length * 8 < y.length; )
+        v.push(0);
+      return y.forEach((_, w) => v[w >>> 3] |= _ << 7 - (w & 7)), new e(m, c, v, d);
     }
-    getModule(i, c) {
-      return 0 <= i && i < this.size && 0 <= c && c < this.size && this.modules[c][i];
+    getModule(r, c) {
+      return 0 <= r && r < this.size && 0 <= c && c < this.size && this.modules[c][r];
     }
     getModules() {
       return this.modules;
@@ -4217,220 +2690,220 @@ var re;
       for (let l = 0; l < this.size; l++)
         this.setFunctionModule(6, l, l % 2 == 0), this.setFunctionModule(l, 6, l % 2 == 0);
       this.drawFinderPattern(3, 3), this.drawFinderPattern(this.size - 4, 3), this.drawFinderPattern(3, this.size - 4);
-      const i = this.getAlignmentPatternPositions(), c = i.length;
+      const r = this.getAlignmentPatternPositions(), c = r.length;
       for (let l = 0; l < c; l++)
-        for (let f = 0; f < c; f++)
-          l == 0 && f == 0 || l == 0 && f == c - 1 || l == c - 1 && f == 0 || this.drawAlignmentPattern(i[l], i[f]);
+        for (let p = 0; p < c; p++)
+          l == 0 && p == 0 || l == 0 && p == c - 1 || l == c - 1 && p == 0 || this.drawAlignmentPattern(r[l], r[p]);
       this.drawFormatBits(0), this.drawVersion();
     }
-    drawFormatBits(i) {
-      const c = this.errorCorrectionLevel.formatBits << 3 | i;
+    drawFormatBits(r) {
+      const c = this.errorCorrectionLevel.formatBits << 3 | r;
       let l = c;
-      for (let p = 0; p < 10; p++)
+      for (let d = 0; d < 10; d++)
         l = l << 1 ^ (l >>> 9) * 1335;
-      const f = (c << 10 | l) ^ 21522;
-      o(f >>> 15 == 0);
-      for (let p = 0; p <= 5; p++)
-        this.setFunctionModule(8, p, a(f, p));
-      this.setFunctionModule(8, 7, a(f, 6)), this.setFunctionModule(8, 8, a(f, 7)), this.setFunctionModule(7, 8, a(f, 8));
-      for (let p = 9; p < 15; p++)
-        this.setFunctionModule(14 - p, 8, a(f, p));
-      for (let p = 0; p < 8; p++)
-        this.setFunctionModule(this.size - 1 - p, 8, a(f, p));
-      for (let p = 8; p < 15; p++)
-        this.setFunctionModule(8, this.size - 15 + p, a(f, p));
+      const p = (c << 10 | l) ^ 21522;
+      o(p >>> 15 == 0);
+      for (let d = 0; d <= 5; d++)
+        this.setFunctionModule(8, d, a(p, d));
+      this.setFunctionModule(8, 7, a(p, 6)), this.setFunctionModule(8, 8, a(p, 7)), this.setFunctionModule(7, 8, a(p, 8));
+      for (let d = 9; d < 15; d++)
+        this.setFunctionModule(14 - d, 8, a(p, d));
+      for (let d = 0; d < 8; d++)
+        this.setFunctionModule(this.size - 1 - d, 8, a(p, d));
+      for (let d = 8; d < 15; d++)
+        this.setFunctionModule(8, this.size - 15 + d, a(p, d));
       this.setFunctionModule(8, this.size - 8, !0);
     }
     drawVersion() {
       if (this.version < 7)
         return;
-      let i = this.version;
+      let r = this.version;
       for (let l = 0; l < 12; l++)
-        i = i << 1 ^ (i >>> 11) * 7973;
-      const c = this.version << 12 | i;
+        r = r << 1 ^ (r >>> 11) * 7973;
+      const c = this.version << 12 | r;
       o(c >>> 18 == 0);
       for (let l = 0; l < 18; l++) {
-        const f = a(c, l), p = this.size - 11 + l % 3, g = Math.floor(l / 3);
-        this.setFunctionModule(p, g, f), this.setFunctionModule(g, p, f);
+        const p = a(c, l), d = this.size - 11 + l % 3, g = Math.floor(l / 3);
+        this.setFunctionModule(d, g, p), this.setFunctionModule(g, d, p);
       }
     }
-    drawFinderPattern(i, c) {
+    drawFinderPattern(r, c) {
       for (let l = -4; l <= 4; l++)
-        for (let f = -4; f <= 4; f++) {
-          const p = Math.max(Math.abs(f), Math.abs(l)), g = i + f, m = c + l;
-          0 <= g && g < this.size && 0 <= m && m < this.size && this.setFunctionModule(g, m, p != 2 && p != 4);
+        for (let p = -4; p <= 4; p++) {
+          const d = Math.max(Math.abs(p), Math.abs(l)), g = r + p, m = c + l;
+          0 <= g && g < this.size && 0 <= m && m < this.size && this.setFunctionModule(g, m, d != 2 && d != 4);
         }
     }
-    drawAlignmentPattern(i, c) {
+    drawAlignmentPattern(r, c) {
       for (let l = -2; l <= 2; l++)
-        for (let f = -2; f <= 2; f++)
-          this.setFunctionModule(i + f, c + l, Math.max(Math.abs(f), Math.abs(l)) != 1);
+        for (let p = -2; p <= 2; p++)
+          this.setFunctionModule(r + p, c + l, Math.max(Math.abs(p), Math.abs(l)) != 1);
     }
-    setFunctionModule(i, c, l) {
-      this.modules[c][i] = l, this.isFunction[c][i] = !0;
+    setFunctionModule(r, c, l) {
+      this.modules[c][r] = l, this.isFunction[c][r] = !0;
     }
-    addEccAndInterleave(i) {
+    addEccAndInterleave(r) {
       const c = this.version, l = this.errorCorrectionLevel;
-      if (i.length != e.getNumDataCodewords(c, l))
+      if (r.length != e.getNumDataCodewords(c, l))
         throw new RangeError("Invalid argument");
-      const f = e.NUM_ERROR_CORRECTION_BLOCKS[l.ordinal][c], p = e.ECC_CODEWORDS_PER_BLOCK[l.ordinal][c], g = Math.floor(e.getNumRawDataModules(c) / 8), m = f - g % f, x = Math.floor(g / f);
-      let b = [];
-      const N = e.reedSolomonComputeDivisor(p);
-      for (let y = 0, w = 0; y < f; y++) {
-        let j = i.slice(w, w + x - p + (y < m ? 0 : 1));
-        w += j.length;
-        const S = e.reedSolomonComputeRemainder(j, N);
-        y < m && j.push(0), b.push(j.concat(S));
+      const p = e.NUM_ERROR_CORRECTION_BLOCKS[l.ordinal][c], d = e.ECC_CODEWORDS_PER_BLOCK[l.ordinal][c], g = Math.floor(e.getNumRawDataModules(c) / 8), m = p - g % p, x = Math.floor(g / p);
+      let y = [];
+      const j = e.reedSolomonComputeDivisor(d);
+      for (let _ = 0, w = 0; _ < p; _++) {
+        let C = r.slice(w, w + x - d + (_ < m ? 0 : 1));
+        w += C.length;
+        const S = e.reedSolomonComputeRemainder(C, j);
+        _ < m && C.push(0), y.push(C.concat(S));
       }
-      let _ = [];
-      for (let y = 0; y < b[0].length; y++)
-        b.forEach((w, j) => {
-          (y != x - p || j >= m) && _.push(w[y]);
+      let v = [];
+      for (let _ = 0; _ < y[0].length; _++)
+        y.forEach((w, C) => {
+          (_ != x - d || C >= m) && v.push(w[_]);
         });
-      return o(_.length == g), _;
+      return o(v.length == g), v;
     }
-    drawCodewords(i) {
-      if (i.length != Math.floor(e.getNumRawDataModules(this.version) / 8))
+    drawCodewords(r) {
+      if (r.length != Math.floor(e.getNumRawDataModules(this.version) / 8))
         throw new RangeError("Invalid argument");
       let c = 0;
       for (let l = this.size - 1; l >= 1; l -= 2) {
         l == 6 && (l = 5);
-        for (let f = 0; f < this.size; f++)
-          for (let p = 0; p < 2; p++) {
-            const g = l - p, x = (l + 1 & 2) == 0 ? this.size - 1 - f : f;
-            !this.isFunction[x][g] && c < i.length * 8 && (this.modules[x][g] = a(i[c >>> 3], 7 - (c & 7)), c++);
+        for (let p = 0; p < this.size; p++)
+          for (let d = 0; d < 2; d++) {
+            const g = l - d, x = (l + 1 & 2) == 0 ? this.size - 1 - p : p;
+            !this.isFunction[x][g] && c < r.length * 8 && (this.modules[x][g] = a(r[c >>> 3], 7 - (c & 7)), c++);
           }
       }
-      o(c == i.length * 8);
+      o(c == r.length * 8);
     }
-    applyMask(i) {
-      if (i < 0 || i > 7)
+    applyMask(r) {
+      if (r < 0 || r > 7)
         throw new RangeError("Mask value out of range");
       for (let c = 0; c < this.size; c++)
         for (let l = 0; l < this.size; l++) {
-          let f;
-          switch (i) {
+          let p;
+          switch (r) {
             case 0:
-              f = (l + c) % 2 == 0;
+              p = (l + c) % 2 == 0;
               break;
             case 1:
-              f = c % 2 == 0;
+              p = c % 2 == 0;
               break;
             case 2:
-              f = l % 3 == 0;
+              p = l % 3 == 0;
               break;
             case 3:
-              f = (l + c) % 3 == 0;
+              p = (l + c) % 3 == 0;
               break;
             case 4:
-              f = (Math.floor(l / 3) + Math.floor(c / 2)) % 2 == 0;
+              p = (Math.floor(l / 3) + Math.floor(c / 2)) % 2 == 0;
               break;
             case 5:
-              f = l * c % 2 + l * c % 3 == 0;
+              p = l * c % 2 + l * c % 3 == 0;
               break;
             case 6:
-              f = (l * c % 2 + l * c % 3) % 2 == 0;
+              p = (l * c % 2 + l * c % 3) % 2 == 0;
               break;
             case 7:
-              f = ((l + c) % 2 + l * c % 3) % 2 == 0;
+              p = ((l + c) % 2 + l * c % 3) % 2 == 0;
               break;
             default:
               throw new Error("Unreachable");
           }
-          !this.isFunction[c][l] && f && (this.modules[c][l] = !this.modules[c][l]);
+          !this.isFunction[c][l] && p && (this.modules[c][l] = !this.modules[c][l]);
         }
     }
     getPenaltyScore() {
-      let i = 0;
-      for (let p = 0; p < this.size; p++) {
+      let r = 0;
+      for (let d = 0; d < this.size; d++) {
         let g = !1, m = 0, x = [0, 0, 0, 0, 0, 0, 0];
-        for (let b = 0; b < this.size; b++)
-          this.modules[p][b] == g ? (m++, m == 5 ? i += e.PENALTY_N1 : m > 5 && i++) : (this.finderPenaltyAddHistory(m, x), g || (i += this.finderPenaltyCountPatterns(x) * e.PENALTY_N3), g = this.modules[p][b], m = 1);
-        i += this.finderPenaltyTerminateAndCount(g, m, x) * e.PENALTY_N3;
+        for (let y = 0; y < this.size; y++)
+          this.modules[d][y] == g ? (m++, m == 5 ? r += e.PENALTY_N1 : m > 5 && r++) : (this.finderPenaltyAddHistory(m, x), g || (r += this.finderPenaltyCountPatterns(x) * e.PENALTY_N3), g = this.modules[d][y], m = 1);
+        r += this.finderPenaltyTerminateAndCount(g, m, x) * e.PENALTY_N3;
       }
-      for (let p = 0; p < this.size; p++) {
+      for (let d = 0; d < this.size; d++) {
         let g = !1, m = 0, x = [0, 0, 0, 0, 0, 0, 0];
-        for (let b = 0; b < this.size; b++)
-          this.modules[b][p] == g ? (m++, m == 5 ? i += e.PENALTY_N1 : m > 5 && i++) : (this.finderPenaltyAddHistory(m, x), g || (i += this.finderPenaltyCountPatterns(x) * e.PENALTY_N3), g = this.modules[b][p], m = 1);
-        i += this.finderPenaltyTerminateAndCount(g, m, x) * e.PENALTY_N3;
+        for (let y = 0; y < this.size; y++)
+          this.modules[y][d] == g ? (m++, m == 5 ? r += e.PENALTY_N1 : m > 5 && r++) : (this.finderPenaltyAddHistory(m, x), g || (r += this.finderPenaltyCountPatterns(x) * e.PENALTY_N3), g = this.modules[y][d], m = 1);
+        r += this.finderPenaltyTerminateAndCount(g, m, x) * e.PENALTY_N3;
       }
-      for (let p = 0; p < this.size - 1; p++)
+      for (let d = 0; d < this.size - 1; d++)
         for (let g = 0; g < this.size - 1; g++) {
-          const m = this.modules[p][g];
-          m == this.modules[p][g + 1] && m == this.modules[p + 1][g] && m == this.modules[p + 1][g + 1] && (i += e.PENALTY_N2);
+          const m = this.modules[d][g];
+          m == this.modules[d][g + 1] && m == this.modules[d + 1][g] && m == this.modules[d + 1][g + 1] && (r += e.PENALTY_N2);
         }
       let c = 0;
-      for (const p of this.modules)
-        c = p.reduce((g, m) => g + (m ? 1 : 0), c);
-      const l = this.size * this.size, f = Math.ceil(Math.abs(c * 20 - l * 10) / l) - 1;
-      return o(0 <= f && f <= 9), i += f * e.PENALTY_N4, o(0 <= i && i <= 2568888), i;
+      for (const d of this.modules)
+        c = d.reduce((g, m) => g + (m ? 1 : 0), c);
+      const l = this.size * this.size, p = Math.ceil(Math.abs(c * 20 - l * 10) / l) - 1;
+      return o(0 <= p && p <= 9), r += p * e.PENALTY_N4, o(0 <= r && r <= 2568888), r;
     }
     getAlignmentPatternPositions() {
       if (this.version == 1)
         return [];
       {
-        const i = Math.floor(this.version / 7) + 2, c = this.version == 32 ? 26 : Math.ceil((this.version * 4 + 4) / (i * 2 - 2)) * 2;
+        const r = Math.floor(this.version / 7) + 2, c = this.version == 32 ? 26 : Math.ceil((this.version * 4 + 4) / (r * 2 - 2)) * 2;
         let l = [6];
-        for (let f = this.size - 7; l.length < i; f -= c)
-          l.splice(1, 0, f);
+        for (let p = this.size - 7; l.length < r; p -= c)
+          l.splice(1, 0, p);
         return l;
       }
     }
-    static getNumRawDataModules(i) {
-      if (i < e.MIN_VERSION || i > e.MAX_VERSION)
+    static getNumRawDataModules(r) {
+      if (r < e.MIN_VERSION || r > e.MAX_VERSION)
         throw new RangeError("Version number out of range");
-      let c = (16 * i + 128) * i + 64;
-      if (i >= 2) {
-        const l = Math.floor(i / 7) + 2;
-        c -= (25 * l - 10) * l - 55, i >= 7 && (c -= 36);
+      let c = (16 * r + 128) * r + 64;
+      if (r >= 2) {
+        const l = Math.floor(r / 7) + 2;
+        c -= (25 * l - 10) * l - 55, r >= 7 && (c -= 36);
       }
       return o(208 <= c && c <= 29648), c;
     }
-    static getNumDataCodewords(i, c) {
-      return Math.floor(e.getNumRawDataModules(i) / 8) - e.ECC_CODEWORDS_PER_BLOCK[c.ordinal][i] * e.NUM_ERROR_CORRECTION_BLOCKS[c.ordinal][i];
+    static getNumDataCodewords(r, c) {
+      return Math.floor(e.getNumRawDataModules(r) / 8) - e.ECC_CODEWORDS_PER_BLOCK[c.ordinal][r] * e.NUM_ERROR_CORRECTION_BLOCKS[c.ordinal][r];
     }
-    static reedSolomonComputeDivisor(i) {
-      if (i < 1 || i > 255)
+    static reedSolomonComputeDivisor(r) {
+      if (r < 1 || r > 255)
         throw new RangeError("Degree out of range");
       let c = [];
-      for (let f = 0; f < i - 1; f++)
+      for (let p = 0; p < r - 1; p++)
         c.push(0);
       c.push(1);
       let l = 1;
-      for (let f = 0; f < i; f++) {
-        for (let p = 0; p < c.length; p++)
-          c[p] = e.reedSolomonMultiply(c[p], l), p + 1 < c.length && (c[p] ^= c[p + 1]);
+      for (let p = 0; p < r; p++) {
+        for (let d = 0; d < c.length; d++)
+          c[d] = e.reedSolomonMultiply(c[d], l), d + 1 < c.length && (c[d] ^= c[d + 1]);
         l = e.reedSolomonMultiply(l, 2);
       }
       return c;
     }
-    static reedSolomonComputeRemainder(i, c) {
-      let l = c.map((f) => 0);
-      for (const f of i) {
-        const p = f ^ l.shift();
-        l.push(0), c.forEach((g, m) => l[m] ^= e.reedSolomonMultiply(g, p));
+    static reedSolomonComputeRemainder(r, c) {
+      let l = c.map((p) => 0);
+      for (const p of r) {
+        const d = p ^ l.shift();
+        l.push(0), c.forEach((g, m) => l[m] ^= e.reedSolomonMultiply(g, d));
       }
       return l;
     }
-    static reedSolomonMultiply(i, c) {
-      if (i >>> 8 || c >>> 8)
+    static reedSolomonMultiply(r, c) {
+      if (r >>> 8 || c >>> 8)
         throw new RangeError("Byte out of range");
       let l = 0;
-      for (let f = 7; f >= 0; f--)
-        l = l << 1 ^ (l >>> 7) * 285, l ^= (c >>> f & 1) * i;
+      for (let p = 7; p >= 0; p--)
+        l = l << 1 ^ (l >>> 7) * 285, l ^= (c >>> p & 1) * r;
       return o(l >>> 8 == 0), l;
     }
-    finderPenaltyCountPatterns(i) {
-      const c = i[1];
+    finderPenaltyCountPatterns(r) {
+      const c = r[1];
       o(c <= this.size * 3);
-      const l = c > 0 && i[2] == c && i[3] == c * 3 && i[4] == c && i[5] == c;
-      return (l && i[0] >= c * 4 && i[6] >= c ? 1 : 0) + (l && i[6] >= c * 4 && i[0] >= c ? 1 : 0);
+      const l = c > 0 && r[2] == c && r[3] == c * 3 && r[4] == c && r[5] == c;
+      return (l && r[0] >= c * 4 && r[6] >= c ? 1 : 0) + (l && r[6] >= c * 4 && r[0] >= c ? 1 : 0);
     }
-    finderPenaltyTerminateAndCount(i, c, l) {
-      return i && (this.finderPenaltyAddHistory(c, l), c = 0), c += this.size, this.finderPenaltyAddHistory(c, l), this.finderPenaltyCountPatterns(l);
+    finderPenaltyTerminateAndCount(r, c, l) {
+      return r && (this.finderPenaltyAddHistory(c, l), c = 0), c += this.size, this.finderPenaltyAddHistory(c, l), this.finderPenaltyCountPatterns(l);
     }
-    finderPenaltyAddHistory(i, c) {
-      c[0] == 0 && (i += this.size), c.pop(), c.unshift(i);
+    finderPenaltyAddHistory(r, c) {
+      c[0] == 0 && (r += this.size), c.pop(), c.unshift(r);
     }
   };
   let t = e;
@@ -4445,98 +2918,98 @@ var re;
     [-1, 1, 1, 2, 2, 4, 4, 6, 6, 8, 8, 8, 10, 12, 16, 12, 17, 16, 18, 21, 20, 23, 23, 25, 27, 29, 34, 34, 35, 38, 40, 43, 45, 48, 51, 53, 56, 59, 62, 65, 68],
     [-1, 1, 1, 2, 4, 4, 4, 5, 6, 8, 8, 11, 11, 16, 16, 18, 16, 19, 21, 25, 25, 25, 34, 30, 32, 35, 37, 40, 42, 45, 48, 51, 54, 57, 60, 63, 66, 70, 74, 77, 81]
   ], n.QrCode = t;
-  function s(i, c, l) {
-    if (c < 0 || c > 31 || i >>> c)
+  function s(r, c, l) {
+    if (c < 0 || c > 31 || r >>> c)
       throw new RangeError("Value out of range");
-    for (let f = c - 1; f >= 0; f--)
-      l.push(i >>> f & 1);
+    for (let p = c - 1; p >= 0; p--)
+      l.push(r >>> p & 1);
   }
-  function a(i, c) {
-    return (i >>> c & 1) != 0;
+  function a(r, c) {
+    return (r >>> c & 1) != 0;
   }
-  function o(i) {
-    if (!i)
+  function o(r) {
+    if (!r)
       throw new Error("Assertion error");
   }
   const u = class {
-    constructor(i, c, l) {
-      if (this.mode = i, this.numChars = c, this.bitData = l, c < 0)
+    constructor(r, c, l) {
+      if (this.mode = r, this.numChars = c, this.bitData = l, c < 0)
         throw new RangeError("Invalid argument");
       this.bitData = l.slice();
     }
-    static makeBytes(i) {
+    static makeBytes(r) {
       let c = [];
-      for (const l of i)
+      for (const l of r)
         s(l, 8, c);
-      return new u(u.Mode.BYTE, i.length, c);
+      return new u(u.Mode.BYTE, r.length, c);
     }
-    static makeNumeric(i) {
-      if (!u.isNumeric(i))
+    static makeNumeric(r) {
+      if (!u.isNumeric(r))
         throw new RangeError("String contains non-numeric characters");
       let c = [];
-      for (let l = 0; l < i.length; ) {
-        const f = Math.min(i.length - l, 3);
-        s(parseInt(i.substr(l, f), 10), f * 3 + 1, c), l += f;
+      for (let l = 0; l < r.length; ) {
+        const p = Math.min(r.length - l, 3);
+        s(parseInt(r.substr(l, p), 10), p * 3 + 1, c), l += p;
       }
-      return new u(u.Mode.NUMERIC, i.length, c);
+      return new u(u.Mode.NUMERIC, r.length, c);
     }
-    static makeAlphanumeric(i) {
-      if (!u.isAlphanumeric(i))
+    static makeAlphanumeric(r) {
+      if (!u.isAlphanumeric(r))
         throw new RangeError("String contains unencodable characters in alphanumeric mode");
       let c = [], l;
-      for (l = 0; l + 2 <= i.length; l += 2) {
-        let f = u.ALPHANUMERIC_CHARSET.indexOf(i.charAt(l)) * 45;
-        f += u.ALPHANUMERIC_CHARSET.indexOf(i.charAt(l + 1)), s(f, 11, c);
+      for (l = 0; l + 2 <= r.length; l += 2) {
+        let p = u.ALPHANUMERIC_CHARSET.indexOf(r.charAt(l)) * 45;
+        p += u.ALPHANUMERIC_CHARSET.indexOf(r.charAt(l + 1)), s(p, 11, c);
       }
-      return l < i.length && s(u.ALPHANUMERIC_CHARSET.indexOf(i.charAt(l)), 6, c), new u(u.Mode.ALPHANUMERIC, i.length, c);
+      return l < r.length && s(u.ALPHANUMERIC_CHARSET.indexOf(r.charAt(l)), 6, c), new u(u.Mode.ALPHANUMERIC, r.length, c);
     }
-    static makeSegments(i) {
-      return i == "" ? [] : u.isNumeric(i) ? [u.makeNumeric(i)] : u.isAlphanumeric(i) ? [u.makeAlphanumeric(i)] : [u.makeBytes(u.toUtf8ByteArray(i))];
+    static makeSegments(r) {
+      return r == "" ? [] : u.isNumeric(r) ? [u.makeNumeric(r)] : u.isAlphanumeric(r) ? [u.makeAlphanumeric(r)] : [u.makeBytes(u.toUtf8ByteArray(r))];
     }
-    static makeEci(i) {
+    static makeEci(r) {
       let c = [];
-      if (i < 0)
+      if (r < 0)
         throw new RangeError("ECI assignment value out of range");
-      if (i < 128)
-        s(i, 8, c);
-      else if (i < 16384)
-        s(2, 2, c), s(i, 14, c);
-      else if (i < 1e6)
-        s(6, 3, c), s(i, 21, c);
+      if (r < 128)
+        s(r, 8, c);
+      else if (r < 16384)
+        s(2, 2, c), s(r, 14, c);
+      else if (r < 1e6)
+        s(6, 3, c), s(r, 21, c);
       else
         throw new RangeError("ECI assignment value out of range");
       return new u(u.Mode.ECI, 0, c);
     }
-    static isNumeric(i) {
-      return u.NUMERIC_REGEX.test(i);
+    static isNumeric(r) {
+      return u.NUMERIC_REGEX.test(r);
     }
-    static isAlphanumeric(i) {
-      return u.ALPHANUMERIC_REGEX.test(i);
+    static isAlphanumeric(r) {
+      return u.ALPHANUMERIC_REGEX.test(r);
     }
     getData() {
       return this.bitData.slice();
     }
-    static getTotalBits(i, c) {
+    static getTotalBits(r, c) {
       let l = 0;
-      for (const f of i) {
-        const p = f.mode.numCharCountBits(c);
-        if (f.numChars >= 1 << p)
+      for (const p of r) {
+        const d = p.mode.numCharCountBits(c);
+        if (p.numChars >= 1 << d)
           return 1 / 0;
-        l += 4 + p + f.bitData.length;
+        l += 4 + d + p.bitData.length;
       }
       return l;
     }
-    static toUtf8ByteArray(i) {
-      i = encodeURI(i);
+    static toUtf8ByteArray(r) {
+      r = encodeURI(r);
       let c = [];
-      for (let l = 0; l < i.length; l++)
-        i.charAt(l) != "%" ? c.push(i.charCodeAt(l)) : (c.push(parseInt(i.substr(l + 1, 2), 16)), l += 2);
+      for (let l = 0; l < r.length; l++)
+        r.charAt(l) != "%" ? c.push(r.charCodeAt(l)) : (c.push(parseInt(r.substr(l + 1, 2), 16)), l += 2);
       return c;
     }
   };
-  let d = u;
-  d.NUMERIC_REGEX = /^[0-9]*$/, d.ALPHANUMERIC_REGEX = /^[A-Z0-9 $%*+.\/:-]*$/, d.ALPHANUMERIC_CHARSET = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ $%*+-./:", n.QrSegment = d;
-})(re || (re = {}));
+  let f = u;
+  f.NUMERIC_REGEX = /^[0-9]*$/, f.ALPHANUMERIC_REGEX = /^[A-Z0-9 $%*+.\/:-]*$/, f.ALPHANUMERIC_CHARSET = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ $%*+-./:", n.QrSegment = f;
+})(ae || (ae = {}));
 ((n) => {
   ((e) => {
     const t = class {
@@ -4547,7 +3020,7 @@ var re;
     let s = t;
     s.LOW = new t(0, 1), s.MEDIUM = new t(1, 0), s.QUARTILE = new t(2, 3), s.HIGH = new t(3, 2), e.Ecc = s;
   })(n.QrCode || (n.QrCode = {}));
-})(re || (re = {}));
+})(ae || (ae = {}));
 ((n) => {
   ((e) => {
     const t = class {
@@ -4561,53 +3034,53 @@ var re;
     let s = t;
     s.NUMERIC = new t(1, [10, 12, 14]), s.ALPHANUMERIC = new t(2, [9, 11, 13]), s.BYTE = new t(4, [8, 16, 16]), s.KANJI = new t(8, [8, 10, 12]), s.ECI = new t(7, [0, 0, 0]), e.Mode = s;
   })(n.QrSegment || (n.QrSegment = {}));
-})(re || (re = {}));
-var ue = re;
+})(ae || (ae = {}));
+var ue = ae;
 /**
  * @license qrcode.react
  * Copyright (c) Paul O'Shannessy
  * SPDX-License-Identifier: ISC
  */
-var cs = {
+var ns = {
   L: ue.QrCode.Ecc.LOW,
   M: ue.QrCode.Ecc.MEDIUM,
   Q: ue.QrCode.Ecc.QUARTILE,
   H: ue.QrCode.Ecc.HIGH
-}, ls = 128, us = "L", ds = "#FFFFFF", ps = "#000000", hs = !1, lt = 4, ua = 0.1;
-function fs(n, e = 0) {
+}, rs = 128, as = "L", is = "#FFFFFF", os = "#000000", cs = !1, lt = 4, Qn = 0.1;
+function ls(n, e = 0) {
   const t = [];
   return n.forEach(function(s, a) {
     let o = null;
-    s.forEach(function(u, d) {
+    s.forEach(function(u, f) {
       if (!u && o !== null) {
-        t.push(`M${o + e} ${a + e}h${d - o}v1H${o + e}z`), o = null;
+        t.push(`M${o + e} ${a + e}h${f - o}v1H${o + e}z`), o = null;
         return;
       }
-      if (d === s.length - 1) {
+      if (f === s.length - 1) {
         if (!u)
           return;
-        o === null ? t.push(`M${d + e},${a + e} h1v1H${d + e}z`) : t.push(`M${o + e},${a + e} h${d + 1 - o}v1H${o + e}z`);
+        o === null ? t.push(`M${f + e},${a + e} h1v1H${f + e}z`) : t.push(`M${o + e},${a + e} h${f + 1 - o}v1H${o + e}z`);
         return;
       }
-      u && o === null && (o = d);
+      u && o === null && (o = f);
     });
   }), t.join("");
 }
-function ms(n, e) {
+function us(n, e) {
   return n.slice().map((t, s) => s < e.y || s >= e.y + e.h ? t : t.map((a, o) => o < e.x || o >= e.x + e.w ? a : !1));
 }
-function gs(n, e, t, s) {
+function ds(n, e, t, s) {
   if (s == null)
     return null;
-  const a = t ? lt : 0, o = n.length + a * 2, u = Math.floor(e * ua), d = o / e, i = (s.width || u) * d, c = (s.height || u) * d, l = s.x == null ? n.length / 2 - i / 2 : s.x * d, f = s.y == null ? n.length / 2 - c / 2 : s.y * d;
-  let p = null;
+  const a = t ? lt : 0, o = n.length + a * 2, u = Math.floor(e * Qn), f = o / e, r = (s.width || u) * f, c = (s.height || u) * f, l = s.x == null ? n.length / 2 - r / 2 : s.x * f, p = s.y == null ? n.length / 2 - c / 2 : s.y * f;
+  let d = null;
   if (s.excavate) {
-    let g = Math.floor(l), m = Math.floor(f), x = Math.ceil(i + l - g), b = Math.ceil(c + f - m);
-    p = { x: g, y: m, w: x, h: b };
+    let g = Math.floor(l), m = Math.floor(p), x = Math.ceil(r + l - g), y = Math.ceil(c + p - m);
+    d = { x: g, y: m, w: x, h: y };
   }
-  return { x: l, y: f, h: c, w: i, excavation: p };
+  return { x: l, y: p, h: c, w: r, excavation: d };
 }
-var da = function() {
+var Gn = function() {
   try {
     new Path2D().addPath(new Path2D());
   } catch {
@@ -4615,15 +3088,15 @@ var da = function() {
   }
   return !0;
 }();
-function pa(n) {
+function Xn(n) {
   const e = n, {
     value: t,
-    size: s = ls,
-    level: a = us,
-    bgColor: o = ds,
-    fgColor: u = ps,
-    includeMargin: d = hs,
-    style: i,
+    size: s = rs,
+    level: a = as,
+    bgColor: o = is,
+    fgColor: u = os,
+    includeMargin: f = cs,
+    style: r,
     imageSettings: c
   } = e, l = ct(e, [
     "value",
@@ -4634,53 +3107,53 @@ function pa(n) {
     "includeMargin",
     "style",
     "imageSettings"
-  ]), f = c == null ? void 0 : c.src, p = ke(null), g = ke(null), [m, x] = st(!1);
+  ]), p = c == null ? void 0 : c.src, d = Ee(null), g = Ee(null), [m, x] = st(!1);
   be(() => {
-    if (p.current != null) {
-      const _ = p.current, y = _.getContext("2d");
-      if (!y)
+    if (d.current != null) {
+      const v = d.current, _ = v.getContext("2d");
+      if (!_)
         return;
-      let w = ue.QrCode.encodeText(t, cs[a]).getModules();
-      const j = d ? lt : 0, S = w.length + j * 2, T = gs(w, s, d, c), E = g.current, z = T != null && E !== null && E.complete && E.naturalHeight !== 0 && E.naturalWidth !== 0;
-      z && T.excavation != null && (w = ms(w, T.excavation));
-      const O = window.devicePixelRatio || 1;
-      _.height = _.width = s * O;
-      const k = s / S * O;
-      y.scale(k, k), y.fillStyle = o, y.fillRect(0, 0, S, S), y.fillStyle = u, da ? y.fill(new Path2D(fs(w, j))) : w.forEach(function(C, D) {
-        C.forEach(function(B, W) {
-          B && y.fillRect(W + j, D + j, 1, 1);
+      let w = ue.QrCode.encodeText(t, ns[a]).getModules();
+      const C = f ? lt : 0, S = w.length + C * 2, E = ds(w, s, f, c), T = g.current, A = E != null && T !== null && T.complete && T.naturalHeight !== 0 && T.naturalWidth !== 0;
+      A && E.excavation != null && (w = us(w, E.excavation));
+      const z = window.devicePixelRatio || 1;
+      v.height = v.width = s * z;
+      const R = s / S * z;
+      _.scale(R, R), _.fillStyle = o, _.fillRect(0, 0, S, S), _.fillStyle = u, Gn ? _.fill(new Path2D(ls(w, C))) : w.forEach(function(M, $) {
+        M.forEach(function(U, B) {
+          U && _.fillRect(B + C, $ + C, 1, 1);
         });
-      }), z && y.drawImage(E, T.x + j, T.y + j, T.w, T.h);
+      }), A && _.drawImage(T, E.x + C, E.y + C, E.w, E.h);
     }
   }), be(() => {
     x(!1);
-  }, [f]);
-  const b = ve({ height: s, width: s }, i);
-  let N = null;
-  return f != null && (N = /* @__PURE__ */ L.createElement("img", {
-    src: f,
-    key: f,
+  }, [p]);
+  const y = ve({ height: s, width: s }, r);
+  let j = null;
+  return p != null && (j = /* @__PURE__ */ L.createElement("img", {
+    src: p,
+    key: p,
     style: { display: "none" },
     onLoad: () => {
       x(!0);
     },
     ref: g
   })), /* @__PURE__ */ L.createElement(L.Fragment, null, /* @__PURE__ */ L.createElement("canvas", ve({
-    style: b,
+    style: y,
     height: s,
     width: s,
-    ref: p
-  }, l)), N);
+    ref: d
+  }, l)), j);
 }
-function ha(n) {
+function Zn(n) {
   const e = n, {
     value: t,
-    size: s = ls,
-    level: a = us,
-    bgColor: o = ds,
-    fgColor: u = ps,
-    includeMargin: d = hs,
-    imageSettings: i
+    size: s = rs,
+    level: a = as,
+    bgColor: o = is,
+    fgColor: u = os,
+    includeMargin: f = cs,
+    imageSettings: r
   } = e, c = ct(e, [
     "value",
     "size",
@@ -4690,25 +3163,25 @@ function ha(n) {
     "includeMargin",
     "imageSettings"
   ]);
-  let l = ue.QrCode.encodeText(t, cs[a]).getModules();
-  const f = d ? lt : 0, p = l.length + f * 2, g = gs(l, s, d, i);
+  let l = ue.QrCode.encodeText(t, ns[a]).getModules();
+  const p = f ? lt : 0, d = l.length + p * 2, g = ds(l, s, f, r);
   let m = null;
-  i != null && g != null && (g.excavation != null && (l = ms(l, g.excavation)), m = /* @__PURE__ */ L.createElement("image", {
-    xlinkHref: i.src,
+  r != null && g != null && (g.excavation != null && (l = us(l, g.excavation)), m = /* @__PURE__ */ L.createElement("image", {
+    xlinkHref: r.src,
     height: g.h,
     width: g.w,
-    x: g.x + f,
-    y: g.y + f,
+    x: g.x + p,
+    y: g.y + p,
     preserveAspectRatio: "none"
   }));
-  const x = fs(l, f);
+  const x = ls(l, p);
   return /* @__PURE__ */ L.createElement("svg", ve({
     height: s,
     width: s,
-    viewBox: `0 0 ${p} ${p}`
+    viewBox: `0 0 ${d} ${d}`
   }, c), /* @__PURE__ */ L.createElement("path", {
     fill: o,
-    d: `M0,0 h${p}v${p}H0z`,
+    d: `M0,0 h${d}v${d}H0z`,
     shapeRendering: "crispEdges"
   }), /* @__PURE__ */ L.createElement("path", {
     fill: u,
@@ -4716,98 +3189,98 @@ function ha(n) {
     shapeRendering: "crispEdges"
   }), m);
 }
-var fa = (n) => {
+var er = (n) => {
   const e = n, { renderAs: t } = e, s = ct(e, ["renderAs"]);
-  return t === "svg" ? /* @__PURE__ */ L.createElement(ha, ve({}, s)) : /* @__PURE__ */ L.createElement(pa, ve({}, s));
+  return t === "svg" ? /* @__PURE__ */ L.createElement(Zn, ve({}, s)) : /* @__PURE__ */ L.createElement(Xn, ve({}, s));
 };
-function ph() {
-  const { t: n } = X(), [e, t] = L.useState(window.location.origin), s = L.useRef(null), a = () => {
+function Zf() {
+  const { t: n } = Z(), [e, t] = L.useState(window.location.origin), s = L.useRef(null), a = () => {
     const o = s.current.querySelector("canvas");
     if (!o)
       return;
     const u = document.createElement("a");
     u.href = o.toDataURL("image/png"), u.download = "qr-menu.png", u.click();
   };
-  return /* @__PURE__ */ r.jsxs("div", { className: "py-10 max-w-lg mx-auto space-y-4 text-center", children: [
-    /* @__PURE__ */ r.jsx("h1", { className: "text-3xl font-bold", children: n("qr") }),
-    /* @__PURE__ */ r.jsxs("div", { className: "card p-6 flex flex-col items-center gap-4", children: [
-      /* @__PURE__ */ r.jsx("div", { ref: s, className: "bg-white p-4 rounded-2xl", children: /* @__PURE__ */ r.jsx(fa, { value: e, size: 256, includeMargin: !0 }) }),
-      /* @__PURE__ */ r.jsx("input", { value: e, onChange: (o) => t(o.target.value), className: "w-full" }),
-      /* @__PURE__ */ r.jsx("button", { className: "btn w-full", onClick: a, children: "PNG" })
+  return /* @__PURE__ */ i.jsxs("div", { className: "py-10 max-w-lg mx-auto space-y-4 text-center", children: [
+    /* @__PURE__ */ i.jsx("h1", { className: "text-3xl font-bold", children: n("qr") }),
+    /* @__PURE__ */ i.jsxs("div", { className: "card p-6 flex flex-col items-center gap-4", children: [
+      /* @__PURE__ */ i.jsx("div", { ref: s, className: "bg-white p-4 rounded-2xl", children: /* @__PURE__ */ i.jsx(er, { value: e, size: 256, includeMargin: !0 }) }),
+      /* @__PURE__ */ i.jsx("input", { value: e, onChange: (o) => t(o.target.value), className: "w-full" }),
+      /* @__PURE__ */ i.jsx("button", { className: "btn w-full", onClick: a, children: "PNG" })
     ] })
   ] });
 }
-function hh() {
-  const { t: n, i18n: e } = X(), [t, s] = L.useState(!1), a = (o) => e.language === "ar" ? o.name_ar : e.language === "he" ? o.name_he : o.name;
-  return /* @__PURE__ */ r.jsxs("div", { className: "py-8", children: [
-    /* @__PURE__ */ r.jsxs("div", { className: "text-center mb-8", children: [
-      /* @__PURE__ */ r.jsx("h1", { className: "text-3xl font-bold tracking-tight mb-4", children: n("book_table") }),
-      /* @__PURE__ */ r.jsx("p", { className: "text-white/70 max-w-2xl mx-auto", children: n("reservation_description") })
+function eh() {
+  const { t: n, i18n: e } = Z(), [t, s] = L.useState(!1), a = (o) => e.language === "ar" ? o.name_ar : e.language === "he" ? o.name_he : o.name;
+  return /* @__PURE__ */ i.jsxs("div", { className: "py-8", children: [
+    /* @__PURE__ */ i.jsxs("div", { className: "text-center mb-8", children: [
+      /* @__PURE__ */ i.jsx("h1", { className: "text-3xl font-bold tracking-tight mb-4", children: n("book_table") }),
+      /* @__PURE__ */ i.jsx("p", { className: "text-white/70 max-w-2xl mx-auto", children: n("reservation_description") })
     ] }),
-    /* @__PURE__ */ r.jsxs("div", { className: "grid md:grid-cols-2 gap-6 mb-8", children: [
-      /* @__PURE__ */ r.jsxs("div", { className: "card p-6", children: [
-        /* @__PURE__ */ r.jsxs("h3", { className: "text-lg font-semibold mb-4 flex items-center gap-2", children: [
-          /* @__PURE__ */ r.jsx(Ge, { size: 20 }),
+    /* @__PURE__ */ i.jsxs("div", { className: "grid md:grid-cols-2 gap-6 mb-8", children: [
+      /* @__PURE__ */ i.jsxs("div", { className: "card p-6", children: [
+        /* @__PURE__ */ i.jsxs("h3", { className: "text-lg font-semibold mb-4 flex items-center gap-2", children: [
+          /* @__PURE__ */ i.jsx(Ge, { size: 20 }),
           n("open_hours")
         ] }),
-        /* @__PURE__ */ r.jsxs("div", { className: "space-y-2 text-sm", children: [
-          /* @__PURE__ */ r.jsxs("div", { className: "flex justify-between", children: [
-            /* @__PURE__ */ r.jsx("span", { children: n("sun_thu") }),
-            /* @__PURE__ */ r.jsx("span", { children: P.hours["sun-thu"] })
+        /* @__PURE__ */ i.jsxs("div", { className: "space-y-2 text-sm", children: [
+          /* @__PURE__ */ i.jsxs("div", { className: "flex justify-between", children: [
+            /* @__PURE__ */ i.jsx("span", { children: n("sun_thu") }),
+            /* @__PURE__ */ i.jsx("span", { children: P.hours["sun-thu"] })
           ] }),
-          /* @__PURE__ */ r.jsxs("div", { className: "flex justify-between", children: [
-            /* @__PURE__ */ r.jsx("span", { children: n("fri") }),
-            /* @__PURE__ */ r.jsx("span", { children: P.hours.fri })
+          /* @__PURE__ */ i.jsxs("div", { className: "flex justify-between", children: [
+            /* @__PURE__ */ i.jsx("span", { children: n("fri") }),
+            /* @__PURE__ */ i.jsx("span", { children: P.hours.fri })
           ] }),
-          /* @__PURE__ */ r.jsxs("div", { className: "flex justify-between", children: [
-            /* @__PURE__ */ r.jsx("span", { children: n("sat") }),
-            /* @__PURE__ */ r.jsx("span", { children: P.hours.sat })
+          /* @__PURE__ */ i.jsxs("div", { className: "flex justify-between", children: [
+            /* @__PURE__ */ i.jsx("span", { children: n("sat") }),
+            /* @__PURE__ */ i.jsx("span", { children: P.hours.sat })
           ] })
         ] })
       ] }),
-      /* @__PURE__ */ r.jsxs("div", { className: "card p-6", children: [
-        /* @__PURE__ */ r.jsxs("h3", { className: "text-lg font-semibold mb-4 flex items-center gap-2", children: [
-          /* @__PURE__ */ r.jsx(rt, { size: 20 }),
+      /* @__PURE__ */ i.jsxs("div", { className: "card p-6", children: [
+        /* @__PURE__ */ i.jsxs("h3", { className: "text-lg font-semibold mb-4 flex items-center gap-2", children: [
+          /* @__PURE__ */ i.jsx(at, { size: 20 }),
           n("reservation_area")
         ] }),
-        /* @__PURE__ */ r.jsx("div", { className: "space-y-2", children: P.reservation.areas.map((o) => /* @__PURE__ */ r.jsxs("div", { className: "flex items-center gap-2 text-sm", children: [
-          /* @__PURE__ */ r.jsx("div", { className: "w-2 h-2 bg-green-400 rounded-full" }),
-          /* @__PURE__ */ r.jsx("span", { children: a(o) })
+        /* @__PURE__ */ i.jsx("div", { className: "space-y-2", children: P.reservation.areas.map((o) => /* @__PURE__ */ i.jsxs("div", { className: "flex items-center gap-2 text-sm", children: [
+          /* @__PURE__ */ i.jsx("div", { className: "w-2 h-2 bg-green-400 rounded-full" }),
+          /* @__PURE__ */ i.jsx("span", { children: a(o) })
         ] }, o.id)) })
       ] })
     ] }),
-    /* @__PURE__ */ r.jsxs("div", { className: "card p-6 mb-8", children: [
-      /* @__PURE__ */ r.jsxs("h3", { className: "text-lg font-semibold mb-4 flex items-center gap-2", children: [
-        /* @__PURE__ */ r.jsx(Ee, { size: 20 }),
+    /* @__PURE__ */ i.jsxs("div", { className: "card p-6 mb-8", children: [
+      /* @__PURE__ */ i.jsxs("h3", { className: "text-lg font-semibold mb-4 flex items-center gap-2", children: [
+        /* @__PURE__ */ i.jsx(ke, { size: 20 }),
         n("reservation")
       ] }),
-      /* @__PURE__ */ r.jsxs("div", { className: "grid md:grid-cols-3 gap-4 mb-6", children: [
-        /* @__PURE__ */ r.jsxs("div", { className: "text-center", children: [
-          /* @__PURE__ */ r.jsx("div", { className: "w-12 h-12 bg-green-400/20 rounded-full flex items-center justify-center mx-auto mb-2", children: /* @__PURE__ */ r.jsx(Ee, { size: 24, className: "text-green-400" }) }),
-          /* @__PURE__ */ r.jsxs("div", { className: "text-sm font-medium", children: [
+      /* @__PURE__ */ i.jsxs("div", { className: "grid md:grid-cols-3 gap-4 mb-6", children: [
+        /* @__PURE__ */ i.jsxs("div", { className: "text-center", children: [
+          /* @__PURE__ */ i.jsx("div", { className: "w-12 h-12 bg-green-400/20 rounded-full flex items-center justify-center mx-auto mb-2", children: /* @__PURE__ */ i.jsx(ke, { size: 24, className: "text-green-400" }) }),
+          /* @__PURE__ */ i.jsxs("div", { className: "text-sm font-medium", children: [
             "1. ",
             n("reservation_date")
           ] }),
-          /* @__PURE__ */ r.jsx("div", { className: "text-xs text-white/60", children: n("choose_date") })
+          /* @__PURE__ */ i.jsx("div", { className: "text-xs text-white/60", children: n("choose_date") })
         ] }),
-        /* @__PURE__ */ r.jsxs("div", { className: "text-center", children: [
-          /* @__PURE__ */ r.jsx("div", { className: "w-12 h-12 bg-blue-400/20 rounded-full flex items-center justify-center mx-auto mb-2", children: /* @__PURE__ */ r.jsx(Ge, { size: 24, className: "text-blue-400" }) }),
-          /* @__PURE__ */ r.jsxs("div", { className: "text-sm font-medium", children: [
+        /* @__PURE__ */ i.jsxs("div", { className: "text-center", children: [
+          /* @__PURE__ */ i.jsx("div", { className: "w-12 h-12 bg-blue-400/20 rounded-full flex items-center justify-center mx-auto mb-2", children: /* @__PURE__ */ i.jsx(Ge, { size: 24, className: "text-blue-400" }) }),
+          /* @__PURE__ */ i.jsxs("div", { className: "text-sm font-medium", children: [
             "2. ",
             n("reservation_time")
           ] }),
-          /* @__PURE__ */ r.jsx("div", { className: "text-xs text-white/60", children: n("select_time") })
+          /* @__PURE__ */ i.jsx("div", { className: "text-xs text-white/60", children: n("select_time") })
         ] }),
-        /* @__PURE__ */ r.jsxs("div", { className: "text-center", children: [
-          /* @__PURE__ */ r.jsx("div", { className: "w-12 h-12 bg-purple-400/20 rounded-full flex items-center justify-center mx-auto mb-2", children: /* @__PURE__ */ r.jsx(Gt, { size: 24, className: "text-purple-400" }) }),
-          /* @__PURE__ */ r.jsxs("div", { className: "text-sm font-medium", children: [
+        /* @__PURE__ */ i.jsxs("div", { className: "text-center", children: [
+          /* @__PURE__ */ i.jsx("div", { className: "w-12 h-12 bg-purple-400/20 rounded-full flex items-center justify-center mx-auto mb-2", children: /* @__PURE__ */ i.jsx(Jt, { size: 24, className: "text-purple-400" }) }),
+          /* @__PURE__ */ i.jsxs("div", { className: "text-sm font-medium", children: [
             "3. ",
             n("reservation_guests")
           ] }),
-          /* @__PURE__ */ r.jsx("div", { className: "text-xs text-white/60", children: n("number_people") })
+          /* @__PURE__ */ i.jsx("div", { className: "text-xs text-white/60", children: n("number_people") })
         ] })
       ] }),
-      /* @__PURE__ */ r.jsx(
+      /* @__PURE__ */ i.jsx(
         "button",
         {
           onClick: () => s(!0),
@@ -4816,85 +3289,85 @@ function hh() {
         }
       )
     ] }),
-    /* @__PURE__ */ r.jsxs("div", { className: "card p-6 bg-blue-500/10 border-blue-500/20", children: [
-      /* @__PURE__ */ r.jsxs("h3", { className: "text-lg font-semibold mb-3 flex items-center gap-2", children: [
-        /* @__PURE__ */ r.jsx(it, { size: 20 }),
+    /* @__PURE__ */ i.jsxs("div", { className: "card p-6 bg-blue-500/10 border-blue-500/20", children: [
+      /* @__PURE__ */ i.jsxs("h3", { className: "text-lg font-semibold mb-3 flex items-center gap-2", children: [
+        /* @__PURE__ */ i.jsx(it, { size: 20 }),
         n("important_notice")
       ] }),
-      /* @__PURE__ */ r.jsxs("div", { className: "space-y-2 text-sm text-white/80", children: [
-        /* @__PURE__ */ r.jsxs("p", { children: [
+      /* @__PURE__ */ i.jsxs("div", { className: "space-y-2 text-sm text-white/80", children: [
+        /* @__PURE__ */ i.jsxs("p", { children: [
           "• ",
           n("reservation_wait")
         ] }),
-        /* @__PURE__ */ r.jsxs("p", { children: [
+        /* @__PURE__ */ i.jsxs("p", { children: [
           "• ",
           n("reservation_no_response")
         ] })
       ] }),
-      /* @__PURE__ */ r.jsxs("div", { className: "mt-4 flex items-center gap-2 text-sm", children: [
-        /* @__PURE__ */ r.jsx(ot, { size: 16 }),
-        /* @__PURE__ */ r.jsxs("span", { children: [
+      /* @__PURE__ */ i.jsxs("div", { className: "mt-4 flex items-center gap-2 text-sm", children: [
+        /* @__PURE__ */ i.jsx(ot, { size: 16 }),
+        /* @__PURE__ */ i.jsxs("span", { children: [
           n("need_assistance"),
           " "
         ] }),
-        /* @__PURE__ */ r.jsx("a", { href: `tel:${P.phone}`, className: "text-green-400 hover:underline", children: P.phone })
+        /* @__PURE__ */ i.jsx("a", { href: `tel:${P.phone}`, className: "text-green-400 hover:underline", children: P.phone })
       ] })
     ] }),
-    /* @__PURE__ */ r.jsx(oa, { open: t, onClose: () => s(!1) })
+    /* @__PURE__ */ i.jsx(Kn, { open: t, onClose: () => s(!1) })
   ] });
 }
-function fh() {
-  const { t: n } = X(), e = Le();
+function th() {
+  const { t: n } = Z(), e = Le();
   return L.useEffect(() => {
     document.documentElement.scrollTop = 0, document.body.scrollTop = 0, setTimeout(() => {
       window.scrollTo({ top: 0, left: 0, behavior: "auto" });
     }, 0);
-  }, []), /* @__PURE__ */ r.jsx("div", { className: "py-8", children: /* @__PURE__ */ r.jsxs("div", { className: "max-w-4xl mx-auto", children: [
-    /* @__PURE__ */ r.jsxs(
+  }, []), /* @__PURE__ */ i.jsx("div", { className: "py-8", children: /* @__PURE__ */ i.jsxs("div", { className: "max-w-4xl mx-auto", children: [
+    /* @__PURE__ */ i.jsxs(
       "button",
       {
         onClick: () => e("/"),
         className: "btn-outline flex items-center gap-2 mb-6",
         children: [
-          /* @__PURE__ */ r.jsx(at, { size: 16 }),
+          /* @__PURE__ */ i.jsx(rt, { size: 16 }),
           n("back_to_menu")
         ]
       }
     ),
-    /* @__PURE__ */ r.jsx("h1", { className: "text-3xl font-bold mb-8", children: n("terms_of_service") }),
-    /* @__PURE__ */ r.jsxs("div", { className: "space-y-6 text-white/80 leading-relaxed", children: [
-      /* @__PURE__ */ r.jsxs("section", { children: [
-        /* @__PURE__ */ r.jsx("h2", { className: "text-xl font-semibold mb-4 text-white", children: n("terms_acceptance") }),
-        /* @__PURE__ */ r.jsx("p", { children: n("terms_acceptance_text") })
+    /* @__PURE__ */ i.jsx("h1", { className: "text-3xl font-bold mb-8", children: n("terms_of_service") }),
+    /* @__PURE__ */ i.jsxs("div", { className: "space-y-6 text-white/80 leading-relaxed", children: [
+      /* @__PURE__ */ i.jsxs("section", { children: [
+        /* @__PURE__ */ i.jsx("h2", { className: "text-xl font-semibold mb-4 text-white", children: n("terms_acceptance") }),
+        /* @__PURE__ */ i.jsx("p", { children: n("terms_acceptance_text") })
       ] }),
-      /* @__PURE__ */ r.jsxs("section", { children: [
-        /* @__PURE__ */ r.jsx("h2", { className: "text-xl font-semibold mb-4 text-white", children: n("terms_service_usage") }),
-        /* @__PURE__ */ r.jsx("p", { children: n("terms_service_usage_text") })
+      /* @__PURE__ */ i.jsxs("section", { children: [
+        /* @__PURE__ */ i.jsx("h2", { className: "text-xl font-semibold mb-4 text-white", children: n("terms_service_usage") }),
+        /* @__PURE__ */ i.jsx("p", { children: n("terms_service_usage_text") })
       ] }),
-      /* @__PURE__ */ r.jsxs("section", { children: [
-        /* @__PURE__ */ r.jsx("h2", { className: "text-xl font-semibold mb-4 text-white", children: n("terms_orders") }),
-        /* @__PURE__ */ r.jsx("p", { children: n("terms_orders_text") })
+      /* @__PURE__ */ i.jsxs("section", { children: [
+        /* @__PURE__ */ i.jsx("h2", { className: "text-xl font-semibold mb-4 text-white", children: n("terms_orders") }),
+        /* @__PURE__ */ i.jsx("p", { children: n("terms_orders_text") })
       ] }),
-      /* @__PURE__ */ r.jsxs("section", { children: [
-        /* @__PURE__ */ r.jsx("h2", { className: "text-xl font-semibold mb-4 text-white", children: n("terms_payment") }),
-        /* @__PURE__ */ r.jsx("p", { children: n("terms_payment_text") })
+      /* @__PURE__ */ i.jsxs("section", { children: [
+        /* @__PURE__ */ i.jsx("h2", { className: "text-xl font-semibold mb-4 text-white", children: n("terms_payment") }),
+        /* @__PURE__ */ i.jsx("p", { children: n("terms_payment_text") })
       ] }),
-      /* @__PURE__ */ r.jsxs("section", { children: [
-        /* @__PURE__ */ r.jsx("h2", { className: "text-xl font-semibold mb-4 text-white", children: n("terms_liability") }),
-        /* @__PURE__ */ r.jsx("p", { children: n("terms_liability_text") })
+      /* @__PURE__ */ i.jsxs("section", { children: [
+        /* @__PURE__ */ i.jsx("h2", { className: "text-xl font-semibold mb-4 text-white", children: n("terms_liability") }),
+        /* @__PURE__ */ i.jsx("p", { children: n("terms_liability_text") })
       ] }),
-      /* @__PURE__ */ r.jsxs("section", { children: [
-        /* @__PURE__ */ r.jsx("h2", { className: "text-xl font-semibold mb-4 text-white", children: n("terms_changes") }),
-        /* @__PURE__ */ r.jsx("p", { children: n("terms_changes_text") })
+      /* @__PURE__ */ i.jsxs("section", { children: [
+        /* @__PURE__ */ i.jsx("h2", { className: "text-xl font-semibold mb-4 text-white", children: n("terms_changes") }),
+        /* @__PURE__ */ i.jsx("p", { children: n("terms_changes_text") })
       ] }),
-      /* @__PURE__ */ r.jsxs("div", { className: "pt-6 border-t border-white/10 text-sm text-white/60", children: [
+      /* @__PURE__ */ i.jsxs("div", { className: "pt-6 border-t border-white/10 text-sm text-white/60", children: [
         n("last_updated"),
         ": 26.9.2025"
       ] })
     ] })
   ] }) });
 }
-const ma = {
+const tr = {
   type: "logger",
   log(n) {
     this.output("log", n);
@@ -4916,7 +3389,7 @@ class Oe {
   }
   init(e) {
     let t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
-    this.prefix = t.prefix || "i18next:", this.logger = e || ma, this.options = t, this.debug = t.debug;
+    this.prefix = t.prefix || "i18next:", this.logger = e || tr, this.options = t, this.debug = t.debug;
   }
   log() {
     for (var e = arguments.length, t = new Array(e), s = 0; s < e; s++)
@@ -4976,13 +3449,13 @@ class Ie {
     for (var t = arguments.length, s = new Array(t > 1 ? t - 1 : 0), a = 1; a < t; a++)
       s[a - 1] = arguments[a];
     this.observers[e] && Array.from(this.observers[e].entries()).forEach((u) => {
-      let [d, i] = u;
-      for (let c = 0; c < i; c++)
-        d(...s);
+      let [f, r] = u;
+      for (let c = 0; c < r; c++)
+        f(...s);
     }), this.observers["*"] && Array.from(this.observers["*"].entries()).forEach((u) => {
-      let [d, i] = u;
-      for (let c = 0; c < i; c++)
-        d.apply(d, [e, ...s]);
+      let [f, r] = u;
+      for (let c = 0; c < r; c++)
+        f.apply(f, [e, ...s]);
     });
   }
 }
@@ -4993,18 +3466,18 @@ function _e() {
   });
   return t.resolve = n, t.reject = e, t;
 }
-function Mt(n) {
+function Tt(n) {
   return n == null ? "" : "" + n;
 }
-function ga(n, e, t) {
+function sr(n, e, t) {
   n.forEach((s) => {
     e[s] && (t[s] = e[s]);
   });
 }
-const _a = /###/g;
+const nr = /###/g;
 function ye(n, e, t) {
-  function s(d) {
-    return d && d.indexOf("###") > -1 ? d.replace(_a, ".") : d;
+  function s(f) {
+    return f && f.indexOf("###") > -1 ? f.replace(nr, ".") : f;
   }
   function a() {
     return !n || typeof n == "string";
@@ -5014,15 +3487,15 @@ function ye(n, e, t) {
   for (; u < o.length - 1; ) {
     if (a())
       return {};
-    const d = s(o[u]);
-    !n[d] && t && (n[d] = new t()), Object.prototype.hasOwnProperty.call(n, d) ? n = n[d] : n = {}, ++u;
+    const f = s(o[u]);
+    !n[f] && t && (n[f] = new t()), Object.prototype.hasOwnProperty.call(n, f) ? n = n[f] : n = {}, ++u;
   }
   return a() ? {} : {
     obj: n,
     k: s(o[u])
   };
 }
-function It(n, e, t) {
+function Lt(n, e, t) {
   const {
     obj: s,
     k: a
@@ -5031,12 +3504,12 @@ function It(n, e, t) {
     s[a] = t;
     return;
   }
-  let o = e[e.length - 1], u = e.slice(0, e.length - 1), d = ye(n, u, Object);
-  for (; d.obj === void 0 && u.length; )
-    o = `${u[u.length - 1]}.${o}`, u = u.slice(0, u.length - 1), d = ye(n, u, Object), d && d.obj && typeof d.obj[`${d.k}.${o}`] < "u" && (d.obj = void 0);
-  d.obj[`${d.k}.${o}`] = t;
+  let o = e[e.length - 1], u = e.slice(0, e.length - 1), f = ye(n, u, Object);
+  for (; f.obj === void 0 && u.length; )
+    o = `${u[u.length - 1]}.${o}`, u = u.slice(0, u.length - 1), f = ye(n, u, Object), f && f.obj && typeof f.obj[`${f.k}.${o}`] < "u" && (f.obj = void 0);
+  f.obj[`${f.k}.${o}`] = t;
 }
-function xa(n, e, t, s) {
+function rr(n, e, t, s) {
   const {
     obj: a,
     k: o
@@ -5051,19 +3524,19 @@ function Pe(n, e) {
   if (t)
     return t[s];
 }
-function ya(n, e, t) {
+function ar(n, e, t) {
   const s = Pe(n, t);
   return s !== void 0 ? s : Pe(e, t);
 }
-function _s(n, e, t) {
+function fs(n, e, t) {
   for (const s in e)
-    s !== "__proto__" && s !== "constructor" && (s in n ? typeof n[s] == "string" || n[s] instanceof String || typeof e[s] == "string" || e[s] instanceof String ? t && (n[s] = e[s]) : _s(n[s], e[s], t) : n[s] = e[s]);
+    s !== "__proto__" && s !== "constructor" && (s in n ? typeof n[s] == "string" || n[s] instanceof String || typeof e[s] == "string" || e[s] instanceof String ? t && (n[s] = e[s]) : fs(n[s], e[s], t) : n[s] = e[s]);
   return n;
 }
 function ce(n) {
   return n.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
 }
-var ba = {
+var ir = {
   "&": "&amp;",
   "<": "&lt;",
   ">": "&gt;",
@@ -5071,10 +3544,10 @@ var ba = {
   "'": "&#39;",
   "/": "&#x2F;"
 };
-function va(n) {
-  return typeof n == "string" ? n.replace(/[&<>"'\/]/g, (e) => ba[e]) : n;
+function or(n) {
+  return typeof n == "string" ? n.replace(/[&<>"'\/]/g, (e) => ir[e]) : n;
 }
-class wa {
+class cr {
   constructor(e) {
     this.capacity = e, this.regExpMap = /* @__PURE__ */ new Map(), this.regExpQueue = [];
   }
@@ -5086,13 +3559,13 @@ class wa {
     return this.regExpQueue.length === this.capacity && this.regExpMap.delete(this.regExpQueue.shift()), this.regExpMap.set(e, s), this.regExpQueue.push(e), s;
   }
 }
-const ja = [" ", ",", "?", "!", ";"], Na = new wa(20);
-function $a(n, e, t) {
+const lr = [" ", ",", "?", "!", ";"], ur = new cr(20);
+function dr(n, e, t) {
   e = e || "", t = t || "";
-  const s = ja.filter((u) => e.indexOf(u) < 0 && t.indexOf(u) < 0);
+  const s = lr.filter((u) => e.indexOf(u) < 0 && t.indexOf(u) < 0);
   if (s.length === 0)
     return !0;
-  const a = Na.getRegExp(`(${s.map((u) => u === "?" ? "\\?" : u).join("|")})`);
+  const a = ur.getRegExp(`(${s.map((u) => u === "?" ? "\\?" : u).join("|")})`);
   let o = !a.test(n);
   if (!o) {
     const u = n.indexOf(t);
@@ -5111,22 +3584,22 @@ function tt(n, e) {
   for (let o = 0; o < s.length; ) {
     if (!a || typeof a != "object")
       return;
-    let u, d = "";
-    for (let i = o; i < s.length; ++i)
-      if (i !== o && (d += t), d += s[i], u = a[d], u !== void 0) {
-        if (["string", "number", "boolean"].indexOf(typeof u) > -1 && i < s.length - 1)
+    let u, f = "";
+    for (let r = o; r < s.length; ++r)
+      if (r !== o && (f += t), f += s[r], u = a[f], u !== void 0) {
+        if (["string", "number", "boolean"].indexOf(typeof u) > -1 && r < s.length - 1)
           continue;
-        o += i - o + 1;
+        o += r - o + 1;
         break;
       }
     a = u;
   }
   return a;
 }
-function Te(n) {
+function Ae(n) {
   return n && n.indexOf("_") > 0 ? n.replace("_", "-") : n;
 }
-class zt extends Ie {
+class Mt extends Ie {
   constructor(e) {
     let t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {
       ns: ["translation"],
@@ -5144,18 +3617,18 @@ class zt extends Ie {
   getResource(e, t, s) {
     let a = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : {};
     const o = a.keySeparator !== void 0 ? a.keySeparator : this.options.keySeparator, u = a.ignoreJSONStructure !== void 0 ? a.ignoreJSONStructure : this.options.ignoreJSONStructure;
-    let d;
-    e.indexOf(".") > -1 ? d = e.split(".") : (d = [e, t], s && (Array.isArray(s) ? d.push(...s) : typeof s == "string" && o ? d.push(...s.split(o)) : d.push(s)));
-    const i = Pe(this.data, d);
-    return !i && !t && !s && e.indexOf(".") > -1 && (e = d[0], t = d[1], s = d.slice(2).join(".")), i || !u || typeof s != "string" ? i : tt(this.data && this.data[e] && this.data[e][t], s, o);
+    let f;
+    e.indexOf(".") > -1 ? f = e.split(".") : (f = [e, t], s && (Array.isArray(s) ? f.push(...s) : typeof s == "string" && o ? f.push(...s.split(o)) : f.push(s)));
+    const r = Pe(this.data, f);
+    return !r && !t && !s && e.indexOf(".") > -1 && (e = f[0], t = f[1], s = f.slice(2).join(".")), r || !u || typeof s != "string" ? r : tt(this.data && this.data[e] && this.data[e][t], s, o);
   }
   addResource(e, t, s, a) {
     let o = arguments.length > 4 && arguments[4] !== void 0 ? arguments[4] : {
       silent: !1
     };
     const u = o.keySeparator !== void 0 ? o.keySeparator : this.options.keySeparator;
-    let d = [e, t];
-    s && (d = d.concat(u ? s.split(u) : s)), e.indexOf(".") > -1 && (d = e.split("."), a = t, t = d[1]), this.addNamespaces(t), It(this.data, d, a), o.silent || this.emit("added", e, t, s, a);
+    let f = [e, t];
+    s && (f = f.concat(u ? s.split(u) : s)), e.indexOf(".") > -1 && (f = e.split("."), a = t, t = f[1]), this.addNamespaces(t), Lt(this.data, f, a), o.silent || this.emit("added", e, t, s, a);
   }
   addResources(e, t, s) {
     let a = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : {
@@ -5171,13 +3644,13 @@ class zt extends Ie {
     let u = arguments.length > 5 && arguments[5] !== void 0 ? arguments[5] : {
       silent: !1,
       skipCopy: !1
-    }, d = [e, t];
-    e.indexOf(".") > -1 && (d = e.split("."), a = s, s = t, t = d[1]), this.addNamespaces(t);
-    let i = Pe(this.data, d) || {};
-    u.skipCopy || (s = JSON.parse(JSON.stringify(s))), a ? _s(i, s, o) : i = {
-      ...i,
+    }, f = [e, t];
+    e.indexOf(".") > -1 && (f = e.split("."), a = s, s = t, t = f[1]), this.addNamespaces(t);
+    let r = Pe(this.data, f) || {};
+    u.skipCopy || (s = JSON.parse(JSON.stringify(s))), a ? fs(r, s, o) : r = {
+      ...r,
       ...s
-    }, It(this.data, d, i), u.silent || this.emit("added", e, t, s);
+    }, Lt(this.data, f, r), u.silent || this.emit("added", e, t, s);
   }
   removeResourceBundle(e, t) {
     this.hasResourceBundle(e, t) && delete this.data[e][t], this.removeNamespaces(t), this.emit("removed", e, t);
@@ -5201,7 +3674,7 @@ class zt extends Ie {
     return this.data;
   }
 }
-var xs = {
+var hs = {
   processors: {},
   addPostProcessor(n) {
     this.processors[n.name] = n;
@@ -5212,11 +3685,11 @@ var xs = {
     }), e;
   }
 };
-const Ft = {};
-class Ae extends Ie {
+const It = {};
+class Te extends Ie {
   constructor(e) {
     let t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
-    super(), ga(["resourceStore", "languageUtils", "pluralResolver", "interpolator", "backendConnector", "i18nFormat", "utils"], e, this), this.options = t, this.options.keySeparator === void 0 && (this.options.keySeparator = "."), this.logger = te.create("translator");
+    super(), sr(["resourceStore", "languageUtils", "pluralResolver", "interpolator", "backendConnector", "i18nFormat", "utils"], e, this), this.options = t, this.options.keySeparator === void 0 && (this.options.keySeparator = "."), this.logger = te.create("translator");
   }
   changeLanguage(e) {
     e && (this.language = e);
@@ -5235,10 +3708,10 @@ class Ae extends Ie {
     s === void 0 && (s = ":");
     const a = t.keySeparator !== void 0 ? t.keySeparator : this.options.keySeparator;
     let o = t.ns || this.options.defaultNS || [];
-    const u = s && e.indexOf(s) > -1, d = !this.options.userDefinedKeySeparator && !t.keySeparator && !this.options.userDefinedNsSeparator && !t.nsSeparator && !$a(e, s, a);
-    if (u && !d) {
-      const i = e.match(this.interpolator.nestingRegexp);
-      if (i && i.length > 0)
+    const u = s && e.indexOf(s) > -1, f = !this.options.userDefinedKeySeparator && !t.keySeparator && !this.options.userDefinedNsSeparator && !t.nsSeparator && !dr(e, s, a);
+    if (u && !f) {
+      const r = e.match(this.interpolator.nestingRegexp);
+      if (r && r.length > 0)
         return {
           key: e,
           namespaces: o
@@ -5259,92 +3732,92 @@ class Ae extends Ie {
     Array.isArray(e) || (e = [String(e)]);
     const a = t.returnDetails !== void 0 ? t.returnDetails : this.options.returnDetails, o = t.keySeparator !== void 0 ? t.keySeparator : this.options.keySeparator, {
       key: u,
-      namespaces: d
-    } = this.extractFromKey(e[e.length - 1], t), i = d[d.length - 1], c = t.lng || this.language, l = t.appendNamespaceToCIMode || this.options.appendNamespaceToCIMode;
+      namespaces: f
+    } = this.extractFromKey(e[e.length - 1], t), r = f[f.length - 1], c = t.lng || this.language, l = t.appendNamespaceToCIMode || this.options.appendNamespaceToCIMode;
     if (c && c.toLowerCase() === "cimode") {
       if (l) {
         const w = t.nsSeparator || this.options.nsSeparator;
         return a ? {
-          res: `${i}${w}${u}`,
+          res: `${r}${w}${u}`,
           usedKey: u,
           exactUsedKey: u,
           usedLng: c,
-          usedNS: i,
+          usedNS: r,
           usedParams: this.getUsedParamsDetails(t)
-        } : `${i}${w}${u}`;
+        } : `${r}${w}${u}`;
       }
       return a ? {
         res: u,
         usedKey: u,
         exactUsedKey: u,
         usedLng: c,
-        usedNS: i,
+        usedNS: r,
         usedParams: this.getUsedParamsDetails(t)
       } : u;
     }
-    const f = this.resolve(e, t);
-    let p = f && f.res;
-    const g = f && f.usedKey || u, m = f && f.exactUsedKey || u, x = Object.prototype.toString.apply(p), b = ["[object Number]", "[object Function]", "[object RegExp]"], N = t.joinArrays !== void 0 ? t.joinArrays : this.options.joinArrays, _ = !this.i18nFormat || this.i18nFormat.handleAsObject;
-    if (_ && p && (typeof p != "string" && typeof p != "boolean" && typeof p != "number") && b.indexOf(x) < 0 && !(typeof N == "string" && x === "[object Array]")) {
+    const p = this.resolve(e, t);
+    let d = p && p.res;
+    const g = p && p.usedKey || u, m = p && p.exactUsedKey || u, x = Object.prototype.toString.apply(d), y = ["[object Number]", "[object Function]", "[object RegExp]"], j = t.joinArrays !== void 0 ? t.joinArrays : this.options.joinArrays, v = !this.i18nFormat || this.i18nFormat.handleAsObject;
+    if (v && d && (typeof d != "string" && typeof d != "boolean" && typeof d != "number") && y.indexOf(x) < 0 && !(typeof j == "string" && x === "[object Array]")) {
       if (!t.returnObjects && !this.options.returnObjects) {
         this.options.returnedObjectHandler || this.logger.warn("accessing an object - but returnObjects options is not enabled!");
-        const w = this.options.returnedObjectHandler ? this.options.returnedObjectHandler(g, p, {
+        const w = this.options.returnedObjectHandler ? this.options.returnedObjectHandler(g, d, {
           ...t,
-          ns: d
+          ns: f
         }) : `key '${u} (${this.language})' returned an object instead of string.`;
-        return a ? (f.res = w, f.usedParams = this.getUsedParamsDetails(t), f) : w;
+        return a ? (p.res = w, p.usedParams = this.getUsedParamsDetails(t), p) : w;
       }
       if (o) {
-        const w = x === "[object Array]", j = w ? [] : {}, S = w ? m : g;
-        for (const T in p)
-          if (Object.prototype.hasOwnProperty.call(p, T)) {
-            const E = `${S}${o}${T}`;
-            j[T] = this.translate(E, {
+        const w = x === "[object Array]", C = w ? [] : {}, S = w ? m : g;
+        for (const E in d)
+          if (Object.prototype.hasOwnProperty.call(d, E)) {
+            const T = `${S}${o}${E}`;
+            C[E] = this.translate(T, {
               ...t,
               joinArrays: !1,
-              ns: d
-            }), j[T] === E && (j[T] = p[T]);
+              ns: f
+            }), C[E] === T && (C[E] = d[E]);
           }
-        p = j;
+        d = C;
       }
-    } else if (_ && typeof N == "string" && x === "[object Array]")
-      p = p.join(N), p && (p = this.extendTranslation(p, e, t, s));
+    } else if (v && typeof j == "string" && x === "[object Array]")
+      d = d.join(j), d && (d = this.extendTranslation(d, e, t, s));
     else {
-      let w = !1, j = !1;
-      const S = t.count !== void 0 && typeof t.count != "string", T = Ae.hasDefaultValue(t), E = S ? this.pluralResolver.getSuffix(c, t.count, t) : "", z = t.ordinal && S ? this.pluralResolver.getSuffix(c, t.count, {
+      let w = !1, C = !1;
+      const S = t.count !== void 0 && typeof t.count != "string", E = Te.hasDefaultValue(t), T = S ? this.pluralResolver.getSuffix(c, t.count, t) : "", A = t.ordinal && S ? this.pluralResolver.getSuffix(c, t.count, {
         ordinal: !1
-      }) : "", O = S && !t.ordinal && t.count === 0 && this.pluralResolver.shouldUseIntlApi(), k = O && t[`defaultValue${this.options.pluralSeparator}zero`] || t[`defaultValue${E}`] || t[`defaultValue${z}`] || t.defaultValue;
-      !this.isValidLookup(p) && T && (w = !0, p = k), this.isValidLookup(p) || (j = !0, p = u);
-      const D = (t.missingKeyNoValueFallbackToKey || this.options.missingKeyNoValueFallbackToKey) && j ? void 0 : p, B = T && k !== p && this.options.updateMissing;
-      if (j || w || B) {
-        if (this.logger.log(B ? "updateKey" : "missingKey", c, i, u, B ? k : p), o) {
-          const U = this.resolve(u, {
+      }) : "", z = S && !t.ordinal && t.count === 0 && this.pluralResolver.shouldUseIntlApi(), R = z && t[`defaultValue${this.options.pluralSeparator}zero`] || t[`defaultValue${T}`] || t[`defaultValue${A}`] || t.defaultValue;
+      !this.isValidLookup(d) && E && (w = !0, d = R), this.isValidLookup(d) || (C = !0, d = u);
+      const $ = (t.missingKeyNoValueFallbackToKey || this.options.missingKeyNoValueFallbackToKey) && C ? void 0 : d, U = E && R !== d && this.options.updateMissing;
+      if (C || w || U) {
+        if (this.logger.log(U ? "updateKey" : "missingKey", c, r, u, U ? R : d), o) {
+          const k = this.resolve(u, {
             ...t,
             keySeparator: !1
           });
-          U && U.res && this.logger.warn("Seems the loaded translations were in flat JSON format instead of nested. Either set keySeparator: false on init or make sure your translations are published in nested format.");
+          k && k.res && this.logger.warn("Seems the loaded translations were in flat JSON format instead of nested. Either set keySeparator: false on init or make sure your translations are published in nested format.");
         }
-        let W = [];
-        const q = this.languageUtils.getFallbackCodes(this.options.fallbackLng, t.lng || this.language);
-        if (this.options.saveMissingTo === "fallback" && q && q[0])
-          for (let U = 0; U < q.length; U++)
-            W.push(q[U]);
+        let B = [];
+        const Y = this.languageUtils.getFallbackCodes(this.options.fallbackLng, t.lng || this.language);
+        if (this.options.saveMissingTo === "fallback" && Y && Y[0])
+          for (let k = 0; k < Y.length; k++)
+            B.push(Y[k]);
         else
-          this.options.saveMissingTo === "all" ? W = this.languageUtils.toResolveHierarchy(t.lng || this.language) : W.push(t.lng || this.language);
-        const A = (U, ee, se) => {
-          const pe = T && se !== p ? se : D;
-          this.options.missingKeyHandler ? this.options.missingKeyHandler(U, i, ee, pe, B, t) : this.backendConnector && this.backendConnector.saveMissing && this.backendConnector.saveMissing(U, i, ee, pe, B, t), this.emit("missingKey", U, i, ee, p);
+          this.options.saveMissingTo === "all" ? B = this.languageUtils.toResolveHierarchy(t.lng || this.language) : B.push(t.lng || this.language);
+        const W = (k, q, se) => {
+          const fe = E && se !== d ? se : $;
+          this.options.missingKeyHandler ? this.options.missingKeyHandler(k, r, q, fe, U, t) : this.backendConnector && this.backendConnector.saveMissing && this.backendConnector.saveMissing(k, r, q, fe, U, t), this.emit("missingKey", k, r, q, d);
         };
-        this.options.saveMissing && (this.options.saveMissingPlurals && S ? W.forEach((U) => {
-          const ee = this.pluralResolver.getSuffixes(U, t);
-          O && t[`defaultValue${this.options.pluralSeparator}zero`] && ee.indexOf(`${this.options.pluralSeparator}zero`) < 0 && ee.push(`${this.options.pluralSeparator}zero`), ee.forEach((se) => {
-            A([U], u + se, t[`defaultValue${se}`] || k);
+        this.options.saveMissing && (this.options.saveMissingPlurals && S ? B.forEach((k) => {
+          const q = this.pluralResolver.getSuffixes(k, t);
+          z && t[`defaultValue${this.options.pluralSeparator}zero`] && q.indexOf(`${this.options.pluralSeparator}zero`) < 0 && q.push(`${this.options.pluralSeparator}zero`), q.forEach((se) => {
+            W([k], u + se, t[`defaultValue${se}`] || R);
           });
-        }) : A(W, u, k));
+        }) : W(B, u, R));
       }
-      p = this.extendTranslation(p, e, t, f, s), j && p === u && this.options.appendNamespaceToMissingKey && (p = `${i}:${u}`), (j || w) && this.options.parseMissingKeyHandler && (this.options.compatibilityAPI !== "v1" ? p = this.options.parseMissingKeyHandler(this.options.appendNamespaceToMissingKey ? `${i}:${u}` : u, w ? p : void 0) : p = this.options.parseMissingKeyHandler(p));
+      d = this.extendTranslation(d, e, t, p, s), C && d === u && this.options.appendNamespaceToMissingKey && (d = `${r}:${u}`), (C || w) && this.options.parseMissingKeyHandler && (this.options.compatibilityAPI !== "v1" ? d = this.options.parseMissingKeyHandler(this.options.appendNamespaceToMissingKey ? `${r}:${u}` : u, w ? d : void 0) : d = this.options.parseMissingKeyHandler(d));
     }
-    return a ? (f.res = p, f.usedParams = this.getUsedParamsDetails(t), f) : p;
+    return a ? (p.res = d, p.usedParams = this.getUsedParamsDetails(t), p) : d;
   }
   extendTranslation(e, t, s, a, o) {
     var u = this;
@@ -5366,25 +3839,25 @@ class Ae extends Ie {
       const c = typeof e == "string" && (s && s.interpolation && s.interpolation.skipOnVariables !== void 0 ? s.interpolation.skipOnVariables : this.options.interpolation.skipOnVariables);
       let l;
       if (c) {
-        const p = e.match(this.interpolator.nestingRegexp);
-        l = p && p.length;
+        const d = e.match(this.interpolator.nestingRegexp);
+        l = d && d.length;
       }
-      let f = s.replace && typeof s.replace != "string" ? s.replace : s;
-      if (this.options.interpolation.defaultVariables && (f = {
+      let p = s.replace && typeof s.replace != "string" ? s.replace : s;
+      if (this.options.interpolation.defaultVariables && (p = {
         ...this.options.interpolation.defaultVariables,
-        ...f
-      }), e = this.interpolator.interpolate(e, f, s.lng || this.language, s), c) {
-        const p = e.match(this.interpolator.nestingRegexp), g = p && p.length;
+        ...p
+      }), e = this.interpolator.interpolate(e, p, s.lng || this.language, s), c) {
+        const d = e.match(this.interpolator.nestingRegexp), g = d && d.length;
         l < g && (s.nest = !1);
       }
       !s.lng && this.options.compatibilityAPI !== "v1" && a && a.res && (s.lng = a.usedLng), s.nest !== !1 && (e = this.interpolator.nest(e, function() {
-        for (var p = arguments.length, g = new Array(p), m = 0; m < p; m++)
+        for (var d = arguments.length, g = new Array(d), m = 0; m < d; m++)
           g[m] = arguments[m];
         return o && o[0] === g[0] && !s.context ? (u.logger.warn(`It seems you are nesting recursively key: ${g[0]} in key: ${t[0]}`), null) : u.translate(...g, t);
       }, s)), s.interpolation && this.interpolator.reset();
     }
-    const d = s.postProcess || this.options.postProcess, i = typeof d == "string" ? [d] : d;
-    return e != null && i && i.length && s.applyPostProcessor !== !1 && (e = xs.handle(i, e, t, this.options && this.options.postProcessPassResolved ? {
+    const f = s.postProcess || this.options.postProcess, r = typeof f == "string" ? [f] : f;
+    return e != null && r && r.length && s.applyPostProcessor !== !1 && (e = hs.handle(r, e, t, this.options && this.options.postProcessPassResolved ? {
       i18nResolved: {
         ...a,
         usedParams: this.getUsedParamsDetails(s)
@@ -5393,35 +3866,35 @@ class Ae extends Ie {
     } : s, this)), e;
   }
   resolve(e) {
-    let t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {}, s, a, o, u, d;
-    return typeof e == "string" && (e = [e]), e.forEach((i) => {
+    let t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {}, s, a, o, u, f;
+    return typeof e == "string" && (e = [e]), e.forEach((r) => {
       if (this.isValidLookup(s))
         return;
-      const c = this.extractFromKey(i, t), l = c.key;
+      const c = this.extractFromKey(r, t), l = c.key;
       a = l;
-      let f = c.namespaces;
-      this.options.fallbackNS && (f = f.concat(this.options.fallbackNS));
-      const p = t.count !== void 0 && typeof t.count != "string", g = p && !t.ordinal && t.count === 0 && this.pluralResolver.shouldUseIntlApi(), m = t.context !== void 0 && (typeof t.context == "string" || typeof t.context == "number") && t.context !== "", x = t.lngs ? t.lngs : this.languageUtils.toResolveHierarchy(t.lng || this.language, t.fallbackLng);
-      f.forEach((b) => {
-        this.isValidLookup(s) || (d = b, !Ft[`${x[0]}-${b}`] && this.utils && this.utils.hasLoadedNamespace && !this.utils.hasLoadedNamespace(d) && (Ft[`${x[0]}-${b}`] = !0, this.logger.warn(`key "${a}" for languages "${x.join(", ")}" won't get resolved as namespace "${d}" was not yet loaded`, "This means something IS WRONG in your setup. You access the t function before i18next.init / i18next.loadNamespace / i18next.changeLanguage was done. Wait for the callback or Promise to resolve before accessing it!!!")), x.forEach((N) => {
+      let p = c.namespaces;
+      this.options.fallbackNS && (p = p.concat(this.options.fallbackNS));
+      const d = t.count !== void 0 && typeof t.count != "string", g = d && !t.ordinal && t.count === 0 && this.pluralResolver.shouldUseIntlApi(), m = t.context !== void 0 && (typeof t.context == "string" || typeof t.context == "number") && t.context !== "", x = t.lngs ? t.lngs : this.languageUtils.toResolveHierarchy(t.lng || this.language, t.fallbackLng);
+      p.forEach((y) => {
+        this.isValidLookup(s) || (f = y, !It[`${x[0]}-${y}`] && this.utils && this.utils.hasLoadedNamespace && !this.utils.hasLoadedNamespace(f) && (It[`${x[0]}-${y}`] = !0, this.logger.warn(`key "${a}" for languages "${x.join(", ")}" won't get resolved as namespace "${f}" was not yet loaded`, "This means something IS WRONG in your setup. You access the t function before i18next.init / i18next.loadNamespace / i18next.changeLanguage was done. Wait for the callback or Promise to resolve before accessing it!!!")), x.forEach((j) => {
           if (this.isValidLookup(s))
             return;
-          u = N;
-          const _ = [l];
+          u = j;
+          const v = [l];
           if (this.i18nFormat && this.i18nFormat.addLookupKeys)
-            this.i18nFormat.addLookupKeys(_, l, N, b, t);
+            this.i18nFormat.addLookupKeys(v, l, j, y, t);
           else {
             let w;
-            p && (w = this.pluralResolver.getSuffix(N, t.count, t));
-            const j = `${this.options.pluralSeparator}zero`, S = `${this.options.pluralSeparator}ordinal${this.options.pluralSeparator}`;
-            if (p && (_.push(l + w), t.ordinal && w.indexOf(S) === 0 && _.push(l + w.replace(S, this.options.pluralSeparator)), g && _.push(l + j)), m) {
-              const T = `${l}${this.options.contextSeparator}${t.context}`;
-              _.push(T), p && (_.push(T + w), t.ordinal && w.indexOf(S) === 0 && _.push(T + w.replace(S, this.options.pluralSeparator)), g && _.push(T + j));
+            d && (w = this.pluralResolver.getSuffix(j, t.count, t));
+            const C = `${this.options.pluralSeparator}zero`, S = `${this.options.pluralSeparator}ordinal${this.options.pluralSeparator}`;
+            if (d && (v.push(l + w), t.ordinal && w.indexOf(S) === 0 && v.push(l + w.replace(S, this.options.pluralSeparator)), g && v.push(l + C)), m) {
+              const E = `${l}${this.options.contextSeparator}${t.context}`;
+              v.push(E), d && (v.push(E + w), t.ordinal && w.indexOf(S) === 0 && v.push(E + w.replace(S, this.options.pluralSeparator)), g && v.push(E + C));
             }
           }
-          let y;
-          for (; y = _.pop(); )
-            this.isValidLookup(s) || (o = y, s = this.getResource(N, b, y, t));
+          let _;
+          for (; _ = v.pop(); )
+            this.isValidLookup(s) || (o = _, s = this.getResource(j, y, _, t));
         }));
       });
     }), {
@@ -5429,7 +3902,7 @@ class Ae extends Ie {
       usedKey: a,
       exactUsedKey: o,
       usedLng: u,
-      usedNS: d
+      usedNS: f
     };
   }
   isValidLookup(e) {
@@ -5466,18 +3939,18 @@ class Ae extends Ie {
 function Ye(n) {
   return n.charAt(0).toUpperCase() + n.slice(1);
 }
-class Dt {
+class Ft {
   constructor(e) {
     this.options = e, this.supportedLngs = this.options.supportedLngs || !1, this.logger = te.create("languageUtils");
   }
   getScriptPartFromCode(e) {
-    if (e = Te(e), !e || e.indexOf("-") < 0)
+    if (e = Ae(e), !e || e.indexOf("-") < 0)
       return null;
     const t = e.split("-");
     return t.length === 2 || (t.pop(), t[t.length - 1].toLowerCase() === "x") ? null : this.formatLanguageCode(t.join("-"));
   }
   getLanguagePartFromCode(e) {
-    if (e = Te(e), !e || e.indexOf("-") < 0)
+    if (e = Ae(e), !e || e.indexOf("-") < 0)
       return e;
     const t = e.split("-");
     return this.formatLanguageCode(t[0]);
@@ -5535,7 +4008,7 @@ class Dt {
     }), a;
   }
 }
-let Sa = [{
+let fr = [{
   lngs: ["ach", "ak", "am", "arn", "br", "fil", "gun", "ln", "mfe", "mg", "mi", "oc", "pt", "pt-BR", "tg", "tl", "ti", "tr", "uz", "wa"],
   nr: [1, 2],
   fc: 1
@@ -5627,7 +4100,7 @@ let Sa = [{
   lngs: ["he", "iw"],
   nr: [1, 2, 20, 21],
   fc: 22
-}], Ca = {
+}], hr = {
   1: function(n) {
     return +(n > 1);
   },
@@ -5695,7 +4168,7 @@ let Sa = [{
     return n == 1 ? 0 : n == 2 ? 1 : (n < 0 || n > 10) && n % 10 == 0 ? 2 : 3;
   }
 };
-const ka = ["v1", "v2", "v3"], Ea = ["v4"], Ut = {
+const pr = ["v1", "v2", "v3"], mr = ["v4"], zt = {
   zero: 0,
   one: 1,
   two: 2,
@@ -5703,21 +4176,21 @@ const ka = ["v1", "v2", "v3"], Ea = ["v4"], Ut = {
   many: 4,
   other: 5
 };
-function Ra() {
+function gr() {
   const n = {};
-  return Sa.forEach((e) => {
+  return fr.forEach((e) => {
     e.lngs.forEach((t) => {
       n[t] = {
         numbers: e.nr,
-        plurals: Ca[e.fc]
+        plurals: hr[e.fc]
       };
     });
   }), n;
 }
-class Oa {
+class _r {
   constructor(e) {
     let t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
-    this.languageUtils = e, this.options = t, this.logger = te.create("pluralResolver"), (!this.options.compatibilityJSON || Ea.includes(this.options.compatibilityJSON)) && (typeof Intl > "u" || !Intl.PluralRules) && (this.options.compatibilityJSON = "v3", this.logger.error("Your environment seems not to be Intl API compatible, use an Intl.PluralRules polyfill. Will fallback to the compatibilityJSON v3 format handling.")), this.rules = Ra();
+    this.languageUtils = e, this.options = t, this.logger = te.create("pluralResolver"), (!this.options.compatibilityJSON || mr.includes(this.options.compatibilityJSON)) && (typeof Intl > "u" || !Intl.PluralRules) && (this.options.compatibilityJSON = "v3", this.logger.error("Your environment seems not to be Intl API compatible, use an Intl.PluralRules polyfill. Will fallback to the compatibilityJSON v3 format handling.")), this.rules = gr();
   }
   addRule(e, t) {
     this.rules[e] = t;
@@ -5726,7 +4199,7 @@ class Oa {
     let t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
     if (this.shouldUseIntlApi())
       try {
-        return new Intl.PluralRules(Te(e === "dev" ? "en" : e), {
+        return new Intl.PluralRules(Ae(e === "dev" ? "en" : e), {
           type: t.ordinal ? "ordinal" : "cardinal"
         });
       } catch {
@@ -5746,7 +4219,7 @@ class Oa {
   getSuffixes(e) {
     let t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
     const s = this.getRule(e, t);
-    return s ? this.shouldUseIntlApi() ? s.resolvedOptions().pluralCategories.sort((a, o) => Ut[a] - Ut[o]).map((a) => `${this.options.prepend}${t.ordinal ? `ordinal${this.options.prepend}` : ""}${a}`) : s.numbers.map((a) => this.getSuffix(e, a, t)) : [];
+    return s ? this.shouldUseIntlApi() ? s.resolvedOptions().pluralCategories.sort((a, o) => zt[a] - zt[o]).map((a) => `${this.options.prepend}${t.ordinal ? `ordinal${this.options.prepend}` : ""}${a}`) : s.numbers.map((a) => this.getSuffix(e, a, t)) : [];
   }
   getSuffix(e, t) {
     let s = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : {};
@@ -5761,14 +4234,14 @@ class Oa {
     return this.options.compatibilityJSON === "v1" ? a === 1 ? "" : typeof a == "number" ? `_plural_${a.toString()}` : o() : this.options.compatibilityJSON === "v2" || this.options.simplifyPluralSuffix && e.numbers.length === 2 && e.numbers[0] === 1 ? o() : this.options.prepend && s.toString() ? this.options.prepend + s.toString() : s.toString();
   }
   shouldUseIntlApi() {
-    return !ka.includes(this.options.compatibilityJSON);
+    return !pr.includes(this.options.compatibilityJSON);
   }
 }
-function Bt(n, e, t) {
-  let s = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : ".", a = arguments.length > 4 && arguments[4] !== void 0 ? arguments[4] : !0, o = ya(n, e, t);
+function Ut(n, e, t) {
+  let s = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : ".", a = arguments.length > 4 && arguments[4] !== void 0 ? arguments[4] : !0, o = ar(n, e, t);
   return !o && a && typeof t == "string" && (o = tt(n, t, s), o === void 0 && (o = tt(e, t, s))), o;
 }
-class Pa {
+class xr {
   constructor() {
     let e = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
     this.logger = te.create("interpolator"), this.options = e, this.format = e.interpolation && e.interpolation.format || ((t) => t), this.init(e);
@@ -5779,7 +4252,7 @@ class Pa {
       escapeValue: !0
     });
     const t = e.interpolation;
-    this.escape = t.escape !== void 0 ? t.escape : va, this.escapeValue = t.escapeValue !== void 0 ? t.escapeValue : !0, this.useRawValueToEscape = t.useRawValueToEscape !== void 0 ? t.useRawValueToEscape : !1, this.prefix = t.prefix ? ce(t.prefix) : t.prefixEscaped || "{{", this.suffix = t.suffix ? ce(t.suffix) : t.suffixEscaped || "}}", this.formatSeparator = t.formatSeparator ? t.formatSeparator : t.formatSeparator || ",", this.unescapePrefix = t.unescapeSuffix ? "" : t.unescapePrefix || "-", this.unescapeSuffix = this.unescapePrefix ? "" : t.unescapeSuffix || "", this.nestingPrefix = t.nestingPrefix ? ce(t.nestingPrefix) : t.nestingPrefixEscaped || ce("$t("), this.nestingSuffix = t.nestingSuffix ? ce(t.nestingSuffix) : t.nestingSuffixEscaped || ce(")"), this.nestingOptionsSeparator = t.nestingOptionsSeparator ? t.nestingOptionsSeparator : t.nestingOptionsSeparator || ",", this.maxReplaces = t.maxReplaces ? t.maxReplaces : 1e3, this.alwaysFormat = t.alwaysFormat !== void 0 ? t.alwaysFormat : !1, this.resetRegExp();
+    this.escape = t.escape !== void 0 ? t.escape : or, this.escapeValue = t.escapeValue !== void 0 ? t.escapeValue : !0, this.useRawValueToEscape = t.useRawValueToEscape !== void 0 ? t.useRawValueToEscape : !1, this.prefix = t.prefix ? ce(t.prefix) : t.prefixEscaped || "{{", this.suffix = t.suffix ? ce(t.suffix) : t.suffixEscaped || "}}", this.formatSeparator = t.formatSeparator ? t.formatSeparator : t.formatSeparator || ",", this.unescapePrefix = t.unescapeSuffix ? "" : t.unescapePrefix || "-", this.unescapeSuffix = this.unescapePrefix ? "" : t.unescapeSuffix || "", this.nestingPrefix = t.nestingPrefix ? ce(t.nestingPrefix) : t.nestingPrefixEscaped || ce("$t("), this.nestingSuffix = t.nestingSuffix ? ce(t.nestingSuffix) : t.nestingSuffixEscaped || ce(")"), this.nestingOptionsSeparator = t.nestingOptionsSeparator ? t.nestingOptionsSeparator : t.nestingOptionsSeparator || ",", this.maxReplaces = t.maxReplaces ? t.maxReplaces : 1e3, this.alwaysFormat = t.alwaysFormat !== void 0 ? t.alwaysFormat : !1, this.resetRegExp();
   }
   reset() {
     this.options && this.init(this.options);
@@ -5789,29 +4262,29 @@ class Pa {
     this.regexp = e(this.regexp, `${this.prefix}(.+?)${this.suffix}`), this.regexpUnescape = e(this.regexpUnescape, `${this.prefix}${this.unescapePrefix}(.+?)${this.unescapeSuffix}${this.suffix}`), this.nestingRegexp = e(this.nestingRegexp, `${this.nestingPrefix}(.+?)${this.nestingSuffix}`);
   }
   interpolate(e, t, s, a) {
-    let o, u, d;
-    const i = this.options && this.options.interpolation && this.options.interpolation.defaultVariables || {};
+    let o, u, f;
+    const r = this.options && this.options.interpolation && this.options.interpolation.defaultVariables || {};
     function c(m) {
       return m.replace(/\$/g, "$$$$");
     }
     const l = (m) => {
       if (m.indexOf(this.formatSeparator) < 0) {
-        const _ = Bt(t, i, m, this.options.keySeparator, this.options.ignoreJSONStructure);
-        return this.alwaysFormat ? this.format(_, void 0, s, {
+        const v = Ut(t, r, m, this.options.keySeparator, this.options.ignoreJSONStructure);
+        return this.alwaysFormat ? this.format(v, void 0, s, {
           ...a,
           ...t,
           interpolationkey: m
-        }) : _;
+        }) : v;
       }
-      const x = m.split(this.formatSeparator), b = x.shift().trim(), N = x.join(this.formatSeparator).trim();
-      return this.format(Bt(t, i, b, this.options.keySeparator, this.options.ignoreJSONStructure), N, s, {
+      const x = m.split(this.formatSeparator), y = x.shift().trim(), j = x.join(this.formatSeparator).trim();
+      return this.format(Ut(t, r, y, this.options.keySeparator, this.options.ignoreJSONStructure), j, s, {
         ...a,
         ...t,
-        interpolationkey: b
+        interpolationkey: y
       });
     };
     this.resetRegExp();
-    const f = a && a.missingInterpolationHandler || this.options.missingInterpolationHandler, p = a && a.interpolation && a.interpolation.skipOnVariables !== void 0 ? a.interpolation.skipOnVariables : this.options.interpolation.skipOnVariables;
+    const p = a && a.missingInterpolationHandler || this.options.missingInterpolationHandler, d = a && a.interpolation && a.interpolation.skipOnVariables !== void 0 ? a.interpolation.skipOnVariables : this.options.interpolation.skipOnVariables;
     return [{
       regex: this.regexpUnescape,
       safeValue: (m) => c(m)
@@ -5819,61 +4292,61 @@ class Pa {
       regex: this.regexp,
       safeValue: (m) => this.escapeValue ? c(this.escape(m)) : c(m)
     }].forEach((m) => {
-      for (d = 0; o = m.regex.exec(e); ) {
+      for (f = 0; o = m.regex.exec(e); ) {
         const x = o[1].trim();
         if (u = l(x), u === void 0)
-          if (typeof f == "function") {
-            const N = f(e, o, a);
-            u = typeof N == "string" ? N : "";
+          if (typeof p == "function") {
+            const j = p(e, o, a);
+            u = typeof j == "string" ? j : "";
           } else if (a && Object.prototype.hasOwnProperty.call(a, x))
             u = "";
-          else if (p) {
+          else if (d) {
             u = o[0];
             continue;
           } else
             this.logger.warn(`missed to pass in variable ${x} for interpolating ${e}`), u = "";
         else
-          typeof u != "string" && !this.useRawValueToEscape && (u = Mt(u));
-        const b = m.safeValue(u);
-        if (e = e.replace(o[0], b), p ? (m.regex.lastIndex += u.length, m.regex.lastIndex -= o[0].length) : m.regex.lastIndex = 0, d++, d >= this.maxReplaces)
+          typeof u != "string" && !this.useRawValueToEscape && (u = Tt(u));
+        const y = m.safeValue(u);
+        if (e = e.replace(o[0], y), d ? (m.regex.lastIndex += u.length, m.regex.lastIndex -= o[0].length) : m.regex.lastIndex = 0, f++, f >= this.maxReplaces)
           break;
       }
     }), e;
   }
   nest(e, t) {
     let s = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : {}, a, o, u;
-    function d(i, c) {
+    function f(r, c) {
       const l = this.nestingOptionsSeparator;
-      if (i.indexOf(l) < 0)
-        return i;
-      const f = i.split(new RegExp(`${l}[ ]*{`));
-      let p = `{${f[1]}`;
-      i = f[0], p = this.interpolate(p, u);
-      const g = p.match(/'/g), m = p.match(/"/g);
-      (g && g.length % 2 === 0 && !m || m.length % 2 !== 0) && (p = p.replace(/'/g, '"'));
+      if (r.indexOf(l) < 0)
+        return r;
+      const p = r.split(new RegExp(`${l}[ ]*{`));
+      let d = `{${p[1]}`;
+      r = p[0], d = this.interpolate(d, u);
+      const g = d.match(/'/g), m = d.match(/"/g);
+      (g && g.length % 2 === 0 && !m || m.length % 2 !== 0) && (d = d.replace(/'/g, '"'));
       try {
-        u = JSON.parse(p), c && (u = {
+        u = JSON.parse(d), c && (u = {
           ...c,
           ...u
         });
       } catch (x) {
-        return this.logger.warn(`failed parsing options string in nesting for key ${i}`, x), `${i}${l}${p}`;
+        return this.logger.warn(`failed parsing options string in nesting for key ${r}`, x), `${r}${l}${d}`;
       }
-      return delete u.defaultValue, i;
+      return delete u.defaultValue, r;
     }
     for (; a = this.nestingRegexp.exec(e); ) {
-      let i = [];
+      let r = [];
       u = {
         ...s
       }, u = u.replace && typeof u.replace != "string" ? u.replace : u, u.applyPostProcessor = !1, delete u.defaultValue;
       let c = !1;
       if (a[0].indexOf(this.formatSeparator) !== -1 && !/{.*}/.test(a[1])) {
-        const l = a[1].split(this.formatSeparator).map((f) => f.trim());
-        a[1] = l.shift(), i = l, c = !0;
+        const l = a[1].split(this.formatSeparator).map((p) => p.trim());
+        a[1] = l.shift(), r = l, c = !0;
       }
-      if (o = t(d.call(this, a[1].trim(), u), u), o && a[0] === e && typeof o != "string")
+      if (o = t(f.call(this, a[1].trim(), u), u), o && a[0] === e && typeof o != "string")
         return o;
-      typeof o != "string" && (o = Mt(o)), o || (this.logger.warn(`missed to resolve ${a[1]} for nesting ${e}`), o = ""), c && (o = i.reduce((l, f) => this.format(l, f, s.lng, {
+      typeof o != "string" && (o = Tt(o)), o || (this.logger.warn(`missed to resolve ${a[1]} for nesting ${e}`), o = ""), c && (o = r.reduce((l, p) => this.format(l, p, s.lng, {
         ...s,
         interpolationkey: a[1].trim()
       }), o.trim())), e = e.replace(a[0], o), this.regexp.lastIndex = 0;
@@ -5881,7 +4354,7 @@ class Pa {
     return e;
   }
 }
-function Ta(n) {
+function yr(n) {
   let e = n.toLowerCase().trim();
   const t = {};
   if (n.indexOf("(") > -1) {
@@ -5891,8 +4364,8 @@ function Ta(n) {
     e === "currency" && a.indexOf(":") < 0 ? t.currency || (t.currency = a.trim()) : e === "relativetime" && a.indexOf(":") < 0 ? t.range || (t.range = a.trim()) : a.split(";").forEach((u) => {
       if (!u)
         return;
-      const [d, ...i] = u.split(":"), c = i.join(":").trim().replace(/^'+|'+$/g, "");
-      t[d.trim()] || (t[d.trim()] = c), c === "false" && (t[d.trim()] = !1), c === "true" && (t[d.trim()] = !0), isNaN(c) || (t[d.trim()] = parseInt(c, 10));
+      const [f, ...r] = u.split(":"), c = r.join(":").trim().replace(/^'+|'+$/g, "");
+      t[f.trim()] || (t[f.trim()] = c), c === "false" && (t[f.trim()] = !1), c === "true" && (t[f.trim()] = !0), isNaN(c) || (t[f.trim()] = parseInt(c, 10));
     });
   }
   return {
@@ -5904,11 +4377,11 @@ function le(n) {
   const e = {};
   return function(s, a, o) {
     const u = a + JSON.stringify(o);
-    let d = e[u];
-    return d || (d = n(Te(a), o), e[u] = d), d(s);
+    let f = e[u];
+    return f || (f = n(Ae(a), o), e[u] = f), f(s);
   };
 }
-class Aa {
+class br {
   constructor() {
     let e = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
     this.logger = te.create("formatter"), this.options = e, this.formats = {
@@ -5959,46 +4432,46 @@ class Aa {
   }
   format(e, t, s) {
     let a = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : {};
-    return t.split(this.formatSeparator).reduce((d, i) => {
+    return t.split(this.formatSeparator).reduce((f, r) => {
       const {
         formatName: c,
         formatOptions: l
-      } = Ta(i);
+      } = yr(r);
       if (this.formats[c]) {
-        let f = d;
+        let p = f;
         try {
-          const p = a && a.formatParams && a.formatParams[a.interpolationkey] || {}, g = p.locale || p.lng || a.locale || a.lng || s;
-          f = this.formats[c](d, g, {
+          const d = a && a.formatParams && a.formatParams[a.interpolationkey] || {}, g = d.locale || d.lng || a.locale || a.lng || s;
+          p = this.formats[c](f, g, {
             ...l,
             ...a,
-            ...p
+            ...d
           });
-        } catch (p) {
-          this.logger.warn(p);
+        } catch (d) {
+          this.logger.warn(d);
         }
-        return f;
+        return p;
       } else
         this.logger.warn(`there was no format function for ${c}`);
-      return d;
+      return f;
     }, e);
   }
 }
-function La(n, e) {
+function vr(n, e) {
   n.pending[e] !== void 0 && (delete n.pending[e], n.pendingCount--);
 }
-class Ma extends Ie {
+class wr extends Ie {
   constructor(e, t, s) {
     let a = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : {};
     super(), this.backend = e, this.store = t, this.services = s, this.languageUtils = s.languageUtils, this.options = a, this.logger = te.create("backendConnector"), this.waitingReads = [], this.maxParallelReads = a.maxParallelReads || 10, this.readingCalls = 0, this.maxRetries = a.maxRetries >= 0 ? a.maxRetries : 5, this.retryTimeout = a.retryTimeout >= 1 ? a.retryTimeout : 350, this.state = {}, this.queue = [], this.backend && this.backend.init && this.backend.init(s, a.backend, a);
   }
   queueLoad(e, t, s, a) {
-    const o = {}, u = {}, d = {}, i = {};
+    const o = {}, u = {}, f = {}, r = {};
     return e.forEach((c) => {
       let l = !0;
-      t.forEach((f) => {
-        const p = `${c}|${f}`;
-        !s.reload && this.store.hasResourceBundle(c, f) ? this.state[p] = 2 : this.state[p] < 0 || (this.state[p] === 1 ? u[p] === void 0 && (u[p] = !0) : (this.state[p] = 1, l = !1, u[p] === void 0 && (u[p] = !0), o[p] === void 0 && (o[p] = !0), i[f] === void 0 && (i[f] = !0)));
-      }), l || (d[c] = !0);
+      t.forEach((p) => {
+        const d = `${c}|${p}`;
+        !s.reload && this.store.hasResourceBundle(c, p) ? this.state[d] = 2 : this.state[d] < 0 || (this.state[d] === 1 ? u[d] === void 0 && (u[d] = !0) : (this.state[d] = 1, l = !1, u[d] === void 0 && (u[d] = !0), o[d] === void 0 && (o[d] = !0), r[p] === void 0 && (r[p] = !0)));
+      }), l || (f[c] = !0);
     }), (Object.keys(o).length || Object.keys(u).length) && this.queue.push({
       pending: u,
       pendingCount: Object.keys(u).length,
@@ -6008,8 +4481,8 @@ class Ma extends Ie {
     }), {
       toLoad: Object.keys(o),
       pending: Object.keys(u),
-      toLoadLanguages: Object.keys(d),
-      toLoadNamespaces: Object.keys(i)
+      toLoadLanguages: Object.keys(f),
+      toLoadNamespaces: Object.keys(r)
     };
   }
   loaded(e, t, s) {
@@ -6017,16 +4490,16 @@ class Ma extends Ie {
     t && this.emit("failedLoading", o, u, t), s && this.store.addResourceBundle(o, u, s, void 0, void 0, {
       skipCopy: !0
     }), this.state[e] = t ? -1 : 2;
-    const d = {};
-    this.queue.forEach((i) => {
-      xa(i.loaded, [o], u), La(i, e), t && i.errors.push(t), i.pendingCount === 0 && !i.done && (Object.keys(i.loaded).forEach((c) => {
-        d[c] || (d[c] = {});
-        const l = i.loaded[c];
-        l.length && l.forEach((f) => {
-          d[c][f] === void 0 && (d[c][f] = !0);
+    const f = {};
+    this.queue.forEach((r) => {
+      rr(r.loaded, [o], u), vr(r, e), t && r.errors.push(t), r.pendingCount === 0 && !r.done && (Object.keys(r.loaded).forEach((c) => {
+        f[c] || (f[c] = {});
+        const l = r.loaded[c];
+        l.length && l.forEach((p) => {
+          f[c][p] === void 0 && (f[c][p] = !0);
         });
-      }), i.done = !0, i.errors.length ? i.callback(i.errors) : i.callback());
-    }), this.emit("loaded", d), this.queue = this.queue.filter((i) => !i.done);
+      }), r.done = !0, r.errors.length ? r.callback(r.errors) : r.callback());
+    }), this.emit("loaded", f), this.queue = this.queue.filter((r) => !r.done);
   }
   read(e, t, s) {
     let a = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : 0, o = arguments.length > 4 && arguments[4] !== void 0 ? arguments[4] : this.retryTimeout, u = arguments.length > 5 ? arguments[5] : void 0;
@@ -6044,10 +4517,10 @@ class Ma extends Ie {
       return;
     }
     this.readingCalls++;
-    const d = (c, l) => {
+    const f = (c, l) => {
       if (this.readingCalls--, this.waitingReads.length > 0) {
-        const f = this.waitingReads.shift();
-        this.read(f.lng, f.ns, f.fcName, f.tried, f.wait, f.callback);
+        const p = this.waitingReads.shift();
+        this.read(p.lng, p.ns, p.fcName, p.tried, p.wait, p.callback);
       }
       if (c && l && a < this.maxRetries) {
         setTimeout(() => {
@@ -6056,17 +4529,17 @@ class Ma extends Ie {
         return;
       }
       u(c, l);
-    }, i = this.backend[s].bind(this.backend);
-    if (i.length === 2) {
+    }, r = this.backend[s].bind(this.backend);
+    if (r.length === 2) {
       try {
-        const c = i(e, t);
-        c && typeof c.then == "function" ? c.then((l) => d(null, l)).catch(d) : d(null, c);
+        const c = r(e, t);
+        c && typeof c.then == "function" ? c.then((l) => f(null, l)).catch(f) : f(null, c);
       } catch (c) {
-        d(c);
+        f(c);
       }
       return;
     }
-    return i(e, t, d);
+    return r(e, t, f);
   }
   prepareLoading(e, t) {
     let s = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : {}, a = arguments.length > 3 ? arguments[3] : void 0;
@@ -6091,12 +4564,12 @@ class Ma extends Ie {
   loadOne(e) {
     let t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : "";
     const s = e.split("|"), a = s[0], o = s[1];
-    this.read(a, o, "read", void 0, void 0, (u, d) => {
-      u && this.logger.warn(`${t}loading namespace ${o} for language ${a} failed`, u), !u && d && this.logger.log(`${t}loaded namespace ${o} for language ${a}`, d), this.loaded(e, u, d);
+    this.read(a, o, "read", void 0, void 0, (u, f) => {
+      u && this.logger.warn(`${t}loading namespace ${o} for language ${a} failed`, u), !u && f && this.logger.log(`${t}loaded namespace ${o} for language ${a}`, f), this.loaded(e, u, f);
     });
   }
   saveMissing(e, t, s, a, o) {
-    let u = arguments.length > 5 && arguments[5] !== void 0 ? arguments[5] : {}, d = arguments.length > 6 && arguments[6] !== void 0 ? arguments[6] : () => {
+    let u = arguments.length > 5 && arguments[5] !== void 0 ? arguments[5] : {}, f = arguments.length > 6 && arguments[6] !== void 0 ? arguments[6] : () => {
     };
     if (this.services.utils && this.services.utils.hasLoadedNamespace && !this.services.utils.hasLoadedNamespace(t)) {
       this.logger.warn(`did not save key "${s}" as the namespace "${t}" was not yet loaded`, "This means something IS WRONG in your setup. You access the t function before i18next.init / i18next.loadNamespace / i18next.changeLanguage was done. Wait for the callback or Promise to resolve before accessing it!!!");
@@ -6104,25 +4577,25 @@ class Ma extends Ie {
     }
     if (!(s == null || s === "")) {
       if (this.backend && this.backend.create) {
-        const i = {
+        const r = {
           ...u,
           isUpdate: o
         }, c = this.backend.create.bind(this.backend);
         if (c.length < 6)
           try {
             let l;
-            c.length === 5 ? l = c(e, t, s, a, i) : l = c(e, t, s, a), l && typeof l.then == "function" ? l.then((f) => d(null, f)).catch(d) : d(null, l);
+            c.length === 5 ? l = c(e, t, s, a, r) : l = c(e, t, s, a), l && typeof l.then == "function" ? l.then((p) => f(null, p)).catch(f) : f(null, l);
           } catch (l) {
-            d(l);
+            f(l);
           }
         else
-          c(e, t, s, a, d, i);
+          c(e, t, s, a, f, r);
       }
       !e || !e[0] || this.store.addResource(e[0], t, s, a);
     }
   }
 }
-function Vt() {
+function Dt() {
   return {
     debug: !1,
     initImmediate: !0,
@@ -6181,12 +4654,12 @@ function Vt() {
     }
   };
 }
-function qt(n) {
+function Vt(n) {
   return typeof n.ns == "string" && (n.ns = [n.ns]), typeof n.fallbackLng == "string" && (n.fallbackLng = [n.fallbackLng]), typeof n.fallbackNS == "string" && (n.fallbackNS = [n.fallbackNS]), n.supportedLngs && n.supportedLngs.indexOf("cimode") < 0 && (n.supportedLngs = n.supportedLngs.concat(["cimode"])), n;
 }
-function Ce() {
+function Se() {
 }
-function Ia(n) {
+function jr(n) {
   Object.getOwnPropertyNames(Object.getPrototypeOf(n)).forEach((t) => {
     typeof n[t] == "function" && (n[t] = n[t].bind(n));
   });
@@ -6194,9 +4667,9 @@ function Ia(n) {
 class we extends Ie {
   constructor() {
     let e = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {}, t = arguments.length > 1 ? arguments[1] : void 0;
-    if (super(), this.options = qt(e), this.services = {}, this.logger = te, this.modules = {
+    if (super(), this.options = Vt(e), this.services = {}, this.logger = te, this.modules = {
       external: []
-    }, Ia(this), t && !this.isInitialized && !e.isClone) {
+    }, jr(this), t && !this.isInitialized && !e.isClone) {
       if (!this.options.initImmediate)
         return this.init(e, t), this;
       setTimeout(() => {
@@ -6208,11 +4681,11 @@ class we extends Ie {
     var e = this;
     let t = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {}, s = arguments.length > 1 ? arguments[1] : void 0;
     this.isInitializing = !0, typeof t == "function" && (s = t, t = {}), !t.defaultNS && t.defaultNS !== !1 && t.ns && (typeof t.ns == "string" ? t.defaultNS = t.ns : t.ns.indexOf("translation") < 0 && (t.defaultNS = t.ns[0]));
-    const a = Vt();
+    const a = Dt();
     this.options = {
       ...a,
       ...this.options,
-      ...qt(t)
+      ...Vt(t)
     }, this.options.compatibilityAPI !== "v1" && (this.options.interpolation = {
       ...a.interpolation,
       ...this.options.interpolation
@@ -6223,29 +4696,29 @@ class we extends Ie {
     if (!this.options.isClone) {
       this.modules.logger ? te.init(o(this.modules.logger), this.options) : te.init(null, this.options);
       let l;
-      this.modules.formatter ? l = this.modules.formatter : typeof Intl < "u" && (l = Aa);
-      const f = new Dt(this.options);
-      this.store = new zt(this.options.resources, this.options);
-      const p = this.services;
-      p.logger = te, p.resourceStore = this.store, p.languageUtils = f, p.pluralResolver = new Oa(f, {
+      this.modules.formatter ? l = this.modules.formatter : typeof Intl < "u" && (l = br);
+      const p = new Ft(this.options);
+      this.store = new Mt(this.options.resources, this.options);
+      const d = this.services;
+      d.logger = te, d.resourceStore = this.store, d.languageUtils = p, d.pluralResolver = new _r(p, {
         prepend: this.options.pluralSeparator,
         compatibilityJSON: this.options.compatibilityJSON,
         simplifyPluralSuffix: this.options.simplifyPluralSuffix
-      }), l && (!this.options.interpolation.format || this.options.interpolation.format === a.interpolation.format) && (p.formatter = o(l), p.formatter.init(p, this.options), this.options.interpolation.format = p.formatter.format.bind(p.formatter)), p.interpolator = new Pa(this.options), p.utils = {
+      }), l && (!this.options.interpolation.format || this.options.interpolation.format === a.interpolation.format) && (d.formatter = o(l), d.formatter.init(d, this.options), this.options.interpolation.format = d.formatter.format.bind(d.formatter)), d.interpolator = new xr(this.options), d.utils = {
         hasLoadedNamespace: this.hasLoadedNamespace.bind(this)
-      }, p.backendConnector = new Ma(o(this.modules.backend), p.resourceStore, p, this.options), p.backendConnector.on("*", function(g) {
-        for (var m = arguments.length, x = new Array(m > 1 ? m - 1 : 0), b = 1; b < m; b++)
-          x[b - 1] = arguments[b];
+      }, d.backendConnector = new wr(o(this.modules.backend), d.resourceStore, d, this.options), d.backendConnector.on("*", function(g) {
+        for (var m = arguments.length, x = new Array(m > 1 ? m - 1 : 0), y = 1; y < m; y++)
+          x[y - 1] = arguments[y];
         e.emit(g, ...x);
-      }), this.modules.languageDetector && (p.languageDetector = o(this.modules.languageDetector), p.languageDetector.init && p.languageDetector.init(p, this.options.detection, this.options)), this.modules.i18nFormat && (p.i18nFormat = o(this.modules.i18nFormat), p.i18nFormat.init && p.i18nFormat.init(this)), this.translator = new Ae(this.services, this.options), this.translator.on("*", function(g) {
-        for (var m = arguments.length, x = new Array(m > 1 ? m - 1 : 0), b = 1; b < m; b++)
-          x[b - 1] = arguments[b];
+      }), this.modules.languageDetector && (d.languageDetector = o(this.modules.languageDetector), d.languageDetector.init && d.languageDetector.init(d, this.options.detection, this.options)), this.modules.i18nFormat && (d.i18nFormat = o(this.modules.i18nFormat), d.i18nFormat.init && d.i18nFormat.init(this)), this.translator = new Te(this.services, this.options), this.translator.on("*", function(g) {
+        for (var m = arguments.length, x = new Array(m > 1 ? m - 1 : 0), y = 1; y < m; y++)
+          x[y - 1] = arguments[y];
         e.emit(g, ...x);
       }), this.modules.external.forEach((g) => {
         g.init && g.init(this);
       });
     }
-    if (this.format = this.options.interpolation.format, s || (s = Ce), this.options.fallbackLng && !this.services.languageDetector && !this.options.lng) {
+    if (this.format = this.options.interpolation.format, s || (s = Se), this.options.fallbackLng && !this.services.languageDetector && !this.options.lng) {
       const l = this.services.languageUtils.getFallbackCodes(this.options.fallbackLng);
       l.length > 0 && l[0] !== "dev" && (this.options.lng = l[0]);
     }
@@ -6258,38 +4731,38 @@ class we extends Ie {
         return e.store[l](...arguments), e;
       };
     });
-    const i = _e(), c = () => {
-      const l = (f, p) => {
-        this.isInitializing = !1, this.isInitialized && !this.initializedStoreOnce && this.logger.warn("init: i18next is already initialized. You should call init just once!"), this.isInitialized = !0, this.options.isClone || this.logger.log("initialized", this.options), this.emit("initialized", this.options), i.resolve(p), s(f, p);
+    const r = _e(), c = () => {
+      const l = (p, d) => {
+        this.isInitializing = !1, this.isInitialized && !this.initializedStoreOnce && this.logger.warn("init: i18next is already initialized. You should call init just once!"), this.isInitialized = !0, this.options.isClone || this.logger.log("initialized", this.options), this.emit("initialized", this.options), r.resolve(d), s(p, d);
       };
       if (this.languages && this.options.compatibilityAPI !== "v1" && !this.isInitialized)
         return l(null, this.t.bind(this));
       this.changeLanguage(this.options.lng, l);
     };
-    return this.options.resources || !this.options.initImmediate ? c() : setTimeout(c, 0), i;
+    return this.options.resources || !this.options.initImmediate ? c() : setTimeout(c, 0), r;
   }
   loadResources(e) {
-    let s = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : Ce;
+    let s = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : Se;
     const a = typeof e == "string" ? e : this.language;
     if (typeof e == "function" && (s = e), !this.options.resources || this.options.partialBundledLanguages) {
       if (a && a.toLowerCase() === "cimode" && (!this.options.preload || this.options.preload.length === 0))
         return s();
-      const o = [], u = (d) => {
-        if (!d || d === "cimode")
+      const o = [], u = (f) => {
+        if (!f || f === "cimode")
           return;
-        this.services.languageUtils.toResolveHierarchy(d).forEach((c) => {
+        this.services.languageUtils.toResolveHierarchy(f).forEach((c) => {
           c !== "cimode" && o.indexOf(c) < 0 && o.push(c);
         });
       };
-      a ? u(a) : this.services.languageUtils.getFallbackCodes(this.options.fallbackLng).forEach((i) => u(i)), this.options.preload && this.options.preload.forEach((d) => u(d)), this.services.backendConnector.load(o, this.options.ns, (d) => {
-        !d && !this.resolvedLanguage && this.language && this.setResolvedLanguage(this.language), s(d);
+      a ? u(a) : this.services.languageUtils.getFallbackCodes(this.options.fallbackLng).forEach((r) => u(r)), this.options.preload && this.options.preload.forEach((f) => u(f)), this.services.backendConnector.load(o, this.options.ns, (f) => {
+        !f && !this.resolvedLanguage && this.language && this.setResolvedLanguage(this.language), s(f);
       });
     } else
       s(null);
   }
   reloadResources(e, t, s) {
     const a = _e();
-    return e || (e = this.languages), t || (t = this.options.ns), s || (s = Ce), this.services.backendConnector.reload(e, t, (o) => {
+    return e || (e = this.languages), t || (t = this.options.ns), s || (s = Se), this.services.backendConnector.reload(e, t, (o) => {
       a.resolve(), s(o);
     }), a;
   }
@@ -6298,7 +4771,7 @@ class we extends Ie {
       throw new Error("You are passing an undefined module! Please check the object you are passing to i18next.use()");
     if (!e.type)
       throw new Error("You are passing a wrong module! Please check the object you are passing to i18next.use()");
-    return e.type === "backend" && (this.modules.backend = e), (e.type === "logger" || e.log && e.warn && e.error) && (this.modules.logger = e), e.type === "languageDetector" && (this.modules.languageDetector = e), e.type === "i18nFormat" && (this.modules.i18nFormat = e), e.type === "postProcessor" && xs.addPostProcessor(e), e.type === "formatter" && (this.modules.formatter = e), e.type === "3rdParty" && this.modules.external.push(e), this;
+    return e.type === "backend" && (this.modules.backend = e), (e.type === "logger" || e.log && e.warn && e.error) && (this.modules.logger = e), e.type === "languageDetector" && (this.modules.languageDetector = e), e.type === "i18nFormat" && (this.modules.i18nFormat = e), e.type === "postProcessor" && hs.addPostProcessor(e), e.type === "formatter" && (this.modules.formatter = e), e.type === "3rdParty" && this.modules.external.push(e), this;
   }
   setResolvedLanguage(e) {
     if (!(!e || !this.languages) && !(["cimode", "dev"].indexOf(e) > -1))
@@ -6315,39 +4788,39 @@ class we extends Ie {
     this.isLanguageChangingTo = e;
     const a = _e();
     this.emit("languageChanging", e);
-    const o = (i) => {
-      this.language = i, this.languages = this.services.languageUtils.toResolveHierarchy(i), this.resolvedLanguage = void 0, this.setResolvedLanguage(i);
-    }, u = (i, c) => {
+    const o = (r) => {
+      this.language = r, this.languages = this.services.languageUtils.toResolveHierarchy(r), this.resolvedLanguage = void 0, this.setResolvedLanguage(r);
+    }, u = (r, c) => {
       c ? (o(c), this.translator.changeLanguage(c), this.isLanguageChangingTo = void 0, this.emit("languageChanged", c), this.logger.log("languageChanged", c)) : this.isLanguageChangingTo = void 0, a.resolve(function() {
         return s.t(...arguments);
-      }), t && t(i, function() {
+      }), t && t(r, function() {
         return s.t(...arguments);
       });
-    }, d = (i) => {
-      !e && !i && this.services.languageDetector && (i = []);
-      const c = typeof i == "string" ? i : this.services.languageUtils.getBestMatchFromCodes(i);
+    }, f = (r) => {
+      !e && !r && this.services.languageDetector && (r = []);
+      const c = typeof r == "string" ? r : this.services.languageUtils.getBestMatchFromCodes(r);
       c && (this.language || o(c), this.translator.language || this.translator.changeLanguage(c), this.services.languageDetector && this.services.languageDetector.cacheUserLanguage && this.services.languageDetector.cacheUserLanguage(c)), this.loadResources(c, (l) => {
         u(l, c);
       });
     };
-    return !e && this.services.languageDetector && !this.services.languageDetector.async ? d(this.services.languageDetector.detect()) : !e && this.services.languageDetector && this.services.languageDetector.async ? this.services.languageDetector.detect.length === 0 ? this.services.languageDetector.detect().then(d) : this.services.languageDetector.detect(d) : d(e), a;
+    return !e && this.services.languageDetector && !this.services.languageDetector.async ? f(this.services.languageDetector.detect()) : !e && this.services.languageDetector && this.services.languageDetector.async ? this.services.languageDetector.detect.length === 0 ? this.services.languageDetector.detect().then(f) : this.services.languageDetector.detect(f) : f(e), a;
   }
   getFixedT(e, t, s) {
     var a = this;
-    const o = function(u, d) {
-      let i;
-      if (typeof d != "object") {
-        for (var c = arguments.length, l = new Array(c > 2 ? c - 2 : 0), f = 2; f < c; f++)
-          l[f - 2] = arguments[f];
-        i = a.options.overloadTranslationOptionHandler([u, d].concat(l));
+    const o = function(u, f) {
+      let r;
+      if (typeof f != "object") {
+        for (var c = arguments.length, l = new Array(c > 2 ? c - 2 : 0), p = 2; p < c; p++)
+          l[p - 2] = arguments[p];
+        r = a.options.overloadTranslationOptionHandler([u, f].concat(l));
       } else
-        i = {
-          ...d
+        r = {
+          ...f
         };
-      i.lng = i.lng || o.lng, i.lngs = i.lngs || o.lngs, i.ns = i.ns || o.ns, i.keyPrefix = i.keyPrefix || s || o.keyPrefix;
-      const p = a.options.keySeparator || ".";
+      r.lng = r.lng || o.lng, r.lngs = r.lngs || o.lngs, r.ns = r.ns || o.ns, r.keyPrefix = r.keyPrefix || s || o.keyPrefix;
+      const d = a.options.keySeparator || ".";
       let g;
-      return i.keyPrefix && Array.isArray(u) ? g = u.map((m) => `${i.keyPrefix}${p}${m}`) : g = i.keyPrefix ? `${i.keyPrefix}${p}${u}` : u, a.t(g, i);
+      return r.keyPrefix && Array.isArray(u) ? g = u.map((m) => `${r.keyPrefix}${d}${m}`) : g = r.keyPrefix ? `${r.keyPrefix}${d}${u}` : u, a.t(g, r);
     };
     return typeof e == "string" ? o.lng = e : o.lngs = e, o.ns = t, o.keyPrefix = s, o;
   }
@@ -6369,14 +4842,14 @@ class we extends Ie {
     const s = t.lng || this.resolvedLanguage || this.languages[0], a = this.options ? this.options.fallbackLng : !1, o = this.languages[this.languages.length - 1];
     if (s.toLowerCase() === "cimode")
       return !0;
-    const u = (d, i) => {
-      const c = this.services.backendConnector.state[`${d}|${i}`];
+    const u = (f, r) => {
+      const c = this.services.backendConnector.state[`${f}|${r}`];
       return c === -1 || c === 2;
     };
     if (t.precheck) {
-      const d = t.precheck(this, u);
-      if (d !== void 0)
-        return d;
+      const f = t.precheck(this, u);
+      if (f !== void 0)
+        return f;
     }
     return !!(this.hasResourceBundle(s, e) || !this.services.backendConnector.backend || this.options.resources && !this.options.partialBundledLanguages || u(s, e) && (!a || u(o, e)));
   }
@@ -6399,7 +4872,7 @@ class we extends Ie {
   dir(e) {
     if (e || (e = this.resolvedLanguage || (this.languages && this.languages.length > 0 ? this.languages[0] : this.language)), !e)
       return "rtl";
-    const t = ["ar", "shu", "sqr", "ssh", "xaa", "yhd", "yud", "aao", "abh", "abv", "acm", "acq", "acw", "acx", "acy", "adf", "ads", "aeb", "aec", "afb", "ajp", "apc", "apd", "arb", "arq", "ars", "ary", "arz", "auz", "avl", "ayh", "ayl", "ayn", "ayp", "bbz", "pga", "he", "iw", "ps", "pbt", "pbu", "pst", "prp", "prd", "ug", "ur", "ydd", "yds", "yih", "ji", "yi", "hbo", "men", "xmn", "fa", "jpr", "peo", "pes", "prs", "dv", "sam", "ckb"], s = this.services && this.services.languageUtils || new Dt(Vt());
+    const t = ["ar", "shu", "sqr", "ssh", "xaa", "yhd", "yud", "aao", "abh", "abv", "acm", "acq", "acw", "acx", "acy", "adf", "ads", "aeb", "aec", "afb", "ajp", "apc", "apd", "arb", "arq", "ars", "ary", "arz", "auz", "avl", "ayh", "ayl", "ayn", "ayp", "bbz", "pga", "he", "iw", "ps", "pbt", "pbu", "pst", "prp", "prd", "ug", "ur", "ydd", "yds", "yih", "ji", "yi", "hbo", "men", "xmn", "fa", "jpr", "peo", "pes", "prs", "dv", "sam", "ckb"], s = this.services && this.services.languageUtils || new Ft(Dt());
     return t.indexOf(s.getLanguagePartFromCode(e)) > -1 || e.toLowerCase().indexOf("-arab") > 1 ? "rtl" : "ltr";
   }
   static createInstance() {
@@ -6407,7 +4880,7 @@ class we extends Ie {
     return new we(e, t);
   }
   cloneInstance() {
-    let e = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {}, t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : Ce;
+    let e = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {}, t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : Se;
     const s = e.forkResourceStore;
     s && delete e.forkResourceStore;
     const a = {
@@ -6415,16 +4888,16 @@ class we extends Ie {
       ...e,
       isClone: !0
     }, o = new we(a);
-    return (e.debug !== void 0 || e.prefix !== void 0) && (o.logger = o.logger.clone(e)), ["store", "services", "language"].forEach((d) => {
-      o[d] = this[d];
+    return (e.debug !== void 0 || e.prefix !== void 0) && (o.logger = o.logger.clone(e)), ["store", "services", "language"].forEach((f) => {
+      o[f] = this[f];
     }), o.services = {
       ...this.services
     }, o.services.utils = {
       hasLoadedNamespace: o.hasLoadedNamespace.bind(o)
-    }, s && (o.store = new zt(this.store.data, a), o.services.resourceStore = o.store), o.translator = new Ae(o.services, a), o.translator.on("*", function(d) {
-      for (var i = arguments.length, c = new Array(i > 1 ? i - 1 : 0), l = 1; l < i; l++)
+    }, s && (o.store = new Mt(this.store.data, a), o.services.resourceStore = o.store), o.translator = new Te(o.services, a), o.translator.on("*", function(f) {
+      for (var r = arguments.length, c = new Array(r > 1 ? r - 1 : 0), l = 1; l < r; l++)
         c[l - 1] = arguments[l];
-      o.emit(d, ...c);
+      o.emit(f, ...c);
     }), o.init(a, t), o.translator.options = a, o.translator.backendConnector.services.utils = {
       hasLoadedNamespace: o.hasLoadedNamespace.bind(o)
     }, o;
@@ -6439,513 +4912,513 @@ class we extends Ie {
     };
   }
 }
-const Y = we.createInstance();
-Y.createInstance = we.createInstance;
-Y.createInstance;
-Y.dir;
-Y.init;
-Y.loadResources;
-Y.reloadResources;
-Y.use;
-Y.changeLanguage;
-Y.getFixedT;
-Y.t;
-Y.exists;
-Y.setDefaultNamespace;
-Y.hasLoadedNamespace;
-Y.loadNamespaces;
-Y.loadLanguages;
-const za = "New order from template menu", Fa = "Total", Da = "Name", Ua = "Type", Ba = "Time/Table", Va = "Size", qa = "Extras", Wa = "Notes", Ha = "Doneness", Ka = "Sugar", Ya = "Pasta Type", Ja = "Bread", Qa = "Menu", Ga = "Contact", Xa = "All", Za = "Search dishes...", er = "Call", tr = "WhatsApp", sr = "Location", nr = "Address", ar = "Opening Hours", rr = "Add to Cart", ir = "Added", or = "Customize", cr = "Size", lr = "Extras", ur = "Notes", dr = "Cart", pr = "items", hr = "Your cart is empty", fr = "Clear cart", mr = "Send via WhatsApp", gr = "Total", _r = "Name", xr = "Order type", yr = "Pickup", br = "Delivery", vr = "Time/Table", wr = "Message preview", jr = "QR", Nr = "Instagram", $r = "Base price", Sr = "Extras", Cr = "Reservation", kr = "Book a Table", Er = "Date", Rr = "Time", Or = "Area", Pr = "Number of Guests", Tr = "Your Name", Ar = "Phone Number", Lr = "Special Requests", Mr = "Send Reservation Request", Ir = "Reservation request sent!", zr = "Please wait for confirmation from the restaurant.", Fr = "If you don't receive a response within 15 minutes, please call the restaurant.", Dr = "Please wait for confirmation from the restaurant for your order.", Ur = "If you don't receive a response within 5 minutes, please call the restaurant.", Br = "Today", Vr = "Tomorrow", qr = "Reserve your table at our restaurant and enjoy an unforgettable dining experience. We look forward to welcoming you!", Wr = "Choose your preferred date", Hr = "Select time slot", Kr = "Number of people", Yr = "Important Notice", Jr = "Need immediate assistance? Call us:", Qr = "Any special requests or notes...", Gr = "Guest", Xr = "Guests", Zr = "Table Reservation Request", ei = "Date:", ti = "Time:", si = "Area:", ni = "Guests:", ai = "Name:", ri = "Phone:", ii = "Notes:", oi = "Please confirm this reservation.", ci = "Thank you! 🙏", li = "Sun–Thu:", ui = "Fri:", di = "Sat:", pi = "Important Notice", hi = "Delivery fees not included in total price", fi = "Continue to WhatsApp", mi = "Cancel", gi = "The restaurant is currently closed. Please try again during opening hours.", _i = "Close", xi = "🍽️ NEW ORDER REQUEST", yi = "📋 ORDER ITEMS:", bi = "👤 CUSTOMER INFORMATION:", vi = "Order Type", wi = "Name", ji = "Phone", Ni = "Qty", $i = "Item", Si = "Options", Ci = "Please confirm this order. Thank you! 🙏", ki = "Served until 13:00", Ei = "Sunday", Ri = "Monday", Oi = "Tuesday", Pi = "Wednesday", Ti = "Thursday", Ai = "Friday", Li = "Saturday", Mi = "For illustration only", Ii = "Terms of Service", zi = "Privacy Policy", Fi = "Accessibility Statement", Di = "Last updated", Ui = "Acceptance of Terms", Bi = "By using our website and services, you agree to comply with these terms of service.", Vi = "Service Usage", qi = "Our website is designed for browsing our menu, placing orders via WhatsApp, and making reservations.", Wi = "Orders and Reservations", Hi = "All orders are processed through WhatsApp. Reservations are subject to availability and confirmation.", Ki = "Payment Terms", Yi = "Payment is handled directly at the restaurant. Online orders are for convenience and confirmation only.", Ji = "Limitation of Liability", Qi = "We are not responsible for third-party services such as WhatsApp. Use of external services is subject to their terms.", Gi = "Changes to Terms", Xi = "We may update these terms from time to time. Continued use constitutes acceptance of revised terms.", Zi = "Information Collection", eo = "We respect your privacy. Our website does not use cookies or online tracking. Information is stored locally in your browser (LocalStorage) for continuity, and may include name and order preferences (personal/family).", to = "Information Usage", so = "We only use information to provide our services and improve your experience. We do not share personal data with third parties.", no = "Cookies and Tracking", ao = "Our website does not use cookies or tracking technologies. All data is stored locally in your browser.", ro = "WhatsApp Integration", io = "Order placement occurs through WhatsApp (external service). WhatsApp usage is subject to WhatsApp's terms and privacy policy.", oo = "Data Storage", co = "Data is stored locally on your device and on WhatsApp for order processing and communication purposes.", lo = "User Rights", uo = "For any questions or requests regarding your data, please contact us through our contact page.", po = "Our Commitment", ho = "We are committed to making our website accessible according to Israeli Standard TI 5568 based on WCAG 2.0 Level AA. Our goal is to provide an accessible, equal, and comfortable user experience for all users.", fo = "Accessibility Standards", mo = "Our website follows modern accessibility guidelines including keyboard navigation, screen reader compatibility, and clear visual design.", go = "Accessibility Features", _o = "The website includes proper heading structure, alternative text for images, keyboard navigation support, and responsive design for various devices and assistive technologies.", xo = "Accessibility Contact", yo = "If you encounter any accessibility issues or have suggestions for improvement, please contact us via phone or WhatsApp listed on our contact page.", bo = "Customer name is required before sending to WhatsApp", vo = "Back to Menu", wo = "Closed", jo = "The restaurant is currently closed. Orders can be placed only during opening hours.", No = "Got it", $o = {
-  wa_header: za,
-  wa_total: Fa,
-  wa_name: Da,
-  wa_type: Ua,
-  wa_time: Ba,
-  opt_size: Va,
-  opt_extras: qa,
-  opt_notes: Wa,
-  opt_doneness: Ha,
-  opt_sugar: Ka,
-  opt_pasta_type: Ya,
-  opt_bread: Ja,
-  menu: Qa,
-  contact: Ga,
-  all: Xa,
-  search_placeholder: Za,
-  call: er,
-  whatsapp: tr,
-  location: sr,
-  address: nr,
-  open_hours: ar,
-  add_to_cart: rr,
-  added: ir,
-  customize: or,
-  size: cr,
-  extras: lr,
-  notes: ur,
-  cart: dr,
-  items: pr,
-  empty_cart: hr,
-  clear_cart: fr,
-  checkout: mr,
-  total: gr,
-  customer_name: _r,
-  order_type: xr,
-  pickup: yr,
-  delivery: br,
-  time_or_table: vr,
-  message_preview: wr,
-  qr: jr,
-  instagram: Nr,
-  base_price: $r,
-  extras_total: Sr,
-  reservation: Cr,
-  book_table: kr,
-  reservation_date: Er,
-  reservation_time: Rr,
-  reservation_area: Or,
-  reservation_guests: Pr,
-  reservation_name: Tr,
-  reservation_phone: Ar,
-  reservation_notes: Lr,
-  send_reservation: Mr,
-  reservation_sent: Ir,
-  reservation_wait: zr,
-  reservation_no_response: Fr,
-  order_wait: Dr,
-  order_no_response: Ur,
-  today: Br,
-  tomorrow: Vr,
-  reservation_description: qr,
-  choose_date: Wr,
-  select_time: Hr,
-  number_people: Kr,
-  important_notice: Yr,
-  need_assistance: Jr,
-  special_requests_placeholder: Qr,
-  guests_singular: Gr,
-  guests_plural: Xr,
-  reservation_request: Zr,
-  date_label: ei,
-  time_label: ti,
-  area_label: si,
-  guests_label: ni,
-  name_label: ai,
-  phone_label: ri,
-  notes_label: ii,
-  confirm_reservation: oi,
-  thank_you: ci,
-  sun_thu: li,
-  fri: ui,
-  sat: di,
-  important_notice_cart: pi,
-  delivery_notice: hi,
-  continue_to_whatsapp: fi,
-  cancel: mi,
-  restaurant_closed_message: gi,
-  close: _i,
-  wa_order_header: xi,
-  wa_order_items: yi,
-  wa_customer_info: bi,
-  wa_order_type: vi,
-  wa_customer_name: wi,
-  wa_customer_phone: ji,
-  wa_quantity: Ni,
-  wa_item: $i,
-  wa_options: Si,
-  wa_confirm_order: Ci,
-  served_until_13: ki,
-  day_sun: Ei,
-  day_mon: Ri,
-  day_tue: Oi,
-  day_wed: Pi,
-  day_thu: Ti,
-  day_fri: Ai,
-  day_sat: Li,
+const J = we.createInstance();
+J.createInstance = we.createInstance;
+J.createInstance;
+J.dir;
+J.init;
+J.loadResources;
+J.reloadResources;
+J.use;
+J.changeLanguage;
+J.getFixedT;
+J.t;
+J.exists;
+J.setDefaultNamespace;
+J.hasLoadedNamespace;
+J.loadNamespaces;
+J.loadLanguages;
+const Nr = "New order from template menu", $r = "Total", Cr = "Name", Sr = "Type", Er = "Time/Table", kr = "Size", Rr = "Extras", Or = "Notes", Pr = "Doneness", Ar = "Sugar", Tr = "Pasta Type", Lr = "Bread", Mr = "Menu", Ir = "Contact", Fr = "All", zr = "Search dishes...", Ur = "Call", Dr = "WhatsApp", Vr = "Location", Br = "Address", qr = "Opening Hours", Wr = "Add to Cart", Hr = "Added", Kr = "Customize", Yr = "Size", Jr = "Extras", Qr = "Notes", Gr = "Cart", Xr = "items", Zr = "Your cart is empty", ea = "Clear cart", ta = "Send via WhatsApp", sa = "Total", na = "Name", ra = "Order type", aa = "Pickup", ia = "Delivery", oa = "Time/Table", ca = "Message preview", la = "QR", ua = "Instagram", da = "Base price", fa = "Extras", ha = "Reservation", pa = "Book a Table", ma = "Date", ga = "Time", _a = "Area", xa = "Number of Guests", ya = "Your Name", ba = "Phone Number", va = "Special Requests", wa = "Send Reservation Request", ja = "Reservation request sent!", Na = "Please wait for confirmation from the restaurant.", $a = "If you don't receive a response within 15 minutes, please call the restaurant.", Ca = "Please wait for confirmation from the restaurant for your order.", Sa = "If you don't receive a response within 5 minutes, please call the restaurant.", Ea = "Today", ka = "Tomorrow", Ra = "Reserve your table at our restaurant and enjoy an unforgettable dining experience. We look forward to welcoming you!", Oa = "Choose your preferred date", Pa = "Select time slot", Aa = "Number of people", Ta = "Important Notice", La = "Need immediate assistance? Call us:", Ma = "Any special requests or notes...", Ia = "Guest", Fa = "Guests", za = "Table Reservation Request", Ua = "Date:", Da = "Time:", Va = "Area:", Ba = "Guests:", qa = "Name:", Wa = "Phone:", Ha = "Notes:", Ka = "Please confirm this reservation.", Ya = "Thank you! 🙏", Ja = "Sun–Thu:", Qa = "Fri:", Ga = "Sat:", Xa = "Important Notice", Za = "Delivery fees not included in total price", ei = "Continue to WhatsApp", ti = "Cancel", si = "The restaurant is currently closed. Please try again during opening hours.", ni = "Close", ri = "🍽️ NEW ORDER REQUEST", ai = "📋 ORDER ITEMS:", ii = "👤 CUSTOMER INFORMATION:", oi = "Order Type", ci = "Name", li = "Phone", ui = "Qty", di = "Item", fi = "Options", hi = "Please confirm this order. Thank you! 🙏", pi = "Served until 13:00", mi = "Sunday", gi = "Monday", _i = "Tuesday", xi = "Wednesday", yi = "Thursday", bi = "Friday", vi = "Saturday", wi = "For illustration only", ji = "Terms of Service", Ni = "Privacy Policy", $i = "Accessibility Statement", Ci = "Last updated", Si = "Acceptance of Terms", Ei = "By using our website and services, you agree to comply with these terms of service.", ki = "Service Usage", Ri = "Our website is designed for browsing our menu, placing orders via WhatsApp, and making reservations.", Oi = "Orders and Reservations", Pi = "All orders are processed through WhatsApp. Reservations are subject to availability and confirmation.", Ai = "Payment Terms", Ti = "Payment is handled directly at the restaurant. Online orders are for convenience and confirmation only.", Li = "Limitation of Liability", Mi = "We are not responsible for third-party services such as WhatsApp. Use of external services is subject to their terms.", Ii = "Changes to Terms", Fi = "We may update these terms from time to time. Continued use constitutes acceptance of revised terms.", zi = "Information Collection", Ui = "We respect your privacy. Our website does not use cookies or online tracking. Information is stored locally in your browser (LocalStorage) for continuity, and may include name and order preferences (personal/family).", Di = "Information Usage", Vi = "We only use information to provide our services and improve your experience. We do not share personal data with third parties.", Bi = "Cookies and Tracking", qi = "Our website does not use cookies or tracking technologies. All data is stored locally in your browser.", Wi = "WhatsApp Integration", Hi = "Order placement occurs through WhatsApp (external service). WhatsApp usage is subject to WhatsApp's terms and privacy policy.", Ki = "Data Storage", Yi = "Data is stored locally on your device and on WhatsApp for order processing and communication purposes.", Ji = "User Rights", Qi = "For any questions or requests regarding your data, please contact us through our contact page.", Gi = "Our Commitment", Xi = "We are committed to making our website accessible according to Israeli Standard TI 5568 based on WCAG 2.0 Level AA. Our goal is to provide an accessible, equal, and comfortable user experience for all users.", Zi = "Accessibility Standards", eo = "Our website follows modern accessibility guidelines including keyboard navigation, screen reader compatibility, and clear visual design.", to = "Accessibility Features", so = "The website includes proper heading structure, alternative text for images, keyboard navigation support, and responsive design for various devices and assistive technologies.", no = "Accessibility Contact", ro = "If you encounter any accessibility issues or have suggestions for improvement, please contact us via phone or WhatsApp listed on our contact page.", ao = "Customer name is required before sending to WhatsApp", io = "Back to Menu", oo = "Closed", co = "The restaurant is currently closed. Orders can be placed only during opening hours.", lo = "Got it", uo = {
+  wa_header: Nr,
+  wa_total: $r,
+  wa_name: Cr,
+  wa_type: Sr,
+  wa_time: Er,
+  opt_size: kr,
+  opt_extras: Rr,
+  opt_notes: Or,
+  opt_doneness: Pr,
+  opt_sugar: Ar,
+  opt_pasta_type: Tr,
+  opt_bread: Lr,
+  menu: Mr,
+  contact: Ir,
+  all: Fr,
+  search_placeholder: zr,
+  call: Ur,
+  whatsapp: Dr,
+  location: Vr,
+  address: Br,
+  open_hours: qr,
+  add_to_cart: Wr,
+  added: Hr,
+  customize: Kr,
+  size: Yr,
+  extras: Jr,
+  notes: Qr,
+  cart: Gr,
+  items: Xr,
+  empty_cart: Zr,
+  clear_cart: ea,
+  checkout: ta,
+  total: sa,
+  customer_name: na,
+  order_type: ra,
+  pickup: aa,
+  delivery: ia,
+  time_or_table: oa,
+  message_preview: ca,
+  qr: la,
+  instagram: ua,
+  base_price: da,
+  extras_total: fa,
+  reservation: ha,
+  book_table: pa,
+  reservation_date: ma,
+  reservation_time: ga,
+  reservation_area: _a,
+  reservation_guests: xa,
+  reservation_name: ya,
+  reservation_phone: ba,
+  reservation_notes: va,
+  send_reservation: wa,
+  reservation_sent: ja,
+  reservation_wait: Na,
+  reservation_no_response: $a,
+  order_wait: Ca,
+  order_no_response: Sa,
+  today: Ea,
+  tomorrow: ka,
+  reservation_description: Ra,
+  choose_date: Oa,
+  select_time: Pa,
+  number_people: Aa,
+  important_notice: Ta,
+  need_assistance: La,
+  special_requests_placeholder: Ma,
+  guests_singular: Ia,
+  guests_plural: Fa,
+  reservation_request: za,
+  date_label: Ua,
+  time_label: Da,
+  area_label: Va,
+  guests_label: Ba,
+  name_label: qa,
+  phone_label: Wa,
+  notes_label: Ha,
+  confirm_reservation: Ka,
+  thank_you: Ya,
+  sun_thu: Ja,
+  fri: Qa,
+  sat: Ga,
+  important_notice_cart: Xa,
+  delivery_notice: Za,
+  continue_to_whatsapp: ei,
+  cancel: ti,
+  restaurant_closed_message: si,
+  close: ni,
+  wa_order_header: ri,
+  wa_order_items: ai,
+  wa_customer_info: ii,
+  wa_order_type: oi,
+  wa_customer_name: ci,
+  wa_customer_phone: li,
+  wa_quantity: ui,
+  wa_item: di,
+  wa_options: fi,
+  wa_confirm_order: hi,
+  served_until_13: pi,
+  day_sun: mi,
+  day_mon: gi,
+  day_tue: _i,
+  day_wed: xi,
+  day_thu: yi,
+  day_fri: bi,
+  day_sat: vi,
   "day_tue-sat": "Tuesday-Saturday",
   "day_mon-sat": "Monday-Saturday",
-  for_illustration_only: Mi,
-  terms_of_service: Ii,
-  privacy_policy: zi,
-  accessibility_statement: Fi,
-  last_updated: Di,
-  terms_acceptance: Ui,
-  terms_acceptance_text: Bi,
-  terms_service_usage: Vi,
-  terms_service_usage_text: qi,
-  terms_orders: Wi,
-  terms_orders_text: Hi,
-  terms_payment: Ki,
-  terms_payment_text: Yi,
-  terms_liability: Ji,
-  terms_liability_text: Qi,
-  terms_changes: Gi,
-  terms_changes_text: Xi,
-  privacy_info_collection: Zi,
-  privacy_info_collection_text: eo,
-  privacy_info_usage: to,
-  privacy_info_usage_text: so,
-  privacy_cookies: no,
-  privacy_cookies_text: ao,
-  privacy_whatsapp: ro,
-  privacy_whatsapp_text: io,
-  privacy_data_storage: oo,
-  privacy_data_storage_text: co,
-  privacy_user_rights: lo,
-  privacy_user_rights_text: uo,
-  accessibility_commitment: po,
-  accessibility_commitment_text: ho,
-  accessibility_standards: fo,
-  accessibility_standards_text: mo,
-  accessibility_features: go,
-  accessibility_features_text: _o,
-  accessibility_contact: xo,
-  accessibility_contact_text: yo,
-  name_required: bo,
-  back_to_menu: vo,
-  closed: wo,
-  closed_popup_message: jo,
-  got_it_button: No
-}, So = "הזמנה חדשה מתפריט התבנית", Co = "סך הכול", ko = "שם", Eo = "סוג", Ro = "שעה/שולחן", Oo = "גודל", Po = "תוספות", To = "הערות", Ao = "דרגת עשייה", Lo = "סוכר", Mo = "סוג פסטה", Io = "לחם", zo = "תפריט", Fo = "צור קשר", Do = "הכל", Uo = "חיפוש מנות...", Bo = "התקשר", Vo = "וואטסאפ", qo = "מיקום", Wo = "כתובת", Ho = "שעות פתיחה", Ko = "להוסיף לסל", Yo = "נוסף", Jo = "התאמה", Qo = "גודל", Go = "תוספות", Xo = "הערות", Zo = "הסל", ec = "פריטים", tc = "הסל ריק", sc = "נקה סל", nc = "שלח בוואטסאפ", ac = "סך הכל", rc = "שם", ic = "סוג הזמנה", oc = "איסוף עצמי", cc = "משלוח", lc = "שעה/שולחן", uc = "תצוגה מקדימה", dc = "QR", pc = "אינסטגרם", hc = "מחיר בסיס", fc = "תוספות", mc = "הזמנת שולחן", gc = "הזמן שולחן", _c = "תאריך", xc = "שעה", yc = "אזור", bc = "מספר אורחים", vc = "השם שלך", wc = "מספר טלפון", jc = "בקשות מיוחדות", Nc = "שלח בקשת הזמנה", $c = "בקשת ההזמנה נשלחה!", Sc = "אנא המתן לאישור מהמסעדה.", Cc = "אם לא תקבל תגובה תוך 15 דקות, אנא התקשר למסעדה.", kc = "אנא המתן לאישור מהמסעדה עבור ההזמנה שלך.", Ec = "אם לא תקבל תגובה תוך 5 דקות, אנא התקשר למסעדה.", Rc = "היום", Oc = "מחר", Pc = "הזמן שולחן במסעדה שלנו ותהנה מחווית אוכל בלתי נשכחת. אנחנו מצפים לראות אותך!", Tc = "בחר את התאריך המועדף עליך", Ac = "בחר זמן", Lc = "מספר אנשים", Mc = "הודעה חשובה", Ic = "צריך עזרה מיידית? התקשר אלינו:", zc = "בקשות מיוחדות או הערות...", Fc = "אורח", Dc = "אורחים", Uc = "בקשת הזמנת שולחן", Bc = "תאריך:", Vc = "שעה:", qc = "אזור:", Wc = "אורחים:", Hc = "שם:", Kc = "טלפון:", Yc = "הערות:", Jc = "אנא אשר את ההזמנה הזו.", Qc = "תודה! 🙏", Gc = "א׳-ה׳:", Xc = "ו׳:", Zc = "ש׳:", el = "הודעה חשובה", tl = "עמלת משלוח לא כלולה במחיר הכולל", sl = "המשך לווטסאפ", nl = "ביטול", al = "🍽️ בקשת הזמנה חדשה", rl = "📋 פריטי ההזמנה:", il = "👤 פרטי הלקוח:", ol = "סוג הזמנה", cl = "שם", ll = "טלפון", ul = "כמות", dl = "פריט", pl = "אפשרויות", hl = "אנא אשר את ההזמנה הזו. תודה! 🙏", fl = "מוגש עד 13:00", ml = "ראשון", gl = "שני", _l = "שלישי", xl = "רביעי", yl = "חמישי", bl = "שישי", vl = "שבת", wl = "להמחשה בלבד", jl = "תנאי שימוש", Nl = "מדיניות פרטיות", $l = "הצהרת נגישות", Sl = "תאריך עדכון אחרון", Cl = "אחריות", kl = "אין אחריות לשירותי צד-שלישי (כגון WhatsApp). כל שימוש בשירותים חיצוניים כפוף לתנאורים.", El = "שינויים בתנאים", Rl = "יתכן שנעדכן שינויים בתנאי השימוש מעת לעת. המשך השימוש כהסכמה לתנאים כפופה.", Ol = "יצירת קשר בנושא נגישות", Pl = "אם נתקלתם בבעיה או הצעה לשיפור, נעמוד לכפות אליכן בטלפון או בוואטסאפ המופיעים במיקום יצירת קשר.", Tl = "מטרת עיכוב היחידי", Al = "האתר מכיל לפרטים, בחירת פריטים, והזמנת מקום לוואטסאפ של המטעדה.", Ll = "זכויות המשתמש", Ml = "כפי שלאה או בקשה לחתיקה מידע, נעמוד לכפות אליכן דרך עמוד יצירת קשר.", Il = "תאריך עדכון אחרון", zl = "26.9.2025", Fl = "אחריות", Dl = "אין אחריות לשירותי צד-שלישי (כגון WhatsApp). כל שימוש בשירותים חיצוניים כפוף לתנאורים.", Ul = "שינויים בתנאים", Bl = "יתכן שנעדכן שינויים בתנאי השימוש מעת לעת. המשך השימוש כהסכמה לתנאים כפופה.", Vl = "מדיניות פרטיות", ql = "אנו מכבדים את פרטיותכם. האתר אינו מפעיל עוגיות (cookies) ואינו מבצע מעקב אינטרנטי. המידע שמורן בעלות הקרייות ומורה מקומית בדפדפן (LocalStorage) לצורך המשכיות כבב, ויכול לכלול שם ופוטר המנה (אישי/משפחה).", Wl = "מטרת עיכוב היחידי", Hl = "שליחת הזמנה/פנירה מתבצעת באמצעות WhatsApp (שירות חיצוני). על כן, השימוש ב-WhatsApp כפוף לתנאי השימוש ומדיניות הפרטיות של WhatsApp.", Kl = "מטרת עיכוב היחידי", Yl = "האתר מכיל לפרטים, בחירת פריטים, והזמנת מקום לוואטסאפ של המטעדה.", Jl = "זכויות המשתמש", Ql = "כפי שלאה או בקשה לחתיקה מידע, נעמוד לכפות אליכן דרך עמוד יצירת קשר.", Gl = "הצהרת נגישות", Xl = 'אנו פועלים להנגיש את האתר בהתאם לתקן הישראלי ת"י 5568 הכמבוס על 2.0 WCAG ברמה AA. מטרתנו להנביח חווית שימוש נגישה, שוויונית ונוחה לכלל המשתמשים.', Zl = "יצירת קשר בנושא נגישות", eu = "אם נתקלתם בבעיה או הצעה לשיפור, נעמוד לכפות אליכן בטלפון או בוואטסאפ המופיעים במיקום יצירת קשר.", tu = "מטרת עיכוב היחידי", su = "האתר מכיל לפרטים, בחירת פריטים, והזמנת מקום לוואטסאפ של המטעדה.", nu = "יצירת קשר בנושא נגישות", au = "אם נתקלתם בבעיה או הצעה לשיפור, נעמוד לכפות אליכן בטלפון או בוואטסאפ המופיעים במיקום יצירת קשר.", ru = "שם הלקוח נדרש לפני שליחה לוואטסאפ", iu = "חזרה לתפריט", ou = "סגור", cu = "המסעדה סגורה כעת. נסה שוב בשעות הפתיחה.", lu = "סגור", uu = "המסעדה סגורה כעת. ניתן לבצע הזמנות רק במהלך שעות הפתיחה.", du = "הבנתי", pu = {
-  wa_header: So,
-  wa_total: Co,
-  wa_name: ko,
-  wa_type: Eo,
-  wa_time: Ro,
-  opt_size: Oo,
-  opt_extras: Po,
-  opt_notes: To,
-  opt_doneness: Ao,
-  opt_sugar: Lo,
-  opt_pasta_type: Mo,
-  opt_bread: Io,
-  menu: zo,
-  contact: Fo,
-  all: Do,
-  search_placeholder: Uo,
-  call: Bo,
-  whatsapp: Vo,
-  location: qo,
-  address: Wo,
-  open_hours: Ho,
-  add_to_cart: Ko,
-  added: Yo,
-  customize: Jo,
-  size: Qo,
-  extras: Go,
-  notes: Xo,
-  cart: Zo,
-  items: ec,
-  empty_cart: tc,
-  clear_cart: sc,
-  checkout: nc,
-  total: ac,
-  customer_name: rc,
-  order_type: ic,
-  pickup: oc,
-  delivery: cc,
-  time_or_table: lc,
-  message_preview: uc,
-  qr: dc,
-  instagram: pc,
-  base_price: hc,
-  extras_total: fc,
-  reservation: mc,
-  book_table: gc,
-  reservation_date: _c,
-  reservation_time: xc,
-  reservation_area: yc,
-  reservation_guests: bc,
-  reservation_name: vc,
-  reservation_phone: wc,
-  reservation_notes: jc,
-  send_reservation: Nc,
-  reservation_sent: $c,
-  reservation_wait: Sc,
-  reservation_no_response: Cc,
-  order_wait: kc,
-  order_no_response: Ec,
-  today: Rc,
-  tomorrow: Oc,
-  reservation_description: Pc,
-  choose_date: Tc,
-  select_time: Ac,
-  number_people: Lc,
-  important_notice: Mc,
-  need_assistance: Ic,
-  special_requests_placeholder: zc,
-  guests_singular: Fc,
-  guests_plural: Dc,
-  reservation_request: Uc,
-  date_label: Bc,
-  time_label: Vc,
-  area_label: qc,
-  guests_label: Wc,
-  name_label: Hc,
-  phone_label: Kc,
-  notes_label: Yc,
-  confirm_reservation: Jc,
-  thank_you: Qc,
-  sun_thu: Gc,
-  fri: Xc,
-  sat: Zc,
-  important_notice_cart: el,
-  delivery_notice: tl,
-  continue_to_whatsapp: sl,
-  cancel: nl,
-  wa_order_header: al,
-  wa_order_items: rl,
-  wa_customer_info: il,
-  wa_order_type: ol,
-  wa_customer_name: cl,
-  wa_customer_phone: ll,
-  wa_quantity: ul,
-  wa_item: dl,
-  wa_options: pl,
-  wa_confirm_order: hl,
-  served_until_13: fl,
-  day_sun: ml,
-  day_mon: gl,
-  day_tue: _l,
-  day_wed: xl,
-  day_thu: yl,
-  day_fri: bl,
-  day_sat: vl,
+  for_illustration_only: wi,
+  terms_of_service: ji,
+  privacy_policy: Ni,
+  accessibility_statement: $i,
+  last_updated: Ci,
+  terms_acceptance: Si,
+  terms_acceptance_text: Ei,
+  terms_service_usage: ki,
+  terms_service_usage_text: Ri,
+  terms_orders: Oi,
+  terms_orders_text: Pi,
+  terms_payment: Ai,
+  terms_payment_text: Ti,
+  terms_liability: Li,
+  terms_liability_text: Mi,
+  terms_changes: Ii,
+  terms_changes_text: Fi,
+  privacy_info_collection: zi,
+  privacy_info_collection_text: Ui,
+  privacy_info_usage: Di,
+  privacy_info_usage_text: Vi,
+  privacy_cookies: Bi,
+  privacy_cookies_text: qi,
+  privacy_whatsapp: Wi,
+  privacy_whatsapp_text: Hi,
+  privacy_data_storage: Ki,
+  privacy_data_storage_text: Yi,
+  privacy_user_rights: Ji,
+  privacy_user_rights_text: Qi,
+  accessibility_commitment: Gi,
+  accessibility_commitment_text: Xi,
+  accessibility_standards: Zi,
+  accessibility_standards_text: eo,
+  accessibility_features: to,
+  accessibility_features_text: so,
+  accessibility_contact: no,
+  accessibility_contact_text: ro,
+  name_required: ao,
+  back_to_menu: io,
+  closed: oo,
+  closed_popup_message: co,
+  got_it_button: lo
+}, fo = "הזמנה חדשה מתפריט התבנית", ho = "סך הכול", po = "שם", mo = "סוג", go = "שעה/שולחן", _o = "גודל", xo = "תוספות", yo = "הערות", bo = "דרגת עשייה", vo = "סוכר", wo = "סוג פסטה", jo = "לחם", No = "תפריט", $o = "צור קשר", Co = "הכל", So = "חיפוש מנות...", Eo = "התקשר", ko = "וואטסאפ", Ro = "מיקום", Oo = "כתובת", Po = "שעות פתיחה", Ao = "להוסיף לסל", To = "נוסף", Lo = "התאמה", Mo = "גודל", Io = "תוספות", Fo = "הערות", zo = "הסל", Uo = "פריטים", Do = "הסל ריק", Vo = "נקה סל", Bo = "שלח בוואטסאפ", qo = "סך הכל", Wo = "שם", Ho = "סוג הזמנה", Ko = "איסוף עצמי", Yo = "משלוח", Jo = "שעה/שולחן", Qo = "תצוגה מקדימה", Go = "QR", Xo = "אינסטגרם", Zo = "מחיר בסיס", ec = "תוספות", tc = "הזמנת שולחן", sc = "הזמן שולחן", nc = "תאריך", rc = "שעה", ac = "אזור", ic = "מספר אורחים", oc = "השם שלך", cc = "מספר טלפון", lc = "בקשות מיוחדות", uc = "שלח בקשת הזמנה", dc = "בקשת ההזמנה נשלחה!", fc = "אנא המתן לאישור מהמסעדה.", hc = "אם לא תקבל תגובה תוך 15 דקות, אנא התקשר למסעדה.", pc = "אנא המתן לאישור מהמסעדה עבור ההזמנה שלך.", mc = "אם לא תקבל תגובה תוך 5 דקות, אנא התקשר למסעדה.", gc = "היום", _c = "מחר", xc = "הזמן שולחן במסעדה שלנו ותהנה מחווית אוכל בלתי נשכחת. אנחנו מצפים לראות אותך!", yc = "בחר את התאריך המועדף עליך", bc = "בחר זמן", vc = "מספר אנשים", wc = "הודעה חשובה", jc = "צריך עזרה מיידית? התקשר אלינו:", Nc = "בקשות מיוחדות או הערות...", $c = "אורח", Cc = "אורחים", Sc = "בקשת הזמנת שולחן", Ec = "תאריך:", kc = "שעה:", Rc = "אזור:", Oc = "אורחים:", Pc = "שם:", Ac = "טלפון:", Tc = "הערות:", Lc = "אנא אשר את ההזמנה הזו.", Mc = "תודה! 🙏", Ic = "א׳-ה׳:", Fc = "ו׳:", zc = "ש׳:", Uc = "הודעה חשובה", Dc = "עמלת משלוח לא כלולה במחיר הכולל", Vc = "המשך לווטסאפ", Bc = "ביטול", qc = "🍽️ בקשת הזמנה חדשה", Wc = "📋 פריטי ההזמנה:", Hc = "👤 פרטי הלקוח:", Kc = "סוג הזמנה", Yc = "שם", Jc = "טלפון", Qc = "כמות", Gc = "פריט", Xc = "אפשרויות", Zc = "אנא אשר את ההזמנה הזו. תודה! 🙏", el = "מוגש עד 13:00", tl = "ראשון", sl = "שני", nl = "שלישי", rl = "רביעי", al = "חמישי", il = "שישי", ol = "שבת", cl = "להמחשה בלבד", ll = "תנאי שימוש", ul = "מדיניות פרטיות", dl = "הצהרת נגישות", fl = "תאריך עדכון אחרון", hl = "אחריות", pl = "אין אחריות לשירותי צד-שלישי (כגון WhatsApp). כל שימוש בשירותים חיצוניים כפוף לתנאורים.", ml = "שינויים בתנאים", gl = "יתכן שנעדכן שינויים בתנאי השימוש מעת לעת. המשך השימוש כהסכמה לתנאים כפופה.", _l = "יצירת קשר בנושא נגישות", xl = "אם נתקלתם בבעיה או הצעה לשיפור, נעמוד לכפות אליכן בטלפון או בוואטסאפ המופיעים במיקום יצירת קשר.", yl = "מטרת עיכוב היחידי", bl = "האתר מכיל לפרטים, בחירת פריטים, והזמנת מקום לוואטסאפ של המטעדה.", vl = "זכויות המשתמש", wl = "כפי שלאה או בקשה לחתיקה מידע, נעמוד לכפות אליכן דרך עמוד יצירת קשר.", jl = "תאריך עדכון אחרון", Nl = "26.9.2025", $l = "אחריות", Cl = "אין אחריות לשירותי צד-שלישי (כגון WhatsApp). כל שימוש בשירותים חיצוניים כפוף לתנאורים.", Sl = "שינויים בתנאים", El = "יתכן שנעדכן שינויים בתנאי השימוש מעת לעת. המשך השימוש כהסכמה לתנאים כפופה.", kl = "מדיניות פרטיות", Rl = "אנו מכבדים את פרטיותכם. האתר אינו מפעיל עוגיות (cookies) ואינו מבצע מעקב אינטרנטי. המידע שמורן בעלות הקרייות ומורה מקומית בדפדפן (LocalStorage) לצורך המשכיות כבב, ויכול לכלול שם ופוטר המנה (אישי/משפחה).", Ol = "מטרת עיכוב היחידי", Pl = "שליחת הזמנה/פנירה מתבצעת באמצעות WhatsApp (שירות חיצוני). על כן, השימוש ב-WhatsApp כפוף לתנאי השימוש ומדיניות הפרטיות של WhatsApp.", Al = "מטרת עיכוב היחידי", Tl = "האתר מכיל לפרטים, בחירת פריטים, והזמנת מקום לוואטסאפ של המטעדה.", Ll = "זכויות המשתמש", Ml = "כפי שלאה או בקשה לחתיקה מידע, נעמוד לכפות אליכן דרך עמוד יצירת קשר.", Il = "הצהרת נגישות", Fl = 'אנו פועלים להנגיש את האתר בהתאם לתקן הישראלי ת"י 5568 הכמבוס על 2.0 WCAG ברמה AA. מטרתנו להנביח חווית שימוש נגישה, שוויונית ונוחה לכלל המשתמשים.', zl = "יצירת קשר בנושא נגישות", Ul = "אם נתקלתם בבעיה או הצעה לשיפור, נעמוד לכפות אליכן בטלפון או בוואטסאפ המופיעים במיקום יצירת קשר.", Dl = "מטרת עיכוב היחידי", Vl = "האתר מכיל לפרטים, בחירת פריטים, והזמנת מקום לוואטסאפ של המטעדה.", Bl = "יצירת קשר בנושא נגישות", ql = "אם נתקלתם בבעיה או הצעה לשיפור, נעמוד לכפות אליכן בטלפון או בוואטסאפ המופיעים במיקום יצירת קשר.", Wl = "שם הלקוח נדרש לפני שליחה לוואטסאפ", Hl = "חזרה לתפריט", Kl = "סגור", Yl = "המסעדה סגורה כעת. נסה שוב בשעות הפתיחה.", Jl = "סגור", Ql = "המסעדה סגורה כעת. ניתן לבצע הזמנות רק במהלך שעות הפתיחה.", Gl = "הבנתי", Xl = {
+  wa_header: fo,
+  wa_total: ho,
+  wa_name: po,
+  wa_type: mo,
+  wa_time: go,
+  opt_size: _o,
+  opt_extras: xo,
+  opt_notes: yo,
+  opt_doneness: bo,
+  opt_sugar: vo,
+  opt_pasta_type: wo,
+  opt_bread: jo,
+  menu: No,
+  contact: $o,
+  all: Co,
+  search_placeholder: So,
+  call: Eo,
+  whatsapp: ko,
+  location: Ro,
+  address: Oo,
+  open_hours: Po,
+  add_to_cart: Ao,
+  added: To,
+  customize: Lo,
+  size: Mo,
+  extras: Io,
+  notes: Fo,
+  cart: zo,
+  items: Uo,
+  empty_cart: Do,
+  clear_cart: Vo,
+  checkout: Bo,
+  total: qo,
+  customer_name: Wo,
+  order_type: Ho,
+  pickup: Ko,
+  delivery: Yo,
+  time_or_table: Jo,
+  message_preview: Qo,
+  qr: Go,
+  instagram: Xo,
+  base_price: Zo,
+  extras_total: ec,
+  reservation: tc,
+  book_table: sc,
+  reservation_date: nc,
+  reservation_time: rc,
+  reservation_area: ac,
+  reservation_guests: ic,
+  reservation_name: oc,
+  reservation_phone: cc,
+  reservation_notes: lc,
+  send_reservation: uc,
+  reservation_sent: dc,
+  reservation_wait: fc,
+  reservation_no_response: hc,
+  order_wait: pc,
+  order_no_response: mc,
+  today: gc,
+  tomorrow: _c,
+  reservation_description: xc,
+  choose_date: yc,
+  select_time: bc,
+  number_people: vc,
+  important_notice: wc,
+  need_assistance: jc,
+  special_requests_placeholder: Nc,
+  guests_singular: $c,
+  guests_plural: Cc,
+  reservation_request: Sc,
+  date_label: Ec,
+  time_label: kc,
+  area_label: Rc,
+  guests_label: Oc,
+  name_label: Pc,
+  phone_label: Ac,
+  notes_label: Tc,
+  confirm_reservation: Lc,
+  thank_you: Mc,
+  sun_thu: Ic,
+  fri: Fc,
+  sat: zc,
+  important_notice_cart: Uc,
+  delivery_notice: Dc,
+  continue_to_whatsapp: Vc,
+  cancel: Bc,
+  wa_order_header: qc,
+  wa_order_items: Wc,
+  wa_customer_info: Hc,
+  wa_order_type: Kc,
+  wa_customer_name: Yc,
+  wa_customer_phone: Jc,
+  wa_quantity: Qc,
+  wa_item: Gc,
+  wa_options: Xc,
+  wa_confirm_order: Zc,
+  served_until_13: el,
+  day_sun: tl,
+  day_mon: sl,
+  day_tue: nl,
+  day_wed: rl,
+  day_thu: al,
+  day_fri: il,
+  day_sat: ol,
   "day_tue-sat": "שלישי-שבת",
   "day_mon-sat": "שני-שבת",
-  for_illustration_only: wl,
-  terms_of_service: jl,
-  privacy_policy: Nl,
-  accessibility_statement: $l,
-  last_updated: Sl,
-  terms_acceptance: Cl,
-  terms_acceptance_text: kl,
-  terms_service_usage: El,
-  terms_service_usage_text: Rl,
-  terms_orders: Ol,
-  terms_orders_text: Pl,
-  terms_payment: Tl,
-  terms_payment_text: Al,
-  terms_liability: Ll,
-  terms_liability_text: Ml,
-  terms_changes: Il,
-  terms_changes_text: zl,
-  privacy_info_collection: Fl,
-  privacy_info_collection_text: Dl,
-  privacy_info_usage: Ul,
-  privacy_info_usage_text: Bl,
-  privacy_cookies: Vl,
-  privacy_cookies_text: ql,
-  privacy_whatsapp: Wl,
-  privacy_whatsapp_text: Hl,
-  privacy_data_storage: Kl,
-  privacy_data_storage_text: Yl,
-  privacy_user_rights: Jl,
-  privacy_user_rights_text: Ql,
-  accessibility_commitment: Gl,
-  accessibility_commitment_text: Xl,
-  accessibility_standards: Zl,
-  accessibility_standards_text: eu,
-  accessibility_features: tu,
-  accessibility_features_text: su,
-  accessibility_contact: nu,
-  accessibility_contact_text: au,
-  name_required: ru,
-  back_to_menu: iu,
-  closed: ou,
-  restaurant_closed_message: cu,
-  close: lu,
-  closed_popup_message: uu,
-  got_it_button: du
-}, hu = "طلب جديد عبر قائمة القالب", fu = "الإجمالي", mu = "الاسم", gu = "النوع", _u = "ساعة/طاولة", xu = "الحجم", yu = "إضافات", bu = "ملاحظات", vu = "درجة الاستواء", wu = "سكر", ju = "نوع المعكرونة", Nu = "الخبز", $u = "القائمة", Su = "تواصل", Cu = "الكل", ku = "ابحث عن طبق...", Eu = "اتصال", Ru = "واتساب", Ou = "الموقع", Pu = "العنوان", Tu = "ساعات العمل", Au = "أضف إلى السلة", Lu = "تمت الإضافة", Mu = "تخصيص", Iu = "الحجم", zu = "إضافات", Fu = "ملاحظات", Du = "السلة", Uu = "عنصر", Bu = "السلة فارغة", Vu = "تفريغ السلة", qu = "إرسال عبر واتساب", Wu = "الإجمالي", Hu = "الاسم", Ku = "نوع الطلب", Yu = "استلام", Ju = "توصيل", Qu = "ساعة/طاولة", Gu = "نص الرسالة", Xu = "QR", Zu = "إنستغرام", ed = "السعر الأساسي", td = "الإضافات", sd = "حجز طاولة", nd = "احجز طاولة", ad = "التاريخ", rd = "الوقت", id = "المنطقة", od = "عدد الضيوف", cd = "اسمك", ld = "رقم الهاتف", ud = "طلبات خاصة", dd = "إرسال طلب الحجز", pd = "تم إرسال طلب الحجز!", hd = "يرجى انتظار التأكيد من المطعم.", fd = "إذا لم تتلق رداً خلال 15 دقيقة، يرجى الاتصال بالمطعم.", md = "يرجى انتظار التأكيد من المطعم لطلبك.", gd = "إذا لم تتلق رداً خلال 5 دقائق، يرجى الاتصال بالمطعم.", _d = "اليوم", xd = "غداً", yd = "احجز طاولتك في مطعمنا واستمتع بتجربة طعام لا تُنسى. نحن نتطلع لاستقبالك!", bd = "اختر التاريخ المفضل لديك", vd = "اختر الوقت", wd = "عدد الأشخاص", jd = "إشعار مهم", Nd = "تحتاج مساعدة فورية؟ اتصل بنا:", $d = "أي طلبات خاصة أو ملاحظات...", Sd = "ضيف", Cd = "ضيوف", kd = "طلب حجز طاولة", Ed = "التاريخ:", Rd = "الوقت:", Od = "المنطقة:", Pd = "الضيوف:", Td = "الاسم:", Ad = "الهاتف:", Ld = "ملاحظات:", Md = "يرجى تأكيد هذا الحجز.", Id = "شكراً لك! 🙏", zd = "الأحد-الخميس:", Fd = "الجمعة:", Dd = "السبت:", Ud = "إشعار مهم", Bd = "رسوم التوصيل غير مشمولة في السعر الإجمالي", Vd = "متابعة إلى واتساب", qd = "إلغاء", Wd = "🍽️ طلب جديد", Hd = "📋 عناصر الطلب:", Kd = "👤 معلومات العميل:", Yd = "نوع الطلب", Jd = "الاسم", Qd = "الهاتف", Gd = "الكمية", Xd = "العنصر", Zd = "الخيارات", ep = "يرجى تأكيد هذا الطلب. شكراً لك! 🙏", tp = "يُقدم حتى 13:00", sp = "الأحد", np = "الاثنين", ap = "الثلاثاء", rp = "الأربعاء", ip = "الخميس", op = "الجمعة", cp = "السبت", lp = "شروط الخدمة", up = "سياسة الخصوصية", dp = "بيان إمكانية الوصول", pp = "آخر تحديث", hp = "قبول الشروط", fp = "باستخدام موقعنا وخدماتنا، فإنك توافق على الالتزام بشروط الخدمة هذه.", mp = "استخدام الخدمة", gp = "تم تصميم موقعنا لتصفح القائمة وتقديم الطلبات عبر واتساب وإجراء الحجوزات.", _p = "الطلبات والحجوزات", xp = "جميع الطلبات تتم معالجتها عبر واتساب. الحجوزات تخضع للتوفر والتأكيد.", yp = "شروط الدفع", bp = "يتم التعامل مع الدفع مباشرة في المطعم. الطلبات عبر الإنترنت للراحة والتأكيد فقط.", vp = "حدود المسؤولية", wp = "نحن غير مسؤولين عن خدمات الطرف الثالث مثل واتساب. استخدام الخدمات الخارجية يخضع لشروطها.", jp = "تغييرات الشروط", Np = "قد نقوم بتحديث هذه الشروط من وقت لآخر. الاستخدام المستمر يشكل قبولاً للشروط المنقحة.", $p = "جمع المعلومات", Sp = "نحن نحترم خصوصيتك. موقعنا لا يستخدم ملفات تعريف الارتباط أو التتبع عبر الإنترنت. يتم تخزين المعلومات محلياً في متصفحك للاستمرارية، وقد تشمل الاسم وتفضيلات الطلب.", Cp = "استخدام المعلومات", kp = "نستخدم المعلومات فقط لتقديم خدماتنا وتحسين تجربتك. لا نشارك البيانات الشخصية مع أطراف ثالثة.", Ep = "ملفات تعريف الارتباط والتتبع", Rp = "موقعنا لا يستخدم ملفات تعريف الارتباط أو تقنيات التتبع. جميع البيانات مخزنة محلياً في متصفحك.", Op = "تكامل واتساب", Pp = "تقديم الطلبات يتم عبر واتساب (خدمة خارجية). استخدام واتساب يخضع لشروط وسياسة خصوصية واتساب.", Tp = "تخزين البيانات", Ap = "يتم تخزين البيانات محلياً على جهازك وعلى واتساب لمعالجة الطلبات وأغراض التواصل.", Lp = "حقوق المستخدم", Mp = "لأي أسئلة أو طلبات بخصوص بياناتك، يرجى التواصل معنا عبر صفحة الاتصال.", Ip = "التزامنا", zp = "نحن ملتزمون بجعل موقعنا قابلاً للوصول وفقاً للمعايير الحديثة. هدفنا توفير تجربة مستخدم متاحة ومتساوية ومريحة لجميع المستخدمين.", Fp = "معايير إمكانية الوصول", Dp = "يتبع موقعنا إرشادات إمكانية الوصول الحديثة بما في ذلك التنقل بلوحة المفاتيح وتوافق قارئ الشاشة والتصميم البصري الواضح.", Up = "ميزات إمكانية الوصول", Bp = "يتضمن الموقع هيكل عناوين مناسب ونص بديل للصور ودعم التنقل بلوحة المفاتيح وتصميم متجاوب لمختلف الأجهزة والتقنيات المساعدة.", Vp = "التواصل بخصوص إمكانية الوصول", qp = "إذا واجهت أي مشاكل في إمكانية الوصول أو لديك اقتراحات للتحسين، يرجى التواصل معنا عبر الهاتف أو واتساب المدرجين في صفحة الاتصال.", Wp = "اسم العميل مطلوب قبل الإرسال إلى واتساب", Hp = "العودة إلى القائمة", Kp = "مغلق", Yp = "للتوضيح فقط", Jp = "المطعم مغلق حالياً. الرجاء المحاولة خلال ساعات العمل.", Qp = "إغلاق", Gp = "المطعم مغلق حالياً. يمكن تقديم الطلبات فقط خلال ساعات العمل.", Xp = "حسنًا", Zp = {
-  wa_header: hu,
-  wa_total: fu,
-  wa_name: mu,
-  wa_type: gu,
-  wa_time: _u,
-  opt_size: xu,
-  opt_extras: yu,
-  opt_notes: bu,
-  opt_doneness: vu,
-  opt_sugar: wu,
-  opt_pasta_type: ju,
-  opt_bread: Nu,
-  menu: $u,
-  contact: Su,
-  all: Cu,
-  search_placeholder: ku,
-  call: Eu,
-  whatsapp: Ru,
-  location: Ou,
-  address: Pu,
-  open_hours: Tu,
-  add_to_cart: Au,
-  added: Lu,
-  customize: Mu,
-  size: Iu,
-  extras: zu,
-  notes: Fu,
-  cart: Du,
-  items: Uu,
-  empty_cart: Bu,
-  clear_cart: Vu,
-  checkout: qu,
-  total: Wu,
-  customer_name: Hu,
-  order_type: Ku,
-  pickup: Yu,
-  delivery: Ju,
-  time_or_table: Qu,
-  message_preview: Gu,
-  qr: Xu,
-  instagram: Zu,
-  base_price: ed,
-  extras_total: td,
-  reservation: sd,
-  book_table: nd,
-  reservation_date: ad,
-  reservation_time: rd,
-  reservation_area: id,
-  reservation_guests: od,
-  reservation_name: cd,
-  reservation_phone: ld,
-  reservation_notes: ud,
-  send_reservation: dd,
-  reservation_sent: pd,
-  reservation_wait: hd,
-  reservation_no_response: fd,
-  order_wait: md,
-  order_no_response: gd,
-  today: _d,
-  tomorrow: xd,
-  reservation_description: yd,
-  choose_date: bd,
-  select_time: vd,
-  number_people: wd,
-  important_notice: jd,
-  need_assistance: Nd,
-  special_requests_placeholder: $d,
-  guests_singular: Sd,
-  guests_plural: Cd,
-  reservation_request: kd,
-  date_label: Ed,
-  time_label: Rd,
-  area_label: Od,
-  guests_label: Pd,
-  name_label: Td,
-  phone_label: Ad,
-  notes_label: Ld,
-  confirm_reservation: Md,
-  thank_you: Id,
-  sun_thu: zd,
-  fri: Fd,
-  sat: Dd,
-  important_notice_cart: Ud,
-  delivery_notice: Bd,
-  continue_to_whatsapp: Vd,
-  cancel: qd,
-  wa_order_header: Wd,
-  wa_order_items: Hd,
-  wa_customer_info: Kd,
-  wa_order_type: Yd,
-  wa_customer_name: Jd,
-  wa_customer_phone: Qd,
-  wa_quantity: Gd,
-  wa_item: Xd,
-  wa_options: Zd,
-  wa_confirm_order: ep,
-  served_until_13: tp,
-  day_sun: sp,
-  day_mon: np,
-  day_tue: ap,
-  day_wed: rp,
-  day_thu: ip,
-  day_fri: op,
-  day_sat: cp,
+  for_illustration_only: cl,
+  terms_of_service: ll,
+  privacy_policy: ul,
+  accessibility_statement: dl,
+  last_updated: fl,
+  terms_acceptance: hl,
+  terms_acceptance_text: pl,
+  terms_service_usage: ml,
+  terms_service_usage_text: gl,
+  terms_orders: _l,
+  terms_orders_text: xl,
+  terms_payment: yl,
+  terms_payment_text: bl,
+  terms_liability: vl,
+  terms_liability_text: wl,
+  terms_changes: jl,
+  terms_changes_text: Nl,
+  privacy_info_collection: $l,
+  privacy_info_collection_text: Cl,
+  privacy_info_usage: Sl,
+  privacy_info_usage_text: El,
+  privacy_cookies: kl,
+  privacy_cookies_text: Rl,
+  privacy_whatsapp: Ol,
+  privacy_whatsapp_text: Pl,
+  privacy_data_storage: Al,
+  privacy_data_storage_text: Tl,
+  privacy_user_rights: Ll,
+  privacy_user_rights_text: Ml,
+  accessibility_commitment: Il,
+  accessibility_commitment_text: Fl,
+  accessibility_standards: zl,
+  accessibility_standards_text: Ul,
+  accessibility_features: Dl,
+  accessibility_features_text: Vl,
+  accessibility_contact: Bl,
+  accessibility_contact_text: ql,
+  name_required: Wl,
+  back_to_menu: Hl,
+  closed: Kl,
+  restaurant_closed_message: Yl,
+  close: Jl,
+  closed_popup_message: Ql,
+  got_it_button: Gl
+}, Zl = "طلب جديد عبر قائمة القالب", eu = "الإجمالي", tu = "الاسم", su = "النوع", nu = "ساعة/طاولة", ru = "الحجم", au = "إضافات", iu = "ملاحظات", ou = "درجة الاستواء", cu = "سكر", lu = "نوع المعكرونة", uu = "الخبز", du = "القائمة", fu = "تواصل", hu = "الكل", pu = "ابحث عن طبق...", mu = "اتصال", gu = "واتساب", _u = "الموقع", xu = "العنوان", yu = "ساعات العمل", bu = "أضف إلى السلة", vu = "تمت الإضافة", wu = "تخصيص", ju = "الحجم", Nu = "إضافات", $u = "ملاحظات", Cu = "السلة", Su = "عنصر", Eu = "السلة فارغة", ku = "تفريغ السلة", Ru = "إرسال عبر واتساب", Ou = "الإجمالي", Pu = "الاسم", Au = "نوع الطلب", Tu = "استلام", Lu = "توصيل", Mu = "ساعة/طاولة", Iu = "نص الرسالة", Fu = "QR", zu = "إنستغرام", Uu = "السعر الأساسي", Du = "الإضافات", Vu = "حجز طاولة", Bu = "احجز طاولة", qu = "التاريخ", Wu = "الوقت", Hu = "المنطقة", Ku = "عدد الضيوف", Yu = "اسمك", Ju = "رقم الهاتف", Qu = "طلبات خاصة", Gu = "إرسال طلب الحجز", Xu = "تم إرسال طلب الحجز!", Zu = "يرجى انتظار التأكيد من المطعم.", ed = "إذا لم تتلق رداً خلال 15 دقيقة، يرجى الاتصال بالمطعم.", td = "يرجى انتظار التأكيد من المطعم لطلبك.", sd = "إذا لم تتلق رداً خلال 5 دقائق، يرجى الاتصال بالمطعم.", nd = "اليوم", rd = "غداً", ad = "احجز طاولتك في مطعمنا واستمتع بتجربة طعام لا تُنسى. نحن نتطلع لاستقبالك!", id = "اختر التاريخ المفضل لديك", od = "اختر الوقت", cd = "عدد الأشخاص", ld = "إشعار مهم", ud = "تحتاج مساعدة فورية؟ اتصل بنا:", dd = "أي طلبات خاصة أو ملاحظات...", fd = "ضيف", hd = "ضيوف", pd = "طلب حجز طاولة", md = "التاريخ:", gd = "الوقت:", _d = "المنطقة:", xd = "الضيوف:", yd = "الاسم:", bd = "الهاتف:", vd = "ملاحظات:", wd = "يرجى تأكيد هذا الحجز.", jd = "شكراً لك! 🙏", Nd = "الأحد-الخميس:", $d = "الجمعة:", Cd = "السبت:", Sd = "إشعار مهم", Ed = "رسوم التوصيل غير مشمولة في السعر الإجمالي", kd = "متابعة إلى واتساب", Rd = "إلغاء", Od = "🍽️ طلب جديد", Pd = "📋 عناصر الطلب:", Ad = "👤 معلومات العميل:", Td = "نوع الطلب", Ld = "الاسم", Md = "الهاتف", Id = "الكمية", Fd = "العنصر", zd = "الخيارات", Ud = "يرجى تأكيد هذا الطلب. شكراً لك! 🙏", Dd = "يُقدم حتى 13:00", Vd = "الأحد", Bd = "الاثنين", qd = "الثلاثاء", Wd = "الأربعاء", Hd = "الخميس", Kd = "الجمعة", Yd = "السبت", Jd = "شروط الخدمة", Qd = "سياسة الخصوصية", Gd = "بيان إمكانية الوصول", Xd = "آخر تحديث", Zd = "قبول الشروط", ef = "باستخدام موقعنا وخدماتنا، فإنك توافق على الالتزام بشروط الخدمة هذه.", tf = "استخدام الخدمة", sf = "تم تصميم موقعنا لتصفح القائمة وتقديم الطلبات عبر واتساب وإجراء الحجوزات.", nf = "الطلبات والحجوزات", rf = "جميع الطلبات تتم معالجتها عبر واتساب. الحجوزات تخضع للتوفر والتأكيد.", af = "شروط الدفع", of = "يتم التعامل مع الدفع مباشرة في المطعم. الطلبات عبر الإنترنت للراحة والتأكيد فقط.", cf = "حدود المسؤولية", lf = "نحن غير مسؤولين عن خدمات الطرف الثالث مثل واتساب. استخدام الخدمات الخارجية يخضع لشروطها.", uf = "تغييرات الشروط", df = "قد نقوم بتحديث هذه الشروط من وقت لآخر. الاستخدام المستمر يشكل قبولاً للشروط المنقحة.", ff = "جمع المعلومات", hf = "نحن نحترم خصوصيتك. موقعنا لا يستخدم ملفات تعريف الارتباط أو التتبع عبر الإنترنت. يتم تخزين المعلومات محلياً في متصفحك للاستمرارية، وقد تشمل الاسم وتفضيلات الطلب.", pf = "استخدام المعلومات", mf = "نستخدم المعلومات فقط لتقديم خدماتنا وتحسين تجربتك. لا نشارك البيانات الشخصية مع أطراف ثالثة.", gf = "ملفات تعريف الارتباط والتتبع", _f = "موقعنا لا يستخدم ملفات تعريف الارتباط أو تقنيات التتبع. جميع البيانات مخزنة محلياً في متصفحك.", xf = "تكامل واتساب", yf = "تقديم الطلبات يتم عبر واتساب (خدمة خارجية). استخدام واتساب يخضع لشروط وسياسة خصوصية واتساب.", bf = "تخزين البيانات", vf = "يتم تخزين البيانات محلياً على جهازك وعلى واتساب لمعالجة الطلبات وأغراض التواصل.", wf = "حقوق المستخدم", jf = "لأي أسئلة أو طلبات بخصوص بياناتك، يرجى التواصل معنا عبر صفحة الاتصال.", Nf = "التزامنا", $f = "نحن ملتزمون بجعل موقعنا قابلاً للوصول وفقاً للمعايير الحديثة. هدفنا توفير تجربة مستخدم متاحة ومتساوية ومريحة لجميع المستخدمين.", Cf = "معايير إمكانية الوصول", Sf = "يتبع موقعنا إرشادات إمكانية الوصول الحديثة بما في ذلك التنقل بلوحة المفاتيح وتوافق قارئ الشاشة والتصميم البصري الواضح.", Ef = "ميزات إمكانية الوصول", kf = "يتضمن الموقع هيكل عناوين مناسب ونص بديل للصور ودعم التنقل بلوحة المفاتيح وتصميم متجاوب لمختلف الأجهزة والتقنيات المساعدة.", Rf = "التواصل بخصوص إمكانية الوصول", Of = "إذا واجهت أي مشاكل في إمكانية الوصول أو لديك اقتراحات للتحسين، يرجى التواصل معنا عبر الهاتف أو واتساب المدرجين في صفحة الاتصال.", Pf = "اسم العميل مطلوب قبل الإرسال إلى واتساب", Af = "العودة إلى القائمة", Tf = "مغلق", Lf = "للتوضيح فقط", Mf = "المطعم مغلق حالياً. الرجاء المحاولة خلال ساعات العمل.", If = "إغلاق", Ff = "المطعم مغلق حالياً. يمكن تقديم الطلبات فقط خلال ساعات العمل.", zf = "حسنًا", Uf = {
+  wa_header: Zl,
+  wa_total: eu,
+  wa_name: tu,
+  wa_type: su,
+  wa_time: nu,
+  opt_size: ru,
+  opt_extras: au,
+  opt_notes: iu,
+  opt_doneness: ou,
+  opt_sugar: cu,
+  opt_pasta_type: lu,
+  opt_bread: uu,
+  menu: du,
+  contact: fu,
+  all: hu,
+  search_placeholder: pu,
+  call: mu,
+  whatsapp: gu,
+  location: _u,
+  address: xu,
+  open_hours: yu,
+  add_to_cart: bu,
+  added: vu,
+  customize: wu,
+  size: ju,
+  extras: Nu,
+  notes: $u,
+  cart: Cu,
+  items: Su,
+  empty_cart: Eu,
+  clear_cart: ku,
+  checkout: Ru,
+  total: Ou,
+  customer_name: Pu,
+  order_type: Au,
+  pickup: Tu,
+  delivery: Lu,
+  time_or_table: Mu,
+  message_preview: Iu,
+  qr: Fu,
+  instagram: zu,
+  base_price: Uu,
+  extras_total: Du,
+  reservation: Vu,
+  book_table: Bu,
+  reservation_date: qu,
+  reservation_time: Wu,
+  reservation_area: Hu,
+  reservation_guests: Ku,
+  reservation_name: Yu,
+  reservation_phone: Ju,
+  reservation_notes: Qu,
+  send_reservation: Gu,
+  reservation_sent: Xu,
+  reservation_wait: Zu,
+  reservation_no_response: ed,
+  order_wait: td,
+  order_no_response: sd,
+  today: nd,
+  tomorrow: rd,
+  reservation_description: ad,
+  choose_date: id,
+  select_time: od,
+  number_people: cd,
+  important_notice: ld,
+  need_assistance: ud,
+  special_requests_placeholder: dd,
+  guests_singular: fd,
+  guests_plural: hd,
+  reservation_request: pd,
+  date_label: md,
+  time_label: gd,
+  area_label: _d,
+  guests_label: xd,
+  name_label: yd,
+  phone_label: bd,
+  notes_label: vd,
+  confirm_reservation: wd,
+  thank_you: jd,
+  sun_thu: Nd,
+  fri: $d,
+  sat: Cd,
+  important_notice_cart: Sd,
+  delivery_notice: Ed,
+  continue_to_whatsapp: kd,
+  cancel: Rd,
+  wa_order_header: Od,
+  wa_order_items: Pd,
+  wa_customer_info: Ad,
+  wa_order_type: Td,
+  wa_customer_name: Ld,
+  wa_customer_phone: Md,
+  wa_quantity: Id,
+  wa_item: Fd,
+  wa_options: zd,
+  wa_confirm_order: Ud,
+  served_until_13: Dd,
+  day_sun: Vd,
+  day_mon: Bd,
+  day_tue: qd,
+  day_wed: Wd,
+  day_thu: Hd,
+  day_fri: Kd,
+  day_sat: Yd,
   "day_tue-sat": "الثلاثاء-السبت",
   "day_mon-sat": "الاثنين-السبت",
-  terms_of_service: lp,
-  privacy_policy: up,
-  accessibility_statement: dp,
-  last_updated: pp,
-  terms_acceptance: hp,
-  terms_acceptance_text: fp,
-  terms_service_usage: mp,
-  terms_service_usage_text: gp,
-  terms_orders: _p,
-  terms_orders_text: xp,
-  terms_payment: yp,
-  terms_payment_text: bp,
-  terms_liability: vp,
-  terms_liability_text: wp,
-  terms_changes: jp,
-  terms_changes_text: Np,
-  privacy_info_collection: $p,
-  privacy_info_collection_text: Sp,
-  privacy_info_usage: Cp,
-  privacy_info_usage_text: kp,
-  privacy_cookies: Ep,
-  privacy_cookies_text: Rp,
-  privacy_whatsapp: Op,
-  privacy_whatsapp_text: Pp,
-  privacy_data_storage: Tp,
-  privacy_data_storage_text: Ap,
-  privacy_user_rights: Lp,
-  privacy_user_rights_text: Mp,
-  accessibility_commitment: Ip,
-  accessibility_commitment_text: zp,
-  accessibility_standards: Fp,
-  accessibility_standards_text: Dp,
-  accessibility_features: Up,
-  accessibility_features_text: Bp,
-  accessibility_contact: Vp,
-  accessibility_contact_text: qp,
-  name_required: Wp,
-  back_to_menu: Hp,
-  closed: Kp,
-  for_illustration_only: Yp,
-  restaurant_closed_message: Jp,
-  close: Qp,
-  closed_popup_message: Gp,
-  got_it_button: Xp
-}, eh = {
-  en: { translation: $o },
-  he: { translation: pu },
-  ar: { translation: Zp }
+  terms_of_service: Jd,
+  privacy_policy: Qd,
+  accessibility_statement: Gd,
+  last_updated: Xd,
+  terms_acceptance: Zd,
+  terms_acceptance_text: ef,
+  terms_service_usage: tf,
+  terms_service_usage_text: sf,
+  terms_orders: nf,
+  terms_orders_text: rf,
+  terms_payment: af,
+  terms_payment_text: of,
+  terms_liability: cf,
+  terms_liability_text: lf,
+  terms_changes: uf,
+  terms_changes_text: df,
+  privacy_info_collection: ff,
+  privacy_info_collection_text: hf,
+  privacy_info_usage: pf,
+  privacy_info_usage_text: mf,
+  privacy_cookies: gf,
+  privacy_cookies_text: _f,
+  privacy_whatsapp: xf,
+  privacy_whatsapp_text: yf,
+  privacy_data_storage: bf,
+  privacy_data_storage_text: vf,
+  privacy_user_rights: wf,
+  privacy_user_rights_text: jf,
+  accessibility_commitment: Nf,
+  accessibility_commitment_text: $f,
+  accessibility_standards: Cf,
+  accessibility_standards_text: Sf,
+  accessibility_features: Ef,
+  accessibility_features_text: kf,
+  accessibility_contact: Rf,
+  accessibility_contact_text: Of,
+  name_required: Pf,
+  back_to_menu: Af,
+  closed: Tf,
+  for_illustration_only: Lf,
+  restaurant_closed_message: Mf,
+  close: If,
+  closed_popup_message: Ff,
+  got_it_button: zf
+}, Df = {
+  en: { translation: uo },
+  he: { translation: Xl },
+  ar: { translation: Uf }
 };
-function ys(n) {
+function ps(n) {
   const e = n === "ar" || n === "he" ? "rtl" : "ltr";
   document.documentElement.setAttribute("dir", e), document.documentElement.setAttribute("lang", n), console.log("🎯 TABLY CORE i18n is active! Language:", n, "Direction:", e);
 }
-Y.use(wn).init({
-  resources: eh,
+J.use(_n).init({
+  resources: Df,
   lng: "he",
   fallbackLng: "en",
   interpolation: { escapeValue: !1 }
-}).then(() => ys(Y.language));
-Y.on("languageChanged", ys);
+}).then(() => ps(J.language));
+J.on("languageChanged", ps);
 export {
-  ch as AccessibilityPage,
-  oh as AnimationProvider,
-  rh as CartButton,
-  ih as CartDrawer,
-  ah as CartProvider,
-  na as CategoryTabs,
-  lh as ContactPage,
-  aa as ImageLightbox,
-  Tt as ItemCard,
-  uh as MenuPage,
-  ia as OptionModal,
-  dh as PrivacyPage,
-  ph as QRPage,
-  oa as ReservationModal,
-  hh as ReservationPage,
-  ca as SearchBar,
-  fh as TermsPage,
-  ys as applyDir,
-  kt as cartTotal,
-  Y as i18n,
-  as as isRestaurantOpen,
-  ra as useAnimation,
+  Jf as AccessibilityPage,
+  Yf as AnimationProvider,
+  Hf as CartButton,
+  Kf as CartDrawer,
+  Wf as CartProvider,
+  Bn as CategoryTabs,
+  Qf as ContactPage,
+  qn as ImageLightbox,
+  Pt as ItemCard,
+  Gf as MenuPage,
+  Hn as OptionModal,
+  Xf as PrivacyPage,
+  Zf as QRPage,
+  Kn as ReservationModal,
+  eh as ReservationPage,
+  Yn as SearchBar,
+  th as TermsPage,
+  ps as applyDir,
+  Et as cartTotal,
+  J as i18n,
+  Zt as isRestaurantOpen,
+  Wn as useAnimation,
   nt as useCart
 };

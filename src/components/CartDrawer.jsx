@@ -4,22 +4,17 @@ import { useCart, cartTotal } from "../store/cart";
 import { Trash2, Plus, Minus, X, MessageCircle } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import config from "../data/config.json";
-import en from "../data/menu.en.json";
-import he from "../data/menu.he.json";
-import ar from "../data/menu.ar.json";
 import { trackOrder } from "../utils/analytics";
 import { isRestaurantOpen } from "../utils/timeUtils";
 
-const MENUS = { en, he, ar };
-
 // Helper function to get current language item data
-function getCurrentItemData(itemId, language) {
-  const menu = MENUS[language] || MENUS.en;
+function getCurrentItemData(itemId, language, menuData) {
+  const menu = menuData?.[language] || menuData?.en || { items: [] };
   return menu.items.find(item => item.id === itemId);
 }
 
 // ---- WhatsApp formatting with robust RTL handling ----
-function formatWhatsApp(state, t, i18n) {
+function formatWhatsApp(state, t, i18n, menuData) {
   const labelForKey = (k, itemData) => {
     const optionConfig = itemData?.options?.[k];
     return optionConfig?.label || 
@@ -39,7 +34,7 @@ function formatWhatsApp(state, t, i18n) {
 
   // Get current language item data for each cart item
   const cartItemsWithData = state.items.map(cartItem => {
-    const itemData = getCurrentItemData(cartItem.id, i18n.language);
+    const itemData = getCurrentItemData(cartItem.id, i18n.language, menuData);
     return {
       ...cartItem,
       name: itemData?.name || `Item ${cartItem.id}`,
@@ -67,7 +62,7 @@ function formatWhatsApp(state, t, i18n) {
       const opts = [];
       if (i.options) {
         // Get current language item data to find option choices
-        const itemData = getCurrentItemData(i.id, i18n.language);
+        const itemData = getCurrentItemData(i.id, i18n.language, menuData);
         
         for (const [k, v] of Object.entries(i.options)) {
           if (v == null || v === "" || (Array.isArray(v) && v.length === 0)) continue;
@@ -152,7 +147,7 @@ function formatWhatsApp(state, t, i18n) {
     const opts = [];
     if (i.options) {
       // Get current language item data to find option choices
-      const itemData = getCurrentItemData(i.id, i18n.language);
+      const itemData = getCurrentItemData(i.id, i18n.language, menuData);
       
       for (const [k, v] of Object.entries(i.options)) {
         if (v == null || v === "" || (Array.isArray(v) && v.length === 0)) continue;
@@ -231,12 +226,12 @@ function formatWhatsApp(state, t, i18n) {
   return lines.join("\n");
 }
 
-export function CartDrawer({ open, onClose }) {
+export function CartDrawer({ open, onClose, menuData }) {
   const { state, dispatch } = useCart();
   const { t, i18n } = useTranslation();
 
   const total = cartTotal(state.items);
-  const message = formatWhatsApp(state, t, i18n);
+  const message = formatWhatsApp(state, t, i18n, menuData);
   const [showPopup, setShowPopup] = React.useState(false);
   const [showNameError, setShowNameError] = React.useState(false);
   const [showClosedNotice, setShowClosedNotice] = React.useState(false);
@@ -250,7 +245,7 @@ export function CartDrawer({ open, onClose }) {
 
   // Get current language item data for each cart item
   const cartItemsWithData = state.items.map(cartItem => {
-    const itemData = getCurrentItemData(cartItem.id, i18n.language);
+    const itemData = getCurrentItemData(cartItem.id, i18n.language, menuData);
     return {
       ...cartItem,
       name: itemData?.name || `Item ${cartItem.id}`,
@@ -372,7 +367,7 @@ export function CartDrawer({ open, onClose }) {
 
                     {(() => {
                       // Get current language item data to find all available options
-                      const itemData = getCurrentItemData(i.id, i18n.language);
+                      const itemData = getCurrentItemData(i.id, i18n.language, menuData);
                       const allOptions = itemData?.options || {};
                       const selectedOptions = i.options || {};
                       
