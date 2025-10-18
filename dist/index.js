@@ -3385,72 +3385,2102 @@ function Tt({ item: n, currency: e, onAdd: t, onPreview: s }) {
     ] })
   ] });
 }
+const oa = {
+  type: "logger",
+  log(n) {
+    this.output("log", n);
+  },
+  warn(n) {
+    this.output("warn", n);
+  },
+  error(n) {
+    this.output("error", n);
+  },
+  output(n, e) {
+    console && console[n] && console[n].apply(console, e);
+  }
+};
+class Re {
+  constructor(e) {
+    let t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
+    this.init(e, t);
+  }
+  init(e) {
+    let t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
+    this.prefix = t.prefix || "i18next:", this.logger = e || oa, this.options = t, this.debug = t.debug;
+  }
+  log() {
+    for (var e = arguments.length, t = new Array(e), s = 0; s < e; s++)
+      t[s] = arguments[s];
+    return this.forward(t, "log", "", !0);
+  }
+  warn() {
+    for (var e = arguments.length, t = new Array(e), s = 0; s < e; s++)
+      t[s] = arguments[s];
+    return this.forward(t, "warn", "", !0);
+  }
+  error() {
+    for (var e = arguments.length, t = new Array(e), s = 0; s < e; s++)
+      t[s] = arguments[s];
+    return this.forward(t, "error", "");
+  }
+  deprecate() {
+    for (var e = arguments.length, t = new Array(e), s = 0; s < e; s++)
+      t[s] = arguments[s];
+    return this.forward(t, "warn", "WARNING DEPRECATED: ", !0);
+  }
+  forward(e, t, s, a) {
+    return a && !this.debug ? null : (typeof e[0] == "string" && (e[0] = `${s}${this.prefix} ${e[0]}`), this.logger[t](e));
+  }
+  create(e) {
+    return new Re(this.logger, {
+      prefix: `${this.prefix}:${e}:`,
+      ...this.options
+    });
+  }
+  clone(e) {
+    return e = e || this.options, e.prefix = e.prefix || this.prefix, new Re(this.logger, e);
+  }
+}
+var te = new Re();
+class Ie {
+  constructor() {
+    this.observers = {};
+  }
+  on(e, t) {
+    return e.split(" ").forEach((s) => {
+      this.observers[s] || (this.observers[s] = /* @__PURE__ */ new Map());
+      const a = this.observers[s].get(t) || 0;
+      this.observers[s].set(t, a + 1);
+    }), this;
+  }
+  off(e, t) {
+    if (this.observers[e]) {
+      if (!t) {
+        delete this.observers[e];
+        return;
+      }
+      this.observers[e].delete(t);
+    }
+  }
+  emit(e) {
+    for (var t = arguments.length, s = new Array(t > 1 ? t - 1 : 0), a = 1; a < t; a++)
+      s[a - 1] = arguments[a];
+    this.observers[e] && Array.from(this.observers[e].entries()).forEach((u) => {
+      let [d, i] = u;
+      for (let c = 0; c < i; c++)
+        d(...s);
+    }), this.observers["*"] && Array.from(this.observers["*"].entries()).forEach((u) => {
+      let [d, i] = u;
+      for (let c = 0; c < i; c++)
+        d.apply(d, [e, ...s]);
+    });
+  }
+}
+function _e() {
+  let n, e;
+  const t = new Promise((s, a) => {
+    n = s, e = a;
+  });
+  return t.resolve = n, t.reject = e, t;
+}
+function At(n) {
+  return n == null ? "" : "" + n;
+}
+function ca(n, e, t) {
+  n.forEach((s) => {
+    e[s] && (t[s] = e[s]);
+  });
+}
+const la = /###/g;
+function ye(n, e, t) {
+  function s(d) {
+    return d && d.indexOf("###") > -1 ? d.replace(la, ".") : d;
+  }
+  function a() {
+    return !n || typeof n == "string";
+  }
+  const o = typeof e != "string" ? e : e.split(".");
+  let u = 0;
+  for (; u < o.length - 1; ) {
+    if (a())
+      return {};
+    const d = s(o[u]);
+    !n[d] && t && (n[d] = new t()), Object.prototype.hasOwnProperty.call(n, d) ? n = n[d] : n = {}, ++u;
+  }
+  return a() ? {} : {
+    obj: n,
+    k: s(o[u])
+  };
+}
+function Lt(n, e, t) {
+  const {
+    obj: s,
+    k: a
+  } = ye(n, e, Object);
+  if (s !== void 0 || e.length === 1) {
+    s[a] = t;
+    return;
+  }
+  let o = e[e.length - 1], u = e.slice(0, e.length - 1), d = ye(n, u, Object);
+  for (; d.obj === void 0 && u.length; )
+    o = `${u[u.length - 1]}.${o}`, u = u.slice(0, u.length - 1), d = ye(n, u, Object), d && d.obj && typeof d.obj[`${d.k}.${o}`] < "u" && (d.obj = void 0);
+  d.obj[`${d.k}.${o}`] = t;
+}
+function ua(n, e, t, s) {
+  const {
+    obj: a,
+    k: o
+  } = ye(n, e, Object);
+  a[o] = a[o] || [], s && (a[o] = a[o].concat(t)), s || a[o].push(t);
+}
+function Oe(n, e) {
+  const {
+    obj: t,
+    k: s
+  } = ye(n, e);
+  if (t)
+    return t[s];
+}
+function da(n, e, t) {
+  const s = Oe(n, t);
+  return s !== void 0 ? s : Oe(e, t);
+}
+function rs(n, e, t) {
+  for (const s in e)
+    s !== "__proto__" && s !== "constructor" && (s in n ? typeof n[s] == "string" || n[s] instanceof String || typeof e[s] == "string" || e[s] instanceof String ? t && (n[s] = e[s]) : rs(n[s], e[s], t) : n[s] = e[s]);
+  return n;
+}
+function ce(n) {
+  return n.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+}
+var pa = {
+  "&": "&amp;",
+  "<": "&lt;",
+  ">": "&gt;",
+  '"': "&quot;",
+  "'": "&#39;",
+  "/": "&#x2F;"
+};
+function ha(n) {
+  return typeof n == "string" ? n.replace(/[&<>"'\/]/g, (e) => pa[e]) : n;
+}
+class fa {
+  constructor(e) {
+    this.capacity = e, this.regExpMap = /* @__PURE__ */ new Map(), this.regExpQueue = [];
+  }
+  getRegExp(e) {
+    const t = this.regExpMap.get(e);
+    if (t !== void 0)
+      return t;
+    const s = new RegExp(e);
+    return this.regExpQueue.length === this.capacity && this.regExpMap.delete(this.regExpQueue.shift()), this.regExpMap.set(e, s), this.regExpQueue.push(e), s;
+  }
+}
+const ma = [" ", ",", "?", "!", ";"], ga = new fa(20);
+function _a(n, e, t) {
+  e = e || "", t = t || "";
+  const s = ma.filter((u) => e.indexOf(u) < 0 && t.indexOf(u) < 0);
+  if (s.length === 0)
+    return !0;
+  const a = ga.getRegExp(`(${s.map((u) => u === "?" ? "\\?" : u).join("|")})`);
+  let o = !a.test(n);
+  if (!o) {
+    const u = n.indexOf(t);
+    u > 0 && !a.test(n.substring(0, u)) && (o = !0);
+  }
+  return o;
+}
+function tt(n, e) {
+  let t = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : ".";
+  if (!n)
+    return;
+  if (n[e])
+    return n[e];
+  const s = e.split(t);
+  let a = n;
+  for (let o = 0; o < s.length; ) {
+    if (!a || typeof a != "object")
+      return;
+    let u, d = "";
+    for (let i = o; i < s.length; ++i)
+      if (i !== o && (d += t), d += s[i], u = a[d], u !== void 0) {
+        if (["string", "number", "boolean"].indexOf(typeof u) > -1 && i < s.length - 1)
+          continue;
+        o += i - o + 1;
+        break;
+      }
+    a = u;
+  }
+  return a;
+}
+function Pe(n) {
+  return n && n.indexOf("_") > 0 ? n.replace("_", "-") : n;
+}
+class Mt extends Ie {
+  constructor(e) {
+    let t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {
+      ns: ["translation"],
+      defaultNS: "translation"
+    };
+    super(), this.data = e || {}, this.options = t, this.options.keySeparator === void 0 && (this.options.keySeparator = "."), this.options.ignoreJSONStructure === void 0 && (this.options.ignoreJSONStructure = !0);
+  }
+  addNamespaces(e) {
+    this.options.ns.indexOf(e) < 0 && this.options.ns.push(e);
+  }
+  removeNamespaces(e) {
+    const t = this.options.ns.indexOf(e);
+    t > -1 && this.options.ns.splice(t, 1);
+  }
+  getResource(e, t, s) {
+    let a = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : {};
+    const o = a.keySeparator !== void 0 ? a.keySeparator : this.options.keySeparator, u = a.ignoreJSONStructure !== void 0 ? a.ignoreJSONStructure : this.options.ignoreJSONStructure;
+    let d;
+    e.indexOf(".") > -1 ? d = e.split(".") : (d = [e, t], s && (Array.isArray(s) ? d.push(...s) : typeof s == "string" && o ? d.push(...s.split(o)) : d.push(s)));
+    const i = Oe(this.data, d);
+    return !i && !t && !s && e.indexOf(".") > -1 && (e = d[0], t = d[1], s = d.slice(2).join(".")), i || !u || typeof s != "string" ? i : tt(this.data && this.data[e] && this.data[e][t], s, o);
+  }
+  addResource(e, t, s, a) {
+    let o = arguments.length > 4 && arguments[4] !== void 0 ? arguments[4] : {
+      silent: !1
+    };
+    const u = o.keySeparator !== void 0 ? o.keySeparator : this.options.keySeparator;
+    let d = [e, t];
+    s && (d = d.concat(u ? s.split(u) : s)), e.indexOf(".") > -1 && (d = e.split("."), a = t, t = d[1]), this.addNamespaces(t), Lt(this.data, d, a), o.silent || this.emit("added", e, t, s, a);
+  }
+  addResources(e, t, s) {
+    let a = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : {
+      silent: !1
+    };
+    for (const o in s)
+      (typeof s[o] == "string" || Object.prototype.toString.apply(s[o]) === "[object Array]") && this.addResource(e, t, o, s[o], {
+        silent: !0
+      });
+    a.silent || this.emit("added", e, t, s);
+  }
+  addResourceBundle(e, t, s, a, o) {
+    let u = arguments.length > 5 && arguments[5] !== void 0 ? arguments[5] : {
+      silent: !1,
+      skipCopy: !1
+    }, d = [e, t];
+    e.indexOf(".") > -1 && (d = e.split("."), a = s, s = t, t = d[1]), this.addNamespaces(t);
+    let i = Oe(this.data, d) || {};
+    u.skipCopy || (s = JSON.parse(JSON.stringify(s))), a ? rs(i, s, o) : i = {
+      ...i,
+      ...s
+    }, Lt(this.data, d, i), u.silent || this.emit("added", e, t, s);
+  }
+  removeResourceBundle(e, t) {
+    this.hasResourceBundle(e, t) && delete this.data[e][t], this.removeNamespaces(t), this.emit("removed", e, t);
+  }
+  hasResourceBundle(e, t) {
+    return this.getResource(e, t) !== void 0;
+  }
+  getResourceBundle(e, t) {
+    return t || (t = this.options.defaultNS), this.options.compatibilityAPI === "v1" ? {
+      ...this.getResource(e, t)
+    } : this.getResource(e, t);
+  }
+  getDataByLanguage(e) {
+    return this.data[e];
+  }
+  hasLanguageSomeTranslations(e) {
+    const t = this.getDataByLanguage(e);
+    return !!(t && Object.keys(t) || []).find((a) => t[a] && Object.keys(t[a]).length > 0);
+  }
+  toJSON() {
+    return this.data;
+  }
+}
+var is = {
+  processors: {},
+  addPostProcessor(n) {
+    this.processors[n.name] = n;
+  },
+  handle(n, e, t, s, a) {
+    return n.forEach((o) => {
+      this.processors[o] && (e = this.processors[o].process(e, t, s, a));
+    }), e;
+  }
+};
+const It = {};
+class Te extends Ie {
+  constructor(e) {
+    let t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
+    super(), ca(["resourceStore", "languageUtils", "pluralResolver", "interpolator", "backendConnector", "i18nFormat", "utils"], e, this), this.options = t, this.options.keySeparator === void 0 && (this.options.keySeparator = "."), this.logger = te.create("translator");
+  }
+  changeLanguage(e) {
+    e && (this.language = e);
+  }
+  exists(e) {
+    let t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {
+      interpolation: {}
+    };
+    if (e == null)
+      return !1;
+    const s = this.resolve(e, t);
+    return s && s.res !== void 0;
+  }
+  extractFromKey(e, t) {
+    let s = t.nsSeparator !== void 0 ? t.nsSeparator : this.options.nsSeparator;
+    s === void 0 && (s = ":");
+    const a = t.keySeparator !== void 0 ? t.keySeparator : this.options.keySeparator;
+    let o = t.ns || this.options.defaultNS || [];
+    const u = s && e.indexOf(s) > -1, d = !this.options.userDefinedKeySeparator && !t.keySeparator && !this.options.userDefinedNsSeparator && !t.nsSeparator && !_a(e, s, a);
+    if (u && !d) {
+      const i = e.match(this.interpolator.nestingRegexp);
+      if (i && i.length > 0)
+        return {
+          key: e,
+          namespaces: o
+        };
+      const c = e.split(s);
+      (s !== a || s === a && this.options.ns.indexOf(c[0]) > -1) && (o = c.shift()), e = c.join(a);
+    }
+    return typeof o == "string" && (o = [o]), {
+      key: e,
+      namespaces: o
+    };
+  }
+  translate(e, t, s) {
+    if (typeof t != "object" && this.options.overloadTranslationOptionHandler && (t = this.options.overloadTranslationOptionHandler(arguments)), typeof t == "object" && (t = {
+      ...t
+    }), t || (t = {}), e == null)
+      return "";
+    Array.isArray(e) || (e = [String(e)]);
+    const a = t.returnDetails !== void 0 ? t.returnDetails : this.options.returnDetails, o = t.keySeparator !== void 0 ? t.keySeparator : this.options.keySeparator, {
+      key: u,
+      namespaces: d
+    } = this.extractFromKey(e[e.length - 1], t), i = d[d.length - 1], c = t.lng || this.language, l = t.appendNamespaceToCIMode || this.options.appendNamespaceToCIMode;
+    if (c && c.toLowerCase() === "cimode") {
+      if (l) {
+        const w = t.nsSeparator || this.options.nsSeparator;
+        return a ? {
+          res: `${i}${w}${u}`,
+          usedKey: u,
+          exactUsedKey: u,
+          usedLng: c,
+          usedNS: i,
+          usedParams: this.getUsedParamsDetails(t)
+        } : `${i}${w}${u}`;
+      }
+      return a ? {
+        res: u,
+        usedKey: u,
+        exactUsedKey: u,
+        usedLng: c,
+        usedNS: i,
+        usedParams: this.getUsedParamsDetails(t)
+      } : u;
+    }
+    const f = this.resolve(e, t);
+    let p = f && f.res;
+    const g = f && f.usedKey || u, m = f && f.exactUsedKey || u, x = Object.prototype.toString.apply(p), b = ["[object Number]", "[object Function]", "[object RegExp]"], N = t.joinArrays !== void 0 ? t.joinArrays : this.options.joinArrays, _ = !this.i18nFormat || this.i18nFormat.handleAsObject;
+    if (_ && p && (typeof p != "string" && typeof p != "boolean" && typeof p != "number") && b.indexOf(x) < 0 && !(typeof N == "string" && x === "[object Array]")) {
+      if (!t.returnObjects && !this.options.returnObjects) {
+        this.options.returnedObjectHandler || this.logger.warn("accessing an object - but returnObjects options is not enabled!");
+        const w = this.options.returnedObjectHandler ? this.options.returnedObjectHandler(g, p, {
+          ...t,
+          ns: d
+        }) : `key '${u} (${this.language})' returned an object instead of string.`;
+        return a ? (f.res = w, f.usedParams = this.getUsedParamsDetails(t), f) : w;
+      }
+      if (o) {
+        const w = x === "[object Array]", j = w ? [] : {}, S = w ? m : g;
+        for (const T in p)
+          if (Object.prototype.hasOwnProperty.call(p, T)) {
+            const E = `${S}${o}${T}`;
+            j[T] = this.translate(E, {
+              ...t,
+              joinArrays: !1,
+              ns: d
+            }), j[T] === E && (j[T] = p[T]);
+          }
+        p = j;
+      }
+    } else if (_ && typeof N == "string" && x === "[object Array]")
+      p = p.join(N), p && (p = this.extendTranslation(p, e, t, s));
+    else {
+      let w = !1, j = !1;
+      const S = t.count !== void 0 && typeof t.count != "string", T = Te.hasDefaultValue(t), E = S ? this.pluralResolver.getSuffix(c, t.count, t) : "", z = t.ordinal && S ? this.pluralResolver.getSuffix(c, t.count, {
+        ordinal: !1
+      }) : "", O = S && !t.ordinal && t.count === 0 && this.pluralResolver.shouldUseIntlApi(), k = O && t[`defaultValue${this.options.pluralSeparator}zero`] || t[`defaultValue${E}`] || t[`defaultValue${z}`] || t.defaultValue;
+      !this.isValidLookup(p) && T && (w = !0, p = k), this.isValidLookup(p) || (j = !0, p = u);
+      const D = (t.missingKeyNoValueFallbackToKey || this.options.missingKeyNoValueFallbackToKey) && j ? void 0 : p, B = T && k !== p && this.options.updateMissing;
+      if (j || w || B) {
+        if (this.logger.log(B ? "updateKey" : "missingKey", c, i, u, B ? k : p), o) {
+          const U = this.resolve(u, {
+            ...t,
+            keySeparator: !1
+          });
+          U && U.res && this.logger.warn("Seems the loaded translations were in flat JSON format instead of nested. Either set keySeparator: false on init or make sure your translations are published in nested format.");
+        }
+        let W = [];
+        const q = this.languageUtils.getFallbackCodes(this.options.fallbackLng, t.lng || this.language);
+        if (this.options.saveMissingTo === "fallback" && q && q[0])
+          for (let U = 0; U < q.length; U++)
+            W.push(q[U]);
+        else
+          this.options.saveMissingTo === "all" ? W = this.languageUtils.toResolveHierarchy(t.lng || this.language) : W.push(t.lng || this.language);
+        const L = (U, ee, se) => {
+          const pe = T && se !== p ? se : D;
+          this.options.missingKeyHandler ? this.options.missingKeyHandler(U, i, ee, pe, B, t) : this.backendConnector && this.backendConnector.saveMissing && this.backendConnector.saveMissing(U, i, ee, pe, B, t), this.emit("missingKey", U, i, ee, p);
+        };
+        this.options.saveMissing && (this.options.saveMissingPlurals && S ? W.forEach((U) => {
+          const ee = this.pluralResolver.getSuffixes(U, t);
+          O && t[`defaultValue${this.options.pluralSeparator}zero`] && ee.indexOf(`${this.options.pluralSeparator}zero`) < 0 && ee.push(`${this.options.pluralSeparator}zero`), ee.forEach((se) => {
+            L([U], u + se, t[`defaultValue${se}`] || k);
+          });
+        }) : L(W, u, k));
+      }
+      p = this.extendTranslation(p, e, t, f, s), j && p === u && this.options.appendNamespaceToMissingKey && (p = `${i}:${u}`), (j || w) && this.options.parseMissingKeyHandler && (this.options.compatibilityAPI !== "v1" ? p = this.options.parseMissingKeyHandler(this.options.appendNamespaceToMissingKey ? `${i}:${u}` : u, w ? p : void 0) : p = this.options.parseMissingKeyHandler(p));
+    }
+    return a ? (f.res = p, f.usedParams = this.getUsedParamsDetails(t), f) : p;
+  }
+  extendTranslation(e, t, s, a, o) {
+    var u = this;
+    if (this.i18nFormat && this.i18nFormat.parse)
+      e = this.i18nFormat.parse(e, {
+        ...this.options.interpolation.defaultVariables,
+        ...s
+      }, s.lng || this.language || a.usedLng, a.usedNS, a.usedKey, {
+        resolved: a
+      });
+    else if (!s.skipInterpolation) {
+      s.interpolation && this.interpolator.init({
+        ...s,
+        interpolation: {
+          ...this.options.interpolation,
+          ...s.interpolation
+        }
+      });
+      const c = typeof e == "string" && (s && s.interpolation && s.interpolation.skipOnVariables !== void 0 ? s.interpolation.skipOnVariables : this.options.interpolation.skipOnVariables);
+      let l;
+      if (c) {
+        const p = e.match(this.interpolator.nestingRegexp);
+        l = p && p.length;
+      }
+      let f = s.replace && typeof s.replace != "string" ? s.replace : s;
+      if (this.options.interpolation.defaultVariables && (f = {
+        ...this.options.interpolation.defaultVariables,
+        ...f
+      }), e = this.interpolator.interpolate(e, f, s.lng || this.language, s), c) {
+        const p = e.match(this.interpolator.nestingRegexp), g = p && p.length;
+        l < g && (s.nest = !1);
+      }
+      !s.lng && this.options.compatibilityAPI !== "v1" && a && a.res && (s.lng = a.usedLng), s.nest !== !1 && (e = this.interpolator.nest(e, function() {
+        for (var p = arguments.length, g = new Array(p), m = 0; m < p; m++)
+          g[m] = arguments[m];
+        return o && o[0] === g[0] && !s.context ? (u.logger.warn(`It seems you are nesting recursively key: ${g[0]} in key: ${t[0]}`), null) : u.translate(...g, t);
+      }, s)), s.interpolation && this.interpolator.reset();
+    }
+    const d = s.postProcess || this.options.postProcess, i = typeof d == "string" ? [d] : d;
+    return e != null && i && i.length && s.applyPostProcessor !== !1 && (e = is.handle(i, e, t, this.options && this.options.postProcessPassResolved ? {
+      i18nResolved: {
+        ...a,
+        usedParams: this.getUsedParamsDetails(s)
+      },
+      ...s
+    } : s, this)), e;
+  }
+  resolve(e) {
+    let t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {}, s, a, o, u, d;
+    return typeof e == "string" && (e = [e]), e.forEach((i) => {
+      if (this.isValidLookup(s))
+        return;
+      const c = this.extractFromKey(i, t), l = c.key;
+      a = l;
+      let f = c.namespaces;
+      this.options.fallbackNS && (f = f.concat(this.options.fallbackNS));
+      const p = t.count !== void 0 && typeof t.count != "string", g = p && !t.ordinal && t.count === 0 && this.pluralResolver.shouldUseIntlApi(), m = t.context !== void 0 && (typeof t.context == "string" || typeof t.context == "number") && t.context !== "", x = t.lngs ? t.lngs : this.languageUtils.toResolveHierarchy(t.lng || this.language, t.fallbackLng);
+      f.forEach((b) => {
+        this.isValidLookup(s) || (d = b, !It[`${x[0]}-${b}`] && this.utils && this.utils.hasLoadedNamespace && !this.utils.hasLoadedNamespace(d) && (It[`${x[0]}-${b}`] = !0, this.logger.warn(`key "${a}" for languages "${x.join(", ")}" won't get resolved as namespace "${d}" was not yet loaded`, "This means something IS WRONG in your setup. You access the t function before i18next.init / i18next.loadNamespace / i18next.changeLanguage was done. Wait for the callback or Promise to resolve before accessing it!!!")), x.forEach((N) => {
+          if (this.isValidLookup(s))
+            return;
+          u = N;
+          const _ = [l];
+          if (this.i18nFormat && this.i18nFormat.addLookupKeys)
+            this.i18nFormat.addLookupKeys(_, l, N, b, t);
+          else {
+            let w;
+            p && (w = this.pluralResolver.getSuffix(N, t.count, t));
+            const j = `${this.options.pluralSeparator}zero`, S = `${this.options.pluralSeparator}ordinal${this.options.pluralSeparator}`;
+            if (p && (_.push(l + w), t.ordinal && w.indexOf(S) === 0 && _.push(l + w.replace(S, this.options.pluralSeparator)), g && _.push(l + j)), m) {
+              const T = `${l}${this.options.contextSeparator}${t.context}`;
+              _.push(T), p && (_.push(T + w), t.ordinal && w.indexOf(S) === 0 && _.push(T + w.replace(S, this.options.pluralSeparator)), g && _.push(T + j));
+            }
+          }
+          let y;
+          for (; y = _.pop(); )
+            this.isValidLookup(s) || (o = y, s = this.getResource(N, b, y, t));
+        }));
+      });
+    }), {
+      res: s,
+      usedKey: a,
+      exactUsedKey: o,
+      usedLng: u,
+      usedNS: d
+    };
+  }
+  isValidLookup(e) {
+    return e !== void 0 && !(!this.options.returnNull && e === null) && !(!this.options.returnEmptyString && e === "");
+  }
+  getResource(e, t, s) {
+    let a = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : {};
+    return this.i18nFormat && this.i18nFormat.getResource ? this.i18nFormat.getResource(e, t, s, a) : this.resourceStore.getResource(e, t, s, a);
+  }
+  getUsedParamsDetails() {
+    let e = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
+    const t = ["defaultValue", "ordinal", "context", "replace", "lng", "lngs", "fallbackLng", "ns", "keySeparator", "nsSeparator", "returnObjects", "returnDetails", "joinArrays", "postProcess", "interpolation"], s = e.replace && typeof e.replace != "string";
+    let a = s ? e.replace : e;
+    if (s && typeof e.count < "u" && (a.count = e.count), this.options.interpolation.defaultVariables && (a = {
+      ...this.options.interpolation.defaultVariables,
+      ...a
+    }), !s) {
+      a = {
+        ...a
+      };
+      for (const o of t)
+        delete a[o];
+    }
+    return a;
+  }
+  static hasDefaultValue(e) {
+    const t = "defaultValue";
+    for (const s in e)
+      if (Object.prototype.hasOwnProperty.call(e, s) && t === s.substring(0, t.length) && e[s] !== void 0)
+        return !0;
+    return !1;
+  }
+}
+function Ye(n) {
+  return n.charAt(0).toUpperCase() + n.slice(1);
+}
+class zt {
+  constructor(e) {
+    this.options = e, this.supportedLngs = this.options.supportedLngs || !1, this.logger = te.create("languageUtils");
+  }
+  getScriptPartFromCode(e) {
+    if (e = Pe(e), !e || e.indexOf("-") < 0)
+      return null;
+    const t = e.split("-");
+    return t.length === 2 || (t.pop(), t[t.length - 1].toLowerCase() === "x") ? null : this.formatLanguageCode(t.join("-"));
+  }
+  getLanguagePartFromCode(e) {
+    if (e = Pe(e), !e || e.indexOf("-") < 0)
+      return e;
+    const t = e.split("-");
+    return this.formatLanguageCode(t[0]);
+  }
+  formatLanguageCode(e) {
+    if (typeof e == "string" && e.indexOf("-") > -1) {
+      const t = ["hans", "hant", "latn", "cyrl", "cans", "mong", "arab"];
+      let s = e.split("-");
+      return this.options.lowerCaseLng ? s = s.map((a) => a.toLowerCase()) : s.length === 2 ? (s[0] = s[0].toLowerCase(), s[1] = s[1].toUpperCase(), t.indexOf(s[1].toLowerCase()) > -1 && (s[1] = Ye(s[1].toLowerCase()))) : s.length === 3 && (s[0] = s[0].toLowerCase(), s[1].length === 2 && (s[1] = s[1].toUpperCase()), s[0] !== "sgn" && s[2].length === 2 && (s[2] = s[2].toUpperCase()), t.indexOf(s[1].toLowerCase()) > -1 && (s[1] = Ye(s[1].toLowerCase())), t.indexOf(s[2].toLowerCase()) > -1 && (s[2] = Ye(s[2].toLowerCase()))), s.join("-");
+    }
+    return this.options.cleanCode || this.options.lowerCaseLng ? e.toLowerCase() : e;
+  }
+  isSupportedCode(e) {
+    return (this.options.load === "languageOnly" || this.options.nonExplicitSupportedLngs) && (e = this.getLanguagePartFromCode(e)), !this.supportedLngs || !this.supportedLngs.length || this.supportedLngs.indexOf(e) > -1;
+  }
+  getBestMatchFromCodes(e) {
+    if (!e)
+      return null;
+    let t;
+    return e.forEach((s) => {
+      if (t)
+        return;
+      const a = this.formatLanguageCode(s);
+      (!this.options.supportedLngs || this.isSupportedCode(a)) && (t = a);
+    }), !t && this.options.supportedLngs && e.forEach((s) => {
+      if (t)
+        return;
+      const a = this.getLanguagePartFromCode(s);
+      if (this.isSupportedCode(a))
+        return t = a;
+      t = this.options.supportedLngs.find((o) => {
+        if (o === a)
+          return o;
+        if (!(o.indexOf("-") < 0 && a.indexOf("-") < 0) && (o.indexOf("-") > 0 && a.indexOf("-") < 0 && o.substring(0, o.indexOf("-")) === a || o.indexOf(a) === 0 && a.length > 1))
+          return o;
+      });
+    }), t || (t = this.getFallbackCodes(this.options.fallbackLng)[0]), t;
+  }
+  getFallbackCodes(e, t) {
+    if (!e)
+      return [];
+    if (typeof e == "function" && (e = e(t)), typeof e == "string" && (e = [e]), Object.prototype.toString.apply(e) === "[object Array]")
+      return e;
+    if (!t)
+      return e.default || [];
+    let s = e[t];
+    return s || (s = e[this.getScriptPartFromCode(t)]), s || (s = e[this.formatLanguageCode(t)]), s || (s = e[this.getLanguagePartFromCode(t)]), s || (s = e.default), s || [];
+  }
+  toResolveHierarchy(e, t) {
+    const s = this.getFallbackCodes(t || this.options.fallbackLng || [], e), a = [], o = (u) => {
+      u && (this.isSupportedCode(u) ? a.push(u) : this.logger.warn(`rejecting language code not found in supportedLngs: ${u}`));
+    };
+    return typeof e == "string" && (e.indexOf("-") > -1 || e.indexOf("_") > -1) ? (this.options.load !== "languageOnly" && o(this.formatLanguageCode(e)), this.options.load !== "languageOnly" && this.options.load !== "currentOnly" && o(this.getScriptPartFromCode(e)), this.options.load !== "currentOnly" && o(this.getLanguagePartFromCode(e))) : typeof e == "string" && o(this.formatLanguageCode(e)), s.forEach((u) => {
+      a.indexOf(u) < 0 && o(this.formatLanguageCode(u));
+    }), a;
+  }
+}
+let xa = [{
+  lngs: ["ach", "ak", "am", "arn", "br", "fil", "gun", "ln", "mfe", "mg", "mi", "oc", "pt", "pt-BR", "tg", "tl", "ti", "tr", "uz", "wa"],
+  nr: [1, 2],
+  fc: 1
+}, {
+  lngs: ["af", "an", "ast", "az", "bg", "bn", "ca", "da", "de", "dev", "el", "en", "eo", "es", "et", "eu", "fi", "fo", "fur", "fy", "gl", "gu", "ha", "hi", "hu", "hy", "ia", "it", "kk", "kn", "ku", "lb", "mai", "ml", "mn", "mr", "nah", "nap", "nb", "ne", "nl", "nn", "no", "nso", "pa", "pap", "pms", "ps", "pt-PT", "rm", "sco", "se", "si", "so", "son", "sq", "sv", "sw", "ta", "te", "tk", "ur", "yo"],
+  nr: [1, 2],
+  fc: 2
+}, {
+  lngs: ["ay", "bo", "cgg", "fa", "ht", "id", "ja", "jbo", "ka", "km", "ko", "ky", "lo", "ms", "sah", "su", "th", "tt", "ug", "vi", "wo", "zh"],
+  nr: [1],
+  fc: 3
+}, {
+  lngs: ["be", "bs", "cnr", "dz", "hr", "ru", "sr", "uk"],
+  nr: [1, 2, 5],
+  fc: 4
+}, {
+  lngs: ["ar"],
+  nr: [0, 1, 2, 3, 11, 100],
+  fc: 5
+}, {
+  lngs: ["cs", "sk"],
+  nr: [1, 2, 5],
+  fc: 6
+}, {
+  lngs: ["csb", "pl"],
+  nr: [1, 2, 5],
+  fc: 7
+}, {
+  lngs: ["cy"],
+  nr: [1, 2, 3, 8],
+  fc: 8
+}, {
+  lngs: ["fr"],
+  nr: [1, 2],
+  fc: 9
+}, {
+  lngs: ["ga"],
+  nr: [1, 2, 3, 7, 11],
+  fc: 10
+}, {
+  lngs: ["gd"],
+  nr: [1, 2, 3, 20],
+  fc: 11
+}, {
+  lngs: ["is"],
+  nr: [1, 2],
+  fc: 12
+}, {
+  lngs: ["jv"],
+  nr: [0, 1],
+  fc: 13
+}, {
+  lngs: ["kw"],
+  nr: [1, 2, 3, 4],
+  fc: 14
+}, {
+  lngs: ["lt"],
+  nr: [1, 2, 10],
+  fc: 15
+}, {
+  lngs: ["lv"],
+  nr: [1, 2, 0],
+  fc: 16
+}, {
+  lngs: ["mk"],
+  nr: [1, 2],
+  fc: 17
+}, {
+  lngs: ["mnk"],
+  nr: [0, 1, 2],
+  fc: 18
+}, {
+  lngs: ["mt"],
+  nr: [1, 2, 11, 20],
+  fc: 19
+}, {
+  lngs: ["or"],
+  nr: [2, 1],
+  fc: 2
+}, {
+  lngs: ["ro"],
+  nr: [1, 2, 20],
+  fc: 20
+}, {
+  lngs: ["sl"],
+  nr: [5, 1, 2, 3],
+  fc: 21
+}, {
+  lngs: ["he", "iw"],
+  nr: [1, 2, 20, 21],
+  fc: 22
+}], ya = {
+  1: function(n) {
+    return +(n > 1);
+  },
+  2: function(n) {
+    return +(n != 1);
+  },
+  3: function(n) {
+    return 0;
+  },
+  4: function(n) {
+    return n % 10 == 1 && n % 100 != 11 ? 0 : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 1 : 2;
+  },
+  5: function(n) {
+    return n == 0 ? 0 : n == 1 ? 1 : n == 2 ? 2 : n % 100 >= 3 && n % 100 <= 10 ? 3 : n % 100 >= 11 ? 4 : 5;
+  },
+  6: function(n) {
+    return n == 1 ? 0 : n >= 2 && n <= 4 ? 1 : 2;
+  },
+  7: function(n) {
+    return n == 1 ? 0 : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 1 : 2;
+  },
+  8: function(n) {
+    return n == 1 ? 0 : n == 2 ? 1 : n != 8 && n != 11 ? 2 : 3;
+  },
+  9: function(n) {
+    return +(n >= 2);
+  },
+  10: function(n) {
+    return n == 1 ? 0 : n == 2 ? 1 : n < 7 ? 2 : n < 11 ? 3 : 4;
+  },
+  11: function(n) {
+    return n == 1 || n == 11 ? 0 : n == 2 || n == 12 ? 1 : n > 2 && n < 20 ? 2 : 3;
+  },
+  12: function(n) {
+    return +(n % 10 != 1 || n % 100 == 11);
+  },
+  13: function(n) {
+    return +(n !== 0);
+  },
+  14: function(n) {
+    return n == 1 ? 0 : n == 2 ? 1 : n == 3 ? 2 : 3;
+  },
+  15: function(n) {
+    return n % 10 == 1 && n % 100 != 11 ? 0 : n % 10 >= 2 && (n % 100 < 10 || n % 100 >= 20) ? 1 : 2;
+  },
+  16: function(n) {
+    return n % 10 == 1 && n % 100 != 11 ? 0 : n !== 0 ? 1 : 2;
+  },
+  17: function(n) {
+    return n == 1 || n % 10 == 1 && n % 100 != 11 ? 0 : 1;
+  },
+  18: function(n) {
+    return n == 0 ? 0 : n == 1 ? 1 : 2;
+  },
+  19: function(n) {
+    return n == 1 ? 0 : n == 0 || n % 100 > 1 && n % 100 < 11 ? 1 : n % 100 > 10 && n % 100 < 20 ? 2 : 3;
+  },
+  20: function(n) {
+    return n == 1 ? 0 : n == 0 || n % 100 > 0 && n % 100 < 20 ? 1 : 2;
+  },
+  21: function(n) {
+    return n % 100 == 1 ? 1 : n % 100 == 2 ? 2 : n % 100 == 3 || n % 100 == 4 ? 3 : 0;
+  },
+  22: function(n) {
+    return n == 1 ? 0 : n == 2 ? 1 : (n < 0 || n > 10) && n % 10 == 0 ? 2 : 3;
+  }
+};
+const ba = ["v1", "v2", "v3"], va = ["v4"], Ft = {
+  zero: 0,
+  one: 1,
+  two: 2,
+  few: 3,
+  many: 4,
+  other: 5
+};
+function wa() {
+  const n = {};
+  return xa.forEach((e) => {
+    e.lngs.forEach((t) => {
+      n[t] = {
+        numbers: e.nr,
+        plurals: ya[e.fc]
+      };
+    });
+  }), n;
+}
+class ja {
+  constructor(e) {
+    let t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
+    this.languageUtils = e, this.options = t, this.logger = te.create("pluralResolver"), (!this.options.compatibilityJSON || va.includes(this.options.compatibilityJSON)) && (typeof Intl > "u" || !Intl.PluralRules) && (this.options.compatibilityJSON = "v3", this.logger.error("Your environment seems not to be Intl API compatible, use an Intl.PluralRules polyfill. Will fallback to the compatibilityJSON v3 format handling.")), this.rules = wa();
+  }
+  addRule(e, t) {
+    this.rules[e] = t;
+  }
+  getRule(e) {
+    let t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
+    if (this.shouldUseIntlApi())
+      try {
+        return new Intl.PluralRules(Pe(e === "dev" ? "en" : e), {
+          type: t.ordinal ? "ordinal" : "cardinal"
+        });
+      } catch {
+        return;
+      }
+    return this.rules[e] || this.rules[this.languageUtils.getLanguagePartFromCode(e)];
+  }
+  needsPlural(e) {
+    let t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
+    const s = this.getRule(e, t);
+    return this.shouldUseIntlApi() ? s && s.resolvedOptions().pluralCategories.length > 1 : s && s.numbers.length > 1;
+  }
+  getPluralFormsOfKey(e, t) {
+    let s = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : {};
+    return this.getSuffixes(e, s).map((a) => `${t}${a}`);
+  }
+  getSuffixes(e) {
+    let t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
+    const s = this.getRule(e, t);
+    return s ? this.shouldUseIntlApi() ? s.resolvedOptions().pluralCategories.sort((a, o) => Ft[a] - Ft[o]).map((a) => `${this.options.prepend}${t.ordinal ? `ordinal${this.options.prepend}` : ""}${a}`) : s.numbers.map((a) => this.getSuffix(e, a, t)) : [];
+  }
+  getSuffix(e, t) {
+    let s = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : {};
+    const a = this.getRule(e, s);
+    return a ? this.shouldUseIntlApi() ? `${this.options.prepend}${s.ordinal ? `ordinal${this.options.prepend}` : ""}${a.select(t)}` : this.getSuffixRetroCompatible(a, t) : (this.logger.warn(`no plural rule found for: ${e}`), "");
+  }
+  getSuffixRetroCompatible(e, t) {
+    const s = e.noAbs ? e.plurals(t) : e.plurals(Math.abs(t));
+    let a = e.numbers[s];
+    this.options.simplifyPluralSuffix && e.numbers.length === 2 && e.numbers[0] === 1 && (a === 2 ? a = "plural" : a === 1 && (a = ""));
+    const o = () => this.options.prepend && a.toString() ? this.options.prepend + a.toString() : a.toString();
+    return this.options.compatibilityJSON === "v1" ? a === 1 ? "" : typeof a == "number" ? `_plural_${a.toString()}` : o() : this.options.compatibilityJSON === "v2" || this.options.simplifyPluralSuffix && e.numbers.length === 2 && e.numbers[0] === 1 ? o() : this.options.prepend && s.toString() ? this.options.prepend + s.toString() : s.toString();
+  }
+  shouldUseIntlApi() {
+    return !ba.includes(this.options.compatibilityJSON);
+  }
+}
+function Dt(n, e, t) {
+  let s = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : ".", a = arguments.length > 4 && arguments[4] !== void 0 ? arguments[4] : !0, o = da(n, e, t);
+  return !o && a && typeof t == "string" && (o = tt(n, t, s), o === void 0 && (o = tt(e, t, s))), o;
+}
+class Na {
+  constructor() {
+    let e = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
+    this.logger = te.create("interpolator"), this.options = e, this.format = e.interpolation && e.interpolation.format || ((t) => t), this.init(e);
+  }
+  init() {
+    let e = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
+    e.interpolation || (e.interpolation = {
+      escapeValue: !0
+    });
+    const t = e.interpolation;
+    this.escape = t.escape !== void 0 ? t.escape : ha, this.escapeValue = t.escapeValue !== void 0 ? t.escapeValue : !0, this.useRawValueToEscape = t.useRawValueToEscape !== void 0 ? t.useRawValueToEscape : !1, this.prefix = t.prefix ? ce(t.prefix) : t.prefixEscaped || "{{", this.suffix = t.suffix ? ce(t.suffix) : t.suffixEscaped || "}}", this.formatSeparator = t.formatSeparator ? t.formatSeparator : t.formatSeparator || ",", this.unescapePrefix = t.unescapeSuffix ? "" : t.unescapePrefix || "-", this.unescapeSuffix = this.unescapePrefix ? "" : t.unescapeSuffix || "", this.nestingPrefix = t.nestingPrefix ? ce(t.nestingPrefix) : t.nestingPrefixEscaped || ce("$t("), this.nestingSuffix = t.nestingSuffix ? ce(t.nestingSuffix) : t.nestingSuffixEscaped || ce(")"), this.nestingOptionsSeparator = t.nestingOptionsSeparator ? t.nestingOptionsSeparator : t.nestingOptionsSeparator || ",", this.maxReplaces = t.maxReplaces ? t.maxReplaces : 1e3, this.alwaysFormat = t.alwaysFormat !== void 0 ? t.alwaysFormat : !1, this.resetRegExp();
+  }
+  reset() {
+    this.options && this.init(this.options);
+  }
+  resetRegExp() {
+    const e = (t, s) => t && t.source === s ? (t.lastIndex = 0, t) : new RegExp(s, "g");
+    this.regexp = e(this.regexp, `${this.prefix}(.+?)${this.suffix}`), this.regexpUnescape = e(this.regexpUnescape, `${this.prefix}${this.unescapePrefix}(.+?)${this.unescapeSuffix}${this.suffix}`), this.nestingRegexp = e(this.nestingRegexp, `${this.nestingPrefix}(.+?)${this.nestingSuffix}`);
+  }
+  interpolate(e, t, s, a) {
+    let o, u, d;
+    const i = this.options && this.options.interpolation && this.options.interpolation.defaultVariables || {};
+    function c(m) {
+      return m.replace(/\$/g, "$$$$");
+    }
+    const l = (m) => {
+      if (m.indexOf(this.formatSeparator) < 0) {
+        const _ = Dt(t, i, m, this.options.keySeparator, this.options.ignoreJSONStructure);
+        return this.alwaysFormat ? this.format(_, void 0, s, {
+          ...a,
+          ...t,
+          interpolationkey: m
+        }) : _;
+      }
+      const x = m.split(this.formatSeparator), b = x.shift().trim(), N = x.join(this.formatSeparator).trim();
+      return this.format(Dt(t, i, b, this.options.keySeparator, this.options.ignoreJSONStructure), N, s, {
+        ...a,
+        ...t,
+        interpolationkey: b
+      });
+    };
+    this.resetRegExp();
+    const f = a && a.missingInterpolationHandler || this.options.missingInterpolationHandler, p = a && a.interpolation && a.interpolation.skipOnVariables !== void 0 ? a.interpolation.skipOnVariables : this.options.interpolation.skipOnVariables;
+    return [{
+      regex: this.regexpUnescape,
+      safeValue: (m) => c(m)
+    }, {
+      regex: this.regexp,
+      safeValue: (m) => this.escapeValue ? c(this.escape(m)) : c(m)
+    }].forEach((m) => {
+      for (d = 0; o = m.regex.exec(e); ) {
+        const x = o[1].trim();
+        if (u = l(x), u === void 0)
+          if (typeof f == "function") {
+            const N = f(e, o, a);
+            u = typeof N == "string" ? N : "";
+          } else if (a && Object.prototype.hasOwnProperty.call(a, x))
+            u = "";
+          else if (p) {
+            u = o[0];
+            continue;
+          } else
+            this.logger.warn(`missed to pass in variable ${x} for interpolating ${e}`), u = "";
+        else
+          typeof u != "string" && !this.useRawValueToEscape && (u = At(u));
+        const b = m.safeValue(u);
+        if (e = e.replace(o[0], b), p ? (m.regex.lastIndex += u.length, m.regex.lastIndex -= o[0].length) : m.regex.lastIndex = 0, d++, d >= this.maxReplaces)
+          break;
+      }
+    }), e;
+  }
+  nest(e, t) {
+    let s = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : {}, a, o, u;
+    function d(i, c) {
+      const l = this.nestingOptionsSeparator;
+      if (i.indexOf(l) < 0)
+        return i;
+      const f = i.split(new RegExp(`${l}[ ]*{`));
+      let p = `{${f[1]}`;
+      i = f[0], p = this.interpolate(p, u);
+      const g = p.match(/'/g), m = p.match(/"/g);
+      (g && g.length % 2 === 0 && !m || m.length % 2 !== 0) && (p = p.replace(/'/g, '"'));
+      try {
+        u = JSON.parse(p), c && (u = {
+          ...c,
+          ...u
+        });
+      } catch (x) {
+        return this.logger.warn(`failed parsing options string in nesting for key ${i}`, x), `${i}${l}${p}`;
+      }
+      return delete u.defaultValue, i;
+    }
+    for (; a = this.nestingRegexp.exec(e); ) {
+      let i = [];
+      u = {
+        ...s
+      }, u = u.replace && typeof u.replace != "string" ? u.replace : u, u.applyPostProcessor = !1, delete u.defaultValue;
+      let c = !1;
+      if (a[0].indexOf(this.formatSeparator) !== -1 && !/{.*}/.test(a[1])) {
+        const l = a[1].split(this.formatSeparator).map((f) => f.trim());
+        a[1] = l.shift(), i = l, c = !0;
+      }
+      if (o = t(d.call(this, a[1].trim(), u), u), o && a[0] === e && typeof o != "string")
+        return o;
+      typeof o != "string" && (o = At(o)), o || (this.logger.warn(`missed to resolve ${a[1]} for nesting ${e}`), o = ""), c && (o = i.reduce((l, f) => this.format(l, f, s.lng, {
+        ...s,
+        interpolationkey: a[1].trim()
+      }), o.trim())), e = e.replace(a[0], o), this.regexp.lastIndex = 0;
+    }
+    return e;
+  }
+}
+function $a(n) {
+  let e = n.toLowerCase().trim();
+  const t = {};
+  if (n.indexOf("(") > -1) {
+    const s = n.split("(");
+    e = s[0].toLowerCase().trim();
+    const a = s[1].substring(0, s[1].length - 1);
+    e === "currency" && a.indexOf(":") < 0 ? t.currency || (t.currency = a.trim()) : e === "relativetime" && a.indexOf(":") < 0 ? t.range || (t.range = a.trim()) : a.split(";").forEach((u) => {
+      if (!u)
+        return;
+      const [d, ...i] = u.split(":"), c = i.join(":").trim().replace(/^'+|'+$/g, "");
+      t[d.trim()] || (t[d.trim()] = c), c === "false" && (t[d.trim()] = !1), c === "true" && (t[d.trim()] = !0), isNaN(c) || (t[d.trim()] = parseInt(c, 10));
+    });
+  }
+  return {
+    formatName: e,
+    formatOptions: t
+  };
+}
+function le(n) {
+  const e = {};
+  return function(s, a, o) {
+    const u = a + JSON.stringify(o);
+    let d = e[u];
+    return d || (d = n(Pe(a), o), e[u] = d), d(s);
+  };
+}
+class Sa {
+  constructor() {
+    let e = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
+    this.logger = te.create("formatter"), this.options = e, this.formats = {
+      number: le((t, s) => {
+        const a = new Intl.NumberFormat(t, {
+          ...s
+        });
+        return (o) => a.format(o);
+      }),
+      currency: le((t, s) => {
+        const a = new Intl.NumberFormat(t, {
+          ...s,
+          style: "currency"
+        });
+        return (o) => a.format(o);
+      }),
+      datetime: le((t, s) => {
+        const a = new Intl.DateTimeFormat(t, {
+          ...s
+        });
+        return (o) => a.format(o);
+      }),
+      relativetime: le((t, s) => {
+        const a = new Intl.RelativeTimeFormat(t, {
+          ...s
+        });
+        return (o) => a.format(o, s.range || "day");
+      }),
+      list: le((t, s) => {
+        const a = new Intl.ListFormat(t, {
+          ...s
+        });
+        return (o) => a.format(o);
+      })
+    }, this.init(e);
+  }
+  init(e) {
+    const s = (arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {
+      interpolation: {}
+    }).interpolation;
+    this.formatSeparator = s.formatSeparator ? s.formatSeparator : s.formatSeparator || ",";
+  }
+  add(e, t) {
+    this.formats[e.toLowerCase().trim()] = t;
+  }
+  addCached(e, t) {
+    this.formats[e.toLowerCase().trim()] = le(t);
+  }
+  format(e, t, s) {
+    let a = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : {};
+    return t.split(this.formatSeparator).reduce((d, i) => {
+      const {
+        formatName: c,
+        formatOptions: l
+      } = $a(i);
+      if (this.formats[c]) {
+        let f = d;
+        try {
+          const p = a && a.formatParams && a.formatParams[a.interpolationkey] || {}, g = p.locale || p.lng || a.locale || a.lng || s;
+          f = this.formats[c](d, g, {
+            ...l,
+            ...a,
+            ...p
+          });
+        } catch (p) {
+          this.logger.warn(p);
+        }
+        return f;
+      } else
+        this.logger.warn(`there was no format function for ${c}`);
+      return d;
+    }, e);
+  }
+}
+function Ca(n, e) {
+  n.pending[e] !== void 0 && (delete n.pending[e], n.pendingCount--);
+}
+class ka extends Ie {
+  constructor(e, t, s) {
+    let a = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : {};
+    super(), this.backend = e, this.store = t, this.services = s, this.languageUtils = s.languageUtils, this.options = a, this.logger = te.create("backendConnector"), this.waitingReads = [], this.maxParallelReads = a.maxParallelReads || 10, this.readingCalls = 0, this.maxRetries = a.maxRetries >= 0 ? a.maxRetries : 5, this.retryTimeout = a.retryTimeout >= 1 ? a.retryTimeout : 350, this.state = {}, this.queue = [], this.backend && this.backend.init && this.backend.init(s, a.backend, a);
+  }
+  queueLoad(e, t, s, a) {
+    const o = {}, u = {}, d = {}, i = {};
+    return e.forEach((c) => {
+      let l = !0;
+      t.forEach((f) => {
+        const p = `${c}|${f}`;
+        !s.reload && this.store.hasResourceBundle(c, f) ? this.state[p] = 2 : this.state[p] < 0 || (this.state[p] === 1 ? u[p] === void 0 && (u[p] = !0) : (this.state[p] = 1, l = !1, u[p] === void 0 && (u[p] = !0), o[p] === void 0 && (o[p] = !0), i[f] === void 0 && (i[f] = !0)));
+      }), l || (d[c] = !0);
+    }), (Object.keys(o).length || Object.keys(u).length) && this.queue.push({
+      pending: u,
+      pendingCount: Object.keys(u).length,
+      loaded: {},
+      errors: [],
+      callback: a
+    }), {
+      toLoad: Object.keys(o),
+      pending: Object.keys(u),
+      toLoadLanguages: Object.keys(d),
+      toLoadNamespaces: Object.keys(i)
+    };
+  }
+  loaded(e, t, s) {
+    const a = e.split("|"), o = a[0], u = a[1];
+    t && this.emit("failedLoading", o, u, t), s && this.store.addResourceBundle(o, u, s, void 0, void 0, {
+      skipCopy: !0
+    }), this.state[e] = t ? -1 : 2;
+    const d = {};
+    this.queue.forEach((i) => {
+      ua(i.loaded, [o], u), Ca(i, e), t && i.errors.push(t), i.pendingCount === 0 && !i.done && (Object.keys(i.loaded).forEach((c) => {
+        d[c] || (d[c] = {});
+        const l = i.loaded[c];
+        l.length && l.forEach((f) => {
+          d[c][f] === void 0 && (d[c][f] = !0);
+        });
+      }), i.done = !0, i.errors.length ? i.callback(i.errors) : i.callback());
+    }), this.emit("loaded", d), this.queue = this.queue.filter((i) => !i.done);
+  }
+  read(e, t, s) {
+    let a = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : 0, o = arguments.length > 4 && arguments[4] !== void 0 ? arguments[4] : this.retryTimeout, u = arguments.length > 5 ? arguments[5] : void 0;
+    if (!e.length)
+      return u(null, {});
+    if (this.readingCalls >= this.maxParallelReads) {
+      this.waitingReads.push({
+        lng: e,
+        ns: t,
+        fcName: s,
+        tried: a,
+        wait: o,
+        callback: u
+      });
+      return;
+    }
+    this.readingCalls++;
+    const d = (c, l) => {
+      if (this.readingCalls--, this.waitingReads.length > 0) {
+        const f = this.waitingReads.shift();
+        this.read(f.lng, f.ns, f.fcName, f.tried, f.wait, f.callback);
+      }
+      if (c && l && a < this.maxRetries) {
+        setTimeout(() => {
+          this.read.call(this, e, t, s, a + 1, o * 2, u);
+        }, o);
+        return;
+      }
+      u(c, l);
+    }, i = this.backend[s].bind(this.backend);
+    if (i.length === 2) {
+      try {
+        const c = i(e, t);
+        c && typeof c.then == "function" ? c.then((l) => d(null, l)).catch(d) : d(null, c);
+      } catch (c) {
+        d(c);
+      }
+      return;
+    }
+    return i(e, t, d);
+  }
+  prepareLoading(e, t) {
+    let s = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : {}, a = arguments.length > 3 ? arguments[3] : void 0;
+    if (!this.backend)
+      return this.logger.warn("No backend was added via i18next.use. Will not load resources."), a && a();
+    typeof e == "string" && (e = this.languageUtils.toResolveHierarchy(e)), typeof t == "string" && (t = [t]);
+    const o = this.queueLoad(e, t, s, a);
+    if (!o.toLoad.length)
+      return o.pending.length || a(), null;
+    o.toLoad.forEach((u) => {
+      this.loadOne(u);
+    });
+  }
+  load(e, t, s) {
+    this.prepareLoading(e, t, {}, s);
+  }
+  reload(e, t, s) {
+    this.prepareLoading(e, t, {
+      reload: !0
+    }, s);
+  }
+  loadOne(e) {
+    let t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : "";
+    const s = e.split("|"), a = s[0], o = s[1];
+    this.read(a, o, "read", void 0, void 0, (u, d) => {
+      u && this.logger.warn(`${t}loading namespace ${o} for language ${a} failed`, u), !u && d && this.logger.log(`${t}loaded namespace ${o} for language ${a}`, d), this.loaded(e, u, d);
+    });
+  }
+  saveMissing(e, t, s, a, o) {
+    let u = arguments.length > 5 && arguments[5] !== void 0 ? arguments[5] : {}, d = arguments.length > 6 && arguments[6] !== void 0 ? arguments[6] : () => {
+    };
+    if (this.services.utils && this.services.utils.hasLoadedNamespace && !this.services.utils.hasLoadedNamespace(t)) {
+      this.logger.warn(`did not save key "${s}" as the namespace "${t}" was not yet loaded`, "This means something IS WRONG in your setup. You access the t function before i18next.init / i18next.loadNamespace / i18next.changeLanguage was done. Wait for the callback or Promise to resolve before accessing it!!!");
+      return;
+    }
+    if (!(s == null || s === "")) {
+      if (this.backend && this.backend.create) {
+        const i = {
+          ...u,
+          isUpdate: o
+        }, c = this.backend.create.bind(this.backend);
+        if (c.length < 6)
+          try {
+            let l;
+            c.length === 5 ? l = c(e, t, s, a, i) : l = c(e, t, s, a), l && typeof l.then == "function" ? l.then((f) => d(null, f)).catch(d) : d(null, l);
+          } catch (l) {
+            d(l);
+          }
+        else
+          c(e, t, s, a, d, i);
+      }
+      !e || !e[0] || this.store.addResource(e[0], t, s, a);
+    }
+  }
+}
+function Ut() {
+  return {
+    debug: !1,
+    initImmediate: !0,
+    ns: ["translation"],
+    defaultNS: ["translation"],
+    fallbackLng: ["dev"],
+    fallbackNS: !1,
+    supportedLngs: !1,
+    nonExplicitSupportedLngs: !1,
+    load: "all",
+    preload: !1,
+    simplifyPluralSuffix: !0,
+    keySeparator: ".",
+    nsSeparator: ":",
+    pluralSeparator: "_",
+    contextSeparator: "_",
+    partialBundledLanguages: !1,
+    saveMissing: !1,
+    updateMissing: !1,
+    saveMissingTo: "fallback",
+    saveMissingPlurals: !0,
+    missingKeyHandler: !1,
+    missingInterpolationHandler: !1,
+    postProcess: !1,
+    postProcessPassResolved: !1,
+    returnNull: !1,
+    returnEmptyString: !0,
+    returnObjects: !1,
+    joinArrays: !1,
+    returnedObjectHandler: !1,
+    parseMissingKeyHandler: !1,
+    appendNamespaceToMissingKey: !1,
+    appendNamespaceToCIMode: !1,
+    overloadTranslationOptionHandler: function(e) {
+      let t = {};
+      if (typeof e[1] == "object" && (t = e[1]), typeof e[1] == "string" && (t.defaultValue = e[1]), typeof e[2] == "string" && (t.tDescription = e[2]), typeof e[2] == "object" || typeof e[3] == "object") {
+        const s = e[3] || e[2];
+        Object.keys(s).forEach((a) => {
+          t[a] = s[a];
+        });
+      }
+      return t;
+    },
+    interpolation: {
+      escapeValue: !0,
+      format: (n) => n,
+      prefix: "{{",
+      suffix: "}}",
+      formatSeparator: ",",
+      unescapePrefix: "-",
+      nestingPrefix: "$t(",
+      nestingSuffix: ")",
+      nestingOptionsSeparator: ",",
+      maxReplaces: 1e3,
+      skipOnVariables: !0
+    }
+  };
+}
+function Bt(n) {
+  return typeof n.ns == "string" && (n.ns = [n.ns]), typeof n.fallbackLng == "string" && (n.fallbackLng = [n.fallbackLng]), typeof n.fallbackNS == "string" && (n.fallbackNS = [n.fallbackNS]), n.supportedLngs && n.supportedLngs.indexOf("cimode") < 0 && (n.supportedLngs = n.supportedLngs.concat(["cimode"])), n;
+}
+function Ce() {
+}
+function Ea(n) {
+  Object.getOwnPropertyNames(Object.getPrototypeOf(n)).forEach((t) => {
+    typeof n[t] == "function" && (n[t] = n[t].bind(n));
+  });
+}
+class ve extends Ie {
+  constructor() {
+    let e = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {}, t = arguments.length > 1 ? arguments[1] : void 0;
+    if (super(), this.options = Bt(e), this.services = {}, this.logger = te, this.modules = {
+      external: []
+    }, Ea(this), t && !this.isInitialized && !e.isClone) {
+      if (!this.options.initImmediate)
+        return this.init(e, t), this;
+      setTimeout(() => {
+        this.init(e, t);
+      }, 0);
+    }
+  }
+  init() {
+    var e = this;
+    let t = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {}, s = arguments.length > 1 ? arguments[1] : void 0;
+    this.isInitializing = !0, typeof t == "function" && (s = t, t = {}), !t.defaultNS && t.defaultNS !== !1 && t.ns && (typeof t.ns == "string" ? t.defaultNS = t.ns : t.ns.indexOf("translation") < 0 && (t.defaultNS = t.ns[0]));
+    const a = Ut();
+    this.options = {
+      ...a,
+      ...this.options,
+      ...Bt(t)
+    }, this.options.compatibilityAPI !== "v1" && (this.options.interpolation = {
+      ...a.interpolation,
+      ...this.options.interpolation
+    }), t.keySeparator !== void 0 && (this.options.userDefinedKeySeparator = t.keySeparator), t.nsSeparator !== void 0 && (this.options.userDefinedNsSeparator = t.nsSeparator);
+    function o(l) {
+      return l ? typeof l == "function" ? new l() : l : null;
+    }
+    if (!this.options.isClone) {
+      this.modules.logger ? te.init(o(this.modules.logger), this.options) : te.init(null, this.options);
+      let l;
+      this.modules.formatter ? l = this.modules.formatter : typeof Intl < "u" && (l = Sa);
+      const f = new zt(this.options);
+      this.store = new Mt(this.options.resources, this.options);
+      const p = this.services;
+      p.logger = te, p.resourceStore = this.store, p.languageUtils = f, p.pluralResolver = new ja(f, {
+        prepend: this.options.pluralSeparator,
+        compatibilityJSON: this.options.compatibilityJSON,
+        simplifyPluralSuffix: this.options.simplifyPluralSuffix
+      }), l && (!this.options.interpolation.format || this.options.interpolation.format === a.interpolation.format) && (p.formatter = o(l), p.formatter.init(p, this.options), this.options.interpolation.format = p.formatter.format.bind(p.formatter)), p.interpolator = new Na(this.options), p.utils = {
+        hasLoadedNamespace: this.hasLoadedNamespace.bind(this)
+      }, p.backendConnector = new ka(o(this.modules.backend), p.resourceStore, p, this.options), p.backendConnector.on("*", function(g) {
+        for (var m = arguments.length, x = new Array(m > 1 ? m - 1 : 0), b = 1; b < m; b++)
+          x[b - 1] = arguments[b];
+        e.emit(g, ...x);
+      }), this.modules.languageDetector && (p.languageDetector = o(this.modules.languageDetector), p.languageDetector.init && p.languageDetector.init(p, this.options.detection, this.options)), this.modules.i18nFormat && (p.i18nFormat = o(this.modules.i18nFormat), p.i18nFormat.init && p.i18nFormat.init(this)), this.translator = new Te(this.services, this.options), this.translator.on("*", function(g) {
+        for (var m = arguments.length, x = new Array(m > 1 ? m - 1 : 0), b = 1; b < m; b++)
+          x[b - 1] = arguments[b];
+        e.emit(g, ...x);
+      }), this.modules.external.forEach((g) => {
+        g.init && g.init(this);
+      });
+    }
+    if (this.format = this.options.interpolation.format, s || (s = Ce), this.options.fallbackLng && !this.services.languageDetector && !this.options.lng) {
+      const l = this.services.languageUtils.getFallbackCodes(this.options.fallbackLng);
+      l.length > 0 && l[0] !== "dev" && (this.options.lng = l[0]);
+    }
+    !this.services.languageDetector && !this.options.lng && this.logger.warn("init: no languageDetector is used and no lng is defined"), ["getResource", "hasResourceBundle", "getResourceBundle", "getDataByLanguage"].forEach((l) => {
+      this[l] = function() {
+        return e.store[l](...arguments);
+      };
+    }), ["addResource", "addResources", "addResourceBundle", "removeResourceBundle"].forEach((l) => {
+      this[l] = function() {
+        return e.store[l](...arguments), e;
+      };
+    });
+    const i = _e(), c = () => {
+      const l = (f, p) => {
+        this.isInitializing = !1, this.isInitialized && !this.initializedStoreOnce && this.logger.warn("init: i18next is already initialized. You should call init just once!"), this.isInitialized = !0, this.options.isClone || this.logger.log("initialized", this.options), this.emit("initialized", this.options), i.resolve(p), s(f, p);
+      };
+      if (this.languages && this.options.compatibilityAPI !== "v1" && !this.isInitialized)
+        return l(null, this.t.bind(this));
+      this.changeLanguage(this.options.lng, l);
+    };
+    return this.options.resources || !this.options.initImmediate ? c() : setTimeout(c, 0), i;
+  }
+  loadResources(e) {
+    let s = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : Ce;
+    const a = typeof e == "string" ? e : this.language;
+    if (typeof e == "function" && (s = e), !this.options.resources || this.options.partialBundledLanguages) {
+      if (a && a.toLowerCase() === "cimode" && (!this.options.preload || this.options.preload.length === 0))
+        return s();
+      const o = [], u = (d) => {
+        if (!d || d === "cimode")
+          return;
+        this.services.languageUtils.toResolveHierarchy(d).forEach((c) => {
+          c !== "cimode" && o.indexOf(c) < 0 && o.push(c);
+        });
+      };
+      a ? u(a) : this.services.languageUtils.getFallbackCodes(this.options.fallbackLng).forEach((i) => u(i)), this.options.preload && this.options.preload.forEach((d) => u(d)), this.services.backendConnector.load(o, this.options.ns, (d) => {
+        !d && !this.resolvedLanguage && this.language && this.setResolvedLanguage(this.language), s(d);
+      });
+    } else
+      s(null);
+  }
+  reloadResources(e, t, s) {
+    const a = _e();
+    return e || (e = this.languages), t || (t = this.options.ns), s || (s = Ce), this.services.backendConnector.reload(e, t, (o) => {
+      a.resolve(), s(o);
+    }), a;
+  }
+  use(e) {
+    if (!e)
+      throw new Error("You are passing an undefined module! Please check the object you are passing to i18next.use()");
+    if (!e.type)
+      throw new Error("You are passing a wrong module! Please check the object you are passing to i18next.use()");
+    return e.type === "backend" && (this.modules.backend = e), (e.type === "logger" || e.log && e.warn && e.error) && (this.modules.logger = e), e.type === "languageDetector" && (this.modules.languageDetector = e), e.type === "i18nFormat" && (this.modules.i18nFormat = e), e.type === "postProcessor" && is.addPostProcessor(e), e.type === "formatter" && (this.modules.formatter = e), e.type === "3rdParty" && this.modules.external.push(e), this;
+  }
+  setResolvedLanguage(e) {
+    if (!(!e || !this.languages) && !(["cimode", "dev"].indexOf(e) > -1))
+      for (let t = 0; t < this.languages.length; t++) {
+        const s = this.languages[t];
+        if (!(["cimode", "dev"].indexOf(s) > -1) && this.store.hasLanguageSomeTranslations(s)) {
+          this.resolvedLanguage = s;
+          break;
+        }
+      }
+  }
+  changeLanguage(e, t) {
+    var s = this;
+    this.isLanguageChangingTo = e;
+    const a = _e();
+    this.emit("languageChanging", e);
+    const o = (i) => {
+      this.language = i, this.languages = this.services.languageUtils.toResolveHierarchy(i), this.resolvedLanguage = void 0, this.setResolvedLanguage(i);
+    }, u = (i, c) => {
+      c ? (o(c), this.translator.changeLanguage(c), this.isLanguageChangingTo = void 0, this.emit("languageChanged", c), this.logger.log("languageChanged", c)) : this.isLanguageChangingTo = void 0, a.resolve(function() {
+        return s.t(...arguments);
+      }), t && t(i, function() {
+        return s.t(...arguments);
+      });
+    }, d = (i) => {
+      !e && !i && this.services.languageDetector && (i = []);
+      const c = typeof i == "string" ? i : this.services.languageUtils.getBestMatchFromCodes(i);
+      c && (this.language || o(c), this.translator.language || this.translator.changeLanguage(c), this.services.languageDetector && this.services.languageDetector.cacheUserLanguage && this.services.languageDetector.cacheUserLanguage(c)), this.loadResources(c, (l) => {
+        u(l, c);
+      });
+    };
+    return !e && this.services.languageDetector && !this.services.languageDetector.async ? d(this.services.languageDetector.detect()) : !e && this.services.languageDetector && this.services.languageDetector.async ? this.services.languageDetector.detect.length === 0 ? this.services.languageDetector.detect().then(d) : this.services.languageDetector.detect(d) : d(e), a;
+  }
+  getFixedT(e, t, s) {
+    var a = this;
+    const o = function(u, d) {
+      let i;
+      if (typeof d != "object") {
+        for (var c = arguments.length, l = new Array(c > 2 ? c - 2 : 0), f = 2; f < c; f++)
+          l[f - 2] = arguments[f];
+        i = a.options.overloadTranslationOptionHandler([u, d].concat(l));
+      } else
+        i = {
+          ...d
+        };
+      i.lng = i.lng || o.lng, i.lngs = i.lngs || o.lngs, i.ns = i.ns || o.ns, i.keyPrefix = i.keyPrefix || s || o.keyPrefix;
+      const p = a.options.keySeparator || ".";
+      let g;
+      return i.keyPrefix && Array.isArray(u) ? g = u.map((m) => `${i.keyPrefix}${p}${m}`) : g = i.keyPrefix ? `${i.keyPrefix}${p}${u}` : u, a.t(g, i);
+    };
+    return typeof e == "string" ? o.lng = e : o.lngs = e, o.ns = t, o.keyPrefix = s, o;
+  }
+  t() {
+    return this.translator && this.translator.translate(...arguments);
+  }
+  exists() {
+    return this.translator && this.translator.exists(...arguments);
+  }
+  setDefaultNamespace(e) {
+    this.options.defaultNS = e;
+  }
+  hasLoadedNamespace(e) {
+    let t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
+    if (!this.isInitialized)
+      return this.logger.warn("hasLoadedNamespace: i18next was not initialized", this.languages), !1;
+    if (!this.languages || !this.languages.length)
+      return this.logger.warn("hasLoadedNamespace: i18n.languages were undefined or empty", this.languages), !1;
+    const s = t.lng || this.resolvedLanguage || this.languages[0], a = this.options ? this.options.fallbackLng : !1, o = this.languages[this.languages.length - 1];
+    if (s.toLowerCase() === "cimode")
+      return !0;
+    const u = (d, i) => {
+      const c = this.services.backendConnector.state[`${d}|${i}`];
+      return c === -1 || c === 2;
+    };
+    if (t.precheck) {
+      const d = t.precheck(this, u);
+      if (d !== void 0)
+        return d;
+    }
+    return !!(this.hasResourceBundle(s, e) || !this.services.backendConnector.backend || this.options.resources && !this.options.partialBundledLanguages || u(s, e) && (!a || u(o, e)));
+  }
+  loadNamespaces(e, t) {
+    const s = _e();
+    return this.options.ns ? (typeof e == "string" && (e = [e]), e.forEach((a) => {
+      this.options.ns.indexOf(a) < 0 && this.options.ns.push(a);
+    }), this.loadResources((a) => {
+      s.resolve(), t && t(a);
+    }), s) : (t && t(), Promise.resolve());
+  }
+  loadLanguages(e, t) {
+    const s = _e();
+    typeof e == "string" && (e = [e]);
+    const a = this.options.preload || [], o = e.filter((u) => a.indexOf(u) < 0);
+    return o.length ? (this.options.preload = a.concat(o), this.loadResources((u) => {
+      s.resolve(), t && t(u);
+    }), s) : (t && t(), Promise.resolve());
+  }
+  dir(e) {
+    if (e || (e = this.resolvedLanguage || (this.languages && this.languages.length > 0 ? this.languages[0] : this.language)), !e)
+      return "rtl";
+    const t = ["ar", "shu", "sqr", "ssh", "xaa", "yhd", "yud", "aao", "abh", "abv", "acm", "acq", "acw", "acx", "acy", "adf", "ads", "aeb", "aec", "afb", "ajp", "apc", "apd", "arb", "arq", "ars", "ary", "arz", "auz", "avl", "ayh", "ayl", "ayn", "ayp", "bbz", "pga", "he", "iw", "ps", "pbt", "pbu", "pst", "prp", "prd", "ug", "ur", "ydd", "yds", "yih", "ji", "yi", "hbo", "men", "xmn", "fa", "jpr", "peo", "pes", "prs", "dv", "sam", "ckb"], s = this.services && this.services.languageUtils || new zt(Ut());
+    return t.indexOf(s.getLanguagePartFromCode(e)) > -1 || e.toLowerCase().indexOf("-arab") > 1 ? "rtl" : "ltr";
+  }
+  static createInstance() {
+    let e = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {}, t = arguments.length > 1 ? arguments[1] : void 0;
+    return new ve(e, t);
+  }
+  cloneInstance() {
+    let e = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {}, t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : Ce;
+    const s = e.forkResourceStore;
+    s && delete e.forkResourceStore;
+    const a = {
+      ...this.options,
+      ...e,
+      isClone: !0
+    }, o = new ve(a);
+    return (e.debug !== void 0 || e.prefix !== void 0) && (o.logger = o.logger.clone(e)), ["store", "services", "language"].forEach((d) => {
+      o[d] = this[d];
+    }), o.services = {
+      ...this.services
+    }, o.services.utils = {
+      hasLoadedNamespace: o.hasLoadedNamespace.bind(o)
+    }, s && (o.store = new Mt(this.store.data, a), o.services.resourceStore = o.store), o.translator = new Te(o.services, a), o.translator.on("*", function(d) {
+      for (var i = arguments.length, c = new Array(i > 1 ? i - 1 : 0), l = 1; l < i; l++)
+        c[l - 1] = arguments[l];
+      o.emit(d, ...c);
+    }), o.init(a, t), o.translator.options = a, o.translator.backendConnector.services.utils = {
+      hasLoadedNamespace: o.hasLoadedNamespace.bind(o)
+    }, o;
+  }
+  toJSON() {
+    return {
+      options: this.options,
+      store: this.store,
+      language: this.language,
+      languages: this.languages,
+      resolvedLanguage: this.resolvedLanguage
+    };
+  }
+}
+const Y = ve.createInstance();
+Y.createInstance = ve.createInstance;
+Y.createInstance;
+Y.dir;
+Y.init;
+Y.loadResources;
+Y.reloadResources;
+Y.use;
+Y.changeLanguage;
+Y.getFixedT;
+Y.t;
+Y.exists;
+Y.setDefaultNamespace;
+Y.hasLoadedNamespace;
+Y.loadNamespaces;
+Y.loadLanguages;
+const Ra = "New order from template menu", Oa = "Total", Pa = "Name", Ta = "Type", Aa = "Time/Table", La = "Size", Ma = "Extras", Ia = "Notes", za = "Doneness", Fa = "Sugar", Da = "Pasta Type", Ua = "Bread", Ba = "Menu", Va = "Contact", qa = "All", Wa = "Search dishes...", Ha = "Call", Ka = "WhatsApp", Ya = "Location", Ja = "Address", Qa = "Opening Hours", Ga = "Add to Cart", Xa = "Added", Za = "Customize", er = "Size", tr = "Extras", sr = "Notes", nr = "Cart", ar = "items", rr = "Your cart is empty", ir = "Clear cart", or = "Send via WhatsApp", cr = "Total", lr = "Name", ur = "Order type", dr = "Pickup", pr = "Delivery", hr = "Time/Table", fr = "Message preview", mr = "QR", gr = "Instagram", _r = "Base price", xr = "Extras", yr = "Reservation", br = "Book a Table", vr = "Date", wr = "Time", jr = "Area", Nr = "Number of Guests", $r = "Your Name", Sr = "Phone Number", Cr = "Special Requests", kr = "Send Reservation Request", Er = "Reservation request sent!", Rr = "Please wait for confirmation from the restaurant.", Or = "If you don't receive a response within 15 minutes, please call the restaurant.", Pr = "Please wait for confirmation from the restaurant for your order.", Tr = "If you don't receive a response within 5 minutes, please call the restaurant.", Ar = "Today", Lr = "Tomorrow", Mr = "Reserve your table at our restaurant and enjoy an unforgettable dining experience. We look forward to welcoming you!", Ir = "Choose your preferred date", zr = "Select time slot", Fr = "Number of people", Dr = "Important Notice", Ur = "Need immediate assistance? Call us:", Br = "Any special requests or notes...", Vr = "Guest", qr = "Guests", Wr = "Table Reservation Request", Hr = "Date:", Kr = "Time:", Yr = "Area:", Jr = "Guests:", Qr = "Name:", Gr = "Phone:", Xr = "Notes:", Zr = "Please confirm this reservation.", ei = "Thank you! 🙏", ti = "Sun–Thu:", si = "Fri:", ni = "Sat:", ai = "Important Notice", ri = "Delivery fees not included in total price", ii = "Continue to WhatsApp", oi = "Cancel", ci = "The restaurant is currently closed. Please try again during opening hours.", li = "Close", ui = "🍽️ NEW ORDER REQUEST", di = "📋 ORDER ITEMS:", pi = "👤 CUSTOMER INFORMATION:", hi = "Order Type", fi = "Name", mi = "Phone", gi = "Qty", _i = "Item", xi = "Options", yi = "Please confirm this order. Thank you! 🙏", bi = "Served until 13:00", vi = "Sunday", wi = "Monday", ji = "Tuesday", Ni = "Wednesday", $i = "Thursday", Si = "Friday", Ci = "Saturday", ki = "For illustration only", Ei = "Terms of Service", Ri = "Privacy Policy", Oi = "Accessibility Statement", Pi = "Last updated", Ti = "Acceptance of Terms", Ai = "By using our website and services, you agree to comply with these terms of service.", Li = "Service Usage", Mi = "Our website is designed for browsing our menu, placing orders via WhatsApp, and making reservations.", Ii = "Orders and Reservations", zi = "All orders are processed through WhatsApp. Reservations are subject to availability and confirmation.", Fi = "Payment Terms", Di = "Payment is handled directly at the restaurant. Online orders are for convenience and confirmation only.", Ui = "Limitation of Liability", Bi = "We are not responsible for third-party services such as WhatsApp. Use of external services is subject to their terms.", Vi = "Changes to Terms", qi = "We may update these terms from time to time. Continued use constitutes acceptance of revised terms.", Wi = "Information Collection", Hi = "We respect your privacy. Our website does not use cookies or online tracking. Information is stored locally in your browser (LocalStorage) for continuity, and may include name and order preferences (personal/family).", Ki = "Information Usage", Yi = "We only use information to provide our services and improve your experience. We do not share personal data with third parties.", Ji = "Cookies and Tracking", Qi = "Our website does not use cookies or tracking technologies. All data is stored locally in your browser.", Gi = "WhatsApp Integration", Xi = "Order placement occurs through WhatsApp (external service). WhatsApp usage is subject to WhatsApp's terms and privacy policy.", Zi = "Data Storage", eo = "Data is stored locally on your device and on WhatsApp for order processing and communication purposes.", to = "User Rights", so = "For any questions or requests regarding your data, please contact us through our contact page.", no = "Our Commitment", ao = "We are committed to making our website accessible according to Israeli Standard TI 5568 based on WCAG 2.0 Level AA. Our goal is to provide an accessible, equal, and comfortable user experience for all users.", ro = "Accessibility Standards", io = "Our website follows modern accessibility guidelines including keyboard navigation, screen reader compatibility, and clear visual design.", oo = "Accessibility Features", co = "The website includes proper heading structure, alternative text for images, keyboard navigation support, and responsive design for various devices and assistive technologies.", lo = "Accessibility Contact", uo = "If you encounter any accessibility issues or have suggestions for improvement, please contact us via phone or WhatsApp listed on our contact page.", po = "Customer name is required before sending to WhatsApp", ho = "Back to Menu", fo = "Closed", mo = "The restaurant is currently closed. Orders can be placed only during opening hours.", go = "Got it", _o = {
+  wa_header: Ra,
+  wa_total: Oa,
+  wa_name: Pa,
+  wa_type: Ta,
+  wa_time: Aa,
+  opt_size: La,
+  opt_extras: Ma,
+  opt_notes: Ia,
+  opt_doneness: za,
+  opt_sugar: Fa,
+  opt_pasta_type: Da,
+  opt_bread: Ua,
+  menu: Ba,
+  contact: Va,
+  all: qa,
+  search_placeholder: Wa,
+  call: Ha,
+  whatsapp: Ka,
+  location: Ya,
+  address: Ja,
+  open_hours: Qa,
+  add_to_cart: Ga,
+  added: Xa,
+  customize: Za,
+  size: er,
+  extras: tr,
+  notes: sr,
+  cart: nr,
+  items: ar,
+  empty_cart: rr,
+  clear_cart: ir,
+  checkout: or,
+  total: cr,
+  customer_name: lr,
+  order_type: ur,
+  pickup: dr,
+  delivery: pr,
+  time_or_table: hr,
+  message_preview: fr,
+  qr: mr,
+  instagram: gr,
+  base_price: _r,
+  extras_total: xr,
+  reservation: yr,
+  book_table: br,
+  reservation_date: vr,
+  reservation_time: wr,
+  reservation_area: jr,
+  reservation_guests: Nr,
+  reservation_name: $r,
+  reservation_phone: Sr,
+  reservation_notes: Cr,
+  send_reservation: kr,
+  reservation_sent: Er,
+  reservation_wait: Rr,
+  reservation_no_response: Or,
+  order_wait: Pr,
+  order_no_response: Tr,
+  today: Ar,
+  tomorrow: Lr,
+  reservation_description: Mr,
+  choose_date: Ir,
+  select_time: zr,
+  number_people: Fr,
+  important_notice: Dr,
+  need_assistance: Ur,
+  special_requests_placeholder: Br,
+  guests_singular: Vr,
+  guests_plural: qr,
+  reservation_request: Wr,
+  date_label: Hr,
+  time_label: Kr,
+  area_label: Yr,
+  guests_label: Jr,
+  name_label: Qr,
+  phone_label: Gr,
+  notes_label: Xr,
+  confirm_reservation: Zr,
+  thank_you: ei,
+  sun_thu: ti,
+  fri: si,
+  sat: ni,
+  important_notice_cart: ai,
+  delivery_notice: ri,
+  continue_to_whatsapp: ii,
+  cancel: oi,
+  restaurant_closed_message: ci,
+  close: li,
+  wa_order_header: ui,
+  wa_order_items: di,
+  wa_customer_info: pi,
+  wa_order_type: hi,
+  wa_customer_name: fi,
+  wa_customer_phone: mi,
+  wa_quantity: gi,
+  wa_item: _i,
+  wa_options: xi,
+  wa_confirm_order: yi,
+  served_until_13: bi,
+  day_sun: vi,
+  day_mon: wi,
+  day_tue: ji,
+  day_wed: Ni,
+  day_thu: $i,
+  day_fri: Si,
+  day_sat: Ci,
+  "day_tue-sat": "Tuesday-Saturday",
+  "day_mon-sat": "Monday-Saturday",
+  for_illustration_only: ki,
+  terms_of_service: Ei,
+  privacy_policy: Ri,
+  accessibility_statement: Oi,
+  last_updated: Pi,
+  terms_acceptance: Ti,
+  terms_acceptance_text: Ai,
+  terms_service_usage: Li,
+  terms_service_usage_text: Mi,
+  terms_orders: Ii,
+  terms_orders_text: zi,
+  terms_payment: Fi,
+  terms_payment_text: Di,
+  terms_liability: Ui,
+  terms_liability_text: Bi,
+  terms_changes: Vi,
+  terms_changes_text: qi,
+  privacy_info_collection: Wi,
+  privacy_info_collection_text: Hi,
+  privacy_info_usage: Ki,
+  privacy_info_usage_text: Yi,
+  privacy_cookies: Ji,
+  privacy_cookies_text: Qi,
+  privacy_whatsapp: Gi,
+  privacy_whatsapp_text: Xi,
+  privacy_data_storage: Zi,
+  privacy_data_storage_text: eo,
+  privacy_user_rights: to,
+  privacy_user_rights_text: so,
+  accessibility_commitment: no,
+  accessibility_commitment_text: ao,
+  accessibility_standards: ro,
+  accessibility_standards_text: io,
+  accessibility_features: oo,
+  accessibility_features_text: co,
+  accessibility_contact: lo,
+  accessibility_contact_text: uo,
+  name_required: po,
+  back_to_menu: ho,
+  closed: fo,
+  closed_popup_message: mo,
+  got_it_button: go
+}, xo = "הזמנה חדשה מתפריט התבנית", yo = "סך הכול", bo = "שם", vo = "סוג", wo = "שעה/שולחן", jo = "גודל", No = "תוספות", $o = "הערות", So = "דרגת עשייה", Co = "סוכר", ko = "סוג פסטה", Eo = "לחם", Ro = "תפריט", Oo = "צור קשר", Po = "הכל", To = "חיפוש מנות...", Ao = "התקשר", Lo = "וואטסאפ", Mo = "מיקום", Io = "כתובת", zo = "שעות פתיחה", Fo = "להוסיף לסל", Do = "נוסף", Uo = "התאמה", Bo = "גודל", Vo = "תוספות", qo = "הערות", Wo = "הסל", Ho = "פריטים", Ko = "הסל ריק", Yo = "נקה סל", Jo = "שלח בוואטסאפ", Qo = "סך הכל", Go = "שם", Xo = "סוג הזמנה", Zo = "איסוף עצמי", ec = "משלוח", tc = "שעה/שולחן", sc = "תצוגה מקדימה", nc = "QR", ac = "אינסטגרם", rc = "מחיר בסיס", ic = "תוספות", oc = "הזמנת שולחן", cc = "הזמן שולחן", lc = "תאריך", uc = "שעה", dc = "אזור", pc = "מספר אורחים", hc = "השם שלך", fc = "מספר טלפון", mc = "בקשות מיוחדות", gc = "שלח בקשת הזמנה", _c = "בקשת ההזמנה נשלחה!", xc = "אנא המתן לאישור מהמסעדה.", yc = "אם לא תקבל תגובה תוך 15 דקות, אנא התקשר למסעדה.", bc = "אנא המתן לאישור מהמסעדה עבור ההזמנה שלך.", vc = "אם לא תקבל תגובה תוך 5 דקות, אנא התקשר למסעדה.", wc = "היום", jc = "מחר", Nc = "הזמן שולחן במסעדה שלנו ותהנה מחווית אוכל בלתי נשכחת. אנחנו מצפים לראות אותך!", $c = "בחר את התאריך המועדף עליך", Sc = "בחר זמן", Cc = "מספר אנשים", kc = "הודעה חשובה", Ec = "צריך עזרה מיידית? התקשר אלינו:", Rc = "בקשות מיוחדות או הערות...", Oc = "אורח", Pc = "אורחים", Tc = "בקשת הזמנת שולחן", Ac = "תאריך:", Lc = "שעה:", Mc = "אזור:", Ic = "אורחים:", zc = "שם:", Fc = "טלפון:", Dc = "הערות:", Uc = "אנא אשר את ההזמנה הזו.", Bc = "תודה! 🙏", Vc = "א׳-ה׳:", qc = "ו׳:", Wc = "ש׳:", Hc = "הודעה חשובה", Kc = "עמלת משלוח לא כלולה במחיר הכולל", Yc = "המשך לווטסאפ", Jc = "ביטול", Qc = "🍽️ בקשת הזמנה חדשה", Gc = "📋 פריטי ההזמנה:", Xc = "👤 פרטי הלקוח:", Zc = "סוג הזמנה", el = "שם", tl = "טלפון", sl = "כמות", nl = "פריט", al = "אפשרויות", rl = "אנא אשר את ההזמנה הזו. תודה! 🙏", il = "מוגש עד 13:00", ol = "ראשון", cl = "שני", ll = "שלישי", ul = "רביעי", dl = "חמישי", pl = "שישי", hl = "שבת", fl = "להמחשה בלבד", ml = "תנאי שימוש", gl = "מדיניות פרטיות", _l = "הצהרת נגישות", xl = "תאריך עדכון אחרון", yl = "אחריות", bl = "אין אחריות לשירותי צד-שלישי (כגון WhatsApp). כל שימוש בשירותים חיצוניים כפוף לתנאורים.", vl = "שינויים בתנאים", wl = "יתכן שנעדכן שינויים בתנאי השימוש מעת לעת. המשך השימוש כהסכמה לתנאים כפופה.", jl = "יצירת קשר בנושא נגישות", Nl = "אם נתקלתם בבעיה או הצעה לשיפור, נעמוד לכפות אליכן בטלפון או בוואטסאפ המופיעים במיקום יצירת קשר.", $l = "מטרת עיכוב היחידי", Sl = "האתר מכיל לפרטים, בחירת פריטים, והזמנת מקום לוואטסאפ של המטעדה.", Cl = "זכויות המשתמש", kl = "כפי שלאה או בקשה לחתיקה מידע, נעמוד לכפות אליכן דרך עמוד יצירת קשר.", El = "תאריך עדכון אחרון", Rl = "26.9.2025", Ol = "אחריות", Pl = "אין אחריות לשירותי צד-שלישי (כגון WhatsApp). כל שימוש בשירותים חיצוניים כפוף לתנאורים.", Tl = "שינויים בתנאים", Al = "יתכן שנעדכן שינויים בתנאי השימוש מעת לעת. המשך השימוש כהסכמה לתנאים כפופה.", Ll = "מדיניות פרטיות", Ml = "אנו מכבדים את פרטיותכם. האתר אינו מפעיל עוגיות (cookies) ואינו מבצע מעקב אינטרנטי. המידע שמורן בעלות הקרייות ומורה מקומית בדפדפן (LocalStorage) לצורך המשכיות כבב, ויכול לכלול שם ופוטר המנה (אישי/משפחה).", Il = "מטרת עיכוב היחידי", zl = "שליחת הזמנה/פנירה מתבצעת באמצעות WhatsApp (שירות חיצוני). על כן, השימוש ב-WhatsApp כפוף לתנאי השימוש ומדיניות הפרטיות של WhatsApp.", Fl = "מטרת עיכוב היחידי", Dl = "האתר מכיל לפרטים, בחירת פריטים, והזמנת מקום לוואטסאפ של המטעדה.", Ul = "זכויות המשתמש", Bl = "כפי שלאה או בקשה לחתיקה מידע, נעמוד לכפות אליכן דרך עמוד יצירת קשר.", Vl = "הצהרת נגישות", ql = 'אנו פועלים להנגיש את האתר בהתאם לתקן הישראלי ת"י 5568 הכמבוס על 2.0 WCAG ברמה AA. מטרתנו להנביח חווית שימוש נגישה, שוויונית ונוחה לכלל המשתמשים.', Wl = "יצירת קשר בנושא נגישות", Hl = "אם נתקלתם בבעיה או הצעה לשיפור, נעמוד לכפות אליכן בטלפון או בוואטסאפ המופיעים במיקום יצירת קשר.", Kl = "מטרת עיכוב היחידי", Yl = "האתר מכיל לפרטים, בחירת פריטים, והזמנת מקום לוואטסאפ של המטעדה.", Jl = "יצירת קשר בנושא נגישות", Ql = "אם נתקלתם בבעיה או הצעה לשיפור, נעמוד לכפות אליכן בטלפון או בוואטסאפ המופיעים במיקום יצירת קשר.", Gl = "שם הלקוח נדרש לפני שליחה לוואטסאפ", Xl = "חזרה לתפריט", Zl = "סגור", eu = "המסעדה סגורה כעת. נסה שוב בשעות הפתיחה.", tu = "סגור", su = "המסעדה סגורה כעת. ניתן לבצע הזמנות רק במהלך שעות הפתיחה.", nu = "הבנתי", au = {
+  wa_header: xo,
+  wa_total: yo,
+  wa_name: bo,
+  wa_type: vo,
+  wa_time: wo,
+  opt_size: jo,
+  opt_extras: No,
+  opt_notes: $o,
+  opt_doneness: So,
+  opt_sugar: Co,
+  opt_pasta_type: ko,
+  opt_bread: Eo,
+  menu: Ro,
+  contact: Oo,
+  all: Po,
+  search_placeholder: To,
+  call: Ao,
+  whatsapp: Lo,
+  location: Mo,
+  address: Io,
+  open_hours: zo,
+  add_to_cart: Fo,
+  added: Do,
+  customize: Uo,
+  size: Bo,
+  extras: Vo,
+  notes: qo,
+  cart: Wo,
+  items: Ho,
+  empty_cart: Ko,
+  clear_cart: Yo,
+  checkout: Jo,
+  total: Qo,
+  customer_name: Go,
+  order_type: Xo,
+  pickup: Zo,
+  delivery: ec,
+  time_or_table: tc,
+  message_preview: sc,
+  qr: nc,
+  instagram: ac,
+  base_price: rc,
+  extras_total: ic,
+  reservation: oc,
+  book_table: cc,
+  reservation_date: lc,
+  reservation_time: uc,
+  reservation_area: dc,
+  reservation_guests: pc,
+  reservation_name: hc,
+  reservation_phone: fc,
+  reservation_notes: mc,
+  send_reservation: gc,
+  reservation_sent: _c,
+  reservation_wait: xc,
+  reservation_no_response: yc,
+  order_wait: bc,
+  order_no_response: vc,
+  today: wc,
+  tomorrow: jc,
+  reservation_description: Nc,
+  choose_date: $c,
+  select_time: Sc,
+  number_people: Cc,
+  important_notice: kc,
+  need_assistance: Ec,
+  special_requests_placeholder: Rc,
+  guests_singular: Oc,
+  guests_plural: Pc,
+  reservation_request: Tc,
+  date_label: Ac,
+  time_label: Lc,
+  area_label: Mc,
+  guests_label: Ic,
+  name_label: zc,
+  phone_label: Fc,
+  notes_label: Dc,
+  confirm_reservation: Uc,
+  thank_you: Bc,
+  sun_thu: Vc,
+  fri: qc,
+  sat: Wc,
+  important_notice_cart: Hc,
+  delivery_notice: Kc,
+  continue_to_whatsapp: Yc,
+  cancel: Jc,
+  wa_order_header: Qc,
+  wa_order_items: Gc,
+  wa_customer_info: Xc,
+  wa_order_type: Zc,
+  wa_customer_name: el,
+  wa_customer_phone: tl,
+  wa_quantity: sl,
+  wa_item: nl,
+  wa_options: al,
+  wa_confirm_order: rl,
+  served_until_13: il,
+  day_sun: ol,
+  day_mon: cl,
+  day_tue: ll,
+  day_wed: ul,
+  day_thu: dl,
+  day_fri: pl,
+  day_sat: hl,
+  "day_tue-sat": "שלישי-שבת",
+  "day_mon-sat": "שני-שבת",
+  for_illustration_only: fl,
+  terms_of_service: ml,
+  privacy_policy: gl,
+  accessibility_statement: _l,
+  last_updated: xl,
+  terms_acceptance: yl,
+  terms_acceptance_text: bl,
+  terms_service_usage: vl,
+  terms_service_usage_text: wl,
+  terms_orders: jl,
+  terms_orders_text: Nl,
+  terms_payment: $l,
+  terms_payment_text: Sl,
+  terms_liability: Cl,
+  terms_liability_text: kl,
+  terms_changes: El,
+  terms_changes_text: Rl,
+  privacy_info_collection: Ol,
+  privacy_info_collection_text: Pl,
+  privacy_info_usage: Tl,
+  privacy_info_usage_text: Al,
+  privacy_cookies: Ll,
+  privacy_cookies_text: Ml,
+  privacy_whatsapp: Il,
+  privacy_whatsapp_text: zl,
+  privacy_data_storage: Fl,
+  privacy_data_storage_text: Dl,
+  privacy_user_rights: Ul,
+  privacy_user_rights_text: Bl,
+  accessibility_commitment: Vl,
+  accessibility_commitment_text: ql,
+  accessibility_standards: Wl,
+  accessibility_standards_text: Hl,
+  accessibility_features: Kl,
+  accessibility_features_text: Yl,
+  accessibility_contact: Jl,
+  accessibility_contact_text: Ql,
+  name_required: Gl,
+  back_to_menu: Xl,
+  closed: Zl,
+  restaurant_closed_message: eu,
+  close: tu,
+  closed_popup_message: su,
+  got_it_button: nu
+}, ru = "طلب جديد عبر قائمة القالب", iu = "الإجمالي", ou = "الاسم", cu = "النوع", lu = "ساعة/طاولة", uu = "الحجم", du = "إضافات", pu = "ملاحظات", hu = "درجة الاستواء", fu = "سكر", mu = "نوع المعكرونة", gu = "الخبز", _u = "القائمة", xu = "تواصل", yu = "الكل", bu = "ابحث عن طبق...", vu = "اتصال", wu = "واتساب", ju = "الموقع", Nu = "العنوان", $u = "ساعات العمل", Su = "أضف إلى السلة", Cu = "تمت الإضافة", ku = "تخصيص", Eu = "الحجم", Ru = "إضافات", Ou = "ملاحظات", Pu = "السلة", Tu = "عنصر", Au = "السلة فارغة", Lu = "تفريغ السلة", Mu = "إرسال عبر واتساب", Iu = "الإجمالي", zu = "الاسم", Fu = "نوع الطلب", Du = "استلام", Uu = "توصيل", Bu = "ساعة/طاولة", Vu = "نص الرسالة", qu = "QR", Wu = "إنستغرام", Hu = "السعر الأساسي", Ku = "الإضافات", Yu = "حجز طاولة", Ju = "احجز طاولة", Qu = "التاريخ", Gu = "الوقت", Xu = "المنطقة", Zu = "عدد الضيوف", ed = "اسمك", td = "رقم الهاتف", sd = "طلبات خاصة", nd = "إرسال طلب الحجز", ad = "تم إرسال طلب الحجز!", rd = "يرجى انتظار التأكيد من المطعم.", id = "إذا لم تتلق رداً خلال 15 دقيقة، يرجى الاتصال بالمطعم.", od = "يرجى انتظار التأكيد من المطعم لطلبك.", cd = "إذا لم تتلق رداً خلال 5 دقائق، يرجى الاتصال بالمطعم.", ld = "اليوم", ud = "غداً", dd = "احجز طاولتك في مطعمنا واستمتع بتجربة طعام لا تُنسى. نحن نتطلع لاستقبالك!", pd = "اختر التاريخ المفضل لديك", hd = "اختر الوقت", fd = "عدد الأشخاص", md = "إشعار مهم", gd = "تحتاج مساعدة فورية؟ اتصل بنا:", _d = "أي طلبات خاصة أو ملاحظات...", xd = "ضيف", yd = "ضيوف", bd = "طلب حجز طاولة", vd = "التاريخ:", wd = "الوقت:", jd = "المنطقة:", Nd = "الضيوف:", $d = "الاسم:", Sd = "الهاتف:", Cd = "ملاحظات:", kd = "يرجى تأكيد هذا الحجز.", Ed = "شكراً لك! 🙏", Rd = "الأحد-الخميس:", Od = "الجمعة:", Pd = "السبت:", Td = "إشعار مهم", Ad = "رسوم التوصيل غير مشمولة في السعر الإجمالي", Ld = "متابعة إلى واتساب", Md = "إلغاء", Id = "🍽️ طلب جديد", zd = "📋 عناصر الطلب:", Fd = "👤 معلومات العميل:", Dd = "نوع الطلب", Ud = "الاسم", Bd = "الهاتف", Vd = "الكمية", qd = "العنصر", Wd = "الخيارات", Hd = "يرجى تأكيد هذا الطلب. شكراً لك! 🙏", Kd = "يُقدم حتى 13:00", Yd = "الأحد", Jd = "الاثنين", Qd = "الثلاثاء", Gd = "الأربعاء", Xd = "الخميس", Zd = "الجمعة", ep = "السبت", tp = "شروط الخدمة", sp = "سياسة الخصوصية", np = "بيان إمكانية الوصول", ap = "آخر تحديث", rp = "قبول الشروط", ip = "باستخدام موقعنا وخدماتنا، فإنك توافق على الالتزام بشروط الخدمة هذه.", op = "استخدام الخدمة", cp = "تم تصميم موقعنا لتصفح القائمة وتقديم الطلبات عبر واتساب وإجراء الحجوزات.", lp = "الطلبات والحجوزات", up = "جميع الطلبات تتم معالجتها عبر واتساب. الحجوزات تخضع للتوفر والتأكيد.", dp = "شروط الدفع", pp = "يتم التعامل مع الدفع مباشرة في المطعم. الطلبات عبر الإنترنت للراحة والتأكيد فقط.", hp = "حدود المسؤولية", fp = "نحن غير مسؤولين عن خدمات الطرف الثالث مثل واتساب. استخدام الخدمات الخارجية يخضع لشروطها.", mp = "تغييرات الشروط", gp = "قد نقوم بتحديث هذه الشروط من وقت لآخر. الاستخدام المستمر يشكل قبولاً للشروط المنقحة.", _p = "جمع المعلومات", xp = "نحن نحترم خصوصيتك. موقعنا لا يستخدم ملفات تعريف الارتباط أو التتبع عبر الإنترنت. يتم تخزين المعلومات محلياً في متصفحك للاستمرارية، وقد تشمل الاسم وتفضيلات الطلب.", yp = "استخدام المعلومات", bp = "نستخدم المعلومات فقط لتقديم خدماتنا وتحسين تجربتك. لا نشارك البيانات الشخصية مع أطراف ثالثة.", vp = "ملفات تعريف الارتباط والتتبع", wp = "موقعنا لا يستخدم ملفات تعريف الارتباط أو تقنيات التتبع. جميع البيانات مخزنة محلياً في متصفحك.", jp = "تكامل واتساب", Np = "تقديم الطلبات يتم عبر واتساب (خدمة خارجية). استخدام واتساب يخضع لشروط وسياسة خصوصية واتساب.", $p = "تخزين البيانات", Sp = "يتم تخزين البيانات محلياً على جهازك وعلى واتساب لمعالجة الطلبات وأغراض التواصل.", Cp = "حقوق المستخدم", kp = "لأي أسئلة أو طلبات بخصوص بياناتك، يرجى التواصل معنا عبر صفحة الاتصال.", Ep = "التزامنا", Rp = "نحن ملتزمون بجعل موقعنا قابلاً للوصول وفقاً للمعايير الحديثة. هدفنا توفير تجربة مستخدم متاحة ومتساوية ومريحة لجميع المستخدمين.", Op = "معايير إمكانية الوصول", Pp = "يتبع موقعنا إرشادات إمكانية الوصول الحديثة بما في ذلك التنقل بلوحة المفاتيح وتوافق قارئ الشاشة والتصميم البصري الواضح.", Tp = "ميزات إمكانية الوصول", Ap = "يتضمن الموقع هيكل عناوين مناسب ونص بديل للصور ودعم التنقل بلوحة المفاتيح وتصميم متجاوب لمختلف الأجهزة والتقنيات المساعدة.", Lp = "التواصل بخصوص إمكانية الوصول", Mp = "إذا واجهت أي مشاكل في إمكانية الوصول أو لديك اقتراحات للتحسين، يرجى التواصل معنا عبر الهاتف أو واتساب المدرجين في صفحة الاتصال.", Ip = "اسم العميل مطلوب قبل الإرسال إلى واتساب", zp = "العودة إلى القائمة", Fp = "مغلق", Dp = "للتوضيح فقط", Up = "المطعم مغلق حالياً. الرجاء المحاولة خلال ساعات العمل.", Bp = "إغلاق", Vp = "المطعم مغلق حالياً. يمكن تقديم الطلبات فقط خلال ساعات العمل.", qp = "حسنًا", Wp = {
+  wa_header: ru,
+  wa_total: iu,
+  wa_name: ou,
+  wa_type: cu,
+  wa_time: lu,
+  opt_size: uu,
+  opt_extras: du,
+  opt_notes: pu,
+  opt_doneness: hu,
+  opt_sugar: fu,
+  opt_pasta_type: mu,
+  opt_bread: gu,
+  menu: _u,
+  contact: xu,
+  all: yu,
+  search_placeholder: bu,
+  call: vu,
+  whatsapp: wu,
+  location: ju,
+  address: Nu,
+  open_hours: $u,
+  add_to_cart: Su,
+  added: Cu,
+  customize: ku,
+  size: Eu,
+  extras: Ru,
+  notes: Ou,
+  cart: Pu,
+  items: Tu,
+  empty_cart: Au,
+  clear_cart: Lu,
+  checkout: Mu,
+  total: Iu,
+  customer_name: zu,
+  order_type: Fu,
+  pickup: Du,
+  delivery: Uu,
+  time_or_table: Bu,
+  message_preview: Vu,
+  qr: qu,
+  instagram: Wu,
+  base_price: Hu,
+  extras_total: Ku,
+  reservation: Yu,
+  book_table: Ju,
+  reservation_date: Qu,
+  reservation_time: Gu,
+  reservation_area: Xu,
+  reservation_guests: Zu,
+  reservation_name: ed,
+  reservation_phone: td,
+  reservation_notes: sd,
+  send_reservation: nd,
+  reservation_sent: ad,
+  reservation_wait: rd,
+  reservation_no_response: id,
+  order_wait: od,
+  order_no_response: cd,
+  today: ld,
+  tomorrow: ud,
+  reservation_description: dd,
+  choose_date: pd,
+  select_time: hd,
+  number_people: fd,
+  important_notice: md,
+  need_assistance: gd,
+  special_requests_placeholder: _d,
+  guests_singular: xd,
+  guests_plural: yd,
+  reservation_request: bd,
+  date_label: vd,
+  time_label: wd,
+  area_label: jd,
+  guests_label: Nd,
+  name_label: $d,
+  phone_label: Sd,
+  notes_label: Cd,
+  confirm_reservation: kd,
+  thank_you: Ed,
+  sun_thu: Rd,
+  fri: Od,
+  sat: Pd,
+  important_notice_cart: Td,
+  delivery_notice: Ad,
+  continue_to_whatsapp: Ld,
+  cancel: Md,
+  wa_order_header: Id,
+  wa_order_items: zd,
+  wa_customer_info: Fd,
+  wa_order_type: Dd,
+  wa_customer_name: Ud,
+  wa_customer_phone: Bd,
+  wa_quantity: Vd,
+  wa_item: qd,
+  wa_options: Wd,
+  wa_confirm_order: Hd,
+  served_until_13: Kd,
+  day_sun: Yd,
+  day_mon: Jd,
+  day_tue: Qd,
+  day_wed: Gd,
+  day_thu: Xd,
+  day_fri: Zd,
+  day_sat: ep,
+  "day_tue-sat": "الثلاثاء-السبت",
+  "day_mon-sat": "الاثنين-السبت",
+  terms_of_service: tp,
+  privacy_policy: sp,
+  accessibility_statement: np,
+  last_updated: ap,
+  terms_acceptance: rp,
+  terms_acceptance_text: ip,
+  terms_service_usage: op,
+  terms_service_usage_text: cp,
+  terms_orders: lp,
+  terms_orders_text: up,
+  terms_payment: dp,
+  terms_payment_text: pp,
+  terms_liability: hp,
+  terms_liability_text: fp,
+  terms_changes: mp,
+  terms_changes_text: gp,
+  privacy_info_collection: _p,
+  privacy_info_collection_text: xp,
+  privacy_info_usage: yp,
+  privacy_info_usage_text: bp,
+  privacy_cookies: vp,
+  privacy_cookies_text: wp,
+  privacy_whatsapp: jp,
+  privacy_whatsapp_text: Np,
+  privacy_data_storage: $p,
+  privacy_data_storage_text: Sp,
+  privacy_user_rights: Cp,
+  privacy_user_rights_text: kp,
+  accessibility_commitment: Ep,
+  accessibility_commitment_text: Rp,
+  accessibility_standards: Op,
+  accessibility_standards_text: Pp,
+  accessibility_features: Tp,
+  accessibility_features_text: Ap,
+  accessibility_contact: Lp,
+  accessibility_contact_text: Mp,
+  name_required: Ip,
+  back_to_menu: zp,
+  closed: Fp,
+  for_illustration_only: Dp,
+  restaurant_closed_message: Up,
+  close: Bp,
+  closed_popup_message: Vp,
+  got_it_button: qp
+}, Hp = {
+  en: { translation: _o },
+  he: { translation: au },
+  ar: { translation: Wp }
+};
+function os(n) {
+  const e = n === "ar" || n === "he" ? "rtl" : "ltr";
+  document.documentElement.setAttribute("dir", e), document.documentElement.setAttribute("lang", n), console.log("🎯 TABLY CORE i18n is active! Language:", n, "Direction:", e);
+}
+Y.use(Nn).init({
+  resources: Hp,
+  lng: "he",
+  fallbackLng: "en",
+  interpolation: { escapeValue: !1 }
+}).then(() => os(Y.language));
+Y.on("languageChanged", os);
 function lh() {
-  const { i18n: n } = X(), [e, t] = A.useState(!1), s = [
+  const [n, e] = A.useState(Y.language), [t, s] = A.useState(!1), a = [
     { code: "ar", name: "العربية" },
     { code: "he", name: "עברית" },
     { code: "en", name: "English" }
-  ], a = s.find((u) => u.code === n.language) || s[0], o = (u) => {
-    console.log("LanguageSwitcher: Changing language to", u), console.log("LanguageSwitcher: Current i18n instance", n), n.changeLanguage(u), t(!1);
+  ], o = a.find((d) => d.code === n) || a[0], u = (d) => {
+    e(d), Y.changeLanguage(d), s(!1);
   };
   return /* @__PURE__ */ r.jsxs("div", { className: "relative", children: [
     /* @__PURE__ */ r.jsxs(
       "button",
       {
-        onClick: () => t(!e),
+        onClick: () => s(!t),
         className: "tab flex items-center gap-2 min-w-[80px] justify-between",
         children: [
           /* @__PURE__ */ r.jsxs("div", { className: "flex items-center gap-2", children: [
             /* @__PURE__ */ r.jsx(an, { size: 16, className: "opacity-70" }),
-            /* @__PURE__ */ r.jsx("span", { className: "text-sm font-medium", children: a.code.toUpperCase() })
+            /* @__PURE__ */ r.jsx("span", { className: "text-sm font-medium", children: o.code.toUpperCase() })
           ] }),
           /* @__PURE__ */ r.jsx(
             sn,
             {
               size: 14,
-              className: `opacity-70 transition-transform duration-200 ${e ? "rotate-180" : ""}`
+              className: `opacity-70 transition-transform duration-200 ${t ? "rotate-180" : ""}`
             }
           )
         ]
       }
     ),
-    e && /* @__PURE__ */ r.jsxs(r.Fragment, { children: [
+    t && /* @__PURE__ */ r.jsxs(r.Fragment, { children: [
       /* @__PURE__ */ r.jsx(
         "div",
         {
           className: "fixed inset-0 z-40",
-          onClick: () => t(!1)
+          onClick: () => s(!1)
         }
       ),
-      /* @__PURE__ */ r.jsx("div", { className: "absolute top-full right-0 mt-2 bg-[var(--card)] border border-white/10 rounded-lg shadow-xl z-50 min-w-[120px] overflow-hidden", children: s.map((u) => /* @__PURE__ */ r.jsxs(
+      /* @__PURE__ */ r.jsx("div", { className: "absolute top-full right-0 mt-2 bg-[var(--card)] border border-white/10 rounded-lg shadow-xl z-50 min-w-[120px] overflow-hidden", children: a.map((d) => /* @__PURE__ */ r.jsxs(
         "button",
         {
-          onClick: () => o(u.code),
-          className: `w-full px-3 py-2 text-left hover:bg-white/5 transition-colors flex items-center justify-between text-sm ${u.code === n.language ? "bg-white/10 text-green-400" : "text-white/80"}`,
+          onClick: () => u(d.code),
+          className: `w-full px-3 py-2 text-left hover:bg-white/5 transition-colors flex items-center justify-between text-sm ${d.code === n ? "bg-white/10 text-green-400" : "text-white/80"}`,
           children: [
-            /* @__PURE__ */ r.jsx("span", { className: "font-medium", children: u.name }),
-            u.code === n.language && /* @__PURE__ */ r.jsx("div", { className: "w-2 h-2 bg-green-400 rounded-full" })
+            /* @__PURE__ */ r.jsx("span", { className: "font-medium", children: d.name }),
+            d.code === n && /* @__PURE__ */ r.jsx("div", { className: "w-2 h-2 bg-green-400 rounded-full" })
           ]
         },
-        u.code
+        d.code
       )) })
     ] })
   ] });
 }
-const rs = Ht();
+const cs = Ht();
 function uh({ children: n }) {
   const [e, t] = st(null), s = (a) => {
     t(a), setTimeout(() => {
       t(null);
     }, 800);
   };
-  return /* @__PURE__ */ r.jsx(rs.Provider, { value: { animation: e, triggerAnimation: s }, children: n });
+  return /* @__PURE__ */ r.jsx(cs.Provider, { value: { animation: e, triggerAnimation: s }, children: n });
 }
-function oa() {
-  return Kt(rs);
+function Kp() {
+  return Kt(cs);
 }
-function ca({ open: n, onClose: e, item: t, onConfirm: s }) {
-  const { t: a } = X(), { triggerAnimation: o } = oa(), [u, d] = A.useState(1), [i, c] = A.useState({}), l = () => {
+function Yp({ open: n, onClose: e, item: t, onConfirm: s }) {
+  const { t: a } = X(), { triggerAnimation: o } = Kp(), [u, d] = A.useState(1), [i, c] = A.useState({}), l = () => {
     if (!t)
       return 0;
     let g = 0;
@@ -3684,7 +5714,7 @@ function ca({ open: n, onClose: e, item: t, onConfirm: s }) {
     ] })
   ] }) });
 }
-function la({ open: n, onClose: e }) {
+function Jp({ open: n, onClose: e }) {
   const { t, i18n: s } = X(), [a, o] = A.useState({
     date: (/* @__PURE__ */ new Date()).toISOString().split("T")[0],
     // Today as default
@@ -3881,7 +5911,7 @@ ${t("thank_you")}`, g = `https://wa.me/${P.reservation.whatsapp}?text=${encodeUR
     }
   ) : null;
 }
-function ua({ value: n, onChange: e }) {
+function Qp({ value: n, onChange: e }) {
   const { t } = X();
   return /* @__PURE__ */ r.jsx(
     "input",
@@ -3998,7 +6028,7 @@ function ph() {
     )
   ] });
 }
-const At = { en: ts, he: ss, ar: ns };
+const Vt = { en: ts, he: ss, ar: ns };
 function hh() {
   const { i18n: n, t: e } = X();
   Le();
@@ -4009,7 +6039,7 @@ function hh() {
     } catch {
     }
   }, []);
-  const g = At[n.language] || At.ar, m = g.items.filter(
+  const g = Vt[n.language] || Vt.ar, m = g.items.filter(
     (_) => (_.name + " " + _.desc).toLowerCase().includes(a.toLowerCase())
   ), x = t === "all" ? m.reduce((_, y) => {
     const w = y.category;
@@ -4047,7 +6077,7 @@ function hh() {
     ] }),
     /* @__PURE__ */ r.jsxs("div", { className: "flex flex-col md:flex-row md:items-center gap-3 mb-4", children: [
       /* @__PURE__ */ r.jsx("h1", { className: "text-3xl font-bold tracking-tight flex-1", children: e("menu") }),
-      /* @__PURE__ */ r.jsx("div", { className: "md:w-64", children: /* @__PURE__ */ r.jsx(ua, { value: a, onChange: o }) })
+      /* @__PURE__ */ r.jsx("div", { className: "md:w-64", children: /* @__PURE__ */ r.jsx(Qp, { value: a, onChange: o }) })
     ] }),
     /* @__PURE__ */ r.jsx(
       ra,
@@ -4115,7 +6145,7 @@ function hh() {
       ] })
     ),
     /* @__PURE__ */ r.jsx(
-      ca,
+      Yp,
       {
         open: !!u,
         item: u,
@@ -4193,20 +6223,20 @@ function fh() {
     ] })
   ] }) });
 }
-var da = Object.defineProperty, Re = Object.getOwnPropertySymbols, is = Object.prototype.hasOwnProperty, os = Object.prototype.propertyIsEnumerable, Lt = (n, e, t) => e in n ? da(n, e, { enumerable: !0, configurable: !0, writable: !0, value: t }) : n[e] = t, ve = (n, e) => {
+var Gp = Object.defineProperty, Ae = Object.getOwnPropertySymbols, ls = Object.prototype.hasOwnProperty, us = Object.prototype.propertyIsEnumerable, qt = (n, e, t) => e in n ? Gp(n, e, { enumerable: !0, configurable: !0, writable: !0, value: t }) : n[e] = t, we = (n, e) => {
   for (var t in e || (e = {}))
-    is.call(e, t) && Lt(n, t, e[t]);
-  if (Re)
-    for (var t of Re(e))
-      os.call(e, t) && Lt(n, t, e[t]);
+    ls.call(e, t) && qt(n, t, e[t]);
+  if (Ae)
+    for (var t of Ae(e))
+      us.call(e, t) && qt(n, t, e[t]);
   return n;
 }, ct = (n, e) => {
   var t = {};
   for (var s in n)
-    is.call(n, s) && e.indexOf(s) < 0 && (t[s] = n[s]);
-  if (n != null && Re)
-    for (var s of Re(n))
-      e.indexOf(s) < 0 && os.call(n, s) && (t[s] = n[s]);
+    ls.call(n, s) && e.indexOf(s) < 0 && (t[s] = n[s]);
+  if (n != null && Ae)
+    for (var s of Ae(n))
+      e.indexOf(s) < 0 && us.call(n, s) && (t[s] = n[s]);
   return t;
 };
 /**
@@ -4640,13 +6670,13 @@ var ue = re;
  * Copyright (c) Paul O'Shannessy
  * SPDX-License-Identifier: ISC
  */
-var cs = {
+var ds = {
   L: ue.QrCode.Ecc.LOW,
   M: ue.QrCode.Ecc.MEDIUM,
   Q: ue.QrCode.Ecc.QUARTILE,
   H: ue.QrCode.Ecc.HIGH
-}, ls = 128, us = "L", ds = "#FFFFFF", ps = "#000000", hs = !1, lt = 4, pa = 0.1;
-function fs(n, e = 0) {
+}, ps = 128, hs = "L", fs = "#FFFFFF", ms = "#000000", gs = !1, lt = 4, Xp = 0.1;
+function _s(n, e = 0) {
   const t = [];
   return n.forEach(function(s, a) {
     let o = null;
@@ -4665,13 +6695,13 @@ function fs(n, e = 0) {
     });
   }), t.join("");
 }
-function ms(n, e) {
+function xs(n, e) {
   return n.slice().map((t, s) => s < e.y || s >= e.y + e.h ? t : t.map((a, o) => o < e.x || o >= e.x + e.w ? a : !1));
 }
-function gs(n, e, t, s) {
+function ys(n, e, t, s) {
   if (s == null)
     return null;
-  const a = t ? lt : 0, o = n.length + a * 2, u = Math.floor(e * pa), d = o / e, i = (s.width || u) * d, c = (s.height || u) * d, l = s.x == null ? n.length / 2 - i / 2 : s.x * d, f = s.y == null ? n.length / 2 - c / 2 : s.y * d;
+  const a = t ? lt : 0, o = n.length + a * 2, u = Math.floor(e * Xp), d = o / e, i = (s.width || u) * d, c = (s.height || u) * d, l = s.x == null ? n.length / 2 - i / 2 : s.x * d, f = s.y == null ? n.length / 2 - c / 2 : s.y * d;
   let p = null;
   if (s.excavate) {
     let g = Math.floor(l), m = Math.floor(f), x = Math.ceil(i + l - g), b = Math.ceil(c + f - m);
@@ -4679,7 +6709,7 @@ function gs(n, e, t, s) {
   }
   return { x: l, y: f, h: c, w: i, excavation: p };
 }
-var ha = function() {
+var Zp = function() {
   try {
     new Path2D().addPath(new Path2D());
   } catch {
@@ -4687,14 +6717,14 @@ var ha = function() {
   }
   return !0;
 }();
-function fa(n) {
+function eh(n) {
   const e = n, {
     value: t,
-    size: s = ls,
-    level: a = us,
-    bgColor: o = ds,
-    fgColor: u = ps,
-    includeMargin: d = hs,
+    size: s = ps,
+    level: a = hs,
+    bgColor: o = fs,
+    fgColor: u = ms,
+    includeMargin: d = gs,
     style: i,
     imageSettings: c
   } = e, l = ct(e, [
@@ -4712,13 +6742,13 @@ function fa(n) {
       const _ = p.current, y = _.getContext("2d");
       if (!y)
         return;
-      let w = ue.QrCode.encodeText(t, cs[a]).getModules();
-      const j = d ? lt : 0, S = w.length + j * 2, T = gs(w, s, d, c), E = g.current, z = T != null && E !== null && E.complete && E.naturalHeight !== 0 && E.naturalWidth !== 0;
-      z && T.excavation != null && (w = ms(w, T.excavation));
+      let w = ue.QrCode.encodeText(t, ds[a]).getModules();
+      const j = d ? lt : 0, S = w.length + j * 2, T = ys(w, s, d, c), E = g.current, z = T != null && E !== null && E.complete && E.naturalHeight !== 0 && E.naturalWidth !== 0;
+      z && T.excavation != null && (w = xs(w, T.excavation));
       const O = window.devicePixelRatio || 1;
       _.height = _.width = s * O;
       const k = s / S * O;
-      y.scale(k, k), y.fillStyle = o, y.fillRect(0, 0, S, S), y.fillStyle = u, ha ? y.fill(new Path2D(fs(w, j))) : w.forEach(function(C, D) {
+      y.scale(k, k), y.fillStyle = o, y.fillRect(0, 0, S, S), y.fillStyle = u, Zp ? y.fill(new Path2D(_s(w, j))) : w.forEach(function(C, D) {
         C.forEach(function(B, W) {
           B && y.fillRect(W + j, D + j, 1, 1);
         });
@@ -4727,7 +6757,7 @@ function fa(n) {
   }), be(() => {
     x(!1);
   }, [f]);
-  const b = ve({ height: s, width: s }, i);
+  const b = we({ height: s, width: s }, i);
   let N = null;
   return f != null && (N = /* @__PURE__ */ A.createElement("img", {
     src: f,
@@ -4737,21 +6767,21 @@ function fa(n) {
       x(!0);
     },
     ref: g
-  })), /* @__PURE__ */ A.createElement(A.Fragment, null, /* @__PURE__ */ A.createElement("canvas", ve({
+  })), /* @__PURE__ */ A.createElement(A.Fragment, null, /* @__PURE__ */ A.createElement("canvas", we({
     style: b,
     height: s,
     width: s,
     ref: p
   }, l)), N);
 }
-function ma(n) {
+function th(n) {
   const e = n, {
     value: t,
-    size: s = ls,
-    level: a = us,
-    bgColor: o = ds,
-    fgColor: u = ps,
-    includeMargin: d = hs,
+    size: s = ps,
+    level: a = hs,
+    bgColor: o = fs,
+    fgColor: u = ms,
+    includeMargin: d = gs,
     imageSettings: i
   } = e, c = ct(e, [
     "value",
@@ -4762,10 +6792,10 @@ function ma(n) {
     "includeMargin",
     "imageSettings"
   ]);
-  let l = ue.QrCode.encodeText(t, cs[a]).getModules();
-  const f = d ? lt : 0, p = l.length + f * 2, g = gs(l, s, d, i);
+  let l = ue.QrCode.encodeText(t, ds[a]).getModules();
+  const f = d ? lt : 0, p = l.length + f * 2, g = ys(l, s, d, i);
   let m = null;
-  i != null && g != null && (g.excavation != null && (l = ms(l, g.excavation)), m = /* @__PURE__ */ A.createElement("image", {
+  i != null && g != null && (g.excavation != null && (l = xs(l, g.excavation)), m = /* @__PURE__ */ A.createElement("image", {
     xlinkHref: i.src,
     height: g.h,
     width: g.w,
@@ -4773,8 +6803,8 @@ function ma(n) {
     y: g.y + f,
     preserveAspectRatio: "none"
   }));
-  const x = fs(l, f);
-  return /* @__PURE__ */ A.createElement("svg", ve({
+  const x = _s(l, f);
+  return /* @__PURE__ */ A.createElement("svg", we({
     height: s,
     width: s,
     viewBox: `0 0 ${p} ${p}`
@@ -4788,9 +6818,9 @@ function ma(n) {
     shapeRendering: "crispEdges"
   }), m);
 }
-var ga = (n) => {
+var sh = (n) => {
   const e = n, { renderAs: t } = e, s = ct(e, ["renderAs"]);
-  return t === "svg" ? /* @__PURE__ */ A.createElement(ma, ve({}, s)) : /* @__PURE__ */ A.createElement(fa, ve({}, s));
+  return t === "svg" ? /* @__PURE__ */ A.createElement(th, we({}, s)) : /* @__PURE__ */ A.createElement(eh, we({}, s));
 };
 function mh() {
   const { t: n } = X(), [e, t] = A.useState(window.location.origin), s = A.useRef(null), a = () => {
@@ -4803,7 +6833,7 @@ function mh() {
   return /* @__PURE__ */ r.jsxs("div", { className: "py-10 max-w-lg mx-auto space-y-4 text-center", children: [
     /* @__PURE__ */ r.jsx("h1", { className: "text-3xl font-bold", children: n("qr") }),
     /* @__PURE__ */ r.jsxs("div", { className: "card p-6 flex flex-col items-center gap-4", children: [
-      /* @__PURE__ */ r.jsx("div", { ref: s, className: "bg-white p-4 rounded-2xl", children: /* @__PURE__ */ r.jsx(ga, { value: e, size: 256, includeMargin: !0 }) }),
+      /* @__PURE__ */ r.jsx("div", { ref: s, className: "bg-white p-4 rounded-2xl", children: /* @__PURE__ */ r.jsx(sh, { value: e, size: 256, includeMargin: !0 }) }),
       /* @__PURE__ */ r.jsx("input", { value: e, onChange: (o) => t(o.target.value), className: "w-full" }),
       /* @__PURE__ */ r.jsx("button", { className: "btn w-full", onClick: a, children: "PNG" })
     ] })
@@ -4912,7 +6942,7 @@ function gh() {
         /* @__PURE__ */ r.jsx("a", { href: `tel:${P.phone}`, className: "text-green-400 hover:underline", children: P.phone })
       ] })
     ] }),
-    /* @__PURE__ */ r.jsx(la, { open: t, onClose: () => s(!1) })
+    /* @__PURE__ */ r.jsx(Jp, { open: t, onClose: () => s(!1) })
   ] });
 }
 function _h() {
@@ -4966,2036 +6996,6 @@ function _h() {
     ] })
   ] }) });
 }
-const _a = {
-  type: "logger",
-  log(n) {
-    this.output("log", n);
-  },
-  warn(n) {
-    this.output("warn", n);
-  },
-  error(n) {
-    this.output("error", n);
-  },
-  output(n, e) {
-    console && console[n] && console[n].apply(console, e);
-  }
-};
-class Oe {
-  constructor(e) {
-    let t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
-    this.init(e, t);
-  }
-  init(e) {
-    let t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
-    this.prefix = t.prefix || "i18next:", this.logger = e || _a, this.options = t, this.debug = t.debug;
-  }
-  log() {
-    for (var e = arguments.length, t = new Array(e), s = 0; s < e; s++)
-      t[s] = arguments[s];
-    return this.forward(t, "log", "", !0);
-  }
-  warn() {
-    for (var e = arguments.length, t = new Array(e), s = 0; s < e; s++)
-      t[s] = arguments[s];
-    return this.forward(t, "warn", "", !0);
-  }
-  error() {
-    for (var e = arguments.length, t = new Array(e), s = 0; s < e; s++)
-      t[s] = arguments[s];
-    return this.forward(t, "error", "");
-  }
-  deprecate() {
-    for (var e = arguments.length, t = new Array(e), s = 0; s < e; s++)
-      t[s] = arguments[s];
-    return this.forward(t, "warn", "WARNING DEPRECATED: ", !0);
-  }
-  forward(e, t, s, a) {
-    return a && !this.debug ? null : (typeof e[0] == "string" && (e[0] = `${s}${this.prefix} ${e[0]}`), this.logger[t](e));
-  }
-  create(e) {
-    return new Oe(this.logger, {
-      prefix: `${this.prefix}:${e}:`,
-      ...this.options
-    });
-  }
-  clone(e) {
-    return e = e || this.options, e.prefix = e.prefix || this.prefix, new Oe(this.logger, e);
-  }
-}
-var te = new Oe();
-class Ie {
-  constructor() {
-    this.observers = {};
-  }
-  on(e, t) {
-    return e.split(" ").forEach((s) => {
-      this.observers[s] || (this.observers[s] = /* @__PURE__ */ new Map());
-      const a = this.observers[s].get(t) || 0;
-      this.observers[s].set(t, a + 1);
-    }), this;
-  }
-  off(e, t) {
-    if (this.observers[e]) {
-      if (!t) {
-        delete this.observers[e];
-        return;
-      }
-      this.observers[e].delete(t);
-    }
-  }
-  emit(e) {
-    for (var t = arguments.length, s = new Array(t > 1 ? t - 1 : 0), a = 1; a < t; a++)
-      s[a - 1] = arguments[a];
-    this.observers[e] && Array.from(this.observers[e].entries()).forEach((u) => {
-      let [d, i] = u;
-      for (let c = 0; c < i; c++)
-        d(...s);
-    }), this.observers["*"] && Array.from(this.observers["*"].entries()).forEach((u) => {
-      let [d, i] = u;
-      for (let c = 0; c < i; c++)
-        d.apply(d, [e, ...s]);
-    });
-  }
-}
-function _e() {
-  let n, e;
-  const t = new Promise((s, a) => {
-    n = s, e = a;
-  });
-  return t.resolve = n, t.reject = e, t;
-}
-function Mt(n) {
-  return n == null ? "" : "" + n;
-}
-function xa(n, e, t) {
-  n.forEach((s) => {
-    e[s] && (t[s] = e[s]);
-  });
-}
-const ya = /###/g;
-function ye(n, e, t) {
-  function s(d) {
-    return d && d.indexOf("###") > -1 ? d.replace(ya, ".") : d;
-  }
-  function a() {
-    return !n || typeof n == "string";
-  }
-  const o = typeof e != "string" ? e : e.split(".");
-  let u = 0;
-  for (; u < o.length - 1; ) {
-    if (a())
-      return {};
-    const d = s(o[u]);
-    !n[d] && t && (n[d] = new t()), Object.prototype.hasOwnProperty.call(n, d) ? n = n[d] : n = {}, ++u;
-  }
-  return a() ? {} : {
-    obj: n,
-    k: s(o[u])
-  };
-}
-function It(n, e, t) {
-  const {
-    obj: s,
-    k: a
-  } = ye(n, e, Object);
-  if (s !== void 0 || e.length === 1) {
-    s[a] = t;
-    return;
-  }
-  let o = e[e.length - 1], u = e.slice(0, e.length - 1), d = ye(n, u, Object);
-  for (; d.obj === void 0 && u.length; )
-    o = `${u[u.length - 1]}.${o}`, u = u.slice(0, u.length - 1), d = ye(n, u, Object), d && d.obj && typeof d.obj[`${d.k}.${o}`] < "u" && (d.obj = void 0);
-  d.obj[`${d.k}.${o}`] = t;
-}
-function ba(n, e, t, s) {
-  const {
-    obj: a,
-    k: o
-  } = ye(n, e, Object);
-  a[o] = a[o] || [], s && (a[o] = a[o].concat(t)), s || a[o].push(t);
-}
-function Pe(n, e) {
-  const {
-    obj: t,
-    k: s
-  } = ye(n, e);
-  if (t)
-    return t[s];
-}
-function va(n, e, t) {
-  const s = Pe(n, t);
-  return s !== void 0 ? s : Pe(e, t);
-}
-function _s(n, e, t) {
-  for (const s in e)
-    s !== "__proto__" && s !== "constructor" && (s in n ? typeof n[s] == "string" || n[s] instanceof String || typeof e[s] == "string" || e[s] instanceof String ? t && (n[s] = e[s]) : _s(n[s], e[s], t) : n[s] = e[s]);
-  return n;
-}
-function ce(n) {
-  return n.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
-}
-var wa = {
-  "&": "&amp;",
-  "<": "&lt;",
-  ">": "&gt;",
-  '"': "&quot;",
-  "'": "&#39;",
-  "/": "&#x2F;"
-};
-function ja(n) {
-  return typeof n == "string" ? n.replace(/[&<>"'\/]/g, (e) => wa[e]) : n;
-}
-class Na {
-  constructor(e) {
-    this.capacity = e, this.regExpMap = /* @__PURE__ */ new Map(), this.regExpQueue = [];
-  }
-  getRegExp(e) {
-    const t = this.regExpMap.get(e);
-    if (t !== void 0)
-      return t;
-    const s = new RegExp(e);
-    return this.regExpQueue.length === this.capacity && this.regExpMap.delete(this.regExpQueue.shift()), this.regExpMap.set(e, s), this.regExpQueue.push(e), s;
-  }
-}
-const $a = [" ", ",", "?", "!", ";"], Sa = new Na(20);
-function Ca(n, e, t) {
-  e = e || "", t = t || "";
-  const s = $a.filter((u) => e.indexOf(u) < 0 && t.indexOf(u) < 0);
-  if (s.length === 0)
-    return !0;
-  const a = Sa.getRegExp(`(${s.map((u) => u === "?" ? "\\?" : u).join("|")})`);
-  let o = !a.test(n);
-  if (!o) {
-    const u = n.indexOf(t);
-    u > 0 && !a.test(n.substring(0, u)) && (o = !0);
-  }
-  return o;
-}
-function tt(n, e) {
-  let t = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : ".";
-  if (!n)
-    return;
-  if (n[e])
-    return n[e];
-  const s = e.split(t);
-  let a = n;
-  for (let o = 0; o < s.length; ) {
-    if (!a || typeof a != "object")
-      return;
-    let u, d = "";
-    for (let i = o; i < s.length; ++i)
-      if (i !== o && (d += t), d += s[i], u = a[d], u !== void 0) {
-        if (["string", "number", "boolean"].indexOf(typeof u) > -1 && i < s.length - 1)
-          continue;
-        o += i - o + 1;
-        break;
-      }
-    a = u;
-  }
-  return a;
-}
-function Te(n) {
-  return n && n.indexOf("_") > 0 ? n.replace("_", "-") : n;
-}
-class zt extends Ie {
-  constructor(e) {
-    let t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {
-      ns: ["translation"],
-      defaultNS: "translation"
-    };
-    super(), this.data = e || {}, this.options = t, this.options.keySeparator === void 0 && (this.options.keySeparator = "."), this.options.ignoreJSONStructure === void 0 && (this.options.ignoreJSONStructure = !0);
-  }
-  addNamespaces(e) {
-    this.options.ns.indexOf(e) < 0 && this.options.ns.push(e);
-  }
-  removeNamespaces(e) {
-    const t = this.options.ns.indexOf(e);
-    t > -1 && this.options.ns.splice(t, 1);
-  }
-  getResource(e, t, s) {
-    let a = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : {};
-    const o = a.keySeparator !== void 0 ? a.keySeparator : this.options.keySeparator, u = a.ignoreJSONStructure !== void 0 ? a.ignoreJSONStructure : this.options.ignoreJSONStructure;
-    let d;
-    e.indexOf(".") > -1 ? d = e.split(".") : (d = [e, t], s && (Array.isArray(s) ? d.push(...s) : typeof s == "string" && o ? d.push(...s.split(o)) : d.push(s)));
-    const i = Pe(this.data, d);
-    return !i && !t && !s && e.indexOf(".") > -1 && (e = d[0], t = d[1], s = d.slice(2).join(".")), i || !u || typeof s != "string" ? i : tt(this.data && this.data[e] && this.data[e][t], s, o);
-  }
-  addResource(e, t, s, a) {
-    let o = arguments.length > 4 && arguments[4] !== void 0 ? arguments[4] : {
-      silent: !1
-    };
-    const u = o.keySeparator !== void 0 ? o.keySeparator : this.options.keySeparator;
-    let d = [e, t];
-    s && (d = d.concat(u ? s.split(u) : s)), e.indexOf(".") > -1 && (d = e.split("."), a = t, t = d[1]), this.addNamespaces(t), It(this.data, d, a), o.silent || this.emit("added", e, t, s, a);
-  }
-  addResources(e, t, s) {
-    let a = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : {
-      silent: !1
-    };
-    for (const o in s)
-      (typeof s[o] == "string" || Object.prototype.toString.apply(s[o]) === "[object Array]") && this.addResource(e, t, o, s[o], {
-        silent: !0
-      });
-    a.silent || this.emit("added", e, t, s);
-  }
-  addResourceBundle(e, t, s, a, o) {
-    let u = arguments.length > 5 && arguments[5] !== void 0 ? arguments[5] : {
-      silent: !1,
-      skipCopy: !1
-    }, d = [e, t];
-    e.indexOf(".") > -1 && (d = e.split("."), a = s, s = t, t = d[1]), this.addNamespaces(t);
-    let i = Pe(this.data, d) || {};
-    u.skipCopy || (s = JSON.parse(JSON.stringify(s))), a ? _s(i, s, o) : i = {
-      ...i,
-      ...s
-    }, It(this.data, d, i), u.silent || this.emit("added", e, t, s);
-  }
-  removeResourceBundle(e, t) {
-    this.hasResourceBundle(e, t) && delete this.data[e][t], this.removeNamespaces(t), this.emit("removed", e, t);
-  }
-  hasResourceBundle(e, t) {
-    return this.getResource(e, t) !== void 0;
-  }
-  getResourceBundle(e, t) {
-    return t || (t = this.options.defaultNS), this.options.compatibilityAPI === "v1" ? {
-      ...this.getResource(e, t)
-    } : this.getResource(e, t);
-  }
-  getDataByLanguage(e) {
-    return this.data[e];
-  }
-  hasLanguageSomeTranslations(e) {
-    const t = this.getDataByLanguage(e);
-    return !!(t && Object.keys(t) || []).find((a) => t[a] && Object.keys(t[a]).length > 0);
-  }
-  toJSON() {
-    return this.data;
-  }
-}
-var xs = {
-  processors: {},
-  addPostProcessor(n) {
-    this.processors[n.name] = n;
-  },
-  handle(n, e, t, s, a) {
-    return n.forEach((o) => {
-      this.processors[o] && (e = this.processors[o].process(e, t, s, a));
-    }), e;
-  }
-};
-const Ft = {};
-class Ae extends Ie {
-  constructor(e) {
-    let t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
-    super(), xa(["resourceStore", "languageUtils", "pluralResolver", "interpolator", "backendConnector", "i18nFormat", "utils"], e, this), this.options = t, this.options.keySeparator === void 0 && (this.options.keySeparator = "."), this.logger = te.create("translator");
-  }
-  changeLanguage(e) {
-    e && (this.language = e);
-  }
-  exists(e) {
-    let t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {
-      interpolation: {}
-    };
-    if (e == null)
-      return !1;
-    const s = this.resolve(e, t);
-    return s && s.res !== void 0;
-  }
-  extractFromKey(e, t) {
-    let s = t.nsSeparator !== void 0 ? t.nsSeparator : this.options.nsSeparator;
-    s === void 0 && (s = ":");
-    const a = t.keySeparator !== void 0 ? t.keySeparator : this.options.keySeparator;
-    let o = t.ns || this.options.defaultNS || [];
-    const u = s && e.indexOf(s) > -1, d = !this.options.userDefinedKeySeparator && !t.keySeparator && !this.options.userDefinedNsSeparator && !t.nsSeparator && !Ca(e, s, a);
-    if (u && !d) {
-      const i = e.match(this.interpolator.nestingRegexp);
-      if (i && i.length > 0)
-        return {
-          key: e,
-          namespaces: o
-        };
-      const c = e.split(s);
-      (s !== a || s === a && this.options.ns.indexOf(c[0]) > -1) && (o = c.shift()), e = c.join(a);
-    }
-    return typeof o == "string" && (o = [o]), {
-      key: e,
-      namespaces: o
-    };
-  }
-  translate(e, t, s) {
-    if (typeof t != "object" && this.options.overloadTranslationOptionHandler && (t = this.options.overloadTranslationOptionHandler(arguments)), typeof t == "object" && (t = {
-      ...t
-    }), t || (t = {}), e == null)
-      return "";
-    Array.isArray(e) || (e = [String(e)]);
-    const a = t.returnDetails !== void 0 ? t.returnDetails : this.options.returnDetails, o = t.keySeparator !== void 0 ? t.keySeparator : this.options.keySeparator, {
-      key: u,
-      namespaces: d
-    } = this.extractFromKey(e[e.length - 1], t), i = d[d.length - 1], c = t.lng || this.language, l = t.appendNamespaceToCIMode || this.options.appendNamespaceToCIMode;
-    if (c && c.toLowerCase() === "cimode") {
-      if (l) {
-        const w = t.nsSeparator || this.options.nsSeparator;
-        return a ? {
-          res: `${i}${w}${u}`,
-          usedKey: u,
-          exactUsedKey: u,
-          usedLng: c,
-          usedNS: i,
-          usedParams: this.getUsedParamsDetails(t)
-        } : `${i}${w}${u}`;
-      }
-      return a ? {
-        res: u,
-        usedKey: u,
-        exactUsedKey: u,
-        usedLng: c,
-        usedNS: i,
-        usedParams: this.getUsedParamsDetails(t)
-      } : u;
-    }
-    const f = this.resolve(e, t);
-    let p = f && f.res;
-    const g = f && f.usedKey || u, m = f && f.exactUsedKey || u, x = Object.prototype.toString.apply(p), b = ["[object Number]", "[object Function]", "[object RegExp]"], N = t.joinArrays !== void 0 ? t.joinArrays : this.options.joinArrays, _ = !this.i18nFormat || this.i18nFormat.handleAsObject;
-    if (_ && p && (typeof p != "string" && typeof p != "boolean" && typeof p != "number") && b.indexOf(x) < 0 && !(typeof N == "string" && x === "[object Array]")) {
-      if (!t.returnObjects && !this.options.returnObjects) {
-        this.options.returnedObjectHandler || this.logger.warn("accessing an object - but returnObjects options is not enabled!");
-        const w = this.options.returnedObjectHandler ? this.options.returnedObjectHandler(g, p, {
-          ...t,
-          ns: d
-        }) : `key '${u} (${this.language})' returned an object instead of string.`;
-        return a ? (f.res = w, f.usedParams = this.getUsedParamsDetails(t), f) : w;
-      }
-      if (o) {
-        const w = x === "[object Array]", j = w ? [] : {}, S = w ? m : g;
-        for (const T in p)
-          if (Object.prototype.hasOwnProperty.call(p, T)) {
-            const E = `${S}${o}${T}`;
-            j[T] = this.translate(E, {
-              ...t,
-              joinArrays: !1,
-              ns: d
-            }), j[T] === E && (j[T] = p[T]);
-          }
-        p = j;
-      }
-    } else if (_ && typeof N == "string" && x === "[object Array]")
-      p = p.join(N), p && (p = this.extendTranslation(p, e, t, s));
-    else {
-      let w = !1, j = !1;
-      const S = t.count !== void 0 && typeof t.count != "string", T = Ae.hasDefaultValue(t), E = S ? this.pluralResolver.getSuffix(c, t.count, t) : "", z = t.ordinal && S ? this.pluralResolver.getSuffix(c, t.count, {
-        ordinal: !1
-      }) : "", O = S && !t.ordinal && t.count === 0 && this.pluralResolver.shouldUseIntlApi(), k = O && t[`defaultValue${this.options.pluralSeparator}zero`] || t[`defaultValue${E}`] || t[`defaultValue${z}`] || t.defaultValue;
-      !this.isValidLookup(p) && T && (w = !0, p = k), this.isValidLookup(p) || (j = !0, p = u);
-      const D = (t.missingKeyNoValueFallbackToKey || this.options.missingKeyNoValueFallbackToKey) && j ? void 0 : p, B = T && k !== p && this.options.updateMissing;
-      if (j || w || B) {
-        if (this.logger.log(B ? "updateKey" : "missingKey", c, i, u, B ? k : p), o) {
-          const U = this.resolve(u, {
-            ...t,
-            keySeparator: !1
-          });
-          U && U.res && this.logger.warn("Seems the loaded translations were in flat JSON format instead of nested. Either set keySeparator: false on init or make sure your translations are published in nested format.");
-        }
-        let W = [];
-        const q = this.languageUtils.getFallbackCodes(this.options.fallbackLng, t.lng || this.language);
-        if (this.options.saveMissingTo === "fallback" && q && q[0])
-          for (let U = 0; U < q.length; U++)
-            W.push(q[U]);
-        else
-          this.options.saveMissingTo === "all" ? W = this.languageUtils.toResolveHierarchy(t.lng || this.language) : W.push(t.lng || this.language);
-        const L = (U, ee, se) => {
-          const pe = T && se !== p ? se : D;
-          this.options.missingKeyHandler ? this.options.missingKeyHandler(U, i, ee, pe, B, t) : this.backendConnector && this.backendConnector.saveMissing && this.backendConnector.saveMissing(U, i, ee, pe, B, t), this.emit("missingKey", U, i, ee, p);
-        };
-        this.options.saveMissing && (this.options.saveMissingPlurals && S ? W.forEach((U) => {
-          const ee = this.pluralResolver.getSuffixes(U, t);
-          O && t[`defaultValue${this.options.pluralSeparator}zero`] && ee.indexOf(`${this.options.pluralSeparator}zero`) < 0 && ee.push(`${this.options.pluralSeparator}zero`), ee.forEach((se) => {
-            L([U], u + se, t[`defaultValue${se}`] || k);
-          });
-        }) : L(W, u, k));
-      }
-      p = this.extendTranslation(p, e, t, f, s), j && p === u && this.options.appendNamespaceToMissingKey && (p = `${i}:${u}`), (j || w) && this.options.parseMissingKeyHandler && (this.options.compatibilityAPI !== "v1" ? p = this.options.parseMissingKeyHandler(this.options.appendNamespaceToMissingKey ? `${i}:${u}` : u, w ? p : void 0) : p = this.options.parseMissingKeyHandler(p));
-    }
-    return a ? (f.res = p, f.usedParams = this.getUsedParamsDetails(t), f) : p;
-  }
-  extendTranslation(e, t, s, a, o) {
-    var u = this;
-    if (this.i18nFormat && this.i18nFormat.parse)
-      e = this.i18nFormat.parse(e, {
-        ...this.options.interpolation.defaultVariables,
-        ...s
-      }, s.lng || this.language || a.usedLng, a.usedNS, a.usedKey, {
-        resolved: a
-      });
-    else if (!s.skipInterpolation) {
-      s.interpolation && this.interpolator.init({
-        ...s,
-        interpolation: {
-          ...this.options.interpolation,
-          ...s.interpolation
-        }
-      });
-      const c = typeof e == "string" && (s && s.interpolation && s.interpolation.skipOnVariables !== void 0 ? s.interpolation.skipOnVariables : this.options.interpolation.skipOnVariables);
-      let l;
-      if (c) {
-        const p = e.match(this.interpolator.nestingRegexp);
-        l = p && p.length;
-      }
-      let f = s.replace && typeof s.replace != "string" ? s.replace : s;
-      if (this.options.interpolation.defaultVariables && (f = {
-        ...this.options.interpolation.defaultVariables,
-        ...f
-      }), e = this.interpolator.interpolate(e, f, s.lng || this.language, s), c) {
-        const p = e.match(this.interpolator.nestingRegexp), g = p && p.length;
-        l < g && (s.nest = !1);
-      }
-      !s.lng && this.options.compatibilityAPI !== "v1" && a && a.res && (s.lng = a.usedLng), s.nest !== !1 && (e = this.interpolator.nest(e, function() {
-        for (var p = arguments.length, g = new Array(p), m = 0; m < p; m++)
-          g[m] = arguments[m];
-        return o && o[0] === g[0] && !s.context ? (u.logger.warn(`It seems you are nesting recursively key: ${g[0]} in key: ${t[0]}`), null) : u.translate(...g, t);
-      }, s)), s.interpolation && this.interpolator.reset();
-    }
-    const d = s.postProcess || this.options.postProcess, i = typeof d == "string" ? [d] : d;
-    return e != null && i && i.length && s.applyPostProcessor !== !1 && (e = xs.handle(i, e, t, this.options && this.options.postProcessPassResolved ? {
-      i18nResolved: {
-        ...a,
-        usedParams: this.getUsedParamsDetails(s)
-      },
-      ...s
-    } : s, this)), e;
-  }
-  resolve(e) {
-    let t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {}, s, a, o, u, d;
-    return typeof e == "string" && (e = [e]), e.forEach((i) => {
-      if (this.isValidLookup(s))
-        return;
-      const c = this.extractFromKey(i, t), l = c.key;
-      a = l;
-      let f = c.namespaces;
-      this.options.fallbackNS && (f = f.concat(this.options.fallbackNS));
-      const p = t.count !== void 0 && typeof t.count != "string", g = p && !t.ordinal && t.count === 0 && this.pluralResolver.shouldUseIntlApi(), m = t.context !== void 0 && (typeof t.context == "string" || typeof t.context == "number") && t.context !== "", x = t.lngs ? t.lngs : this.languageUtils.toResolveHierarchy(t.lng || this.language, t.fallbackLng);
-      f.forEach((b) => {
-        this.isValidLookup(s) || (d = b, !Ft[`${x[0]}-${b}`] && this.utils && this.utils.hasLoadedNamespace && !this.utils.hasLoadedNamespace(d) && (Ft[`${x[0]}-${b}`] = !0, this.logger.warn(`key "${a}" for languages "${x.join(", ")}" won't get resolved as namespace "${d}" was not yet loaded`, "This means something IS WRONG in your setup. You access the t function before i18next.init / i18next.loadNamespace / i18next.changeLanguage was done. Wait for the callback or Promise to resolve before accessing it!!!")), x.forEach((N) => {
-          if (this.isValidLookup(s))
-            return;
-          u = N;
-          const _ = [l];
-          if (this.i18nFormat && this.i18nFormat.addLookupKeys)
-            this.i18nFormat.addLookupKeys(_, l, N, b, t);
-          else {
-            let w;
-            p && (w = this.pluralResolver.getSuffix(N, t.count, t));
-            const j = `${this.options.pluralSeparator}zero`, S = `${this.options.pluralSeparator}ordinal${this.options.pluralSeparator}`;
-            if (p && (_.push(l + w), t.ordinal && w.indexOf(S) === 0 && _.push(l + w.replace(S, this.options.pluralSeparator)), g && _.push(l + j)), m) {
-              const T = `${l}${this.options.contextSeparator}${t.context}`;
-              _.push(T), p && (_.push(T + w), t.ordinal && w.indexOf(S) === 0 && _.push(T + w.replace(S, this.options.pluralSeparator)), g && _.push(T + j));
-            }
-          }
-          let y;
-          for (; y = _.pop(); )
-            this.isValidLookup(s) || (o = y, s = this.getResource(N, b, y, t));
-        }));
-      });
-    }), {
-      res: s,
-      usedKey: a,
-      exactUsedKey: o,
-      usedLng: u,
-      usedNS: d
-    };
-  }
-  isValidLookup(e) {
-    return e !== void 0 && !(!this.options.returnNull && e === null) && !(!this.options.returnEmptyString && e === "");
-  }
-  getResource(e, t, s) {
-    let a = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : {};
-    return this.i18nFormat && this.i18nFormat.getResource ? this.i18nFormat.getResource(e, t, s, a) : this.resourceStore.getResource(e, t, s, a);
-  }
-  getUsedParamsDetails() {
-    let e = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
-    const t = ["defaultValue", "ordinal", "context", "replace", "lng", "lngs", "fallbackLng", "ns", "keySeparator", "nsSeparator", "returnObjects", "returnDetails", "joinArrays", "postProcess", "interpolation"], s = e.replace && typeof e.replace != "string";
-    let a = s ? e.replace : e;
-    if (s && typeof e.count < "u" && (a.count = e.count), this.options.interpolation.defaultVariables && (a = {
-      ...this.options.interpolation.defaultVariables,
-      ...a
-    }), !s) {
-      a = {
-        ...a
-      };
-      for (const o of t)
-        delete a[o];
-    }
-    return a;
-  }
-  static hasDefaultValue(e) {
-    const t = "defaultValue";
-    for (const s in e)
-      if (Object.prototype.hasOwnProperty.call(e, s) && t === s.substring(0, t.length) && e[s] !== void 0)
-        return !0;
-    return !1;
-  }
-}
-function Ye(n) {
-  return n.charAt(0).toUpperCase() + n.slice(1);
-}
-class Dt {
-  constructor(e) {
-    this.options = e, this.supportedLngs = this.options.supportedLngs || !1, this.logger = te.create("languageUtils");
-  }
-  getScriptPartFromCode(e) {
-    if (e = Te(e), !e || e.indexOf("-") < 0)
-      return null;
-    const t = e.split("-");
-    return t.length === 2 || (t.pop(), t[t.length - 1].toLowerCase() === "x") ? null : this.formatLanguageCode(t.join("-"));
-  }
-  getLanguagePartFromCode(e) {
-    if (e = Te(e), !e || e.indexOf("-") < 0)
-      return e;
-    const t = e.split("-");
-    return this.formatLanguageCode(t[0]);
-  }
-  formatLanguageCode(e) {
-    if (typeof e == "string" && e.indexOf("-") > -1) {
-      const t = ["hans", "hant", "latn", "cyrl", "cans", "mong", "arab"];
-      let s = e.split("-");
-      return this.options.lowerCaseLng ? s = s.map((a) => a.toLowerCase()) : s.length === 2 ? (s[0] = s[0].toLowerCase(), s[1] = s[1].toUpperCase(), t.indexOf(s[1].toLowerCase()) > -1 && (s[1] = Ye(s[1].toLowerCase()))) : s.length === 3 && (s[0] = s[0].toLowerCase(), s[1].length === 2 && (s[1] = s[1].toUpperCase()), s[0] !== "sgn" && s[2].length === 2 && (s[2] = s[2].toUpperCase()), t.indexOf(s[1].toLowerCase()) > -1 && (s[1] = Ye(s[1].toLowerCase())), t.indexOf(s[2].toLowerCase()) > -1 && (s[2] = Ye(s[2].toLowerCase()))), s.join("-");
-    }
-    return this.options.cleanCode || this.options.lowerCaseLng ? e.toLowerCase() : e;
-  }
-  isSupportedCode(e) {
-    return (this.options.load === "languageOnly" || this.options.nonExplicitSupportedLngs) && (e = this.getLanguagePartFromCode(e)), !this.supportedLngs || !this.supportedLngs.length || this.supportedLngs.indexOf(e) > -1;
-  }
-  getBestMatchFromCodes(e) {
-    if (!e)
-      return null;
-    let t;
-    return e.forEach((s) => {
-      if (t)
-        return;
-      const a = this.formatLanguageCode(s);
-      (!this.options.supportedLngs || this.isSupportedCode(a)) && (t = a);
-    }), !t && this.options.supportedLngs && e.forEach((s) => {
-      if (t)
-        return;
-      const a = this.getLanguagePartFromCode(s);
-      if (this.isSupportedCode(a))
-        return t = a;
-      t = this.options.supportedLngs.find((o) => {
-        if (o === a)
-          return o;
-        if (!(o.indexOf("-") < 0 && a.indexOf("-") < 0) && (o.indexOf("-") > 0 && a.indexOf("-") < 0 && o.substring(0, o.indexOf("-")) === a || o.indexOf(a) === 0 && a.length > 1))
-          return o;
-      });
-    }), t || (t = this.getFallbackCodes(this.options.fallbackLng)[0]), t;
-  }
-  getFallbackCodes(e, t) {
-    if (!e)
-      return [];
-    if (typeof e == "function" && (e = e(t)), typeof e == "string" && (e = [e]), Object.prototype.toString.apply(e) === "[object Array]")
-      return e;
-    if (!t)
-      return e.default || [];
-    let s = e[t];
-    return s || (s = e[this.getScriptPartFromCode(t)]), s || (s = e[this.formatLanguageCode(t)]), s || (s = e[this.getLanguagePartFromCode(t)]), s || (s = e.default), s || [];
-  }
-  toResolveHierarchy(e, t) {
-    const s = this.getFallbackCodes(t || this.options.fallbackLng || [], e), a = [], o = (u) => {
-      u && (this.isSupportedCode(u) ? a.push(u) : this.logger.warn(`rejecting language code not found in supportedLngs: ${u}`));
-    };
-    return typeof e == "string" && (e.indexOf("-") > -1 || e.indexOf("_") > -1) ? (this.options.load !== "languageOnly" && o(this.formatLanguageCode(e)), this.options.load !== "languageOnly" && this.options.load !== "currentOnly" && o(this.getScriptPartFromCode(e)), this.options.load !== "currentOnly" && o(this.getLanguagePartFromCode(e))) : typeof e == "string" && o(this.formatLanguageCode(e)), s.forEach((u) => {
-      a.indexOf(u) < 0 && o(this.formatLanguageCode(u));
-    }), a;
-  }
-}
-let ka = [{
-  lngs: ["ach", "ak", "am", "arn", "br", "fil", "gun", "ln", "mfe", "mg", "mi", "oc", "pt", "pt-BR", "tg", "tl", "ti", "tr", "uz", "wa"],
-  nr: [1, 2],
-  fc: 1
-}, {
-  lngs: ["af", "an", "ast", "az", "bg", "bn", "ca", "da", "de", "dev", "el", "en", "eo", "es", "et", "eu", "fi", "fo", "fur", "fy", "gl", "gu", "ha", "hi", "hu", "hy", "ia", "it", "kk", "kn", "ku", "lb", "mai", "ml", "mn", "mr", "nah", "nap", "nb", "ne", "nl", "nn", "no", "nso", "pa", "pap", "pms", "ps", "pt-PT", "rm", "sco", "se", "si", "so", "son", "sq", "sv", "sw", "ta", "te", "tk", "ur", "yo"],
-  nr: [1, 2],
-  fc: 2
-}, {
-  lngs: ["ay", "bo", "cgg", "fa", "ht", "id", "ja", "jbo", "ka", "km", "ko", "ky", "lo", "ms", "sah", "su", "th", "tt", "ug", "vi", "wo", "zh"],
-  nr: [1],
-  fc: 3
-}, {
-  lngs: ["be", "bs", "cnr", "dz", "hr", "ru", "sr", "uk"],
-  nr: [1, 2, 5],
-  fc: 4
-}, {
-  lngs: ["ar"],
-  nr: [0, 1, 2, 3, 11, 100],
-  fc: 5
-}, {
-  lngs: ["cs", "sk"],
-  nr: [1, 2, 5],
-  fc: 6
-}, {
-  lngs: ["csb", "pl"],
-  nr: [1, 2, 5],
-  fc: 7
-}, {
-  lngs: ["cy"],
-  nr: [1, 2, 3, 8],
-  fc: 8
-}, {
-  lngs: ["fr"],
-  nr: [1, 2],
-  fc: 9
-}, {
-  lngs: ["ga"],
-  nr: [1, 2, 3, 7, 11],
-  fc: 10
-}, {
-  lngs: ["gd"],
-  nr: [1, 2, 3, 20],
-  fc: 11
-}, {
-  lngs: ["is"],
-  nr: [1, 2],
-  fc: 12
-}, {
-  lngs: ["jv"],
-  nr: [0, 1],
-  fc: 13
-}, {
-  lngs: ["kw"],
-  nr: [1, 2, 3, 4],
-  fc: 14
-}, {
-  lngs: ["lt"],
-  nr: [1, 2, 10],
-  fc: 15
-}, {
-  lngs: ["lv"],
-  nr: [1, 2, 0],
-  fc: 16
-}, {
-  lngs: ["mk"],
-  nr: [1, 2],
-  fc: 17
-}, {
-  lngs: ["mnk"],
-  nr: [0, 1, 2],
-  fc: 18
-}, {
-  lngs: ["mt"],
-  nr: [1, 2, 11, 20],
-  fc: 19
-}, {
-  lngs: ["or"],
-  nr: [2, 1],
-  fc: 2
-}, {
-  lngs: ["ro"],
-  nr: [1, 2, 20],
-  fc: 20
-}, {
-  lngs: ["sl"],
-  nr: [5, 1, 2, 3],
-  fc: 21
-}, {
-  lngs: ["he", "iw"],
-  nr: [1, 2, 20, 21],
-  fc: 22
-}], Ea = {
-  1: function(n) {
-    return +(n > 1);
-  },
-  2: function(n) {
-    return +(n != 1);
-  },
-  3: function(n) {
-    return 0;
-  },
-  4: function(n) {
-    return n % 10 == 1 && n % 100 != 11 ? 0 : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 1 : 2;
-  },
-  5: function(n) {
-    return n == 0 ? 0 : n == 1 ? 1 : n == 2 ? 2 : n % 100 >= 3 && n % 100 <= 10 ? 3 : n % 100 >= 11 ? 4 : 5;
-  },
-  6: function(n) {
-    return n == 1 ? 0 : n >= 2 && n <= 4 ? 1 : 2;
-  },
-  7: function(n) {
-    return n == 1 ? 0 : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 1 : 2;
-  },
-  8: function(n) {
-    return n == 1 ? 0 : n == 2 ? 1 : n != 8 && n != 11 ? 2 : 3;
-  },
-  9: function(n) {
-    return +(n >= 2);
-  },
-  10: function(n) {
-    return n == 1 ? 0 : n == 2 ? 1 : n < 7 ? 2 : n < 11 ? 3 : 4;
-  },
-  11: function(n) {
-    return n == 1 || n == 11 ? 0 : n == 2 || n == 12 ? 1 : n > 2 && n < 20 ? 2 : 3;
-  },
-  12: function(n) {
-    return +(n % 10 != 1 || n % 100 == 11);
-  },
-  13: function(n) {
-    return +(n !== 0);
-  },
-  14: function(n) {
-    return n == 1 ? 0 : n == 2 ? 1 : n == 3 ? 2 : 3;
-  },
-  15: function(n) {
-    return n % 10 == 1 && n % 100 != 11 ? 0 : n % 10 >= 2 && (n % 100 < 10 || n % 100 >= 20) ? 1 : 2;
-  },
-  16: function(n) {
-    return n % 10 == 1 && n % 100 != 11 ? 0 : n !== 0 ? 1 : 2;
-  },
-  17: function(n) {
-    return n == 1 || n % 10 == 1 && n % 100 != 11 ? 0 : 1;
-  },
-  18: function(n) {
-    return n == 0 ? 0 : n == 1 ? 1 : 2;
-  },
-  19: function(n) {
-    return n == 1 ? 0 : n == 0 || n % 100 > 1 && n % 100 < 11 ? 1 : n % 100 > 10 && n % 100 < 20 ? 2 : 3;
-  },
-  20: function(n) {
-    return n == 1 ? 0 : n == 0 || n % 100 > 0 && n % 100 < 20 ? 1 : 2;
-  },
-  21: function(n) {
-    return n % 100 == 1 ? 1 : n % 100 == 2 ? 2 : n % 100 == 3 || n % 100 == 4 ? 3 : 0;
-  },
-  22: function(n) {
-    return n == 1 ? 0 : n == 2 ? 1 : (n < 0 || n > 10) && n % 10 == 0 ? 2 : 3;
-  }
-};
-const Ra = ["v1", "v2", "v3"], Oa = ["v4"], Ut = {
-  zero: 0,
-  one: 1,
-  two: 2,
-  few: 3,
-  many: 4,
-  other: 5
-};
-function Pa() {
-  const n = {};
-  return ka.forEach((e) => {
-    e.lngs.forEach((t) => {
-      n[t] = {
-        numbers: e.nr,
-        plurals: Ea[e.fc]
-      };
-    });
-  }), n;
-}
-class Ta {
-  constructor(e) {
-    let t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
-    this.languageUtils = e, this.options = t, this.logger = te.create("pluralResolver"), (!this.options.compatibilityJSON || Oa.includes(this.options.compatibilityJSON)) && (typeof Intl > "u" || !Intl.PluralRules) && (this.options.compatibilityJSON = "v3", this.logger.error("Your environment seems not to be Intl API compatible, use an Intl.PluralRules polyfill. Will fallback to the compatibilityJSON v3 format handling.")), this.rules = Pa();
-  }
-  addRule(e, t) {
-    this.rules[e] = t;
-  }
-  getRule(e) {
-    let t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
-    if (this.shouldUseIntlApi())
-      try {
-        return new Intl.PluralRules(Te(e === "dev" ? "en" : e), {
-          type: t.ordinal ? "ordinal" : "cardinal"
-        });
-      } catch {
-        return;
-      }
-    return this.rules[e] || this.rules[this.languageUtils.getLanguagePartFromCode(e)];
-  }
-  needsPlural(e) {
-    let t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
-    const s = this.getRule(e, t);
-    return this.shouldUseIntlApi() ? s && s.resolvedOptions().pluralCategories.length > 1 : s && s.numbers.length > 1;
-  }
-  getPluralFormsOfKey(e, t) {
-    let s = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : {};
-    return this.getSuffixes(e, s).map((a) => `${t}${a}`);
-  }
-  getSuffixes(e) {
-    let t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
-    const s = this.getRule(e, t);
-    return s ? this.shouldUseIntlApi() ? s.resolvedOptions().pluralCategories.sort((a, o) => Ut[a] - Ut[o]).map((a) => `${this.options.prepend}${t.ordinal ? `ordinal${this.options.prepend}` : ""}${a}`) : s.numbers.map((a) => this.getSuffix(e, a, t)) : [];
-  }
-  getSuffix(e, t) {
-    let s = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : {};
-    const a = this.getRule(e, s);
-    return a ? this.shouldUseIntlApi() ? `${this.options.prepend}${s.ordinal ? `ordinal${this.options.prepend}` : ""}${a.select(t)}` : this.getSuffixRetroCompatible(a, t) : (this.logger.warn(`no plural rule found for: ${e}`), "");
-  }
-  getSuffixRetroCompatible(e, t) {
-    const s = e.noAbs ? e.plurals(t) : e.plurals(Math.abs(t));
-    let a = e.numbers[s];
-    this.options.simplifyPluralSuffix && e.numbers.length === 2 && e.numbers[0] === 1 && (a === 2 ? a = "plural" : a === 1 && (a = ""));
-    const o = () => this.options.prepend && a.toString() ? this.options.prepend + a.toString() : a.toString();
-    return this.options.compatibilityJSON === "v1" ? a === 1 ? "" : typeof a == "number" ? `_plural_${a.toString()}` : o() : this.options.compatibilityJSON === "v2" || this.options.simplifyPluralSuffix && e.numbers.length === 2 && e.numbers[0] === 1 ? o() : this.options.prepend && s.toString() ? this.options.prepend + s.toString() : s.toString();
-  }
-  shouldUseIntlApi() {
-    return !Ra.includes(this.options.compatibilityJSON);
-  }
-}
-function Bt(n, e, t) {
-  let s = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : ".", a = arguments.length > 4 && arguments[4] !== void 0 ? arguments[4] : !0, o = va(n, e, t);
-  return !o && a && typeof t == "string" && (o = tt(n, t, s), o === void 0 && (o = tt(e, t, s))), o;
-}
-class Aa {
-  constructor() {
-    let e = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
-    this.logger = te.create("interpolator"), this.options = e, this.format = e.interpolation && e.interpolation.format || ((t) => t), this.init(e);
-  }
-  init() {
-    let e = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
-    e.interpolation || (e.interpolation = {
-      escapeValue: !0
-    });
-    const t = e.interpolation;
-    this.escape = t.escape !== void 0 ? t.escape : ja, this.escapeValue = t.escapeValue !== void 0 ? t.escapeValue : !0, this.useRawValueToEscape = t.useRawValueToEscape !== void 0 ? t.useRawValueToEscape : !1, this.prefix = t.prefix ? ce(t.prefix) : t.prefixEscaped || "{{", this.suffix = t.suffix ? ce(t.suffix) : t.suffixEscaped || "}}", this.formatSeparator = t.formatSeparator ? t.formatSeparator : t.formatSeparator || ",", this.unescapePrefix = t.unescapeSuffix ? "" : t.unescapePrefix || "-", this.unescapeSuffix = this.unescapePrefix ? "" : t.unescapeSuffix || "", this.nestingPrefix = t.nestingPrefix ? ce(t.nestingPrefix) : t.nestingPrefixEscaped || ce("$t("), this.nestingSuffix = t.nestingSuffix ? ce(t.nestingSuffix) : t.nestingSuffixEscaped || ce(")"), this.nestingOptionsSeparator = t.nestingOptionsSeparator ? t.nestingOptionsSeparator : t.nestingOptionsSeparator || ",", this.maxReplaces = t.maxReplaces ? t.maxReplaces : 1e3, this.alwaysFormat = t.alwaysFormat !== void 0 ? t.alwaysFormat : !1, this.resetRegExp();
-  }
-  reset() {
-    this.options && this.init(this.options);
-  }
-  resetRegExp() {
-    const e = (t, s) => t && t.source === s ? (t.lastIndex = 0, t) : new RegExp(s, "g");
-    this.regexp = e(this.regexp, `${this.prefix}(.+?)${this.suffix}`), this.regexpUnescape = e(this.regexpUnescape, `${this.prefix}${this.unescapePrefix}(.+?)${this.unescapeSuffix}${this.suffix}`), this.nestingRegexp = e(this.nestingRegexp, `${this.nestingPrefix}(.+?)${this.nestingSuffix}`);
-  }
-  interpolate(e, t, s, a) {
-    let o, u, d;
-    const i = this.options && this.options.interpolation && this.options.interpolation.defaultVariables || {};
-    function c(m) {
-      return m.replace(/\$/g, "$$$$");
-    }
-    const l = (m) => {
-      if (m.indexOf(this.formatSeparator) < 0) {
-        const _ = Bt(t, i, m, this.options.keySeparator, this.options.ignoreJSONStructure);
-        return this.alwaysFormat ? this.format(_, void 0, s, {
-          ...a,
-          ...t,
-          interpolationkey: m
-        }) : _;
-      }
-      const x = m.split(this.formatSeparator), b = x.shift().trim(), N = x.join(this.formatSeparator).trim();
-      return this.format(Bt(t, i, b, this.options.keySeparator, this.options.ignoreJSONStructure), N, s, {
-        ...a,
-        ...t,
-        interpolationkey: b
-      });
-    };
-    this.resetRegExp();
-    const f = a && a.missingInterpolationHandler || this.options.missingInterpolationHandler, p = a && a.interpolation && a.interpolation.skipOnVariables !== void 0 ? a.interpolation.skipOnVariables : this.options.interpolation.skipOnVariables;
-    return [{
-      regex: this.regexpUnescape,
-      safeValue: (m) => c(m)
-    }, {
-      regex: this.regexp,
-      safeValue: (m) => this.escapeValue ? c(this.escape(m)) : c(m)
-    }].forEach((m) => {
-      for (d = 0; o = m.regex.exec(e); ) {
-        const x = o[1].trim();
-        if (u = l(x), u === void 0)
-          if (typeof f == "function") {
-            const N = f(e, o, a);
-            u = typeof N == "string" ? N : "";
-          } else if (a && Object.prototype.hasOwnProperty.call(a, x))
-            u = "";
-          else if (p) {
-            u = o[0];
-            continue;
-          } else
-            this.logger.warn(`missed to pass in variable ${x} for interpolating ${e}`), u = "";
-        else
-          typeof u != "string" && !this.useRawValueToEscape && (u = Mt(u));
-        const b = m.safeValue(u);
-        if (e = e.replace(o[0], b), p ? (m.regex.lastIndex += u.length, m.regex.lastIndex -= o[0].length) : m.regex.lastIndex = 0, d++, d >= this.maxReplaces)
-          break;
-      }
-    }), e;
-  }
-  nest(e, t) {
-    let s = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : {}, a, o, u;
-    function d(i, c) {
-      const l = this.nestingOptionsSeparator;
-      if (i.indexOf(l) < 0)
-        return i;
-      const f = i.split(new RegExp(`${l}[ ]*{`));
-      let p = `{${f[1]}`;
-      i = f[0], p = this.interpolate(p, u);
-      const g = p.match(/'/g), m = p.match(/"/g);
-      (g && g.length % 2 === 0 && !m || m.length % 2 !== 0) && (p = p.replace(/'/g, '"'));
-      try {
-        u = JSON.parse(p), c && (u = {
-          ...c,
-          ...u
-        });
-      } catch (x) {
-        return this.logger.warn(`failed parsing options string in nesting for key ${i}`, x), `${i}${l}${p}`;
-      }
-      return delete u.defaultValue, i;
-    }
-    for (; a = this.nestingRegexp.exec(e); ) {
-      let i = [];
-      u = {
-        ...s
-      }, u = u.replace && typeof u.replace != "string" ? u.replace : u, u.applyPostProcessor = !1, delete u.defaultValue;
-      let c = !1;
-      if (a[0].indexOf(this.formatSeparator) !== -1 && !/{.*}/.test(a[1])) {
-        const l = a[1].split(this.formatSeparator).map((f) => f.trim());
-        a[1] = l.shift(), i = l, c = !0;
-      }
-      if (o = t(d.call(this, a[1].trim(), u), u), o && a[0] === e && typeof o != "string")
-        return o;
-      typeof o != "string" && (o = Mt(o)), o || (this.logger.warn(`missed to resolve ${a[1]} for nesting ${e}`), o = ""), c && (o = i.reduce((l, f) => this.format(l, f, s.lng, {
-        ...s,
-        interpolationkey: a[1].trim()
-      }), o.trim())), e = e.replace(a[0], o), this.regexp.lastIndex = 0;
-    }
-    return e;
-  }
-}
-function La(n) {
-  let e = n.toLowerCase().trim();
-  const t = {};
-  if (n.indexOf("(") > -1) {
-    const s = n.split("(");
-    e = s[0].toLowerCase().trim();
-    const a = s[1].substring(0, s[1].length - 1);
-    e === "currency" && a.indexOf(":") < 0 ? t.currency || (t.currency = a.trim()) : e === "relativetime" && a.indexOf(":") < 0 ? t.range || (t.range = a.trim()) : a.split(";").forEach((u) => {
-      if (!u)
-        return;
-      const [d, ...i] = u.split(":"), c = i.join(":").trim().replace(/^'+|'+$/g, "");
-      t[d.trim()] || (t[d.trim()] = c), c === "false" && (t[d.trim()] = !1), c === "true" && (t[d.trim()] = !0), isNaN(c) || (t[d.trim()] = parseInt(c, 10));
-    });
-  }
-  return {
-    formatName: e,
-    formatOptions: t
-  };
-}
-function le(n) {
-  const e = {};
-  return function(s, a, o) {
-    const u = a + JSON.stringify(o);
-    let d = e[u];
-    return d || (d = n(Te(a), o), e[u] = d), d(s);
-  };
-}
-class Ma {
-  constructor() {
-    let e = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
-    this.logger = te.create("formatter"), this.options = e, this.formats = {
-      number: le((t, s) => {
-        const a = new Intl.NumberFormat(t, {
-          ...s
-        });
-        return (o) => a.format(o);
-      }),
-      currency: le((t, s) => {
-        const a = new Intl.NumberFormat(t, {
-          ...s,
-          style: "currency"
-        });
-        return (o) => a.format(o);
-      }),
-      datetime: le((t, s) => {
-        const a = new Intl.DateTimeFormat(t, {
-          ...s
-        });
-        return (o) => a.format(o);
-      }),
-      relativetime: le((t, s) => {
-        const a = new Intl.RelativeTimeFormat(t, {
-          ...s
-        });
-        return (o) => a.format(o, s.range || "day");
-      }),
-      list: le((t, s) => {
-        const a = new Intl.ListFormat(t, {
-          ...s
-        });
-        return (o) => a.format(o);
-      })
-    }, this.init(e);
-  }
-  init(e) {
-    const s = (arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {
-      interpolation: {}
-    }).interpolation;
-    this.formatSeparator = s.formatSeparator ? s.formatSeparator : s.formatSeparator || ",";
-  }
-  add(e, t) {
-    this.formats[e.toLowerCase().trim()] = t;
-  }
-  addCached(e, t) {
-    this.formats[e.toLowerCase().trim()] = le(t);
-  }
-  format(e, t, s) {
-    let a = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : {};
-    return t.split(this.formatSeparator).reduce((d, i) => {
-      const {
-        formatName: c,
-        formatOptions: l
-      } = La(i);
-      if (this.formats[c]) {
-        let f = d;
-        try {
-          const p = a && a.formatParams && a.formatParams[a.interpolationkey] || {}, g = p.locale || p.lng || a.locale || a.lng || s;
-          f = this.formats[c](d, g, {
-            ...l,
-            ...a,
-            ...p
-          });
-        } catch (p) {
-          this.logger.warn(p);
-        }
-        return f;
-      } else
-        this.logger.warn(`there was no format function for ${c}`);
-      return d;
-    }, e);
-  }
-}
-function Ia(n, e) {
-  n.pending[e] !== void 0 && (delete n.pending[e], n.pendingCount--);
-}
-class za extends Ie {
-  constructor(e, t, s) {
-    let a = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : {};
-    super(), this.backend = e, this.store = t, this.services = s, this.languageUtils = s.languageUtils, this.options = a, this.logger = te.create("backendConnector"), this.waitingReads = [], this.maxParallelReads = a.maxParallelReads || 10, this.readingCalls = 0, this.maxRetries = a.maxRetries >= 0 ? a.maxRetries : 5, this.retryTimeout = a.retryTimeout >= 1 ? a.retryTimeout : 350, this.state = {}, this.queue = [], this.backend && this.backend.init && this.backend.init(s, a.backend, a);
-  }
-  queueLoad(e, t, s, a) {
-    const o = {}, u = {}, d = {}, i = {};
-    return e.forEach((c) => {
-      let l = !0;
-      t.forEach((f) => {
-        const p = `${c}|${f}`;
-        !s.reload && this.store.hasResourceBundle(c, f) ? this.state[p] = 2 : this.state[p] < 0 || (this.state[p] === 1 ? u[p] === void 0 && (u[p] = !0) : (this.state[p] = 1, l = !1, u[p] === void 0 && (u[p] = !0), o[p] === void 0 && (o[p] = !0), i[f] === void 0 && (i[f] = !0)));
-      }), l || (d[c] = !0);
-    }), (Object.keys(o).length || Object.keys(u).length) && this.queue.push({
-      pending: u,
-      pendingCount: Object.keys(u).length,
-      loaded: {},
-      errors: [],
-      callback: a
-    }), {
-      toLoad: Object.keys(o),
-      pending: Object.keys(u),
-      toLoadLanguages: Object.keys(d),
-      toLoadNamespaces: Object.keys(i)
-    };
-  }
-  loaded(e, t, s) {
-    const a = e.split("|"), o = a[0], u = a[1];
-    t && this.emit("failedLoading", o, u, t), s && this.store.addResourceBundle(o, u, s, void 0, void 0, {
-      skipCopy: !0
-    }), this.state[e] = t ? -1 : 2;
-    const d = {};
-    this.queue.forEach((i) => {
-      ba(i.loaded, [o], u), Ia(i, e), t && i.errors.push(t), i.pendingCount === 0 && !i.done && (Object.keys(i.loaded).forEach((c) => {
-        d[c] || (d[c] = {});
-        const l = i.loaded[c];
-        l.length && l.forEach((f) => {
-          d[c][f] === void 0 && (d[c][f] = !0);
-        });
-      }), i.done = !0, i.errors.length ? i.callback(i.errors) : i.callback());
-    }), this.emit("loaded", d), this.queue = this.queue.filter((i) => !i.done);
-  }
-  read(e, t, s) {
-    let a = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : 0, o = arguments.length > 4 && arguments[4] !== void 0 ? arguments[4] : this.retryTimeout, u = arguments.length > 5 ? arguments[5] : void 0;
-    if (!e.length)
-      return u(null, {});
-    if (this.readingCalls >= this.maxParallelReads) {
-      this.waitingReads.push({
-        lng: e,
-        ns: t,
-        fcName: s,
-        tried: a,
-        wait: o,
-        callback: u
-      });
-      return;
-    }
-    this.readingCalls++;
-    const d = (c, l) => {
-      if (this.readingCalls--, this.waitingReads.length > 0) {
-        const f = this.waitingReads.shift();
-        this.read(f.lng, f.ns, f.fcName, f.tried, f.wait, f.callback);
-      }
-      if (c && l && a < this.maxRetries) {
-        setTimeout(() => {
-          this.read.call(this, e, t, s, a + 1, o * 2, u);
-        }, o);
-        return;
-      }
-      u(c, l);
-    }, i = this.backend[s].bind(this.backend);
-    if (i.length === 2) {
-      try {
-        const c = i(e, t);
-        c && typeof c.then == "function" ? c.then((l) => d(null, l)).catch(d) : d(null, c);
-      } catch (c) {
-        d(c);
-      }
-      return;
-    }
-    return i(e, t, d);
-  }
-  prepareLoading(e, t) {
-    let s = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : {}, a = arguments.length > 3 ? arguments[3] : void 0;
-    if (!this.backend)
-      return this.logger.warn("No backend was added via i18next.use. Will not load resources."), a && a();
-    typeof e == "string" && (e = this.languageUtils.toResolveHierarchy(e)), typeof t == "string" && (t = [t]);
-    const o = this.queueLoad(e, t, s, a);
-    if (!o.toLoad.length)
-      return o.pending.length || a(), null;
-    o.toLoad.forEach((u) => {
-      this.loadOne(u);
-    });
-  }
-  load(e, t, s) {
-    this.prepareLoading(e, t, {}, s);
-  }
-  reload(e, t, s) {
-    this.prepareLoading(e, t, {
-      reload: !0
-    }, s);
-  }
-  loadOne(e) {
-    let t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : "";
-    const s = e.split("|"), a = s[0], o = s[1];
-    this.read(a, o, "read", void 0, void 0, (u, d) => {
-      u && this.logger.warn(`${t}loading namespace ${o} for language ${a} failed`, u), !u && d && this.logger.log(`${t}loaded namespace ${o} for language ${a}`, d), this.loaded(e, u, d);
-    });
-  }
-  saveMissing(e, t, s, a, o) {
-    let u = arguments.length > 5 && arguments[5] !== void 0 ? arguments[5] : {}, d = arguments.length > 6 && arguments[6] !== void 0 ? arguments[6] : () => {
-    };
-    if (this.services.utils && this.services.utils.hasLoadedNamespace && !this.services.utils.hasLoadedNamespace(t)) {
-      this.logger.warn(`did not save key "${s}" as the namespace "${t}" was not yet loaded`, "This means something IS WRONG in your setup. You access the t function before i18next.init / i18next.loadNamespace / i18next.changeLanguage was done. Wait for the callback or Promise to resolve before accessing it!!!");
-      return;
-    }
-    if (!(s == null || s === "")) {
-      if (this.backend && this.backend.create) {
-        const i = {
-          ...u,
-          isUpdate: o
-        }, c = this.backend.create.bind(this.backend);
-        if (c.length < 6)
-          try {
-            let l;
-            c.length === 5 ? l = c(e, t, s, a, i) : l = c(e, t, s, a), l && typeof l.then == "function" ? l.then((f) => d(null, f)).catch(d) : d(null, l);
-          } catch (l) {
-            d(l);
-          }
-        else
-          c(e, t, s, a, d, i);
-      }
-      !e || !e[0] || this.store.addResource(e[0], t, s, a);
-    }
-  }
-}
-function Vt() {
-  return {
-    debug: !1,
-    initImmediate: !0,
-    ns: ["translation"],
-    defaultNS: ["translation"],
-    fallbackLng: ["dev"],
-    fallbackNS: !1,
-    supportedLngs: !1,
-    nonExplicitSupportedLngs: !1,
-    load: "all",
-    preload: !1,
-    simplifyPluralSuffix: !0,
-    keySeparator: ".",
-    nsSeparator: ":",
-    pluralSeparator: "_",
-    contextSeparator: "_",
-    partialBundledLanguages: !1,
-    saveMissing: !1,
-    updateMissing: !1,
-    saveMissingTo: "fallback",
-    saveMissingPlurals: !0,
-    missingKeyHandler: !1,
-    missingInterpolationHandler: !1,
-    postProcess: !1,
-    postProcessPassResolved: !1,
-    returnNull: !1,
-    returnEmptyString: !0,
-    returnObjects: !1,
-    joinArrays: !1,
-    returnedObjectHandler: !1,
-    parseMissingKeyHandler: !1,
-    appendNamespaceToMissingKey: !1,
-    appendNamespaceToCIMode: !1,
-    overloadTranslationOptionHandler: function(e) {
-      let t = {};
-      if (typeof e[1] == "object" && (t = e[1]), typeof e[1] == "string" && (t.defaultValue = e[1]), typeof e[2] == "string" && (t.tDescription = e[2]), typeof e[2] == "object" || typeof e[3] == "object") {
-        const s = e[3] || e[2];
-        Object.keys(s).forEach((a) => {
-          t[a] = s[a];
-        });
-      }
-      return t;
-    },
-    interpolation: {
-      escapeValue: !0,
-      format: (n) => n,
-      prefix: "{{",
-      suffix: "}}",
-      formatSeparator: ",",
-      unescapePrefix: "-",
-      nestingPrefix: "$t(",
-      nestingSuffix: ")",
-      nestingOptionsSeparator: ",",
-      maxReplaces: 1e3,
-      skipOnVariables: !0
-    }
-  };
-}
-function qt(n) {
-  return typeof n.ns == "string" && (n.ns = [n.ns]), typeof n.fallbackLng == "string" && (n.fallbackLng = [n.fallbackLng]), typeof n.fallbackNS == "string" && (n.fallbackNS = [n.fallbackNS]), n.supportedLngs && n.supportedLngs.indexOf("cimode") < 0 && (n.supportedLngs = n.supportedLngs.concat(["cimode"])), n;
-}
-function Ce() {
-}
-function Fa(n) {
-  Object.getOwnPropertyNames(Object.getPrototypeOf(n)).forEach((t) => {
-    typeof n[t] == "function" && (n[t] = n[t].bind(n));
-  });
-}
-class we extends Ie {
-  constructor() {
-    let e = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {}, t = arguments.length > 1 ? arguments[1] : void 0;
-    if (super(), this.options = qt(e), this.services = {}, this.logger = te, this.modules = {
-      external: []
-    }, Fa(this), t && !this.isInitialized && !e.isClone) {
-      if (!this.options.initImmediate)
-        return this.init(e, t), this;
-      setTimeout(() => {
-        this.init(e, t);
-      }, 0);
-    }
-  }
-  init() {
-    var e = this;
-    let t = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {}, s = arguments.length > 1 ? arguments[1] : void 0;
-    this.isInitializing = !0, typeof t == "function" && (s = t, t = {}), !t.defaultNS && t.defaultNS !== !1 && t.ns && (typeof t.ns == "string" ? t.defaultNS = t.ns : t.ns.indexOf("translation") < 0 && (t.defaultNS = t.ns[0]));
-    const a = Vt();
-    this.options = {
-      ...a,
-      ...this.options,
-      ...qt(t)
-    }, this.options.compatibilityAPI !== "v1" && (this.options.interpolation = {
-      ...a.interpolation,
-      ...this.options.interpolation
-    }), t.keySeparator !== void 0 && (this.options.userDefinedKeySeparator = t.keySeparator), t.nsSeparator !== void 0 && (this.options.userDefinedNsSeparator = t.nsSeparator);
-    function o(l) {
-      return l ? typeof l == "function" ? new l() : l : null;
-    }
-    if (!this.options.isClone) {
-      this.modules.logger ? te.init(o(this.modules.logger), this.options) : te.init(null, this.options);
-      let l;
-      this.modules.formatter ? l = this.modules.formatter : typeof Intl < "u" && (l = Ma);
-      const f = new Dt(this.options);
-      this.store = new zt(this.options.resources, this.options);
-      const p = this.services;
-      p.logger = te, p.resourceStore = this.store, p.languageUtils = f, p.pluralResolver = new Ta(f, {
-        prepend: this.options.pluralSeparator,
-        compatibilityJSON: this.options.compatibilityJSON,
-        simplifyPluralSuffix: this.options.simplifyPluralSuffix
-      }), l && (!this.options.interpolation.format || this.options.interpolation.format === a.interpolation.format) && (p.formatter = o(l), p.formatter.init(p, this.options), this.options.interpolation.format = p.formatter.format.bind(p.formatter)), p.interpolator = new Aa(this.options), p.utils = {
-        hasLoadedNamespace: this.hasLoadedNamespace.bind(this)
-      }, p.backendConnector = new za(o(this.modules.backend), p.resourceStore, p, this.options), p.backendConnector.on("*", function(g) {
-        for (var m = arguments.length, x = new Array(m > 1 ? m - 1 : 0), b = 1; b < m; b++)
-          x[b - 1] = arguments[b];
-        e.emit(g, ...x);
-      }), this.modules.languageDetector && (p.languageDetector = o(this.modules.languageDetector), p.languageDetector.init && p.languageDetector.init(p, this.options.detection, this.options)), this.modules.i18nFormat && (p.i18nFormat = o(this.modules.i18nFormat), p.i18nFormat.init && p.i18nFormat.init(this)), this.translator = new Ae(this.services, this.options), this.translator.on("*", function(g) {
-        for (var m = arguments.length, x = new Array(m > 1 ? m - 1 : 0), b = 1; b < m; b++)
-          x[b - 1] = arguments[b];
-        e.emit(g, ...x);
-      }), this.modules.external.forEach((g) => {
-        g.init && g.init(this);
-      });
-    }
-    if (this.format = this.options.interpolation.format, s || (s = Ce), this.options.fallbackLng && !this.services.languageDetector && !this.options.lng) {
-      const l = this.services.languageUtils.getFallbackCodes(this.options.fallbackLng);
-      l.length > 0 && l[0] !== "dev" && (this.options.lng = l[0]);
-    }
-    !this.services.languageDetector && !this.options.lng && this.logger.warn("init: no languageDetector is used and no lng is defined"), ["getResource", "hasResourceBundle", "getResourceBundle", "getDataByLanguage"].forEach((l) => {
-      this[l] = function() {
-        return e.store[l](...arguments);
-      };
-    }), ["addResource", "addResources", "addResourceBundle", "removeResourceBundle"].forEach((l) => {
-      this[l] = function() {
-        return e.store[l](...arguments), e;
-      };
-    });
-    const i = _e(), c = () => {
-      const l = (f, p) => {
-        this.isInitializing = !1, this.isInitialized && !this.initializedStoreOnce && this.logger.warn("init: i18next is already initialized. You should call init just once!"), this.isInitialized = !0, this.options.isClone || this.logger.log("initialized", this.options), this.emit("initialized", this.options), i.resolve(p), s(f, p);
-      };
-      if (this.languages && this.options.compatibilityAPI !== "v1" && !this.isInitialized)
-        return l(null, this.t.bind(this));
-      this.changeLanguage(this.options.lng, l);
-    };
-    return this.options.resources || !this.options.initImmediate ? c() : setTimeout(c, 0), i;
-  }
-  loadResources(e) {
-    let s = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : Ce;
-    const a = typeof e == "string" ? e : this.language;
-    if (typeof e == "function" && (s = e), !this.options.resources || this.options.partialBundledLanguages) {
-      if (a && a.toLowerCase() === "cimode" && (!this.options.preload || this.options.preload.length === 0))
-        return s();
-      const o = [], u = (d) => {
-        if (!d || d === "cimode")
-          return;
-        this.services.languageUtils.toResolveHierarchy(d).forEach((c) => {
-          c !== "cimode" && o.indexOf(c) < 0 && o.push(c);
-        });
-      };
-      a ? u(a) : this.services.languageUtils.getFallbackCodes(this.options.fallbackLng).forEach((i) => u(i)), this.options.preload && this.options.preload.forEach((d) => u(d)), this.services.backendConnector.load(o, this.options.ns, (d) => {
-        !d && !this.resolvedLanguage && this.language && this.setResolvedLanguage(this.language), s(d);
-      });
-    } else
-      s(null);
-  }
-  reloadResources(e, t, s) {
-    const a = _e();
-    return e || (e = this.languages), t || (t = this.options.ns), s || (s = Ce), this.services.backendConnector.reload(e, t, (o) => {
-      a.resolve(), s(o);
-    }), a;
-  }
-  use(e) {
-    if (!e)
-      throw new Error("You are passing an undefined module! Please check the object you are passing to i18next.use()");
-    if (!e.type)
-      throw new Error("You are passing a wrong module! Please check the object you are passing to i18next.use()");
-    return e.type === "backend" && (this.modules.backend = e), (e.type === "logger" || e.log && e.warn && e.error) && (this.modules.logger = e), e.type === "languageDetector" && (this.modules.languageDetector = e), e.type === "i18nFormat" && (this.modules.i18nFormat = e), e.type === "postProcessor" && xs.addPostProcessor(e), e.type === "formatter" && (this.modules.formatter = e), e.type === "3rdParty" && this.modules.external.push(e), this;
-  }
-  setResolvedLanguage(e) {
-    if (!(!e || !this.languages) && !(["cimode", "dev"].indexOf(e) > -1))
-      for (let t = 0; t < this.languages.length; t++) {
-        const s = this.languages[t];
-        if (!(["cimode", "dev"].indexOf(s) > -1) && this.store.hasLanguageSomeTranslations(s)) {
-          this.resolvedLanguage = s;
-          break;
-        }
-      }
-  }
-  changeLanguage(e, t) {
-    var s = this;
-    this.isLanguageChangingTo = e;
-    const a = _e();
-    this.emit("languageChanging", e);
-    const o = (i) => {
-      this.language = i, this.languages = this.services.languageUtils.toResolveHierarchy(i), this.resolvedLanguage = void 0, this.setResolvedLanguage(i);
-    }, u = (i, c) => {
-      c ? (o(c), this.translator.changeLanguage(c), this.isLanguageChangingTo = void 0, this.emit("languageChanged", c), this.logger.log("languageChanged", c)) : this.isLanguageChangingTo = void 0, a.resolve(function() {
-        return s.t(...arguments);
-      }), t && t(i, function() {
-        return s.t(...arguments);
-      });
-    }, d = (i) => {
-      !e && !i && this.services.languageDetector && (i = []);
-      const c = typeof i == "string" ? i : this.services.languageUtils.getBestMatchFromCodes(i);
-      c && (this.language || o(c), this.translator.language || this.translator.changeLanguage(c), this.services.languageDetector && this.services.languageDetector.cacheUserLanguage && this.services.languageDetector.cacheUserLanguage(c)), this.loadResources(c, (l) => {
-        u(l, c);
-      });
-    };
-    return !e && this.services.languageDetector && !this.services.languageDetector.async ? d(this.services.languageDetector.detect()) : !e && this.services.languageDetector && this.services.languageDetector.async ? this.services.languageDetector.detect.length === 0 ? this.services.languageDetector.detect().then(d) : this.services.languageDetector.detect(d) : d(e), a;
-  }
-  getFixedT(e, t, s) {
-    var a = this;
-    const o = function(u, d) {
-      let i;
-      if (typeof d != "object") {
-        for (var c = arguments.length, l = new Array(c > 2 ? c - 2 : 0), f = 2; f < c; f++)
-          l[f - 2] = arguments[f];
-        i = a.options.overloadTranslationOptionHandler([u, d].concat(l));
-      } else
-        i = {
-          ...d
-        };
-      i.lng = i.lng || o.lng, i.lngs = i.lngs || o.lngs, i.ns = i.ns || o.ns, i.keyPrefix = i.keyPrefix || s || o.keyPrefix;
-      const p = a.options.keySeparator || ".";
-      let g;
-      return i.keyPrefix && Array.isArray(u) ? g = u.map((m) => `${i.keyPrefix}${p}${m}`) : g = i.keyPrefix ? `${i.keyPrefix}${p}${u}` : u, a.t(g, i);
-    };
-    return typeof e == "string" ? o.lng = e : o.lngs = e, o.ns = t, o.keyPrefix = s, o;
-  }
-  t() {
-    return this.translator && this.translator.translate(...arguments);
-  }
-  exists() {
-    return this.translator && this.translator.exists(...arguments);
-  }
-  setDefaultNamespace(e) {
-    this.options.defaultNS = e;
-  }
-  hasLoadedNamespace(e) {
-    let t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
-    if (!this.isInitialized)
-      return this.logger.warn("hasLoadedNamespace: i18next was not initialized", this.languages), !1;
-    if (!this.languages || !this.languages.length)
-      return this.logger.warn("hasLoadedNamespace: i18n.languages were undefined or empty", this.languages), !1;
-    const s = t.lng || this.resolvedLanguage || this.languages[0], a = this.options ? this.options.fallbackLng : !1, o = this.languages[this.languages.length - 1];
-    if (s.toLowerCase() === "cimode")
-      return !0;
-    const u = (d, i) => {
-      const c = this.services.backendConnector.state[`${d}|${i}`];
-      return c === -1 || c === 2;
-    };
-    if (t.precheck) {
-      const d = t.precheck(this, u);
-      if (d !== void 0)
-        return d;
-    }
-    return !!(this.hasResourceBundle(s, e) || !this.services.backendConnector.backend || this.options.resources && !this.options.partialBundledLanguages || u(s, e) && (!a || u(o, e)));
-  }
-  loadNamespaces(e, t) {
-    const s = _e();
-    return this.options.ns ? (typeof e == "string" && (e = [e]), e.forEach((a) => {
-      this.options.ns.indexOf(a) < 0 && this.options.ns.push(a);
-    }), this.loadResources((a) => {
-      s.resolve(), t && t(a);
-    }), s) : (t && t(), Promise.resolve());
-  }
-  loadLanguages(e, t) {
-    const s = _e();
-    typeof e == "string" && (e = [e]);
-    const a = this.options.preload || [], o = e.filter((u) => a.indexOf(u) < 0);
-    return o.length ? (this.options.preload = a.concat(o), this.loadResources((u) => {
-      s.resolve(), t && t(u);
-    }), s) : (t && t(), Promise.resolve());
-  }
-  dir(e) {
-    if (e || (e = this.resolvedLanguage || (this.languages && this.languages.length > 0 ? this.languages[0] : this.language)), !e)
-      return "rtl";
-    const t = ["ar", "shu", "sqr", "ssh", "xaa", "yhd", "yud", "aao", "abh", "abv", "acm", "acq", "acw", "acx", "acy", "adf", "ads", "aeb", "aec", "afb", "ajp", "apc", "apd", "arb", "arq", "ars", "ary", "arz", "auz", "avl", "ayh", "ayl", "ayn", "ayp", "bbz", "pga", "he", "iw", "ps", "pbt", "pbu", "pst", "prp", "prd", "ug", "ur", "ydd", "yds", "yih", "ji", "yi", "hbo", "men", "xmn", "fa", "jpr", "peo", "pes", "prs", "dv", "sam", "ckb"], s = this.services && this.services.languageUtils || new Dt(Vt());
-    return t.indexOf(s.getLanguagePartFromCode(e)) > -1 || e.toLowerCase().indexOf("-arab") > 1 ? "rtl" : "ltr";
-  }
-  static createInstance() {
-    let e = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {}, t = arguments.length > 1 ? arguments[1] : void 0;
-    return new we(e, t);
-  }
-  cloneInstance() {
-    let e = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {}, t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : Ce;
-    const s = e.forkResourceStore;
-    s && delete e.forkResourceStore;
-    const a = {
-      ...this.options,
-      ...e,
-      isClone: !0
-    }, o = new we(a);
-    return (e.debug !== void 0 || e.prefix !== void 0) && (o.logger = o.logger.clone(e)), ["store", "services", "language"].forEach((d) => {
-      o[d] = this[d];
-    }), o.services = {
-      ...this.services
-    }, o.services.utils = {
-      hasLoadedNamespace: o.hasLoadedNamespace.bind(o)
-    }, s && (o.store = new zt(this.store.data, a), o.services.resourceStore = o.store), o.translator = new Ae(o.services, a), o.translator.on("*", function(d) {
-      for (var i = arguments.length, c = new Array(i > 1 ? i - 1 : 0), l = 1; l < i; l++)
-        c[l - 1] = arguments[l];
-      o.emit(d, ...c);
-    }), o.init(a, t), o.translator.options = a, o.translator.backendConnector.services.utils = {
-      hasLoadedNamespace: o.hasLoadedNamespace.bind(o)
-    }, o;
-  }
-  toJSON() {
-    return {
-      options: this.options,
-      store: this.store,
-      language: this.language,
-      languages: this.languages,
-      resolvedLanguage: this.resolvedLanguage
-    };
-  }
-}
-const Y = we.createInstance();
-Y.createInstance = we.createInstance;
-Y.createInstance;
-Y.dir;
-Y.init;
-Y.loadResources;
-Y.reloadResources;
-Y.use;
-Y.changeLanguage;
-Y.getFixedT;
-Y.t;
-Y.exists;
-Y.setDefaultNamespace;
-Y.hasLoadedNamespace;
-Y.loadNamespaces;
-Y.loadLanguages;
-const Da = "New order from template menu", Ua = "Total", Ba = "Name", Va = "Type", qa = "Time/Table", Wa = "Size", Ha = "Extras", Ka = "Notes", Ya = "Doneness", Ja = "Sugar", Qa = "Pasta Type", Ga = "Bread", Xa = "Menu", Za = "Contact", er = "All", tr = "Search dishes...", sr = "Call", nr = "WhatsApp", ar = "Location", rr = "Address", ir = "Opening Hours", or = "Add to Cart", cr = "Added", lr = "Customize", ur = "Size", dr = "Extras", pr = "Notes", hr = "Cart", fr = "items", mr = "Your cart is empty", gr = "Clear cart", _r = "Send via WhatsApp", xr = "Total", yr = "Name", br = "Order type", vr = "Pickup", wr = "Delivery", jr = "Time/Table", Nr = "Message preview", $r = "QR", Sr = "Instagram", Cr = "Base price", kr = "Extras", Er = "Reservation", Rr = "Book a Table", Or = "Date", Pr = "Time", Tr = "Area", Ar = "Number of Guests", Lr = "Your Name", Mr = "Phone Number", Ir = "Special Requests", zr = "Send Reservation Request", Fr = "Reservation request sent!", Dr = "Please wait for confirmation from the restaurant.", Ur = "If you don't receive a response within 15 minutes, please call the restaurant.", Br = "Please wait for confirmation from the restaurant for your order.", Vr = "If you don't receive a response within 5 minutes, please call the restaurant.", qr = "Today", Wr = "Tomorrow", Hr = "Reserve your table at our restaurant and enjoy an unforgettable dining experience. We look forward to welcoming you!", Kr = "Choose your preferred date", Yr = "Select time slot", Jr = "Number of people", Qr = "Important Notice", Gr = "Need immediate assistance? Call us:", Xr = "Any special requests or notes...", Zr = "Guest", ei = "Guests", ti = "Table Reservation Request", si = "Date:", ni = "Time:", ai = "Area:", ri = "Guests:", ii = "Name:", oi = "Phone:", ci = "Notes:", li = "Please confirm this reservation.", ui = "Thank you! 🙏", di = "Sun–Thu:", pi = "Fri:", hi = "Sat:", fi = "Important Notice", mi = "Delivery fees not included in total price", gi = "Continue to WhatsApp", _i = "Cancel", xi = "The restaurant is currently closed. Please try again during opening hours.", yi = "Close", bi = "🍽️ NEW ORDER REQUEST", vi = "📋 ORDER ITEMS:", wi = "👤 CUSTOMER INFORMATION:", ji = "Order Type", Ni = "Name", $i = "Phone", Si = "Qty", Ci = "Item", ki = "Options", Ei = "Please confirm this order. Thank you! 🙏", Ri = "Served until 13:00", Oi = "Sunday", Pi = "Monday", Ti = "Tuesday", Ai = "Wednesday", Li = "Thursday", Mi = "Friday", Ii = "Saturday", zi = "For illustration only", Fi = "Terms of Service", Di = "Privacy Policy", Ui = "Accessibility Statement", Bi = "Last updated", Vi = "Acceptance of Terms", qi = "By using our website and services, you agree to comply with these terms of service.", Wi = "Service Usage", Hi = "Our website is designed for browsing our menu, placing orders via WhatsApp, and making reservations.", Ki = "Orders and Reservations", Yi = "All orders are processed through WhatsApp. Reservations are subject to availability and confirmation.", Ji = "Payment Terms", Qi = "Payment is handled directly at the restaurant. Online orders are for convenience and confirmation only.", Gi = "Limitation of Liability", Xi = "We are not responsible for third-party services such as WhatsApp. Use of external services is subject to their terms.", Zi = "Changes to Terms", eo = "We may update these terms from time to time. Continued use constitutes acceptance of revised terms.", to = "Information Collection", so = "We respect your privacy. Our website does not use cookies or online tracking. Information is stored locally in your browser (LocalStorage) for continuity, and may include name and order preferences (personal/family).", no = "Information Usage", ao = "We only use information to provide our services and improve your experience. We do not share personal data with third parties.", ro = "Cookies and Tracking", io = "Our website does not use cookies or tracking technologies. All data is stored locally in your browser.", oo = "WhatsApp Integration", co = "Order placement occurs through WhatsApp (external service). WhatsApp usage is subject to WhatsApp's terms and privacy policy.", lo = "Data Storage", uo = "Data is stored locally on your device and on WhatsApp for order processing and communication purposes.", po = "User Rights", ho = "For any questions or requests regarding your data, please contact us through our contact page.", fo = "Our Commitment", mo = "We are committed to making our website accessible according to Israeli Standard TI 5568 based on WCAG 2.0 Level AA. Our goal is to provide an accessible, equal, and comfortable user experience for all users.", go = "Accessibility Standards", _o = "Our website follows modern accessibility guidelines including keyboard navigation, screen reader compatibility, and clear visual design.", xo = "Accessibility Features", yo = "The website includes proper heading structure, alternative text for images, keyboard navigation support, and responsive design for various devices and assistive technologies.", bo = "Accessibility Contact", vo = "If you encounter any accessibility issues or have suggestions for improvement, please contact us via phone or WhatsApp listed on our contact page.", wo = "Customer name is required before sending to WhatsApp", jo = "Back to Menu", No = "Closed", $o = "The restaurant is currently closed. Orders can be placed only during opening hours.", So = "Got it", Co = {
-  wa_header: Da,
-  wa_total: Ua,
-  wa_name: Ba,
-  wa_type: Va,
-  wa_time: qa,
-  opt_size: Wa,
-  opt_extras: Ha,
-  opt_notes: Ka,
-  opt_doneness: Ya,
-  opt_sugar: Ja,
-  opt_pasta_type: Qa,
-  opt_bread: Ga,
-  menu: Xa,
-  contact: Za,
-  all: er,
-  search_placeholder: tr,
-  call: sr,
-  whatsapp: nr,
-  location: ar,
-  address: rr,
-  open_hours: ir,
-  add_to_cart: or,
-  added: cr,
-  customize: lr,
-  size: ur,
-  extras: dr,
-  notes: pr,
-  cart: hr,
-  items: fr,
-  empty_cart: mr,
-  clear_cart: gr,
-  checkout: _r,
-  total: xr,
-  customer_name: yr,
-  order_type: br,
-  pickup: vr,
-  delivery: wr,
-  time_or_table: jr,
-  message_preview: Nr,
-  qr: $r,
-  instagram: Sr,
-  base_price: Cr,
-  extras_total: kr,
-  reservation: Er,
-  book_table: Rr,
-  reservation_date: Or,
-  reservation_time: Pr,
-  reservation_area: Tr,
-  reservation_guests: Ar,
-  reservation_name: Lr,
-  reservation_phone: Mr,
-  reservation_notes: Ir,
-  send_reservation: zr,
-  reservation_sent: Fr,
-  reservation_wait: Dr,
-  reservation_no_response: Ur,
-  order_wait: Br,
-  order_no_response: Vr,
-  today: qr,
-  tomorrow: Wr,
-  reservation_description: Hr,
-  choose_date: Kr,
-  select_time: Yr,
-  number_people: Jr,
-  important_notice: Qr,
-  need_assistance: Gr,
-  special_requests_placeholder: Xr,
-  guests_singular: Zr,
-  guests_plural: ei,
-  reservation_request: ti,
-  date_label: si,
-  time_label: ni,
-  area_label: ai,
-  guests_label: ri,
-  name_label: ii,
-  phone_label: oi,
-  notes_label: ci,
-  confirm_reservation: li,
-  thank_you: ui,
-  sun_thu: di,
-  fri: pi,
-  sat: hi,
-  important_notice_cart: fi,
-  delivery_notice: mi,
-  continue_to_whatsapp: gi,
-  cancel: _i,
-  restaurant_closed_message: xi,
-  close: yi,
-  wa_order_header: bi,
-  wa_order_items: vi,
-  wa_customer_info: wi,
-  wa_order_type: ji,
-  wa_customer_name: Ni,
-  wa_customer_phone: $i,
-  wa_quantity: Si,
-  wa_item: Ci,
-  wa_options: ki,
-  wa_confirm_order: Ei,
-  served_until_13: Ri,
-  day_sun: Oi,
-  day_mon: Pi,
-  day_tue: Ti,
-  day_wed: Ai,
-  day_thu: Li,
-  day_fri: Mi,
-  day_sat: Ii,
-  "day_tue-sat": "Tuesday-Saturday",
-  "day_mon-sat": "Monday-Saturday",
-  for_illustration_only: zi,
-  terms_of_service: Fi,
-  privacy_policy: Di,
-  accessibility_statement: Ui,
-  last_updated: Bi,
-  terms_acceptance: Vi,
-  terms_acceptance_text: qi,
-  terms_service_usage: Wi,
-  terms_service_usage_text: Hi,
-  terms_orders: Ki,
-  terms_orders_text: Yi,
-  terms_payment: Ji,
-  terms_payment_text: Qi,
-  terms_liability: Gi,
-  terms_liability_text: Xi,
-  terms_changes: Zi,
-  terms_changes_text: eo,
-  privacy_info_collection: to,
-  privacy_info_collection_text: so,
-  privacy_info_usage: no,
-  privacy_info_usage_text: ao,
-  privacy_cookies: ro,
-  privacy_cookies_text: io,
-  privacy_whatsapp: oo,
-  privacy_whatsapp_text: co,
-  privacy_data_storage: lo,
-  privacy_data_storage_text: uo,
-  privacy_user_rights: po,
-  privacy_user_rights_text: ho,
-  accessibility_commitment: fo,
-  accessibility_commitment_text: mo,
-  accessibility_standards: go,
-  accessibility_standards_text: _o,
-  accessibility_features: xo,
-  accessibility_features_text: yo,
-  accessibility_contact: bo,
-  accessibility_contact_text: vo,
-  name_required: wo,
-  back_to_menu: jo,
-  closed: No,
-  closed_popup_message: $o,
-  got_it_button: So
-}, ko = "הזמנה חדשה מתפריט התבנית", Eo = "סך הכול", Ro = "שם", Oo = "סוג", Po = "שעה/שולחן", To = "גודל", Ao = "תוספות", Lo = "הערות", Mo = "דרגת עשייה", Io = "סוכר", zo = "סוג פסטה", Fo = "לחם", Do = "תפריט", Uo = "צור קשר", Bo = "הכל", Vo = "חיפוש מנות...", qo = "התקשר", Wo = "וואטסאפ", Ho = "מיקום", Ko = "כתובת", Yo = "שעות פתיחה", Jo = "להוסיף לסל", Qo = "נוסף", Go = "התאמה", Xo = "גודל", Zo = "תוספות", ec = "הערות", tc = "הסל", sc = "פריטים", nc = "הסל ריק", ac = "נקה סל", rc = "שלח בוואטסאפ", ic = "סך הכל", oc = "שם", cc = "סוג הזמנה", lc = "איסוף עצמי", uc = "משלוח", dc = "שעה/שולחן", pc = "תצוגה מקדימה", hc = "QR", fc = "אינסטגרם", mc = "מחיר בסיס", gc = "תוספות", _c = "הזמנת שולחן", xc = "הזמן שולחן", yc = "תאריך", bc = "שעה", vc = "אזור", wc = "מספר אורחים", jc = "השם שלך", Nc = "מספר טלפון", $c = "בקשות מיוחדות", Sc = "שלח בקשת הזמנה", Cc = "בקשת ההזמנה נשלחה!", kc = "אנא המתן לאישור מהמסעדה.", Ec = "אם לא תקבל תגובה תוך 15 דקות, אנא התקשר למסעדה.", Rc = "אנא המתן לאישור מהמסעדה עבור ההזמנה שלך.", Oc = "אם לא תקבל תגובה תוך 5 דקות, אנא התקשר למסעדה.", Pc = "היום", Tc = "מחר", Ac = "הזמן שולחן במסעדה שלנו ותהנה מחווית אוכל בלתי נשכחת. אנחנו מצפים לראות אותך!", Lc = "בחר את התאריך המועדף עליך", Mc = "בחר זמן", Ic = "מספר אנשים", zc = "הודעה חשובה", Fc = "צריך עזרה מיידית? התקשר אלינו:", Dc = "בקשות מיוחדות או הערות...", Uc = "אורח", Bc = "אורחים", Vc = "בקשת הזמנת שולחן", qc = "תאריך:", Wc = "שעה:", Hc = "אזור:", Kc = "אורחים:", Yc = "שם:", Jc = "טלפון:", Qc = "הערות:", Gc = "אנא אשר את ההזמנה הזו.", Xc = "תודה! 🙏", Zc = "א׳-ה׳:", el = "ו׳:", tl = "ש׳:", sl = "הודעה חשובה", nl = "עמלת משלוח לא כלולה במחיר הכולל", al = "המשך לווטסאפ", rl = "ביטול", il = "🍽️ בקשת הזמנה חדשה", ol = "📋 פריטי ההזמנה:", cl = "👤 פרטי הלקוח:", ll = "סוג הזמנה", ul = "שם", dl = "טלפון", pl = "כמות", hl = "פריט", fl = "אפשרויות", ml = "אנא אשר את ההזמנה הזו. תודה! 🙏", gl = "מוגש עד 13:00", _l = "ראשון", xl = "שני", yl = "שלישי", bl = "רביעי", vl = "חמישי", wl = "שישי", jl = "שבת", Nl = "להמחשה בלבד", $l = "תנאי שימוש", Sl = "מדיניות פרטיות", Cl = "הצהרת נגישות", kl = "תאריך עדכון אחרון", El = "אחריות", Rl = "אין אחריות לשירותי צד-שלישי (כגון WhatsApp). כל שימוש בשירותים חיצוניים כפוף לתנאורים.", Ol = "שינויים בתנאים", Pl = "יתכן שנעדכן שינויים בתנאי השימוש מעת לעת. המשך השימוש כהסכמה לתנאים כפופה.", Tl = "יצירת קשר בנושא נגישות", Al = "אם נתקלתם בבעיה או הצעה לשיפור, נעמוד לכפות אליכן בטלפון או בוואטסאפ המופיעים במיקום יצירת קשר.", Ll = "מטרת עיכוב היחידי", Ml = "האתר מכיל לפרטים, בחירת פריטים, והזמנת מקום לוואטסאפ של המטעדה.", Il = "זכויות המשתמש", zl = "כפי שלאה או בקשה לחתיקה מידע, נעמוד לכפות אליכן דרך עמוד יצירת קשר.", Fl = "תאריך עדכון אחרון", Dl = "26.9.2025", Ul = "אחריות", Bl = "אין אחריות לשירותי צד-שלישי (כגון WhatsApp). כל שימוש בשירותים חיצוניים כפוף לתנאורים.", Vl = "שינויים בתנאים", ql = "יתכן שנעדכן שינויים בתנאי השימוש מעת לעת. המשך השימוש כהסכמה לתנאים כפופה.", Wl = "מדיניות פרטיות", Hl = "אנו מכבדים את פרטיותכם. האתר אינו מפעיל עוגיות (cookies) ואינו מבצע מעקב אינטרנטי. המידע שמורן בעלות הקרייות ומורה מקומית בדפדפן (LocalStorage) לצורך המשכיות כבב, ויכול לכלול שם ופוטר המנה (אישי/משפחה).", Kl = "מטרת עיכוב היחידי", Yl = "שליחת הזמנה/פנירה מתבצעת באמצעות WhatsApp (שירות חיצוני). על כן, השימוש ב-WhatsApp כפוף לתנאי השימוש ומדיניות הפרטיות של WhatsApp.", Jl = "מטרת עיכוב היחידי", Ql = "האתר מכיל לפרטים, בחירת פריטים, והזמנת מקום לוואטסאפ של המטעדה.", Gl = "זכויות המשתמש", Xl = "כפי שלאה או בקשה לחתיקה מידע, נעמוד לכפות אליכן דרך עמוד יצירת קשר.", Zl = "הצהרת נגישות", eu = 'אנו פועלים להנגיש את האתר בהתאם לתקן הישראלי ת"י 5568 הכמבוס על 2.0 WCAG ברמה AA. מטרתנו להנביח חווית שימוש נגישה, שוויונית ונוחה לכלל המשתמשים.', tu = "יצירת קשר בנושא נגישות", su = "אם נתקלתם בבעיה או הצעה לשיפור, נעמוד לכפות אליכן בטלפון או בוואטסאפ המופיעים במיקום יצירת קשר.", nu = "מטרת עיכוב היחידי", au = "האתר מכיל לפרטים, בחירת פריטים, והזמנת מקום לוואטסאפ של המטעדה.", ru = "יצירת קשר בנושא נגישות", iu = "אם נתקלתם בבעיה או הצעה לשיפור, נעמוד לכפות אליכן בטלפון או בוואטסאפ המופיעים במיקום יצירת קשר.", ou = "שם הלקוח נדרש לפני שליחה לוואטסאפ", cu = "חזרה לתפריט", lu = "סגור", uu = "המסעדה סגורה כעת. נסה שוב בשעות הפתיחה.", du = "סגור", pu = "המסעדה סגורה כעת. ניתן לבצע הזמנות רק במהלך שעות הפתיחה.", hu = "הבנתי", fu = {
-  wa_header: ko,
-  wa_total: Eo,
-  wa_name: Ro,
-  wa_type: Oo,
-  wa_time: Po,
-  opt_size: To,
-  opt_extras: Ao,
-  opt_notes: Lo,
-  opt_doneness: Mo,
-  opt_sugar: Io,
-  opt_pasta_type: zo,
-  opt_bread: Fo,
-  menu: Do,
-  contact: Uo,
-  all: Bo,
-  search_placeholder: Vo,
-  call: qo,
-  whatsapp: Wo,
-  location: Ho,
-  address: Ko,
-  open_hours: Yo,
-  add_to_cart: Jo,
-  added: Qo,
-  customize: Go,
-  size: Xo,
-  extras: Zo,
-  notes: ec,
-  cart: tc,
-  items: sc,
-  empty_cart: nc,
-  clear_cart: ac,
-  checkout: rc,
-  total: ic,
-  customer_name: oc,
-  order_type: cc,
-  pickup: lc,
-  delivery: uc,
-  time_or_table: dc,
-  message_preview: pc,
-  qr: hc,
-  instagram: fc,
-  base_price: mc,
-  extras_total: gc,
-  reservation: _c,
-  book_table: xc,
-  reservation_date: yc,
-  reservation_time: bc,
-  reservation_area: vc,
-  reservation_guests: wc,
-  reservation_name: jc,
-  reservation_phone: Nc,
-  reservation_notes: $c,
-  send_reservation: Sc,
-  reservation_sent: Cc,
-  reservation_wait: kc,
-  reservation_no_response: Ec,
-  order_wait: Rc,
-  order_no_response: Oc,
-  today: Pc,
-  tomorrow: Tc,
-  reservation_description: Ac,
-  choose_date: Lc,
-  select_time: Mc,
-  number_people: Ic,
-  important_notice: zc,
-  need_assistance: Fc,
-  special_requests_placeholder: Dc,
-  guests_singular: Uc,
-  guests_plural: Bc,
-  reservation_request: Vc,
-  date_label: qc,
-  time_label: Wc,
-  area_label: Hc,
-  guests_label: Kc,
-  name_label: Yc,
-  phone_label: Jc,
-  notes_label: Qc,
-  confirm_reservation: Gc,
-  thank_you: Xc,
-  sun_thu: Zc,
-  fri: el,
-  sat: tl,
-  important_notice_cart: sl,
-  delivery_notice: nl,
-  continue_to_whatsapp: al,
-  cancel: rl,
-  wa_order_header: il,
-  wa_order_items: ol,
-  wa_customer_info: cl,
-  wa_order_type: ll,
-  wa_customer_name: ul,
-  wa_customer_phone: dl,
-  wa_quantity: pl,
-  wa_item: hl,
-  wa_options: fl,
-  wa_confirm_order: ml,
-  served_until_13: gl,
-  day_sun: _l,
-  day_mon: xl,
-  day_tue: yl,
-  day_wed: bl,
-  day_thu: vl,
-  day_fri: wl,
-  day_sat: jl,
-  "day_tue-sat": "שלישי-שבת",
-  "day_mon-sat": "שני-שבת",
-  for_illustration_only: Nl,
-  terms_of_service: $l,
-  privacy_policy: Sl,
-  accessibility_statement: Cl,
-  last_updated: kl,
-  terms_acceptance: El,
-  terms_acceptance_text: Rl,
-  terms_service_usage: Ol,
-  terms_service_usage_text: Pl,
-  terms_orders: Tl,
-  terms_orders_text: Al,
-  terms_payment: Ll,
-  terms_payment_text: Ml,
-  terms_liability: Il,
-  terms_liability_text: zl,
-  terms_changes: Fl,
-  terms_changes_text: Dl,
-  privacy_info_collection: Ul,
-  privacy_info_collection_text: Bl,
-  privacy_info_usage: Vl,
-  privacy_info_usage_text: ql,
-  privacy_cookies: Wl,
-  privacy_cookies_text: Hl,
-  privacy_whatsapp: Kl,
-  privacy_whatsapp_text: Yl,
-  privacy_data_storage: Jl,
-  privacy_data_storage_text: Ql,
-  privacy_user_rights: Gl,
-  privacy_user_rights_text: Xl,
-  accessibility_commitment: Zl,
-  accessibility_commitment_text: eu,
-  accessibility_standards: tu,
-  accessibility_standards_text: su,
-  accessibility_features: nu,
-  accessibility_features_text: au,
-  accessibility_contact: ru,
-  accessibility_contact_text: iu,
-  name_required: ou,
-  back_to_menu: cu,
-  closed: lu,
-  restaurant_closed_message: uu,
-  close: du,
-  closed_popup_message: pu,
-  got_it_button: hu
-}, mu = "طلب جديد عبر قائمة القالب", gu = "الإجمالي", _u = "الاسم", xu = "النوع", yu = "ساعة/طاولة", bu = "الحجم", vu = "إضافات", wu = "ملاحظات", ju = "درجة الاستواء", Nu = "سكر", $u = "نوع المعكرونة", Su = "الخبز", Cu = "القائمة", ku = "تواصل", Eu = "الكل", Ru = "ابحث عن طبق...", Ou = "اتصال", Pu = "واتساب", Tu = "الموقع", Au = "العنوان", Lu = "ساعات العمل", Mu = "أضف إلى السلة", Iu = "تمت الإضافة", zu = "تخصيص", Fu = "الحجم", Du = "إضافات", Uu = "ملاحظات", Bu = "السلة", Vu = "عنصر", qu = "السلة فارغة", Wu = "تفريغ السلة", Hu = "إرسال عبر واتساب", Ku = "الإجمالي", Yu = "الاسم", Ju = "نوع الطلب", Qu = "استلام", Gu = "توصيل", Xu = "ساعة/طاولة", Zu = "نص الرسالة", ed = "QR", td = "إنستغرام", sd = "السعر الأساسي", nd = "الإضافات", ad = "حجز طاولة", rd = "احجز طاولة", id = "التاريخ", od = "الوقت", cd = "المنطقة", ld = "عدد الضيوف", ud = "اسمك", dd = "رقم الهاتف", pd = "طلبات خاصة", hd = "إرسال طلب الحجز", fd = "تم إرسال طلب الحجز!", md = "يرجى انتظار التأكيد من المطعم.", gd = "إذا لم تتلق رداً خلال 15 دقيقة، يرجى الاتصال بالمطعم.", _d = "يرجى انتظار التأكيد من المطعم لطلبك.", xd = "إذا لم تتلق رداً خلال 5 دقائق، يرجى الاتصال بالمطعم.", yd = "اليوم", bd = "غداً", vd = "احجز طاولتك في مطعمنا واستمتع بتجربة طعام لا تُنسى. نحن نتطلع لاستقبالك!", wd = "اختر التاريخ المفضل لديك", jd = "اختر الوقت", Nd = "عدد الأشخاص", $d = "إشعار مهم", Sd = "تحتاج مساعدة فورية؟ اتصل بنا:", Cd = "أي طلبات خاصة أو ملاحظات...", kd = "ضيف", Ed = "ضيوف", Rd = "طلب حجز طاولة", Od = "التاريخ:", Pd = "الوقت:", Td = "المنطقة:", Ad = "الضيوف:", Ld = "الاسم:", Md = "الهاتف:", Id = "ملاحظات:", zd = "يرجى تأكيد هذا الحجز.", Fd = "شكراً لك! 🙏", Dd = "الأحد-الخميس:", Ud = "الجمعة:", Bd = "السبت:", Vd = "إشعار مهم", qd = "رسوم التوصيل غير مشمولة في السعر الإجمالي", Wd = "متابعة إلى واتساب", Hd = "إلغاء", Kd = "🍽️ طلب جديد", Yd = "📋 عناصر الطلب:", Jd = "👤 معلومات العميل:", Qd = "نوع الطلب", Gd = "الاسم", Xd = "الهاتف", Zd = "الكمية", ep = "العنصر", tp = "الخيارات", sp = "يرجى تأكيد هذا الطلب. شكراً لك! 🙏", np = "يُقدم حتى 13:00", ap = "الأحد", rp = "الاثنين", ip = "الثلاثاء", op = "الأربعاء", cp = "الخميس", lp = "الجمعة", up = "السبت", dp = "شروط الخدمة", pp = "سياسة الخصوصية", hp = "بيان إمكانية الوصول", fp = "آخر تحديث", mp = "قبول الشروط", gp = "باستخدام موقعنا وخدماتنا، فإنك توافق على الالتزام بشروط الخدمة هذه.", _p = "استخدام الخدمة", xp = "تم تصميم موقعنا لتصفح القائمة وتقديم الطلبات عبر واتساب وإجراء الحجوزات.", yp = "الطلبات والحجوزات", bp = "جميع الطلبات تتم معالجتها عبر واتساب. الحجوزات تخضع للتوفر والتأكيد.", vp = "شروط الدفع", wp = "يتم التعامل مع الدفع مباشرة في المطعم. الطلبات عبر الإنترنت للراحة والتأكيد فقط.", jp = "حدود المسؤولية", Np = "نحن غير مسؤولين عن خدمات الطرف الثالث مثل واتساب. استخدام الخدمات الخارجية يخضع لشروطها.", $p = "تغييرات الشروط", Sp = "قد نقوم بتحديث هذه الشروط من وقت لآخر. الاستخدام المستمر يشكل قبولاً للشروط المنقحة.", Cp = "جمع المعلومات", kp = "نحن نحترم خصوصيتك. موقعنا لا يستخدم ملفات تعريف الارتباط أو التتبع عبر الإنترنت. يتم تخزين المعلومات محلياً في متصفحك للاستمرارية، وقد تشمل الاسم وتفضيلات الطلب.", Ep = "استخدام المعلومات", Rp = "نستخدم المعلومات فقط لتقديم خدماتنا وتحسين تجربتك. لا نشارك البيانات الشخصية مع أطراف ثالثة.", Op = "ملفات تعريف الارتباط والتتبع", Pp = "موقعنا لا يستخدم ملفات تعريف الارتباط أو تقنيات التتبع. جميع البيانات مخزنة محلياً في متصفحك.", Tp = "تكامل واتساب", Ap = "تقديم الطلبات يتم عبر واتساب (خدمة خارجية). استخدام واتساب يخضع لشروط وسياسة خصوصية واتساب.", Lp = "تخزين البيانات", Mp = "يتم تخزين البيانات محلياً على جهازك وعلى واتساب لمعالجة الطلبات وأغراض التواصل.", Ip = "حقوق المستخدم", zp = "لأي أسئلة أو طلبات بخصوص بياناتك، يرجى التواصل معنا عبر صفحة الاتصال.", Fp = "التزامنا", Dp = "نحن ملتزمون بجعل موقعنا قابلاً للوصول وفقاً للمعايير الحديثة. هدفنا توفير تجربة مستخدم متاحة ومتساوية ومريحة لجميع المستخدمين.", Up = "معايير إمكانية الوصول", Bp = "يتبع موقعنا إرشادات إمكانية الوصول الحديثة بما في ذلك التنقل بلوحة المفاتيح وتوافق قارئ الشاشة والتصميم البصري الواضح.", Vp = "ميزات إمكانية الوصول", qp = "يتضمن الموقع هيكل عناوين مناسب ونص بديل للصور ودعم التنقل بلوحة المفاتيح وتصميم متجاوب لمختلف الأجهزة والتقنيات المساعدة.", Wp = "التواصل بخصوص إمكانية الوصول", Hp = "إذا واجهت أي مشاكل في إمكانية الوصول أو لديك اقتراحات للتحسين، يرجى التواصل معنا عبر الهاتف أو واتساب المدرجين في صفحة الاتصال.", Kp = "اسم العميل مطلوب قبل الإرسال إلى واتساب", Yp = "العودة إلى القائمة", Jp = "مغلق", Qp = "للتوضيح فقط", Gp = "المطعم مغلق حالياً. الرجاء المحاولة خلال ساعات العمل.", Xp = "إغلاق", Zp = "المطعم مغلق حالياً. يمكن تقديم الطلبات فقط خلال ساعات العمل.", eh = "حسنًا", th = {
-  wa_header: mu,
-  wa_total: gu,
-  wa_name: _u,
-  wa_type: xu,
-  wa_time: yu,
-  opt_size: bu,
-  opt_extras: vu,
-  opt_notes: wu,
-  opt_doneness: ju,
-  opt_sugar: Nu,
-  opt_pasta_type: $u,
-  opt_bread: Su,
-  menu: Cu,
-  contact: ku,
-  all: Eu,
-  search_placeholder: Ru,
-  call: Ou,
-  whatsapp: Pu,
-  location: Tu,
-  address: Au,
-  open_hours: Lu,
-  add_to_cart: Mu,
-  added: Iu,
-  customize: zu,
-  size: Fu,
-  extras: Du,
-  notes: Uu,
-  cart: Bu,
-  items: Vu,
-  empty_cart: qu,
-  clear_cart: Wu,
-  checkout: Hu,
-  total: Ku,
-  customer_name: Yu,
-  order_type: Ju,
-  pickup: Qu,
-  delivery: Gu,
-  time_or_table: Xu,
-  message_preview: Zu,
-  qr: ed,
-  instagram: td,
-  base_price: sd,
-  extras_total: nd,
-  reservation: ad,
-  book_table: rd,
-  reservation_date: id,
-  reservation_time: od,
-  reservation_area: cd,
-  reservation_guests: ld,
-  reservation_name: ud,
-  reservation_phone: dd,
-  reservation_notes: pd,
-  send_reservation: hd,
-  reservation_sent: fd,
-  reservation_wait: md,
-  reservation_no_response: gd,
-  order_wait: _d,
-  order_no_response: xd,
-  today: yd,
-  tomorrow: bd,
-  reservation_description: vd,
-  choose_date: wd,
-  select_time: jd,
-  number_people: Nd,
-  important_notice: $d,
-  need_assistance: Sd,
-  special_requests_placeholder: Cd,
-  guests_singular: kd,
-  guests_plural: Ed,
-  reservation_request: Rd,
-  date_label: Od,
-  time_label: Pd,
-  area_label: Td,
-  guests_label: Ad,
-  name_label: Ld,
-  phone_label: Md,
-  notes_label: Id,
-  confirm_reservation: zd,
-  thank_you: Fd,
-  sun_thu: Dd,
-  fri: Ud,
-  sat: Bd,
-  important_notice_cart: Vd,
-  delivery_notice: qd,
-  continue_to_whatsapp: Wd,
-  cancel: Hd,
-  wa_order_header: Kd,
-  wa_order_items: Yd,
-  wa_customer_info: Jd,
-  wa_order_type: Qd,
-  wa_customer_name: Gd,
-  wa_customer_phone: Xd,
-  wa_quantity: Zd,
-  wa_item: ep,
-  wa_options: tp,
-  wa_confirm_order: sp,
-  served_until_13: np,
-  day_sun: ap,
-  day_mon: rp,
-  day_tue: ip,
-  day_wed: op,
-  day_thu: cp,
-  day_fri: lp,
-  day_sat: up,
-  "day_tue-sat": "الثلاثاء-السبت",
-  "day_mon-sat": "الاثنين-السبت",
-  terms_of_service: dp,
-  privacy_policy: pp,
-  accessibility_statement: hp,
-  last_updated: fp,
-  terms_acceptance: mp,
-  terms_acceptance_text: gp,
-  terms_service_usage: _p,
-  terms_service_usage_text: xp,
-  terms_orders: yp,
-  terms_orders_text: bp,
-  terms_payment: vp,
-  terms_payment_text: wp,
-  terms_liability: jp,
-  terms_liability_text: Np,
-  terms_changes: $p,
-  terms_changes_text: Sp,
-  privacy_info_collection: Cp,
-  privacy_info_collection_text: kp,
-  privacy_info_usage: Ep,
-  privacy_info_usage_text: Rp,
-  privacy_cookies: Op,
-  privacy_cookies_text: Pp,
-  privacy_whatsapp: Tp,
-  privacy_whatsapp_text: Ap,
-  privacy_data_storage: Lp,
-  privacy_data_storage_text: Mp,
-  privacy_user_rights: Ip,
-  privacy_user_rights_text: zp,
-  accessibility_commitment: Fp,
-  accessibility_commitment_text: Dp,
-  accessibility_standards: Up,
-  accessibility_standards_text: Bp,
-  accessibility_features: Vp,
-  accessibility_features_text: qp,
-  accessibility_contact: Wp,
-  accessibility_contact_text: Hp,
-  name_required: Kp,
-  back_to_menu: Yp,
-  closed: Jp,
-  for_illustration_only: Qp,
-  restaurant_closed_message: Gp,
-  close: Xp,
-  closed_popup_message: Zp,
-  got_it_button: eh
-}, sh = {
-  en: { translation: Co },
-  he: { translation: fu },
-  ar: { translation: th }
-};
-function ys(n) {
-  const e = n === "ar" || n === "he" ? "rtl" : "ltr";
-  document.documentElement.setAttribute("dir", e), document.documentElement.setAttribute("lang", n);
-}
-Y.use(Nn).init({
-  resources: sh,
-  lng: "he",
-  fallbackLng: "en",
-  interpolation: { escapeValue: !1 }
-}).then(() => ys(Y.language));
-Y.on("languageChanged", ys);
 export {
   dh as AccessibilityPage,
   uh as AnimationProvider,
@@ -7008,17 +7008,17 @@ export {
   Tt as ItemCard,
   lh as LanguageSwitcher,
   hh as MenuPage,
-  ca as OptionModal,
+  Yp as OptionModal,
   fh as PrivacyPage,
   mh as QRPage,
-  la as ReservationModal,
+  Jp as ReservationModal,
   gh as ReservationPage,
-  ua as SearchBar,
+  Qp as SearchBar,
   _h as TermsPage,
-  ys as applyDir,
+  os as applyDir,
   kt as cartTotal,
   Y as i18n,
   as as isRestaurantOpen,
-  oa as useAnimation,
+  Kp as useAnimation,
   nt as useCart
 };

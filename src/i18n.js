@@ -14,6 +14,9 @@ export function applyDir(lang) {
   const dir = lang === "ar" || lang === "he" ? "rtl" : "ltr";
   document.documentElement.setAttribute("dir", dir);
   document.documentElement.setAttribute("lang", lang);
+  
+  // CORE i18n is being used - this will show in console
+  console.log("🎯 TABLY CORE i18n is active! Language:", lang, "Direction:", dir);
 }
 
 i18n
