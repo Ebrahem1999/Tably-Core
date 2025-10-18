@@ -1,4 +1,4 @@
-import A, { forwardRef as Wt, createElement as Je, createContext as Ht, useContext as Kt, useState as st, useRef as ke, useEffect as be, useCallback as Ks } from "react";
+import L, { forwardRef as Wt, createElement as Je, createContext as Ht, useContext as Kt, useState as st, useRef as ke, useEffect as be, useCallback as Ks } from "react";
 import { createPortal as Yt } from "react-dom";
 import { useNavigate as Le } from "react-router-dom";
 var Qe = { exports: {} }, me = {};
@@ -16,7 +16,7 @@ function Ys() {
   if (St)
     return me;
   St = 1;
-  var n = A, e = Symbol.for("react.element"), t = Symbol.for("react.fragment"), s = Object.prototype.hasOwnProperty, a = n.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner, o = { key: !0, ref: !0, __self: !0, __source: !0 };
+  var n = L, e = Symbol.for("react.element"), t = Symbol.for("react.fragment"), s = Object.prototype.hasOwnProperty, a = n.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner, o = { key: !0, ref: !0, __self: !0, __source: !0 };
   function u(d, i, c) {
     var l, f = {}, p = null, g = null;
     c !== void 0 && (p = "" + c), i.key !== void 0 && (p = "" + i.key), i.ref !== void 0 && (g = i.ref);
@@ -42,7 +42,7 @@ var ge = {};
 var Ct;
 function Js() {
   return Ct || (Ct = 1, process.env.NODE_ENV !== "production" && function() {
-    var n = A, e = Symbol.for("react.element"), t = Symbol.for("react.portal"), s = Symbol.for("react.fragment"), a = Symbol.for("react.strict_mode"), o = Symbol.for("react.profiler"), u = Symbol.for("react.provider"), d = Symbol.for("react.context"), i = Symbol.for("react.forward_ref"), c = Symbol.for("react.suspense"), l = Symbol.for("react.suspense_list"), f = Symbol.for("react.memo"), p = Symbol.for("react.lazy"), g = Symbol.for("react.offscreen"), m = Symbol.iterator, x = "@@iterator";
+    var n = L, e = Symbol.for("react.element"), t = Symbol.for("react.portal"), s = Symbol.for("react.fragment"), a = Symbol.for("react.strict_mode"), o = Symbol.for("react.profiler"), u = Symbol.for("react.provider"), d = Symbol.for("react.context"), i = Symbol.for("react.forward_ref"), c = Symbol.for("react.suspense"), l = Symbol.for("react.suspense_list"), f = Symbol.for("react.memo"), p = Symbol.for("react.lazy"), g = Symbol.for("react.offscreen"), m = Symbol.iterator, x = "@@iterator";
     function b(h) {
       if (h === null || typeof h != "object")
         return null;
@@ -131,14 +131,14 @@ function Js() {
         }
       return null;
     }
-    var B = Object.assign, W = 0, q, L, U, ee, se, pe, ut;
+    var B = Object.assign, W = 0, q, A, U, ee, se, pe, ut;
     function dt() {
     }
     dt.__reactDisabledLog = !0;
     function bs() {
       {
         if (W === 0) {
-          q = console.log, L = console.info, U = console.warn, ee = console.error, se = console.group, pe = console.groupCollapsed, ut = console.groupEnd;
+          q = console.log, A = console.info, U = console.warn, ee = console.error, se = console.group, pe = console.groupCollapsed, ut = console.groupEnd;
           var h = {
             configurable: !0,
             enumerable: !0,
@@ -171,7 +171,7 @@ function Js() {
               value: q
             }),
             info: B({}, h, {
-              value: L
+              value: A
             }),
             warn: B({}, h, {
               value: U
@@ -643,7 +643,7 @@ React keys must be passed directly to JSX without using spread:
 }
 process.env.NODE_ENV === "production" ? Qe.exports = Ys() : Qe.exports = Js();
 var r = Qe.exports;
-const Jt = A.createContext(null);
+const Jt = L.createContext(null);
 function Qs(n, e) {
   if (!n.options || !e)
     return 0;
@@ -712,16 +712,16 @@ function Xs(n, e) {
       return n;
   }
 }
-function ih({ children: n }) {
-  const [e, t] = A.useReducer(Xs, Gs);
-  A.useEffect(() => {
+function ah({ children: n }) {
+  const [e, t] = L.useReducer(Xs, Gs);
+  L.useEffect(() => {
     localStorage.setItem("qr_cart", JSON.stringify(e));
   }, [e]);
-  const s = A.useMemo(() => ({ state: e, dispatch: t }), [e]);
+  const s = L.useMemo(() => ({ state: e, dispatch: t }), [e]);
   return /* @__PURE__ */ r.jsx(Jt.Provider, { value: s, children: n });
 }
 function nt() {
-  return A.useContext(Jt);
+  return L.useContext(Jt);
 }
 function kt(n) {
   return n.reduce((e, t) => e + (t.totalPrice || t.price) * t.quantity, 0);
@@ -829,16 +829,7 @@ const Ee = J("Calendar", [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const sn = J("ChevronDown", [
-  ["path", { d: "m6 9 6 6 6-6", key: "qrunsl" }]
-]);
-/**
- * @license lucide-react v0.460.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const nn = J("CirclePlus", [
+const sn = J("CirclePlus", [
   ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
   ["path", { d: "M8 12h8", key: "1wcyev" }],
   ["path", { d: "M12 8v8", key: "napkw2" }]
@@ -859,18 +850,7 @@ const Ge = J("Clock", [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const an = J("Globe", [
-  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
-  ["path", { d: "M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20", key: "13o1zl" }],
-  ["path", { d: "M2 12h20", key: "9i4pu4" }]
-]);
-/**
- * @license lucide-react v0.460.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const rn = J("Instagram", [
+const nn = J("Instagram", [
   ["rect", { width: "20", height: "20", x: "2", y: "2", rx: "5", ry: "5", key: "2e1cvw" }],
   ["path", { d: "M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z", key: "9exkf1" }],
   ["line", { x1: "17.5", x2: "17.51", y1: "6.5", y2: "6.5", key: "r4j83e" }]
@@ -906,7 +886,7 @@ const it = J("MessageCircle", [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const on = J("MessageSquare", [
+const an = J("MessageSquare", [
   ["path", { d: "M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z", key: "1lielz" }]
 ]);
 /**
@@ -915,7 +895,7 @@ const on = J("MessageSquare", [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const cn = J("Minus", [["path", { d: "M5 12h14", key: "1ays0h" }]]);
+const rn = J("Minus", [["path", { d: "M5 12h14", key: "1ays0h" }]]);
 /**
  * @license lucide-react v0.460.0 - ISC
  *
@@ -937,7 +917,7 @@ const ot = J("Phone", [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const ln = J("Plus", [
+const on = J("Plus", [
   ["path", { d: "M5 12h14", key: "1ays0h" }],
   ["path", { d: "M12 5v14", key: "s699le" }]
 ]);
@@ -947,7 +927,7 @@ const ln = J("Plus", [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const un = J("ShoppingCart", [
+const cn = J("ShoppingCart", [
   ["circle", { cx: "8", cy: "21", r: "1", key: "jimo8o" }],
   ["circle", { cx: "19", cy: "21", r: "1", key: "13723u" }],
   [
@@ -964,7 +944,7 @@ const un = J("ShoppingCart", [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const dn = J("Trash2", [
+const ln = J("Trash2", [
   ["path", { d: "M3 6h18", key: "d0wm0j" }],
   ["path", { d: "M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6", key: "4alrt4" }],
   ["path", { d: "M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2", key: "v07s0e" }],
@@ -977,7 +957,7 @@ const dn = J("Trash2", [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const pn = J("User", [
+const un = J("User", [
   ["path", { d: "M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2", key: "975kel" }],
   ["circle", { cx: "12", cy: "7", r: "4", key: "17ys0d" }]
 ]);
@@ -1003,14 +983,14 @@ const Me = J("X", [
   ["path", { d: "M18 6 6 18", key: "1bl5f8" }],
   ["path", { d: "m6 6 12 12", key: "d8bk6v" }]
 ]);
-function oh({ onClick: n }) {
+function rh({ onClick: n }) {
   const { state: e } = nt(), t = e.items.reduce((s, a) => s + a.quantity, 0);
   return /* @__PURE__ */ r.jsxs("button", { onClick: n, className: "relative tab", children: [
-    /* @__PURE__ */ r.jsx(un, { size: 18 }),
+    /* @__PURE__ */ r.jsx(cn, { size: 18 }),
     t > 0 && /* @__PURE__ */ r.jsx("span", { className: "absolute -top-2 -end-2 bg-red-500 text-white text-xs rounded-full px-2 py-0.5", children: t })
   ] });
 }
-const hn = (n, e, t, s) => {
+const dn = (n, e, t, s) => {
   var o, u, d, i;
   const a = [t, {
     code: e,
@@ -1020,7 +1000,7 @@ const hn = (n, e, t, s) => {
     return n.services.logger.forward(a, "warn", "react-i18next::", !0);
   ae(a[0]) && (a[0] = `react-i18next:: ${a[0]}`), (i = (d = n == null ? void 0 : n.services) == null ? void 0 : d.logger) != null && i.warn ? n.services.logger.warn(...a) : console != null && console.warn && console.warn(...a);
 }, Et = {}, Xe = (n, e, t, s) => {
-  ae(t) && Et[t] || (ae(t) && (Et[t] = /* @__PURE__ */ new Date()), hn(n, e, t, s));
+  ae(t) && Et[t] || (ae(t) && (Et[t] = /* @__PURE__ */ new Date()), dn(n, e, t, s));
 }, Xt = (n, e) => () => {
   if (n.isInitialized)
     e();
@@ -1040,7 +1020,7 @@ const hn = (n, e, t, s) => {
   t.forEach((a) => {
     n.options.ns.indexOf(a) < 0 && n.options.ns.push(a);
   }), n.loadLanguages(e, Xt(n, s));
-}, fn = (n, e, t = {}) => !e.languages || !e.languages.length ? (Xe(e, "NO_LANGUAGES", "i18n.languages were undefined or empty", {
+}, pn = (n, e, t = {}) => !e.languages || !e.languages.length ? (Xe(e, "NO_LANGUAGES", "i18n.languages were undefined or empty", {
   languages: e.languages
 }), !0) : e.hasLoadedNamespace(n, {
   lng: t.lng,
@@ -1049,7 +1029,7 @@ const hn = (n, e, t, s) => {
     if (((o = t.bindI18n) == null ? void 0 : o.indexOf("languageChanging")) > -1 && s.services.backendConnector.backend && s.isLanguageChangingTo && !a(s.isLanguageChangingTo, n))
       return !1;
   }
-}), ae = (n) => typeof n == "string", mn = (n) => typeof n == "object" && n !== null, gn = /&(?:amp|#38|lt|#60|gt|#62|apos|#39|quot|#34|nbsp|#160|copy|#169|reg|#174|hellip|#8230|#x2F|#47);/g, _n = {
+}), ae = (n) => typeof n == "string", hn = (n) => typeof n == "object" && n !== null, fn = /&(?:amp|#38|lt|#60|gt|#62|apos|#39|quot|#34|nbsp|#160|copy|#169|reg|#174|hellip|#8230|#x2F|#47);/g, mn = {
   "&amp;": "&",
   "&#38;": "&",
   "&lt;": "<",
@@ -1070,7 +1050,7 @@ const hn = (n, e, t, s) => {
   "&#8230;": "…",
   "&#x2F;": "/",
   "&#47;": "/"
-}, xn = (n) => _n[n], yn = (n) => n.replace(gn, xn);
+}, gn = (n) => mn[n], _n = (n) => n.replace(fn, gn);
 let et = {
   bindI18n: "languageChanged",
   bindI18nStore: "",
@@ -1079,24 +1059,24 @@ let et = {
   transWrapTextNodes: "",
   transKeepBasicHtmlNodesFor: ["br", "strong", "i", "p"],
   useSuspense: !0,
-  unescape: yn
+  unescape: _n
 };
-const bn = (n = {}) => {
+const xn = (n = {}) => {
   et = {
     ...et,
     ...n
   };
-}, vn = () => et;
+}, yn = () => et;
 let Zt;
-const wn = (n) => {
+const bn = (n) => {
   Zt = n;
-}, jn = () => Zt, Nn = {
+}, vn = () => Zt, wn = {
   type: "3rdParty",
   init(n) {
-    bn(n.options.react), wn(n);
+    xn(n.options.react), bn(n);
   }
-}, $n = Ht();
-class Sn {
+}, jn = Ht();
+class Nn {
   constructor() {
     this.usedNamespaces = {};
   }
@@ -1109,27 +1089,27 @@ class Sn {
     return Object.keys(this.usedNamespaces);
   }
 }
-const Cn = (n, e) => {
+const $n = (n, e) => {
   const t = ke();
   return be(() => {
     t.current = e ? t.current : n;
   }, [n, e]), t.current;
-}, es = (n, e, t, s) => n.getFixedT(e, t, s), kn = (n, e, t, s) => Ks(es(n, e, t, s), [n, e, t, s]), X = (n, e = {}) => {
+}, es = (n, e, t, s) => n.getFixedT(e, t, s), Sn = (n, e, t, s) => Ks(es(n, e, t, s), [n, e, t, s]), X = (n, e = {}) => {
   var w, j, S, T;
   const {
     i18n: t
   } = e, {
     i18n: s,
     defaultNS: a
-  } = Kt($n) || {}, o = t || s || jn();
-  if (o && !o.reportNamespaces && (o.reportNamespaces = new Sn()), !o) {
+  } = Kt(jn) || {}, o = t || s || vn();
+  if (o && !o.reportNamespaces && (o.reportNamespaces = new Nn()), !o) {
     Xe(o, "NO_I18NEXT_INSTANCE", "useTranslation: You will need to pass in an i18next instance by using initReactI18next");
-    const E = (O, k) => ae(k) ? k : mn(k) && ae(k.defaultValue) ? k.defaultValue : Array.isArray(O) ? O[O.length - 1] : O, z = [E, {}, !1];
+    const E = (O, k) => ae(k) ? k : hn(k) && ae(k.defaultValue) ? k.defaultValue : Array.isArray(O) ? O[O.length - 1] : O, z = [E, {}, !1];
     return z.t = E, z.i18n = {}, z.ready = !1, z;
   }
   (w = o.options.react) != null && w.wait && Xe(o, "DEPRECATED_OPTION", "useTranslation: It seems you are still using the old wait option, you may migrate to the new useSuspense behaviour.");
   const u = {
-    ...vn(),
+    ...yn(),
     ...o.options.react,
     ...e
   }, {
@@ -1138,10 +1118,10 @@ const Cn = (n, e) => {
   } = u;
   let c = n || a || ((j = o.options) == null ? void 0 : j.defaultNS);
   c = ae(c) ? [c] : c || ["translation"], (T = (S = o.reportNamespaces).addUsedNamespaces) == null || T.call(S, c);
-  const l = (o.isInitialized || o.initializedStoreOnce) && c.every((E) => fn(E, o, u)), f = kn(o, e.lng || null, u.nsMode === "fallback" ? c : c[0], i), p = () => f, g = () => es(o, e.lng || null, u.nsMode === "fallback" ? c : c[0], i), [m, x] = st(p);
+  const l = (o.isInitialized || o.initializedStoreOnce) && c.every((E) => pn(E, o, u)), f = Sn(o, e.lng || null, u.nsMode === "fallback" ? c : c[0], i), p = () => f, g = () => es(o, e.lng || null, u.nsMode === "fallback" ? c : c[0], i), [m, x] = st(p);
   let b = c.join();
   e.lng && (b = `${e.lng}${b}`);
-  const N = Cn(b), _ = ke(!0);
+  const N = $n(b), _ = ke(!0);
   be(() => {
     const {
       bindI18n: E,
@@ -1167,23 +1147,23 @@ const Cn = (n, e) => {
   throw new Promise((E) => {
     e.lng ? Rt(o, e.lng, c, () => E()) : Ze(o, c, () => E());
   });
-}, En = "zuwade", Rn = "Zuwade", On = "/zuwade-logo.jpg", Pn = "+972-54-750-7503", Tn = "+972547507503", An = "Zuwade TA", Ln = "קסטרו שפרעם", Mn = {
+}, Cn = "zuwade", kn = "Zuwade", En = "/zuwade-logo.jpg", Rn = "+972-54-750-7503", On = "+972547507503", Pn = "Zuwade TA", Tn = "קסטרו שפרעם", An = {
   lat: 32.81557,
   lng: 35.152813
-}, In = "zuwade.ta", zn = {
+}, Ln = "zuwade.ta", Mn = {
   "Mon-Sat": "09:00-19:00",
   Sun: "Closed"
-}, Fn = {
+}, In = {
   primary: "#10b981",
   accent: "#0ea5e9",
   bg: "#0b0f14",
   card: "#121821",
   text: "#e5e7eb"
-}, Dn = [
+}, zn = [
   "ar",
   "he",
   "en"
-], Un = "₪", Bn = {
+], Fn = "₪", Dn = {
   enabled: !1,
   areas: [
     {
@@ -1221,24 +1201,24 @@ const Cn = (n, e) => {
   max_advance_days: 7,
   whatsapp: "+972547507503"
 }, P = {
-  slug: En,
-  name: Rn,
-  logo: On,
-  phone: Pn,
-  whatsapp: Tn,
-  address: An,
-  waze_name: Ln,
-  coords: Mn,
-  instagram: In,
-  hours: zn,
-  theme: Fn,
-  languages: Dn,
-  currency: Un,
-  reservation: Bn
-}, Vn = {
+  slug: Cn,
+  name: kn,
+  logo: En,
+  phone: Rn,
+  whatsapp: On,
+  address: Pn,
+  waze_name: Tn,
+  coords: An,
+  instagram: Ln,
+  hours: Mn,
+  theme: In,
+  languages: zn,
+  currency: Fn,
+  reservation: Dn
+}, Un = {
   name: "Zuwade",
   brand_subtitle: "TAKE AWAY"
-}, qn = [
+}, Bn = [
   {
     id: "toasts",
     title: "Toasts",
@@ -1264,7 +1244,7 @@ const Cn = (n, e) => {
     title: "Soft Drinks",
     emoji: "🥤"
   }
-], Wn = [
+], Vn = [
   {
     id: "toast_classic",
     name: "Castle Toast",
@@ -1741,13 +1721,13 @@ const Cn = (n, e) => {
     }
   }
 ], ts = {
-  restaurant: Vn,
-  categories: qn,
-  items: Wn
-}, Hn = {
+  restaurant: Un,
+  categories: Bn,
+  items: Vn
+}, qn = {
   name: "זוואדי",
   brand_subtitle: "TAKE AWAY"
-}, Kn = [
+}, Wn = [
   {
     id: "toasts",
     title: "טוסטים",
@@ -1773,7 +1753,7 @@ const Cn = (n, e) => {
     title: "שתייה קלה",
     emoji: "🥤"
   }
-], Yn = [
+], Hn = [
   {
     id: "toast_classic",
     name: "טוסט המבצר",
@@ -2248,13 +2228,13 @@ const Cn = (n, e) => {
     }
   }
 ], ss = {
-  restaurant: Hn,
-  categories: Kn,
-  items: Yn
-}, Jn = {
+  restaurant: qn,
+  categories: Wn,
+  items: Hn
+}, Kn = {
   name: "زواوي",
   brand_subtitle: "TAKE AWAY"
-}, Qn = [
+}, Yn = [
   {
     id: "toasts",
     title: "توست",
@@ -2280,7 +2260,7 @@ const Cn = (n, e) => {
     title: "مشروبات غازية",
     emoji: "🥤"
   }
-], Gn = [
+], Jn = [
   {
     id: "toast_classic",
     name: "توست القلعة",
@@ -2757,13 +2737,13 @@ const Cn = (n, e) => {
     }
   }
 ], ns = {
-  restaurant: Jn,
-  categories: Qn,
-  items: Gn
-}, Xn = "https://79vup8a13c.execute-api.eu-central-1.amazonaws.com", Zn = async (n = {}) => {
+  restaurant: Kn,
+  categories: Yn,
+  items: Jn
+}, Qn = "https://79vup8a13c.execute-api.eu-central-1.amazonaws.com", Gn = async (n = {}) => {
   console.log("🛒 Tracking order submission...");
   try {
-    const e = `${Xn}/api/analytics/order`, t = {
+    const e = `${Qn}/api/analytics/order`, t = {
       timestamp: (/* @__PURE__ */ new Date()).toISOString(),
       tablyname: "Zuwade",
       orderType: n.orderType || "unknown",
@@ -2800,7 +2780,7 @@ function Ot(n) {
   const t = Number.parseInt(e[1], 10), s = Number.parseInt(e[2], 10);
   return Number.isNaN(t) || Number.isNaN(s) || s < 0 || s > 59 || t < 0 || t > 24 || t === 24 && s !== 0 ? null : t * 60 + s;
 }
-function ea(n) {
+function Xn(n) {
   if (!n)
     return [];
   const e = n.replace(/\s+/g, " ").replace(/\s*[\u2013-]\s*/g, "-").trim();
@@ -2825,16 +2805,16 @@ function Ke(n = "") {
     (s) => s.toLowerCase() === e
   );
 }
-function ta(n) {
+function Zn(n) {
   if (!n || typeof n != "string")
     return [];
-  const t = n.split(",").map((s) => s.trim()).flatMap(ea);
+  const t = n.split(",").map((s) => s.trim()).flatMap(Xn);
   return Array.from(new Set(t));
 }
-function sa(n) {
+function ea(n) {
   const e = de.map(() => []);
   return Object.entries(n || {}).forEach(([t, s]) => {
-    const a = ta(t);
+    const a = Zn(t);
     if (!a.length || !s || /closed/i.test(String(s)))
       return;
     String(s).split(",").map((u) => u.trim()).filter(Boolean).forEach((u) => {
@@ -2856,7 +2836,7 @@ function sa(n) {
     ).sort((s, a) => s.start - a.start)
   );
 }
-function na() {
+function ta() {
   var c, l, f;
   const n = /* @__PURE__ */ new Date(), t = new Intl.DateTimeFormat("en-US", {
     timeZone: "Asia/Jerusalem",
@@ -2873,10 +2853,10 @@ function na() {
 function as(n) {
   if (!n || typeof n != "object")
     return !0;
-  const { dayIndex: e, minutes: t } = na();
+  const { dayIndex: e, minutes: t } = ta();
   if (e === -1 || Number.isNaN(t))
     return !0;
-  const a = sa(n)[e];
+  const a = ea(n)[e];
   return !a || a.length === 0 ? !1 : a.some(
     (o) => t >= o.start && t < o.end
   );
@@ -2885,7 +2865,7 @@ const Pt = { en: ts, he: ss, ar: ns };
 function xe(n, e) {
   return (Pt[e] || Pt.en).items.find((s) => s.id === n);
 }
-function aa(n, e, t) {
+function sa(n, e, t) {
   var p, g, m, x, b, N;
   const s = (_, y) => {
     var j;
@@ -2926,15 +2906,15 @@ function aa(n, e, t) {
           if (B && B.choices)
             if (Array.isArray(C))
               W = C.map((q) => {
-                const L = B.choices[q];
-                return typeof L == "string" ? L : (L == null ? void 0 : L.name) || `Choice ${q}`;
+                const A = B.choices[q];
+                return typeof A == "string" ? A : (A == null ? void 0 : A.name) || `Choice ${q}`;
               }).join(", ");
             else if (typeof C == "number" && B.choices[C]) {
               const q = B.choices[C];
               W = typeof q == "string" ? q : (q == null ? void 0 : q.name) || `Choice ${C}`;
             } else {
               const q = B.choices.find(
-                (L) => (typeof L == "string" ? L : L.name) === C
+                (A) => (typeof A == "string" ? A : A.name) === C
               );
               W = typeof q == "string" ? q : (q == null ? void 0 : q.name) || C;
             }
@@ -3000,9 +2980,9 @@ function aa(n, e, t) {
   return a ? d.push(`${f} 🙏`) : d.push(`${f} 🙏`), d.join(`
 `);
 }
-function ch({ open: n, onClose: e }) {
-  const { state: t, dispatch: s } = nt(), { t: a, i18n: o } = X(), u = kt(t.items), d = aa(t, a, o), [i, c] = A.useState(!1), [l, f] = A.useState(!1), [p, g] = A.useState(!1);
-  A.useEffect(() => {
+function ih({ open: n, onClose: e }) {
+  const { state: t, dispatch: s } = nt(), { t: a, i18n: o } = X(), u = kt(t.items), d = sa(t, a, o), [i, c] = L.useState(!1), [l, f] = L.useState(!1), [p, g] = L.useState(!1);
+  L.useEffect(() => {
     n || (c(!1), g(!1));
   }, [n]);
   const m = t.items.map((j) => {
@@ -3027,7 +3007,7 @@ function ch({ open: n, onClose: e }) {
     var S, T, E;
     try {
       const z = t.items || [], O = kt(z), k = z.reduce((C, D) => C + D.quantity, 0);
-      Zn({
+      Gn({
         orderType: ((S = t.customer) == null ? void 0 : S.type) || "unknown",
         itemCount: k,
         totalAmount: O,
@@ -3092,7 +3072,7 @@ function ch({ open: n, onClose: e }) {
                     {
                       className: "text-red-400",
                       onClick: () => s({ type: "REMOVE", key: j.key }),
-                      children: /* @__PURE__ */ r.jsx(dn, { size: 16 })
+                      children: /* @__PURE__ */ r.jsx(ln, { size: 16 })
                     }
                   )
                 ] }),
@@ -3119,18 +3099,18 @@ function ch({ open: n, onClose: e }) {
                     let B = k, W = 0;
                     if (C && C.choices)
                       if (Array.isArray(k))
-                        B = k.map((L) => {
-                          const U = C.choices[L];
-                          return U && typeof U == "object" && U.price && (W += U.price), typeof U == "string" ? U : (U == null ? void 0 : U.name) || `Choice ${L}`;
+                        B = k.map((A) => {
+                          const U = C.choices[A];
+                          return U && typeof U == "object" && U.price && (W += U.price), typeof U == "string" ? U : (U == null ? void 0 : U.name) || `Choice ${A}`;
                         }).join(", ");
                       else if (typeof k == "number" && C.choices[k]) {
-                        const L = C.choices[k];
-                        L && typeof L == "object" && L.price && (W = L.price), B = typeof L == "string" ? L : (L == null ? void 0 : L.name) || `Choice ${k}`;
+                        const A = C.choices[k];
+                        A && typeof A == "object" && A.price && (W = A.price), B = typeof A == "string" ? A : (A == null ? void 0 : A.name) || `Choice ${k}`;
                       } else {
-                        const L = C.choices.find(
+                        const A = C.choices.find(
                           (U) => (typeof U == "string" ? U : U.name) === k
                         );
-                        L && typeof L == "object" && L.price && (W = L.price), B = typeof L == "string" ? L : (L == null ? void 0 : L.name) || k;
+                        A && typeof A == "object" && A.price && (W = A.price), B = typeof A == "string" ? A : (A == null ? void 0 : A.name) || k;
                       }
                     return /* @__PURE__ */ r.jsxs("div", { children: [
                       /* @__PURE__ */ r.jsxs("span", { className: "text-white/70", children: [
@@ -3153,7 +3133,7 @@ function ch({ open: n, onClose: e }) {
                     {
                       className: "tab",
                       onClick: () => s({ type: "DEC", key: j.key }),
-                      children: /* @__PURE__ */ r.jsx(cn, { size: 14 })
+                      children: /* @__PURE__ */ r.jsx(rn, { size: 14 })
                     }
                   ),
                   /* @__PURE__ */ r.jsx("div", { className: "min-w-[2rem] text-center", children: j.quantity }),
@@ -3162,7 +3142,7 @@ function ch({ open: n, onClose: e }) {
                     {
                       className: "tab",
                       onClick: () => s({ type: "INC", key: j.key }),
-                      children: /* @__PURE__ */ r.jsx(ln, { size: 14 })
+                      children: /* @__PURE__ */ r.jsx(on, { size: 14 })
                     }
                   ),
                   /* @__PURE__ */ r.jsx("div", { className: "flex-1" }),
@@ -3254,7 +3234,7 @@ function ch({ open: n, onClose: e }) {
     document.body
   );
 }
-function ra({ categories: n, current: e, onChange: t }) {
+function na({ categories: n, current: e, onChange: t }) {
   const { t: s } = X();
   return /* @__PURE__ */ r.jsxs("div", { className: "relative", children: [
     /* @__PURE__ */ r.jsx("div", { className: "absolute left-0 top-0 bottom-0 w-6 bg-gradient-to-r from-[var(--bg)] to-transparent z-10 pointer-events-none" }),
@@ -3283,8 +3263,8 @@ function ra({ categories: n, current: e, onChange: t }) {
     ] })
   ] });
 }
-function ia({ open: n, src: e, alt: t, onClose: s }) {
-  if (A.useEffect(() => {
+function aa({ open: n, src: e, alt: t, onClose: s }) {
+  if (L.useEffect(() => {
     if (!n)
       return;
     const o = (u) => u.key === "Escape" && s();
@@ -3378,67 +3358,15 @@ function Tt({ item: n, currency: e, onAdd: t, onPreview: s }) {
         ] }, d);
       }) }) }),
       !n.noCart && /* @__PURE__ */ r.jsx("div", { className: "pt-2 mt-auto", children: /* @__PURE__ */ r.jsxs("button", { className: "btn w-full", onClick: () => t(n), children: [
-        /* @__PURE__ */ r.jsx(nn, { size: 18 }),
+        /* @__PURE__ */ r.jsx(sn, { size: 18 }),
         " ",
         a("add_to_cart")
       ] }) })
     ] })
   ] });
 }
-function lh({ i18n: n }) {
-  const { i18n: e } = X(), t = n || e, [s, a] = A.useState(!1), o = [
-    { code: "ar", name: "العربية" },
-    { code: "he", name: "עברית" },
-    { code: "en", name: "English" }
-  ], u = o.find((i) => i.code === t.language) || o[0], d = (i) => {
-    t.changeLanguage(i), a(!1);
-  };
-  return /* @__PURE__ */ r.jsxs("div", { className: "relative", children: [
-    /* @__PURE__ */ r.jsxs(
-      "button",
-      {
-        onClick: () => a(!s),
-        className: "tab flex items-center gap-2 min-w-[80px] justify-between",
-        children: [
-          /* @__PURE__ */ r.jsxs("div", { className: "flex items-center gap-2", children: [
-            /* @__PURE__ */ r.jsx(an, { size: 16, className: "opacity-70" }),
-            /* @__PURE__ */ r.jsx("span", { className: "text-sm font-medium", children: u.code.toUpperCase() })
-          ] }),
-          /* @__PURE__ */ r.jsx(
-            sn,
-            {
-              size: 14,
-              className: `opacity-70 transition-transform duration-200 ${s ? "rotate-180" : ""}`
-            }
-          )
-        ]
-      }
-    ),
-    s && /* @__PURE__ */ r.jsxs(r.Fragment, { children: [
-      /* @__PURE__ */ r.jsx(
-        "div",
-        {
-          className: "fixed inset-0 z-40",
-          onClick: () => a(!1)
-        }
-      ),
-      /* @__PURE__ */ r.jsx("div", { className: "absolute top-full right-0 mt-2 bg-[var(--card)] border border-white/10 rounded-lg shadow-xl z-50 min-w-[120px] overflow-hidden", children: o.map((i) => /* @__PURE__ */ r.jsxs(
-        "button",
-        {
-          onClick: () => d(i.code),
-          className: `w-full px-3 py-2 text-left hover:bg-white/5 transition-colors flex items-center justify-between text-sm ${i.code === t.language ? "bg-white/10 text-green-400" : "text-white/80"}`,
-          children: [
-            /* @__PURE__ */ r.jsx("span", { className: "font-medium", children: i.name }),
-            i.code === t.language && /* @__PURE__ */ r.jsx("div", { className: "w-2 h-2 bg-green-400 rounded-full" })
-          ]
-        },
-        i.code
-      )) })
-    ] })
-  ] });
-}
 const rs = Ht();
-function uh({ children: n }) {
+function oh({ children: n }) {
   const [e, t] = st(null), s = (a) => {
     t(a), setTimeout(() => {
       t(null);
@@ -3446,11 +3374,11 @@ function uh({ children: n }) {
   };
   return /* @__PURE__ */ r.jsx(rs.Provider, { value: { animation: e, triggerAnimation: s }, children: n });
 }
-function oa() {
+function ra() {
   return Kt(rs);
 }
-function ca({ open: n, onClose: e, item: t, onConfirm: s }) {
-  const { t: a } = X(), { triggerAnimation: o } = oa(), [u, d] = A.useState(1), [i, c] = A.useState({}), l = () => {
+function ia({ open: n, onClose: e, item: t, onConfirm: s }) {
+  const { t: a } = X(), { triggerAnimation: o } = ra(), [u, d] = L.useState(1), [i, c] = L.useState({}), l = () => {
     if (!t)
       return 0;
     let g = 0;
@@ -3468,7 +3396,7 @@ function ca({ open: n, onClose: e, item: t, onConfirm: s }) {
       }
     }), (t.price + g) * u;
   };
-  if (A.useEffect(() => {
+  if (L.useEffect(() => {
     if (t != null && t.options) {
       const g = {};
       for (const [m, x] of Object.entries(t.options))
@@ -3684,8 +3612,8 @@ function ca({ open: n, onClose: e, item: t, onConfirm: s }) {
     ] })
   ] }) });
 }
-function la({ open: n, onClose: e }) {
-  const { t, i18n: s } = X(), [a, o] = A.useState({
+function oa({ open: n, onClose: e }) {
+  const { t, i18n: s } = X(), [a, o] = L.useState({
     date: (/* @__PURE__ */ new Date()).toISOString().split("T")[0],
     // Today as default
     time: "",
@@ -3827,7 +3755,7 @@ ${t("thank_you")}`, g = `https://wa.me/${P.reservation.whatsapp}?text=${encodeUR
               ] }),
               /* @__PURE__ */ r.jsxs("label", { className: "block space-y-1", children: [
                 /* @__PURE__ */ r.jsxs("div", { className: "text-sm text-white/80 flex items-center gap-2", children: [
-                  /* @__PURE__ */ r.jsx(pn, { size: 14 }),
+                  /* @__PURE__ */ r.jsx(un, { size: 14 }),
                   t("reservation_name")
                 ] }),
                 /* @__PURE__ */ r.jsx(
@@ -3859,7 +3787,7 @@ ${t("thank_you")}`, g = `https://wa.me/${P.reservation.whatsapp}?text=${encodeUR
               ] }),
               /* @__PURE__ */ r.jsxs("label", { className: "block space-y-1", children: [
                 /* @__PURE__ */ r.jsxs("div", { className: "text-sm text-white/80 flex items-center gap-2", children: [
-                  /* @__PURE__ */ r.jsx(on, { size: 14 }),
+                  /* @__PURE__ */ r.jsx(an, { size: 14 }),
                   t("reservation_notes")
                 ] }),
                 /* @__PURE__ */ r.jsx(
@@ -3881,7 +3809,7 @@ ${t("thank_you")}`, g = `https://wa.me/${P.reservation.whatsapp}?text=${encodeUR
     }
   ) : null;
 }
-function ua({ value: n, onChange: e }) {
+function ca({ value: n, onChange: e }) {
   const { t } = X();
   return /* @__PURE__ */ r.jsx(
     "input",
@@ -3893,9 +3821,9 @@ function ua({ value: n, onChange: e }) {
     }
   );
 }
-function dh() {
+function ch() {
   const { t: n } = X(), e = Le();
-  return A.useEffect(() => {
+  return L.useEffect(() => {
     document.documentElement.scrollTop = 0, document.body.scrollTop = 0, setTimeout(() => {
       window.scrollTo({ top: 0, left: 0, behavior: "auto" });
     }, 0);
@@ -3936,7 +3864,7 @@ function dh() {
     ] })
   ] }) });
 }
-function ph() {
+function lh() {
   const { t: n } = X();
   return /* @__PURE__ */ r.jsxs("div", { className: "py-10 max-w-3xl mx-auto space-y-4", children: [
     /* @__PURE__ */ r.jsx("h1", { className: "text-3xl font-bold", children: n("contact") }),
@@ -3959,7 +3887,7 @@ function ph() {
           target: "_blank",
           rel: "noreferrer",
           children: [
-            /* @__PURE__ */ r.jsx(rn, { size: 18 }),
+            /* @__PURE__ */ r.jsx(nn, { size: 18 }),
             " ",
             n("instagram")
           ]
@@ -3999,11 +3927,11 @@ function ph() {
   ] });
 }
 const At = { en: ts, he: ss, ar: ns };
-function hh() {
+function uh() {
   const { i18n: n, t: e } = X();
   Le();
-  const [t, s] = A.useState("all"), [a, o] = A.useState(""), [u, d] = A.useState(null), [i, c] = A.useState(null), [l, f] = A.useState(!1), { dispatch: p } = nt();
-  A.useEffect(() => {
+  const [t, s] = L.useState("all"), [a, o] = L.useState(""), [u, d] = L.useState(null), [i, c] = L.useState(null), [l, f] = L.useState(!1), { dispatch: p } = nt();
+  L.useEffect(() => {
     try {
       P.hours && !as(P.hours) && f(!0);
     } catch {
@@ -4047,10 +3975,10 @@ function hh() {
     ] }),
     /* @__PURE__ */ r.jsxs("div", { className: "flex flex-col md:flex-row md:items-center gap-3 mb-4", children: [
       /* @__PURE__ */ r.jsx("h1", { className: "text-3xl font-bold tracking-tight flex-1", children: e("menu") }),
-      /* @__PURE__ */ r.jsx("div", { className: "md:w-64", children: /* @__PURE__ */ r.jsx(ua, { value: a, onChange: o }) })
+      /* @__PURE__ */ r.jsx("div", { className: "md:w-64", children: /* @__PURE__ */ r.jsx(ca, { value: a, onChange: o }) })
     ] }),
     /* @__PURE__ */ r.jsx(
-      ra,
+      na,
       {
         categories: g.categories,
         current: t,
@@ -4115,7 +4043,7 @@ function hh() {
       ] })
     ),
     /* @__PURE__ */ r.jsx(
-      ca,
+      ia,
       {
         open: !!u,
         item: u,
@@ -4124,7 +4052,7 @@ function hh() {
       }
     ),
     /* @__PURE__ */ r.jsx(
-      ia,
+      aa,
       {
         open: !!i,
         src: i == null ? void 0 : i.src,
@@ -4142,9 +4070,9 @@ function hh() {
     ] })
   ] });
 }
-function fh() {
+function dh() {
   const { t: n } = X(), e = Le();
-  return A.useEffect(() => {
+  return L.useEffect(() => {
     document.documentElement.scrollTop = 0, document.body.scrollTop = 0, setTimeout(() => {
       window.scrollTo({ top: 0, left: 0, behavior: "auto" });
     }, 0);
@@ -4193,7 +4121,7 @@ function fh() {
     ] })
   ] }) });
 }
-var da = Object.defineProperty, Re = Object.getOwnPropertySymbols, is = Object.prototype.hasOwnProperty, os = Object.prototype.propertyIsEnumerable, Lt = (n, e, t) => e in n ? da(n, e, { enumerable: !0, configurable: !0, writable: !0, value: t }) : n[e] = t, ve = (n, e) => {
+var la = Object.defineProperty, Re = Object.getOwnPropertySymbols, is = Object.prototype.hasOwnProperty, os = Object.prototype.propertyIsEnumerable, Lt = (n, e, t) => e in n ? la(n, e, { enumerable: !0, configurable: !0, writable: !0, value: t }) : n[e] = t, ve = (n, e) => {
   for (var t in e || (e = {}))
     is.call(e, t) && Lt(n, t, e[t]);
   if (Re)
@@ -4645,7 +4573,7 @@ var cs = {
   M: ue.QrCode.Ecc.MEDIUM,
   Q: ue.QrCode.Ecc.QUARTILE,
   H: ue.QrCode.Ecc.HIGH
-}, ls = 128, us = "L", ds = "#FFFFFF", ps = "#000000", hs = !1, lt = 4, pa = 0.1;
+}, ls = 128, us = "L", ds = "#FFFFFF", ps = "#000000", hs = !1, lt = 4, ua = 0.1;
 function fs(n, e = 0) {
   const t = [];
   return n.forEach(function(s, a) {
@@ -4671,7 +4599,7 @@ function ms(n, e) {
 function gs(n, e, t, s) {
   if (s == null)
     return null;
-  const a = t ? lt : 0, o = n.length + a * 2, u = Math.floor(e * pa), d = o / e, i = (s.width || u) * d, c = (s.height || u) * d, l = s.x == null ? n.length / 2 - i / 2 : s.x * d, f = s.y == null ? n.length / 2 - c / 2 : s.y * d;
+  const a = t ? lt : 0, o = n.length + a * 2, u = Math.floor(e * ua), d = o / e, i = (s.width || u) * d, c = (s.height || u) * d, l = s.x == null ? n.length / 2 - i / 2 : s.x * d, f = s.y == null ? n.length / 2 - c / 2 : s.y * d;
   let p = null;
   if (s.excavate) {
     let g = Math.floor(l), m = Math.floor(f), x = Math.ceil(i + l - g), b = Math.ceil(c + f - m);
@@ -4679,7 +4607,7 @@ function gs(n, e, t, s) {
   }
   return { x: l, y: f, h: c, w: i, excavation: p };
 }
-var ha = function() {
+var da = function() {
   try {
     new Path2D().addPath(new Path2D());
   } catch {
@@ -4687,7 +4615,7 @@ var ha = function() {
   }
   return !0;
 }();
-function fa(n) {
+function pa(n) {
   const e = n, {
     value: t,
     size: s = ls,
@@ -4718,7 +4646,7 @@ function fa(n) {
       const O = window.devicePixelRatio || 1;
       _.height = _.width = s * O;
       const k = s / S * O;
-      y.scale(k, k), y.fillStyle = o, y.fillRect(0, 0, S, S), y.fillStyle = u, ha ? y.fill(new Path2D(fs(w, j))) : w.forEach(function(C, D) {
+      y.scale(k, k), y.fillStyle = o, y.fillRect(0, 0, S, S), y.fillStyle = u, da ? y.fill(new Path2D(fs(w, j))) : w.forEach(function(C, D) {
         C.forEach(function(B, W) {
           B && y.fillRect(W + j, D + j, 1, 1);
         });
@@ -4729,7 +4657,7 @@ function fa(n) {
   }, [f]);
   const b = ve({ height: s, width: s }, i);
   let N = null;
-  return f != null && (N = /* @__PURE__ */ A.createElement("img", {
+  return f != null && (N = /* @__PURE__ */ L.createElement("img", {
     src: f,
     key: f,
     style: { display: "none" },
@@ -4737,14 +4665,14 @@ function fa(n) {
       x(!0);
     },
     ref: g
-  })), /* @__PURE__ */ A.createElement(A.Fragment, null, /* @__PURE__ */ A.createElement("canvas", ve({
+  })), /* @__PURE__ */ L.createElement(L.Fragment, null, /* @__PURE__ */ L.createElement("canvas", ve({
     style: b,
     height: s,
     width: s,
     ref: p
   }, l)), N);
 }
-function ma(n) {
+function ha(n) {
   const e = n, {
     value: t,
     size: s = ls,
@@ -4765,7 +4693,7 @@ function ma(n) {
   let l = ue.QrCode.encodeText(t, cs[a]).getModules();
   const f = d ? lt : 0, p = l.length + f * 2, g = gs(l, s, d, i);
   let m = null;
-  i != null && g != null && (g.excavation != null && (l = ms(l, g.excavation)), m = /* @__PURE__ */ A.createElement("image", {
+  i != null && g != null && (g.excavation != null && (l = ms(l, g.excavation)), m = /* @__PURE__ */ L.createElement("image", {
     xlinkHref: i.src,
     height: g.h,
     width: g.w,
@@ -4774,26 +4702,26 @@ function ma(n) {
     preserveAspectRatio: "none"
   }));
   const x = fs(l, f);
-  return /* @__PURE__ */ A.createElement("svg", ve({
+  return /* @__PURE__ */ L.createElement("svg", ve({
     height: s,
     width: s,
     viewBox: `0 0 ${p} ${p}`
-  }, c), /* @__PURE__ */ A.createElement("path", {
+  }, c), /* @__PURE__ */ L.createElement("path", {
     fill: o,
     d: `M0,0 h${p}v${p}H0z`,
     shapeRendering: "crispEdges"
-  }), /* @__PURE__ */ A.createElement("path", {
+  }), /* @__PURE__ */ L.createElement("path", {
     fill: u,
     d: x,
     shapeRendering: "crispEdges"
   }), m);
 }
-var ga = (n) => {
+var fa = (n) => {
   const e = n, { renderAs: t } = e, s = ct(e, ["renderAs"]);
-  return t === "svg" ? /* @__PURE__ */ A.createElement(ma, ve({}, s)) : /* @__PURE__ */ A.createElement(fa, ve({}, s));
+  return t === "svg" ? /* @__PURE__ */ L.createElement(ha, ve({}, s)) : /* @__PURE__ */ L.createElement(pa, ve({}, s));
 };
-function mh() {
-  const { t: n } = X(), [e, t] = A.useState(window.location.origin), s = A.useRef(null), a = () => {
+function ph() {
+  const { t: n } = X(), [e, t] = L.useState(window.location.origin), s = L.useRef(null), a = () => {
     const o = s.current.querySelector("canvas");
     if (!o)
       return;
@@ -4803,14 +4731,14 @@ function mh() {
   return /* @__PURE__ */ r.jsxs("div", { className: "py-10 max-w-lg mx-auto space-y-4 text-center", children: [
     /* @__PURE__ */ r.jsx("h1", { className: "text-3xl font-bold", children: n("qr") }),
     /* @__PURE__ */ r.jsxs("div", { className: "card p-6 flex flex-col items-center gap-4", children: [
-      /* @__PURE__ */ r.jsx("div", { ref: s, className: "bg-white p-4 rounded-2xl", children: /* @__PURE__ */ r.jsx(ga, { value: e, size: 256, includeMargin: !0 }) }),
+      /* @__PURE__ */ r.jsx("div", { ref: s, className: "bg-white p-4 rounded-2xl", children: /* @__PURE__ */ r.jsx(fa, { value: e, size: 256, includeMargin: !0 }) }),
       /* @__PURE__ */ r.jsx("input", { value: e, onChange: (o) => t(o.target.value), className: "w-full" }),
       /* @__PURE__ */ r.jsx("button", { className: "btn w-full", onClick: a, children: "PNG" })
     ] })
   ] });
 }
-function gh() {
-  const { t: n, i18n: e } = X(), [t, s] = A.useState(!1), a = (o) => e.language === "ar" ? o.name_ar : e.language === "he" ? o.name_he : o.name;
+function hh() {
+  const { t: n, i18n: e } = X(), [t, s] = L.useState(!1), a = (o) => e.language === "ar" ? o.name_ar : e.language === "he" ? o.name_he : o.name;
   return /* @__PURE__ */ r.jsxs("div", { className: "py-8", children: [
     /* @__PURE__ */ r.jsxs("div", { className: "text-center mb-8", children: [
       /* @__PURE__ */ r.jsx("h1", { className: "text-3xl font-bold tracking-tight mb-4", children: n("book_table") }),
@@ -4912,12 +4840,12 @@ function gh() {
         /* @__PURE__ */ r.jsx("a", { href: `tel:${P.phone}`, className: "text-green-400 hover:underline", children: P.phone })
       ] })
     ] }),
-    /* @__PURE__ */ r.jsx(la, { open: t, onClose: () => s(!1) })
+    /* @__PURE__ */ r.jsx(oa, { open: t, onClose: () => s(!1) })
   ] });
 }
-function _h() {
+function fh() {
   const { t: n } = X(), e = Le();
-  return A.useEffect(() => {
+  return L.useEffect(() => {
     document.documentElement.scrollTop = 0, document.body.scrollTop = 0, setTimeout(() => {
       window.scrollTo({ top: 0, left: 0, behavior: "auto" });
     }, 0);
@@ -4966,7 +4894,7 @@ function _h() {
     ] })
   ] }) });
 }
-const _a = {
+const ma = {
   type: "logger",
   log(n) {
     this.output("log", n);
@@ -4988,7 +4916,7 @@ class Oe {
   }
   init(e) {
     let t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
-    this.prefix = t.prefix || "i18next:", this.logger = e || _a, this.options = t, this.debug = t.debug;
+    this.prefix = t.prefix || "i18next:", this.logger = e || ma, this.options = t, this.debug = t.debug;
   }
   log() {
     for (var e = arguments.length, t = new Array(e), s = 0; s < e; s++)
@@ -5068,15 +4996,15 @@ function _e() {
 function Mt(n) {
   return n == null ? "" : "" + n;
 }
-function xa(n, e, t) {
+function ga(n, e, t) {
   n.forEach((s) => {
     e[s] && (t[s] = e[s]);
   });
 }
-const ya = /###/g;
+const _a = /###/g;
 function ye(n, e, t) {
   function s(d) {
-    return d && d.indexOf("###") > -1 ? d.replace(ya, ".") : d;
+    return d && d.indexOf("###") > -1 ? d.replace(_a, ".") : d;
   }
   function a() {
     return !n || typeof n == "string";
@@ -5108,7 +5036,7 @@ function It(n, e, t) {
     o = `${u[u.length - 1]}.${o}`, u = u.slice(0, u.length - 1), d = ye(n, u, Object), d && d.obj && typeof d.obj[`${d.k}.${o}`] < "u" && (d.obj = void 0);
   d.obj[`${d.k}.${o}`] = t;
 }
-function ba(n, e, t, s) {
+function xa(n, e, t, s) {
   const {
     obj: a,
     k: o
@@ -5123,7 +5051,7 @@ function Pe(n, e) {
   if (t)
     return t[s];
 }
-function va(n, e, t) {
+function ya(n, e, t) {
   const s = Pe(n, t);
   return s !== void 0 ? s : Pe(e, t);
 }
@@ -5135,7 +5063,7 @@ function _s(n, e, t) {
 function ce(n) {
   return n.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
 }
-var wa = {
+var ba = {
   "&": "&amp;",
   "<": "&lt;",
   ">": "&gt;",
@@ -5143,10 +5071,10 @@ var wa = {
   "'": "&#39;",
   "/": "&#x2F;"
 };
-function ja(n) {
-  return typeof n == "string" ? n.replace(/[&<>"'\/]/g, (e) => wa[e]) : n;
+function va(n) {
+  return typeof n == "string" ? n.replace(/[&<>"'\/]/g, (e) => ba[e]) : n;
 }
-class Na {
+class wa {
   constructor(e) {
     this.capacity = e, this.regExpMap = /* @__PURE__ */ new Map(), this.regExpQueue = [];
   }
@@ -5158,13 +5086,13 @@ class Na {
     return this.regExpQueue.length === this.capacity && this.regExpMap.delete(this.regExpQueue.shift()), this.regExpMap.set(e, s), this.regExpQueue.push(e), s;
   }
 }
-const $a = [" ", ",", "?", "!", ";"], Sa = new Na(20);
-function Ca(n, e, t) {
+const ja = [" ", ",", "?", "!", ";"], Na = new wa(20);
+function $a(n, e, t) {
   e = e || "", t = t || "";
-  const s = $a.filter((u) => e.indexOf(u) < 0 && t.indexOf(u) < 0);
+  const s = ja.filter((u) => e.indexOf(u) < 0 && t.indexOf(u) < 0);
   if (s.length === 0)
     return !0;
-  const a = Sa.getRegExp(`(${s.map((u) => u === "?" ? "\\?" : u).join("|")})`);
+  const a = Na.getRegExp(`(${s.map((u) => u === "?" ? "\\?" : u).join("|")})`);
   let o = !a.test(n);
   if (!o) {
     const u = n.indexOf(t);
@@ -5288,7 +5216,7 @@ const Ft = {};
 class Ae extends Ie {
   constructor(e) {
     let t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
-    super(), xa(["resourceStore", "languageUtils", "pluralResolver", "interpolator", "backendConnector", "i18nFormat", "utils"], e, this), this.options = t, this.options.keySeparator === void 0 && (this.options.keySeparator = "."), this.logger = te.create("translator");
+    super(), ga(["resourceStore", "languageUtils", "pluralResolver", "interpolator", "backendConnector", "i18nFormat", "utils"], e, this), this.options = t, this.options.keySeparator === void 0 && (this.options.keySeparator = "."), this.logger = te.create("translator");
   }
   changeLanguage(e) {
     e && (this.language = e);
@@ -5307,7 +5235,7 @@ class Ae extends Ie {
     s === void 0 && (s = ":");
     const a = t.keySeparator !== void 0 ? t.keySeparator : this.options.keySeparator;
     let o = t.ns || this.options.defaultNS || [];
-    const u = s && e.indexOf(s) > -1, d = !this.options.userDefinedKeySeparator && !t.keySeparator && !this.options.userDefinedNsSeparator && !t.nsSeparator && !Ca(e, s, a);
+    const u = s && e.indexOf(s) > -1, d = !this.options.userDefinedKeySeparator && !t.keySeparator && !this.options.userDefinedNsSeparator && !t.nsSeparator && !$a(e, s, a);
     if (u && !d) {
       const i = e.match(this.interpolator.nestingRegexp);
       if (i && i.length > 0)
@@ -5403,16 +5331,16 @@ class Ae extends Ie {
             W.push(q[U]);
         else
           this.options.saveMissingTo === "all" ? W = this.languageUtils.toResolveHierarchy(t.lng || this.language) : W.push(t.lng || this.language);
-        const L = (U, ee, se) => {
+        const A = (U, ee, se) => {
           const pe = T && se !== p ? se : D;
           this.options.missingKeyHandler ? this.options.missingKeyHandler(U, i, ee, pe, B, t) : this.backendConnector && this.backendConnector.saveMissing && this.backendConnector.saveMissing(U, i, ee, pe, B, t), this.emit("missingKey", U, i, ee, p);
         };
         this.options.saveMissing && (this.options.saveMissingPlurals && S ? W.forEach((U) => {
           const ee = this.pluralResolver.getSuffixes(U, t);
           O && t[`defaultValue${this.options.pluralSeparator}zero`] && ee.indexOf(`${this.options.pluralSeparator}zero`) < 0 && ee.push(`${this.options.pluralSeparator}zero`), ee.forEach((se) => {
-            L([U], u + se, t[`defaultValue${se}`] || k);
+            A([U], u + se, t[`defaultValue${se}`] || k);
           });
-        }) : L(W, u, k));
+        }) : A(W, u, k));
       }
       p = this.extendTranslation(p, e, t, f, s), j && p === u && this.options.appendNamespaceToMissingKey && (p = `${i}:${u}`), (j || w) && this.options.parseMissingKeyHandler && (this.options.compatibilityAPI !== "v1" ? p = this.options.parseMissingKeyHandler(this.options.appendNamespaceToMissingKey ? `${i}:${u}` : u, w ? p : void 0) : p = this.options.parseMissingKeyHandler(p));
     }
@@ -5607,7 +5535,7 @@ class Dt {
     }), a;
   }
 }
-let ka = [{
+let Sa = [{
   lngs: ["ach", "ak", "am", "arn", "br", "fil", "gun", "ln", "mfe", "mg", "mi", "oc", "pt", "pt-BR", "tg", "tl", "ti", "tr", "uz", "wa"],
   nr: [1, 2],
   fc: 1
@@ -5699,7 +5627,7 @@ let ka = [{
   lngs: ["he", "iw"],
   nr: [1, 2, 20, 21],
   fc: 22
-}], Ea = {
+}], Ca = {
   1: function(n) {
     return +(n > 1);
   },
@@ -5767,7 +5695,7 @@ let ka = [{
     return n == 1 ? 0 : n == 2 ? 1 : (n < 0 || n > 10) && n % 10 == 0 ? 2 : 3;
   }
 };
-const Ra = ["v1", "v2", "v3"], Oa = ["v4"], Ut = {
+const ka = ["v1", "v2", "v3"], Ea = ["v4"], Ut = {
   zero: 0,
   one: 1,
   two: 2,
@@ -5775,21 +5703,21 @@ const Ra = ["v1", "v2", "v3"], Oa = ["v4"], Ut = {
   many: 4,
   other: 5
 };
-function Pa() {
+function Ra() {
   const n = {};
-  return ka.forEach((e) => {
+  return Sa.forEach((e) => {
     e.lngs.forEach((t) => {
       n[t] = {
         numbers: e.nr,
-        plurals: Ea[e.fc]
+        plurals: Ca[e.fc]
       };
     });
   }), n;
 }
-class Ta {
+class Oa {
   constructor(e) {
     let t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
-    this.languageUtils = e, this.options = t, this.logger = te.create("pluralResolver"), (!this.options.compatibilityJSON || Oa.includes(this.options.compatibilityJSON)) && (typeof Intl > "u" || !Intl.PluralRules) && (this.options.compatibilityJSON = "v3", this.logger.error("Your environment seems not to be Intl API compatible, use an Intl.PluralRules polyfill. Will fallback to the compatibilityJSON v3 format handling.")), this.rules = Pa();
+    this.languageUtils = e, this.options = t, this.logger = te.create("pluralResolver"), (!this.options.compatibilityJSON || Ea.includes(this.options.compatibilityJSON)) && (typeof Intl > "u" || !Intl.PluralRules) && (this.options.compatibilityJSON = "v3", this.logger.error("Your environment seems not to be Intl API compatible, use an Intl.PluralRules polyfill. Will fallback to the compatibilityJSON v3 format handling.")), this.rules = Ra();
   }
   addRule(e, t) {
     this.rules[e] = t;
@@ -5833,14 +5761,14 @@ class Ta {
     return this.options.compatibilityJSON === "v1" ? a === 1 ? "" : typeof a == "number" ? `_plural_${a.toString()}` : o() : this.options.compatibilityJSON === "v2" || this.options.simplifyPluralSuffix && e.numbers.length === 2 && e.numbers[0] === 1 ? o() : this.options.prepend && s.toString() ? this.options.prepend + s.toString() : s.toString();
   }
   shouldUseIntlApi() {
-    return !Ra.includes(this.options.compatibilityJSON);
+    return !ka.includes(this.options.compatibilityJSON);
   }
 }
 function Bt(n, e, t) {
-  let s = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : ".", a = arguments.length > 4 && arguments[4] !== void 0 ? arguments[4] : !0, o = va(n, e, t);
+  let s = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : ".", a = arguments.length > 4 && arguments[4] !== void 0 ? arguments[4] : !0, o = ya(n, e, t);
   return !o && a && typeof t == "string" && (o = tt(n, t, s), o === void 0 && (o = tt(e, t, s))), o;
 }
-class Aa {
+class Pa {
   constructor() {
     let e = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
     this.logger = te.create("interpolator"), this.options = e, this.format = e.interpolation && e.interpolation.format || ((t) => t), this.init(e);
@@ -5851,7 +5779,7 @@ class Aa {
       escapeValue: !0
     });
     const t = e.interpolation;
-    this.escape = t.escape !== void 0 ? t.escape : ja, this.escapeValue = t.escapeValue !== void 0 ? t.escapeValue : !0, this.useRawValueToEscape = t.useRawValueToEscape !== void 0 ? t.useRawValueToEscape : !1, this.prefix = t.prefix ? ce(t.prefix) : t.prefixEscaped || "{{", this.suffix = t.suffix ? ce(t.suffix) : t.suffixEscaped || "}}", this.formatSeparator = t.formatSeparator ? t.formatSeparator : t.formatSeparator || ",", this.unescapePrefix = t.unescapeSuffix ? "" : t.unescapePrefix || "-", this.unescapeSuffix = this.unescapePrefix ? "" : t.unescapeSuffix || "", this.nestingPrefix = t.nestingPrefix ? ce(t.nestingPrefix) : t.nestingPrefixEscaped || ce("$t("), this.nestingSuffix = t.nestingSuffix ? ce(t.nestingSuffix) : t.nestingSuffixEscaped || ce(")"), this.nestingOptionsSeparator = t.nestingOptionsSeparator ? t.nestingOptionsSeparator : t.nestingOptionsSeparator || ",", this.maxReplaces = t.maxReplaces ? t.maxReplaces : 1e3, this.alwaysFormat = t.alwaysFormat !== void 0 ? t.alwaysFormat : !1, this.resetRegExp();
+    this.escape = t.escape !== void 0 ? t.escape : va, this.escapeValue = t.escapeValue !== void 0 ? t.escapeValue : !0, this.useRawValueToEscape = t.useRawValueToEscape !== void 0 ? t.useRawValueToEscape : !1, this.prefix = t.prefix ? ce(t.prefix) : t.prefixEscaped || "{{", this.suffix = t.suffix ? ce(t.suffix) : t.suffixEscaped || "}}", this.formatSeparator = t.formatSeparator ? t.formatSeparator : t.formatSeparator || ",", this.unescapePrefix = t.unescapeSuffix ? "" : t.unescapePrefix || "-", this.unescapeSuffix = this.unescapePrefix ? "" : t.unescapeSuffix || "", this.nestingPrefix = t.nestingPrefix ? ce(t.nestingPrefix) : t.nestingPrefixEscaped || ce("$t("), this.nestingSuffix = t.nestingSuffix ? ce(t.nestingSuffix) : t.nestingSuffixEscaped || ce(")"), this.nestingOptionsSeparator = t.nestingOptionsSeparator ? t.nestingOptionsSeparator : t.nestingOptionsSeparator || ",", this.maxReplaces = t.maxReplaces ? t.maxReplaces : 1e3, this.alwaysFormat = t.alwaysFormat !== void 0 ? t.alwaysFormat : !1, this.resetRegExp();
   }
   reset() {
     this.options && this.init(this.options);
@@ -5953,7 +5881,7 @@ class Aa {
     return e;
   }
 }
-function La(n) {
+function Ta(n) {
   let e = n.toLowerCase().trim();
   const t = {};
   if (n.indexOf("(") > -1) {
@@ -5980,7 +5908,7 @@ function le(n) {
     return d || (d = n(Te(a), o), e[u] = d), d(s);
   };
 }
-class Ma {
+class Aa {
   constructor() {
     let e = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
     this.logger = te.create("formatter"), this.options = e, this.formats = {
@@ -6035,7 +5963,7 @@ class Ma {
       const {
         formatName: c,
         formatOptions: l
-      } = La(i);
+      } = Ta(i);
       if (this.formats[c]) {
         let f = d;
         try {
@@ -6055,10 +5983,10 @@ class Ma {
     }, e);
   }
 }
-function Ia(n, e) {
+function La(n, e) {
   n.pending[e] !== void 0 && (delete n.pending[e], n.pendingCount--);
 }
-class za extends Ie {
+class Ma extends Ie {
   constructor(e, t, s) {
     let a = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : {};
     super(), this.backend = e, this.store = t, this.services = s, this.languageUtils = s.languageUtils, this.options = a, this.logger = te.create("backendConnector"), this.waitingReads = [], this.maxParallelReads = a.maxParallelReads || 10, this.readingCalls = 0, this.maxRetries = a.maxRetries >= 0 ? a.maxRetries : 5, this.retryTimeout = a.retryTimeout >= 1 ? a.retryTimeout : 350, this.state = {}, this.queue = [], this.backend && this.backend.init && this.backend.init(s, a.backend, a);
@@ -6091,7 +6019,7 @@ class za extends Ie {
     }), this.state[e] = t ? -1 : 2;
     const d = {};
     this.queue.forEach((i) => {
-      ba(i.loaded, [o], u), Ia(i, e), t && i.errors.push(t), i.pendingCount === 0 && !i.done && (Object.keys(i.loaded).forEach((c) => {
+      xa(i.loaded, [o], u), La(i, e), t && i.errors.push(t), i.pendingCount === 0 && !i.done && (Object.keys(i.loaded).forEach((c) => {
         d[c] || (d[c] = {});
         const l = i.loaded[c];
         l.length && l.forEach((f) => {
@@ -6258,7 +6186,7 @@ function qt(n) {
 }
 function Ce() {
 }
-function Fa(n) {
+function Ia(n) {
   Object.getOwnPropertyNames(Object.getPrototypeOf(n)).forEach((t) => {
     typeof n[t] == "function" && (n[t] = n[t].bind(n));
   });
@@ -6268,7 +6196,7 @@ class we extends Ie {
     let e = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {}, t = arguments.length > 1 ? arguments[1] : void 0;
     if (super(), this.options = qt(e), this.services = {}, this.logger = te, this.modules = {
       external: []
-    }, Fa(this), t && !this.isInitialized && !e.isClone) {
+    }, Ia(this), t && !this.isInitialized && !e.isClone) {
       if (!this.options.initImmediate)
         return this.init(e, t), this;
       setTimeout(() => {
@@ -6295,17 +6223,17 @@ class we extends Ie {
     if (!this.options.isClone) {
       this.modules.logger ? te.init(o(this.modules.logger), this.options) : te.init(null, this.options);
       let l;
-      this.modules.formatter ? l = this.modules.formatter : typeof Intl < "u" && (l = Ma);
+      this.modules.formatter ? l = this.modules.formatter : typeof Intl < "u" && (l = Aa);
       const f = new Dt(this.options);
       this.store = new zt(this.options.resources, this.options);
       const p = this.services;
-      p.logger = te, p.resourceStore = this.store, p.languageUtils = f, p.pluralResolver = new Ta(f, {
+      p.logger = te, p.resourceStore = this.store, p.languageUtils = f, p.pluralResolver = new Oa(f, {
         prepend: this.options.pluralSeparator,
         compatibilityJSON: this.options.compatibilityJSON,
         simplifyPluralSuffix: this.options.simplifyPluralSuffix
-      }), l && (!this.options.interpolation.format || this.options.interpolation.format === a.interpolation.format) && (p.formatter = o(l), p.formatter.init(p, this.options), this.options.interpolation.format = p.formatter.format.bind(p.formatter)), p.interpolator = new Aa(this.options), p.utils = {
+      }), l && (!this.options.interpolation.format || this.options.interpolation.format === a.interpolation.format) && (p.formatter = o(l), p.formatter.init(p, this.options), this.options.interpolation.format = p.formatter.format.bind(p.formatter)), p.interpolator = new Pa(this.options), p.utils = {
         hasLoadedNamespace: this.hasLoadedNamespace.bind(this)
-      }, p.backendConnector = new za(o(this.modules.backend), p.resourceStore, p, this.options), p.backendConnector.on("*", function(g) {
+      }, p.backendConnector = new Ma(o(this.modules.backend), p.resourceStore, p, this.options), p.backendConnector.on("*", function(g) {
         for (var m = arguments.length, x = new Array(m > 1 ? m - 1 : 0), b = 1; b < m; b++)
           x[b - 1] = arguments[b];
         e.emit(g, ...x);
@@ -6527,501 +6455,500 @@ Y.setDefaultNamespace;
 Y.hasLoadedNamespace;
 Y.loadNamespaces;
 Y.loadLanguages;
-const Da = "New order from template menu", Ua = "Total", Ba = "Name", Va = "Type", qa = "Time/Table", Wa = "Size", Ha = "Extras", Ka = "Notes", Ya = "Doneness", Ja = "Sugar", Qa = "Pasta Type", Ga = "Bread", Xa = "Menu", Za = "Contact", er = "All", tr = "Search dishes...", sr = "Call", nr = "WhatsApp", ar = "Location", rr = "Address", ir = "Opening Hours", or = "Add to Cart", cr = "Added", lr = "Customize", ur = "Size", dr = "Extras", pr = "Notes", hr = "Cart", fr = "items", mr = "Your cart is empty", gr = "Clear cart", _r = "Send via WhatsApp", xr = "Total", yr = "Name", br = "Order type", vr = "Pickup", wr = "Delivery", jr = "Time/Table", Nr = "Message preview", $r = "QR", Sr = "Instagram", Cr = "Base price", kr = "Extras", Er = "Reservation", Rr = "Book a Table", Or = "Date", Pr = "Time", Tr = "Area", Ar = "Number of Guests", Lr = "Your Name", Mr = "Phone Number", Ir = "Special Requests", zr = "Send Reservation Request", Fr = "Reservation request sent!", Dr = "Please wait for confirmation from the restaurant.", Ur = "If you don't receive a response within 15 minutes, please call the restaurant.", Br = "Please wait for confirmation from the restaurant for your order.", Vr = "If you don't receive a response within 5 minutes, please call the restaurant.", qr = "Today", Wr = "Tomorrow", Hr = "Reserve your table at our restaurant and enjoy an unforgettable dining experience. We look forward to welcoming you!", Kr = "Choose your preferred date", Yr = "Select time slot", Jr = "Number of people", Qr = "Important Notice", Gr = "Need immediate assistance? Call us:", Xr = "Any special requests or notes...", Zr = "Guest", ei = "Guests", ti = "Table Reservation Request", si = "Date:", ni = "Time:", ai = "Area:", ri = "Guests:", ii = "Name:", oi = "Phone:", ci = "Notes:", li = "Please confirm this reservation.", ui = "Thank you! 🙏", di = "Sun–Thu:", pi = "Fri:", hi = "Sat:", fi = "Important Notice", mi = "Delivery fees not included in total price", gi = "Continue to WhatsApp", _i = "Cancel", xi = "The restaurant is currently closed. Please try again during opening hours.", yi = "Close", bi = "🍽️ NEW ORDER REQUEST", vi = "📋 ORDER ITEMS:", wi = "👤 CUSTOMER INFORMATION:", ji = "Order Type", Ni = "Name", $i = "Phone", Si = "Qty", Ci = "Item", ki = "Options", Ei = "Please confirm this order. Thank you! 🙏", Ri = "Served until 13:00", Oi = "Sunday", Pi = "Monday", Ti = "Tuesday", Ai = "Wednesday", Li = "Thursday", Mi = "Friday", Ii = "Saturday", zi = "For illustration only", Fi = "Terms of Service", Di = "Privacy Policy", Ui = "Accessibility Statement", Bi = "Last updated", Vi = "Acceptance of Terms", qi = "By using our website and services, you agree to comply with these terms of service.", Wi = "Service Usage", Hi = "Our website is designed for browsing our menu, placing orders via WhatsApp, and making reservations.", Ki = "Orders and Reservations", Yi = "All orders are processed through WhatsApp. Reservations are subject to availability and confirmation.", Ji = "Payment Terms", Qi = "Payment is handled directly at the restaurant. Online orders are for convenience and confirmation only.", Gi = "Limitation of Liability", Xi = "We are not responsible for third-party services such as WhatsApp. Use of external services is subject to their terms.", Zi = "Changes to Terms", eo = "We may update these terms from time to time. Continued use constitutes acceptance of revised terms.", to = "Information Collection", so = "We respect your privacy. Our website does not use cookies or online tracking. Information is stored locally in your browser (LocalStorage) for continuity, and may include name and order preferences (personal/family).", no = "Information Usage", ao = "We only use information to provide our services and improve your experience. We do not share personal data with third parties.", ro = "Cookies and Tracking", io = "Our website does not use cookies or tracking technologies. All data is stored locally in your browser.", oo = "WhatsApp Integration", co = "Order placement occurs through WhatsApp (external service). WhatsApp usage is subject to WhatsApp's terms and privacy policy.", lo = "Data Storage", uo = "Data is stored locally on your device and on WhatsApp for order processing and communication purposes.", po = "User Rights", ho = "For any questions or requests regarding your data, please contact us through our contact page.", fo = "Our Commitment", mo = "We are committed to making our website accessible according to Israeli Standard TI 5568 based on WCAG 2.0 Level AA. Our goal is to provide an accessible, equal, and comfortable user experience for all users.", go = "Accessibility Standards", _o = "Our website follows modern accessibility guidelines including keyboard navigation, screen reader compatibility, and clear visual design.", xo = "Accessibility Features", yo = "The website includes proper heading structure, alternative text for images, keyboard navigation support, and responsive design for various devices and assistive technologies.", bo = "Accessibility Contact", vo = "If you encounter any accessibility issues or have suggestions for improvement, please contact us via phone or WhatsApp listed on our contact page.", wo = "Customer name is required before sending to WhatsApp", jo = "Back to Menu", No = "Closed", $o = "The restaurant is currently closed. Orders can be placed only during opening hours.", So = "Got it", Co = {
-  wa_header: Da,
-  wa_total: Ua,
-  wa_name: Ba,
-  wa_type: Va,
-  wa_time: qa,
-  opt_size: Wa,
-  opt_extras: Ha,
-  opt_notes: Ka,
-  opt_doneness: Ya,
-  opt_sugar: Ja,
-  opt_pasta_type: Qa,
-  opt_bread: Ga,
-  menu: Xa,
-  contact: Za,
-  all: er,
-  search_placeholder: tr,
-  call: sr,
-  whatsapp: nr,
-  location: ar,
-  address: rr,
-  open_hours: ir,
-  add_to_cart: or,
-  added: cr,
-  customize: lr,
-  size: ur,
-  extras: dr,
-  notes: pr,
-  cart: hr,
-  items: fr,
-  empty_cart: mr,
-  clear_cart: gr,
-  checkout: _r,
-  total: xr,
-  customer_name: yr,
-  order_type: br,
-  pickup: vr,
-  delivery: wr,
-  time_or_table: jr,
-  message_preview: Nr,
-  qr: $r,
-  instagram: Sr,
-  base_price: Cr,
-  extras_total: kr,
-  reservation: Er,
-  book_table: Rr,
-  reservation_date: Or,
-  reservation_time: Pr,
-  reservation_area: Tr,
-  reservation_guests: Ar,
-  reservation_name: Lr,
-  reservation_phone: Mr,
-  reservation_notes: Ir,
-  send_reservation: zr,
-  reservation_sent: Fr,
-  reservation_wait: Dr,
-  reservation_no_response: Ur,
-  order_wait: Br,
-  order_no_response: Vr,
-  today: qr,
-  tomorrow: Wr,
-  reservation_description: Hr,
-  choose_date: Kr,
-  select_time: Yr,
-  number_people: Jr,
-  important_notice: Qr,
-  need_assistance: Gr,
-  special_requests_placeholder: Xr,
-  guests_singular: Zr,
-  guests_plural: ei,
-  reservation_request: ti,
-  date_label: si,
-  time_label: ni,
-  area_label: ai,
-  guests_label: ri,
-  name_label: ii,
-  phone_label: oi,
-  notes_label: ci,
-  confirm_reservation: li,
-  thank_you: ui,
-  sun_thu: di,
-  fri: pi,
-  sat: hi,
-  important_notice_cart: fi,
-  delivery_notice: mi,
-  continue_to_whatsapp: gi,
-  cancel: _i,
-  restaurant_closed_message: xi,
-  close: yi,
-  wa_order_header: bi,
-  wa_order_items: vi,
-  wa_customer_info: wi,
-  wa_order_type: ji,
-  wa_customer_name: Ni,
-  wa_customer_phone: $i,
-  wa_quantity: Si,
-  wa_item: Ci,
-  wa_options: ki,
-  wa_confirm_order: Ei,
-  served_until_13: Ri,
-  day_sun: Oi,
-  day_mon: Pi,
-  day_tue: Ti,
-  day_wed: Ai,
-  day_thu: Li,
-  day_fri: Mi,
-  day_sat: Ii,
+const za = "New order from template menu", Fa = "Total", Da = "Name", Ua = "Type", Ba = "Time/Table", Va = "Size", qa = "Extras", Wa = "Notes", Ha = "Doneness", Ka = "Sugar", Ya = "Pasta Type", Ja = "Bread", Qa = "Menu", Ga = "Contact", Xa = "All", Za = "Search dishes...", er = "Call", tr = "WhatsApp", sr = "Location", nr = "Address", ar = "Opening Hours", rr = "Add to Cart", ir = "Added", or = "Customize", cr = "Size", lr = "Extras", ur = "Notes", dr = "Cart", pr = "items", hr = "Your cart is empty", fr = "Clear cart", mr = "Send via WhatsApp", gr = "Total", _r = "Name", xr = "Order type", yr = "Pickup", br = "Delivery", vr = "Time/Table", wr = "Message preview", jr = "QR", Nr = "Instagram", $r = "Base price", Sr = "Extras", Cr = "Reservation", kr = "Book a Table", Er = "Date", Rr = "Time", Or = "Area", Pr = "Number of Guests", Tr = "Your Name", Ar = "Phone Number", Lr = "Special Requests", Mr = "Send Reservation Request", Ir = "Reservation request sent!", zr = "Please wait for confirmation from the restaurant.", Fr = "If you don't receive a response within 15 minutes, please call the restaurant.", Dr = "Please wait for confirmation from the restaurant for your order.", Ur = "If you don't receive a response within 5 minutes, please call the restaurant.", Br = "Today", Vr = "Tomorrow", qr = "Reserve your table at our restaurant and enjoy an unforgettable dining experience. We look forward to welcoming you!", Wr = "Choose your preferred date", Hr = "Select time slot", Kr = "Number of people", Yr = "Important Notice", Jr = "Need immediate assistance? Call us:", Qr = "Any special requests or notes...", Gr = "Guest", Xr = "Guests", Zr = "Table Reservation Request", ei = "Date:", ti = "Time:", si = "Area:", ni = "Guests:", ai = "Name:", ri = "Phone:", ii = "Notes:", oi = "Please confirm this reservation.", ci = "Thank you! 🙏", li = "Sun–Thu:", ui = "Fri:", di = "Sat:", pi = "Important Notice", hi = "Delivery fees not included in total price", fi = "Continue to WhatsApp", mi = "Cancel", gi = "The restaurant is currently closed. Please try again during opening hours.", _i = "Close", xi = "🍽️ NEW ORDER REQUEST", yi = "📋 ORDER ITEMS:", bi = "👤 CUSTOMER INFORMATION:", vi = "Order Type", wi = "Name", ji = "Phone", Ni = "Qty", $i = "Item", Si = "Options", Ci = "Please confirm this order. Thank you! 🙏", ki = "Served until 13:00", Ei = "Sunday", Ri = "Monday", Oi = "Tuesday", Pi = "Wednesday", Ti = "Thursday", Ai = "Friday", Li = "Saturday", Mi = "For illustration only", Ii = "Terms of Service", zi = "Privacy Policy", Fi = "Accessibility Statement", Di = "Last updated", Ui = "Acceptance of Terms", Bi = "By using our website and services, you agree to comply with these terms of service.", Vi = "Service Usage", qi = "Our website is designed for browsing our menu, placing orders via WhatsApp, and making reservations.", Wi = "Orders and Reservations", Hi = "All orders are processed through WhatsApp. Reservations are subject to availability and confirmation.", Ki = "Payment Terms", Yi = "Payment is handled directly at the restaurant. Online orders are for convenience and confirmation only.", Ji = "Limitation of Liability", Qi = "We are not responsible for third-party services such as WhatsApp. Use of external services is subject to their terms.", Gi = "Changes to Terms", Xi = "We may update these terms from time to time. Continued use constitutes acceptance of revised terms.", Zi = "Information Collection", eo = "We respect your privacy. Our website does not use cookies or online tracking. Information is stored locally in your browser (LocalStorage) for continuity, and may include name and order preferences (personal/family).", to = "Information Usage", so = "We only use information to provide our services and improve your experience. We do not share personal data with third parties.", no = "Cookies and Tracking", ao = "Our website does not use cookies or tracking technologies. All data is stored locally in your browser.", ro = "WhatsApp Integration", io = "Order placement occurs through WhatsApp (external service). WhatsApp usage is subject to WhatsApp's terms and privacy policy.", oo = "Data Storage", co = "Data is stored locally on your device and on WhatsApp for order processing and communication purposes.", lo = "User Rights", uo = "For any questions or requests regarding your data, please contact us through our contact page.", po = "Our Commitment", ho = "We are committed to making our website accessible according to Israeli Standard TI 5568 based on WCAG 2.0 Level AA. Our goal is to provide an accessible, equal, and comfortable user experience for all users.", fo = "Accessibility Standards", mo = "Our website follows modern accessibility guidelines including keyboard navigation, screen reader compatibility, and clear visual design.", go = "Accessibility Features", _o = "The website includes proper heading structure, alternative text for images, keyboard navigation support, and responsive design for various devices and assistive technologies.", xo = "Accessibility Contact", yo = "If you encounter any accessibility issues or have suggestions for improvement, please contact us via phone or WhatsApp listed on our contact page.", bo = "Customer name is required before sending to WhatsApp", vo = "Back to Menu", wo = "Closed", jo = "The restaurant is currently closed. Orders can be placed only during opening hours.", No = "Got it", $o = {
+  wa_header: za,
+  wa_total: Fa,
+  wa_name: Da,
+  wa_type: Ua,
+  wa_time: Ba,
+  opt_size: Va,
+  opt_extras: qa,
+  opt_notes: Wa,
+  opt_doneness: Ha,
+  opt_sugar: Ka,
+  opt_pasta_type: Ya,
+  opt_bread: Ja,
+  menu: Qa,
+  contact: Ga,
+  all: Xa,
+  search_placeholder: Za,
+  call: er,
+  whatsapp: tr,
+  location: sr,
+  address: nr,
+  open_hours: ar,
+  add_to_cart: rr,
+  added: ir,
+  customize: or,
+  size: cr,
+  extras: lr,
+  notes: ur,
+  cart: dr,
+  items: pr,
+  empty_cart: hr,
+  clear_cart: fr,
+  checkout: mr,
+  total: gr,
+  customer_name: _r,
+  order_type: xr,
+  pickup: yr,
+  delivery: br,
+  time_or_table: vr,
+  message_preview: wr,
+  qr: jr,
+  instagram: Nr,
+  base_price: $r,
+  extras_total: Sr,
+  reservation: Cr,
+  book_table: kr,
+  reservation_date: Er,
+  reservation_time: Rr,
+  reservation_area: Or,
+  reservation_guests: Pr,
+  reservation_name: Tr,
+  reservation_phone: Ar,
+  reservation_notes: Lr,
+  send_reservation: Mr,
+  reservation_sent: Ir,
+  reservation_wait: zr,
+  reservation_no_response: Fr,
+  order_wait: Dr,
+  order_no_response: Ur,
+  today: Br,
+  tomorrow: Vr,
+  reservation_description: qr,
+  choose_date: Wr,
+  select_time: Hr,
+  number_people: Kr,
+  important_notice: Yr,
+  need_assistance: Jr,
+  special_requests_placeholder: Qr,
+  guests_singular: Gr,
+  guests_plural: Xr,
+  reservation_request: Zr,
+  date_label: ei,
+  time_label: ti,
+  area_label: si,
+  guests_label: ni,
+  name_label: ai,
+  phone_label: ri,
+  notes_label: ii,
+  confirm_reservation: oi,
+  thank_you: ci,
+  sun_thu: li,
+  fri: ui,
+  sat: di,
+  important_notice_cart: pi,
+  delivery_notice: hi,
+  continue_to_whatsapp: fi,
+  cancel: mi,
+  restaurant_closed_message: gi,
+  close: _i,
+  wa_order_header: xi,
+  wa_order_items: yi,
+  wa_customer_info: bi,
+  wa_order_type: vi,
+  wa_customer_name: wi,
+  wa_customer_phone: ji,
+  wa_quantity: Ni,
+  wa_item: $i,
+  wa_options: Si,
+  wa_confirm_order: Ci,
+  served_until_13: ki,
+  day_sun: Ei,
+  day_mon: Ri,
+  day_tue: Oi,
+  day_wed: Pi,
+  day_thu: Ti,
+  day_fri: Ai,
+  day_sat: Li,
   "day_tue-sat": "Tuesday-Saturday",
   "day_mon-sat": "Monday-Saturday",
-  for_illustration_only: zi,
-  terms_of_service: Fi,
-  privacy_policy: Di,
-  accessibility_statement: Ui,
-  last_updated: Bi,
-  terms_acceptance: Vi,
-  terms_acceptance_text: qi,
-  terms_service_usage: Wi,
-  terms_service_usage_text: Hi,
-  terms_orders: Ki,
-  terms_orders_text: Yi,
-  terms_payment: Ji,
-  terms_payment_text: Qi,
-  terms_liability: Gi,
-  terms_liability_text: Xi,
-  terms_changes: Zi,
-  terms_changes_text: eo,
-  privacy_info_collection: to,
-  privacy_info_collection_text: so,
-  privacy_info_usage: no,
-  privacy_info_usage_text: ao,
-  privacy_cookies: ro,
-  privacy_cookies_text: io,
-  privacy_whatsapp: oo,
-  privacy_whatsapp_text: co,
-  privacy_data_storage: lo,
-  privacy_data_storage_text: uo,
-  privacy_user_rights: po,
-  privacy_user_rights_text: ho,
-  accessibility_commitment: fo,
-  accessibility_commitment_text: mo,
-  accessibility_standards: go,
-  accessibility_standards_text: _o,
-  accessibility_features: xo,
-  accessibility_features_text: yo,
-  accessibility_contact: bo,
-  accessibility_contact_text: vo,
-  name_required: wo,
-  back_to_menu: jo,
-  closed: No,
-  closed_popup_message: $o,
-  got_it_button: So
-}, ko = "הזמנה חדשה מתפריט התבנית", Eo = "סך הכול", Ro = "שם", Oo = "סוג", Po = "שעה/שולחן", To = "גודל", Ao = "תוספות", Lo = "הערות", Mo = "דרגת עשייה", Io = "סוכר", zo = "סוג פסטה", Fo = "לחם", Do = "תפריט", Uo = "צור קשר", Bo = "הכל", Vo = "חיפוש מנות...", qo = "התקשר", Wo = "וואטסאפ", Ho = "מיקום", Ko = "כתובת", Yo = "שעות פתיחה", Jo = "להוסיף לסל", Qo = "נוסף", Go = "התאמה", Xo = "גודל", Zo = "תוספות", ec = "הערות", tc = "הסל", sc = "פריטים", nc = "הסל ריק", ac = "נקה סל", rc = "שלח בוואטסאפ", ic = "סך הכל", oc = "שם", cc = "סוג הזמנה", lc = "איסוף עצמי", uc = "משלוח", dc = "שעה/שולחן", pc = "תצוגה מקדימה", hc = "QR", fc = "אינסטגרם", mc = "מחיר בסיס", gc = "תוספות", _c = "הזמנת שולחן", xc = "הזמן שולחן", yc = "תאריך", bc = "שעה", vc = "אזור", wc = "מספר אורחים", jc = "השם שלך", Nc = "מספר טלפון", $c = "בקשות מיוחדות", Sc = "שלח בקשת הזמנה", Cc = "בקשת ההזמנה נשלחה!", kc = "אנא המתן לאישור מהמסעדה.", Ec = "אם לא תקבל תגובה תוך 15 דקות, אנא התקשר למסעדה.", Rc = "אנא המתן לאישור מהמסעדה עבור ההזמנה שלך.", Oc = "אם לא תקבל תגובה תוך 5 דקות, אנא התקשר למסעדה.", Pc = "היום", Tc = "מחר", Ac = "הזמן שולחן במסעדה שלנו ותהנה מחווית אוכל בלתי נשכחת. אנחנו מצפים לראות אותך!", Lc = "בחר את התאריך המועדף עליך", Mc = "בחר זמן", Ic = "מספר אנשים", zc = "הודעה חשובה", Fc = "צריך עזרה מיידית? התקשר אלינו:", Dc = "בקשות מיוחדות או הערות...", Uc = "אורח", Bc = "אורחים", Vc = "בקשת הזמנת שולחן", qc = "תאריך:", Wc = "שעה:", Hc = "אזור:", Kc = "אורחים:", Yc = "שם:", Jc = "טלפון:", Qc = "הערות:", Gc = "אנא אשר את ההזמנה הזו.", Xc = "תודה! 🙏", Zc = "א׳-ה׳:", el = "ו׳:", tl = "ש׳:", sl = "הודעה חשובה", nl = "עמלת משלוח לא כלולה במחיר הכולל", al = "המשך לווטסאפ", rl = "ביטול", il = "🍽️ בקשת הזמנה חדשה", ol = "📋 פריטי ההזמנה:", cl = "👤 פרטי הלקוח:", ll = "סוג הזמנה", ul = "שם", dl = "טלפון", pl = "כמות", hl = "פריט", fl = "אפשרויות", ml = "אנא אשר את ההזמנה הזו. תודה! 🙏", gl = "מוגש עד 13:00", _l = "ראשון", xl = "שני", yl = "שלישי", bl = "רביעי", vl = "חמישי", wl = "שישי", jl = "שבת", Nl = "להמחשה בלבד", $l = "תנאי שימוש", Sl = "מדיניות פרטיות", Cl = "הצהרת נגישות", kl = "תאריך עדכון אחרון", El = "אחריות", Rl = "אין אחריות לשירותי צד-שלישי (כגון WhatsApp). כל שימוש בשירותים חיצוניים כפוף לתנאורים.", Ol = "שינויים בתנאים", Pl = "יתכן שנעדכן שינויים בתנאי השימוש מעת לעת. המשך השימוש כהסכמה לתנאים כפופה.", Tl = "יצירת קשר בנושא נגישות", Al = "אם נתקלתם בבעיה או הצעה לשיפור, נעמוד לכפות אליכן בטלפון או בוואטסאפ המופיעים במיקום יצירת קשר.", Ll = "מטרת עיכוב היחידי", Ml = "האתר מכיל לפרטים, בחירת פריטים, והזמנת מקום לוואטסאפ של המטעדה.", Il = "זכויות המשתמש", zl = "כפי שלאה או בקשה לחתיקה מידע, נעמוד לכפות אליכן דרך עמוד יצירת קשר.", Fl = "תאריך עדכון אחרון", Dl = "26.9.2025", Ul = "אחריות", Bl = "אין אחריות לשירותי צד-שלישי (כגון WhatsApp). כל שימוש בשירותים חיצוניים כפוף לתנאורים.", Vl = "שינויים בתנאים", ql = "יתכן שנעדכן שינויים בתנאי השימוש מעת לעת. המשך השימוש כהסכמה לתנאים כפופה.", Wl = "מדיניות פרטיות", Hl = "אנו מכבדים את פרטיותכם. האתר אינו מפעיל עוגיות (cookies) ואינו מבצע מעקב אינטרנטי. המידע שמורן בעלות הקרייות ומורה מקומית בדפדפן (LocalStorage) לצורך המשכיות כבב, ויכול לכלול שם ופוטר המנה (אישי/משפחה).", Kl = "מטרת עיכוב היחידי", Yl = "שליחת הזמנה/פנירה מתבצעת באמצעות WhatsApp (שירות חיצוני). על כן, השימוש ב-WhatsApp כפוף לתנאי השימוש ומדיניות הפרטיות של WhatsApp.", Jl = "מטרת עיכוב היחידי", Ql = "האתר מכיל לפרטים, בחירת פריטים, והזמנת מקום לוואטסאפ של המטעדה.", Gl = "זכויות המשתמש", Xl = "כפי שלאה או בקשה לחתיקה מידע, נעמוד לכפות אליכן דרך עמוד יצירת קשר.", Zl = "הצהרת נגישות", eu = 'אנו פועלים להנגיש את האתר בהתאם לתקן הישראלי ת"י 5568 הכמבוס על 2.0 WCAG ברמה AA. מטרתנו להנביח חווית שימוש נגישה, שוויונית ונוחה לכלל המשתמשים.', tu = "יצירת קשר בנושא נגישות", su = "אם נתקלתם בבעיה או הצעה לשיפור, נעמוד לכפות אליכן בטלפון או בוואטסאפ המופיעים במיקום יצירת קשר.", nu = "מטרת עיכוב היחידי", au = "האתר מכיל לפרטים, בחירת פריטים, והזמנת מקום לוואטסאפ של המטעדה.", ru = "יצירת קשר בנושא נגישות", iu = "אם נתקלתם בבעיה או הצעה לשיפור, נעמוד לכפות אליכן בטלפון או בוואטסאפ המופיעים במיקום יצירת קשר.", ou = "שם הלקוח נדרש לפני שליחה לוואטסאפ", cu = "חזרה לתפריט", lu = "סגור", uu = "המסעדה סגורה כעת. נסה שוב בשעות הפתיחה.", du = "סגור", pu = "המסעדה סגורה כעת. ניתן לבצע הזמנות רק במהלך שעות הפתיחה.", hu = "הבנתי", fu = {
-  wa_header: ko,
-  wa_total: Eo,
-  wa_name: Ro,
-  wa_type: Oo,
-  wa_time: Po,
-  opt_size: To,
-  opt_extras: Ao,
-  opt_notes: Lo,
-  opt_doneness: Mo,
-  opt_sugar: Io,
-  opt_pasta_type: zo,
-  opt_bread: Fo,
-  menu: Do,
-  contact: Uo,
-  all: Bo,
-  search_placeholder: Vo,
-  call: qo,
-  whatsapp: Wo,
-  location: Ho,
-  address: Ko,
-  open_hours: Yo,
-  add_to_cart: Jo,
-  added: Qo,
-  customize: Go,
-  size: Xo,
-  extras: Zo,
-  notes: ec,
-  cart: tc,
-  items: sc,
-  empty_cart: nc,
-  clear_cart: ac,
-  checkout: rc,
-  total: ic,
-  customer_name: oc,
-  order_type: cc,
-  pickup: lc,
-  delivery: uc,
-  time_or_table: dc,
-  message_preview: pc,
-  qr: hc,
-  instagram: fc,
-  base_price: mc,
-  extras_total: gc,
-  reservation: _c,
-  book_table: xc,
-  reservation_date: yc,
-  reservation_time: bc,
-  reservation_area: vc,
-  reservation_guests: wc,
-  reservation_name: jc,
-  reservation_phone: Nc,
-  reservation_notes: $c,
-  send_reservation: Sc,
-  reservation_sent: Cc,
-  reservation_wait: kc,
-  reservation_no_response: Ec,
-  order_wait: Rc,
-  order_no_response: Oc,
-  today: Pc,
-  tomorrow: Tc,
-  reservation_description: Ac,
-  choose_date: Lc,
-  select_time: Mc,
-  number_people: Ic,
-  important_notice: zc,
-  need_assistance: Fc,
-  special_requests_placeholder: Dc,
-  guests_singular: Uc,
-  guests_plural: Bc,
-  reservation_request: Vc,
-  date_label: qc,
-  time_label: Wc,
-  area_label: Hc,
-  guests_label: Kc,
-  name_label: Yc,
-  phone_label: Jc,
-  notes_label: Qc,
-  confirm_reservation: Gc,
-  thank_you: Xc,
-  sun_thu: Zc,
-  fri: el,
-  sat: tl,
-  important_notice_cart: sl,
-  delivery_notice: nl,
-  continue_to_whatsapp: al,
-  cancel: rl,
-  wa_order_header: il,
-  wa_order_items: ol,
-  wa_customer_info: cl,
-  wa_order_type: ll,
-  wa_customer_name: ul,
-  wa_customer_phone: dl,
-  wa_quantity: pl,
-  wa_item: hl,
-  wa_options: fl,
-  wa_confirm_order: ml,
-  served_until_13: gl,
-  day_sun: _l,
-  day_mon: xl,
-  day_tue: yl,
-  day_wed: bl,
-  day_thu: vl,
-  day_fri: wl,
-  day_sat: jl,
+  for_illustration_only: Mi,
+  terms_of_service: Ii,
+  privacy_policy: zi,
+  accessibility_statement: Fi,
+  last_updated: Di,
+  terms_acceptance: Ui,
+  terms_acceptance_text: Bi,
+  terms_service_usage: Vi,
+  terms_service_usage_text: qi,
+  terms_orders: Wi,
+  terms_orders_text: Hi,
+  terms_payment: Ki,
+  terms_payment_text: Yi,
+  terms_liability: Ji,
+  terms_liability_text: Qi,
+  terms_changes: Gi,
+  terms_changes_text: Xi,
+  privacy_info_collection: Zi,
+  privacy_info_collection_text: eo,
+  privacy_info_usage: to,
+  privacy_info_usage_text: so,
+  privacy_cookies: no,
+  privacy_cookies_text: ao,
+  privacy_whatsapp: ro,
+  privacy_whatsapp_text: io,
+  privacy_data_storage: oo,
+  privacy_data_storage_text: co,
+  privacy_user_rights: lo,
+  privacy_user_rights_text: uo,
+  accessibility_commitment: po,
+  accessibility_commitment_text: ho,
+  accessibility_standards: fo,
+  accessibility_standards_text: mo,
+  accessibility_features: go,
+  accessibility_features_text: _o,
+  accessibility_contact: xo,
+  accessibility_contact_text: yo,
+  name_required: bo,
+  back_to_menu: vo,
+  closed: wo,
+  closed_popup_message: jo,
+  got_it_button: No
+}, So = "הזמנה חדשה מתפריט התבנית", Co = "סך הכול", ko = "שם", Eo = "סוג", Ro = "שעה/שולחן", Oo = "גודל", Po = "תוספות", To = "הערות", Ao = "דרגת עשייה", Lo = "סוכר", Mo = "סוג פסטה", Io = "לחם", zo = "תפריט", Fo = "צור קשר", Do = "הכל", Uo = "חיפוש מנות...", Bo = "התקשר", Vo = "וואטסאפ", qo = "מיקום", Wo = "כתובת", Ho = "שעות פתיחה", Ko = "להוסיף לסל", Yo = "נוסף", Jo = "התאמה", Qo = "גודל", Go = "תוספות", Xo = "הערות", Zo = "הסל", ec = "פריטים", tc = "הסל ריק", sc = "נקה סל", nc = "שלח בוואטסאפ", ac = "סך הכל", rc = "שם", ic = "סוג הזמנה", oc = "איסוף עצמי", cc = "משלוח", lc = "שעה/שולחן", uc = "תצוגה מקדימה", dc = "QR", pc = "אינסטגרם", hc = "מחיר בסיס", fc = "תוספות", mc = "הזמנת שולחן", gc = "הזמן שולחן", _c = "תאריך", xc = "שעה", yc = "אזור", bc = "מספר אורחים", vc = "השם שלך", wc = "מספר טלפון", jc = "בקשות מיוחדות", Nc = "שלח בקשת הזמנה", $c = "בקשת ההזמנה נשלחה!", Sc = "אנא המתן לאישור מהמסעדה.", Cc = "אם לא תקבל תגובה תוך 15 דקות, אנא התקשר למסעדה.", kc = "אנא המתן לאישור מהמסעדה עבור ההזמנה שלך.", Ec = "אם לא תקבל תגובה תוך 5 דקות, אנא התקשר למסעדה.", Rc = "היום", Oc = "מחר", Pc = "הזמן שולחן במסעדה שלנו ותהנה מחווית אוכל בלתי נשכחת. אנחנו מצפים לראות אותך!", Tc = "בחר את התאריך המועדף עליך", Ac = "בחר זמן", Lc = "מספר אנשים", Mc = "הודעה חשובה", Ic = "צריך עזרה מיידית? התקשר אלינו:", zc = "בקשות מיוחדות או הערות...", Fc = "אורח", Dc = "אורחים", Uc = "בקשת הזמנת שולחן", Bc = "תאריך:", Vc = "שעה:", qc = "אזור:", Wc = "אורחים:", Hc = "שם:", Kc = "טלפון:", Yc = "הערות:", Jc = "אנא אשר את ההזמנה הזו.", Qc = "תודה! 🙏", Gc = "א׳-ה׳:", Xc = "ו׳:", Zc = "ש׳:", el = "הודעה חשובה", tl = "עמלת משלוח לא כלולה במחיר הכולל", sl = "המשך לווטסאפ", nl = "ביטול", al = "🍽️ בקשת הזמנה חדשה", rl = "📋 פריטי ההזמנה:", il = "👤 פרטי הלקוח:", ol = "סוג הזמנה", cl = "שם", ll = "טלפון", ul = "כמות", dl = "פריט", pl = "אפשרויות", hl = "אנא אשר את ההזמנה הזו. תודה! 🙏", fl = "מוגש עד 13:00", ml = "ראשון", gl = "שני", _l = "שלישי", xl = "רביעי", yl = "חמישי", bl = "שישי", vl = "שבת", wl = "להמחשה בלבד", jl = "תנאי שימוש", Nl = "מדיניות פרטיות", $l = "הצהרת נגישות", Sl = "תאריך עדכון אחרון", Cl = "אחריות", kl = "אין אחריות לשירותי צד-שלישי (כגון WhatsApp). כל שימוש בשירותים חיצוניים כפוף לתנאורים.", El = "שינויים בתנאים", Rl = "יתכן שנעדכן שינויים בתנאי השימוש מעת לעת. המשך השימוש כהסכמה לתנאים כפופה.", Ol = "יצירת קשר בנושא נגישות", Pl = "אם נתקלתם בבעיה או הצעה לשיפור, נעמוד לכפות אליכן בטלפון או בוואטסאפ המופיעים במיקום יצירת קשר.", Tl = "מטרת עיכוב היחידי", Al = "האתר מכיל לפרטים, בחירת פריטים, והזמנת מקום לוואטסאפ של המטעדה.", Ll = "זכויות המשתמש", Ml = "כפי שלאה או בקשה לחתיקה מידע, נעמוד לכפות אליכן דרך עמוד יצירת קשר.", Il = "תאריך עדכון אחרון", zl = "26.9.2025", Fl = "אחריות", Dl = "אין אחריות לשירותי צד-שלישי (כגון WhatsApp). כל שימוש בשירותים חיצוניים כפוף לתנאורים.", Ul = "שינויים בתנאים", Bl = "יתכן שנעדכן שינויים בתנאי השימוש מעת לעת. המשך השימוש כהסכמה לתנאים כפופה.", Vl = "מדיניות פרטיות", ql = "אנו מכבדים את פרטיותכם. האתר אינו מפעיל עוגיות (cookies) ואינו מבצע מעקב אינטרנטי. המידע שמורן בעלות הקרייות ומורה מקומית בדפדפן (LocalStorage) לצורך המשכיות כבב, ויכול לכלול שם ופוטר המנה (אישי/משפחה).", Wl = "מטרת עיכוב היחידי", Hl = "שליחת הזמנה/פנירה מתבצעת באמצעות WhatsApp (שירות חיצוני). על כן, השימוש ב-WhatsApp כפוף לתנאי השימוש ומדיניות הפרטיות של WhatsApp.", Kl = "מטרת עיכוב היחידי", Yl = "האתר מכיל לפרטים, בחירת פריטים, והזמנת מקום לוואטסאפ של המטעדה.", Jl = "זכויות המשתמש", Ql = "כפי שלאה או בקשה לחתיקה מידע, נעמוד לכפות אליכן דרך עמוד יצירת קשר.", Gl = "הצהרת נגישות", Xl = 'אנו פועלים להנגיש את האתר בהתאם לתקן הישראלי ת"י 5568 הכמבוס על 2.0 WCAG ברמה AA. מטרתנו להנביח חווית שימוש נגישה, שוויונית ונוחה לכלל המשתמשים.', Zl = "יצירת קשר בנושא נגישות", eu = "אם נתקלתם בבעיה או הצעה לשיפור, נעמוד לכפות אליכן בטלפון או בוואטסאפ המופיעים במיקום יצירת קשר.", tu = "מטרת עיכוב היחידי", su = "האתר מכיל לפרטים, בחירת פריטים, והזמנת מקום לוואטסאפ של המטעדה.", nu = "יצירת קשר בנושא נגישות", au = "אם נתקלתם בבעיה או הצעה לשיפור, נעמוד לכפות אליכן בטלפון או בוואטסאפ המופיעים במיקום יצירת קשר.", ru = "שם הלקוח נדרש לפני שליחה לוואטסאפ", iu = "חזרה לתפריט", ou = "סגור", cu = "המסעדה סגורה כעת. נסה שוב בשעות הפתיחה.", lu = "סגור", uu = "המסעדה סגורה כעת. ניתן לבצע הזמנות רק במהלך שעות הפתיחה.", du = "הבנתי", pu = {
+  wa_header: So,
+  wa_total: Co,
+  wa_name: ko,
+  wa_type: Eo,
+  wa_time: Ro,
+  opt_size: Oo,
+  opt_extras: Po,
+  opt_notes: To,
+  opt_doneness: Ao,
+  opt_sugar: Lo,
+  opt_pasta_type: Mo,
+  opt_bread: Io,
+  menu: zo,
+  contact: Fo,
+  all: Do,
+  search_placeholder: Uo,
+  call: Bo,
+  whatsapp: Vo,
+  location: qo,
+  address: Wo,
+  open_hours: Ho,
+  add_to_cart: Ko,
+  added: Yo,
+  customize: Jo,
+  size: Qo,
+  extras: Go,
+  notes: Xo,
+  cart: Zo,
+  items: ec,
+  empty_cart: tc,
+  clear_cart: sc,
+  checkout: nc,
+  total: ac,
+  customer_name: rc,
+  order_type: ic,
+  pickup: oc,
+  delivery: cc,
+  time_or_table: lc,
+  message_preview: uc,
+  qr: dc,
+  instagram: pc,
+  base_price: hc,
+  extras_total: fc,
+  reservation: mc,
+  book_table: gc,
+  reservation_date: _c,
+  reservation_time: xc,
+  reservation_area: yc,
+  reservation_guests: bc,
+  reservation_name: vc,
+  reservation_phone: wc,
+  reservation_notes: jc,
+  send_reservation: Nc,
+  reservation_sent: $c,
+  reservation_wait: Sc,
+  reservation_no_response: Cc,
+  order_wait: kc,
+  order_no_response: Ec,
+  today: Rc,
+  tomorrow: Oc,
+  reservation_description: Pc,
+  choose_date: Tc,
+  select_time: Ac,
+  number_people: Lc,
+  important_notice: Mc,
+  need_assistance: Ic,
+  special_requests_placeholder: zc,
+  guests_singular: Fc,
+  guests_plural: Dc,
+  reservation_request: Uc,
+  date_label: Bc,
+  time_label: Vc,
+  area_label: qc,
+  guests_label: Wc,
+  name_label: Hc,
+  phone_label: Kc,
+  notes_label: Yc,
+  confirm_reservation: Jc,
+  thank_you: Qc,
+  sun_thu: Gc,
+  fri: Xc,
+  sat: Zc,
+  important_notice_cart: el,
+  delivery_notice: tl,
+  continue_to_whatsapp: sl,
+  cancel: nl,
+  wa_order_header: al,
+  wa_order_items: rl,
+  wa_customer_info: il,
+  wa_order_type: ol,
+  wa_customer_name: cl,
+  wa_customer_phone: ll,
+  wa_quantity: ul,
+  wa_item: dl,
+  wa_options: pl,
+  wa_confirm_order: hl,
+  served_until_13: fl,
+  day_sun: ml,
+  day_mon: gl,
+  day_tue: _l,
+  day_wed: xl,
+  day_thu: yl,
+  day_fri: bl,
+  day_sat: vl,
   "day_tue-sat": "שלישי-שבת",
   "day_mon-sat": "שני-שבת",
-  for_illustration_only: Nl,
-  terms_of_service: $l,
-  privacy_policy: Sl,
-  accessibility_statement: Cl,
-  last_updated: kl,
-  terms_acceptance: El,
-  terms_acceptance_text: Rl,
-  terms_service_usage: Ol,
-  terms_service_usage_text: Pl,
-  terms_orders: Tl,
-  terms_orders_text: Al,
-  terms_payment: Ll,
-  terms_payment_text: Ml,
-  terms_liability: Il,
-  terms_liability_text: zl,
-  terms_changes: Fl,
-  terms_changes_text: Dl,
-  privacy_info_collection: Ul,
-  privacy_info_collection_text: Bl,
-  privacy_info_usage: Vl,
-  privacy_info_usage_text: ql,
-  privacy_cookies: Wl,
-  privacy_cookies_text: Hl,
-  privacy_whatsapp: Kl,
-  privacy_whatsapp_text: Yl,
-  privacy_data_storage: Jl,
-  privacy_data_storage_text: Ql,
-  privacy_user_rights: Gl,
-  privacy_user_rights_text: Xl,
-  accessibility_commitment: Zl,
-  accessibility_commitment_text: eu,
-  accessibility_standards: tu,
-  accessibility_standards_text: su,
-  accessibility_features: nu,
-  accessibility_features_text: au,
-  accessibility_contact: ru,
-  accessibility_contact_text: iu,
-  name_required: ou,
-  back_to_menu: cu,
-  closed: lu,
-  restaurant_closed_message: uu,
-  close: du,
-  closed_popup_message: pu,
-  got_it_button: hu
-}, mu = "طلب جديد عبر قائمة القالب", gu = "الإجمالي", _u = "الاسم", xu = "النوع", yu = "ساعة/طاولة", bu = "الحجم", vu = "إضافات", wu = "ملاحظات", ju = "درجة الاستواء", Nu = "سكر", $u = "نوع المعكرونة", Su = "الخبز", Cu = "القائمة", ku = "تواصل", Eu = "الكل", Ru = "ابحث عن طبق...", Ou = "اتصال", Pu = "واتساب", Tu = "الموقع", Au = "العنوان", Lu = "ساعات العمل", Mu = "أضف إلى السلة", Iu = "تمت الإضافة", zu = "تخصيص", Fu = "الحجم", Du = "إضافات", Uu = "ملاحظات", Bu = "السلة", Vu = "عنصر", qu = "السلة فارغة", Wu = "تفريغ السلة", Hu = "إرسال عبر واتساب", Ku = "الإجمالي", Yu = "الاسم", Ju = "نوع الطلب", Qu = "استلام", Gu = "توصيل", Xu = "ساعة/طاولة", Zu = "نص الرسالة", ed = "QR", td = "إنستغرام", sd = "السعر الأساسي", nd = "الإضافات", ad = "حجز طاولة", rd = "احجز طاولة", id = "التاريخ", od = "الوقت", cd = "المنطقة", ld = "عدد الضيوف", ud = "اسمك", dd = "رقم الهاتف", pd = "طلبات خاصة", hd = "إرسال طلب الحجز", fd = "تم إرسال طلب الحجز!", md = "يرجى انتظار التأكيد من المطعم.", gd = "إذا لم تتلق رداً خلال 15 دقيقة، يرجى الاتصال بالمطعم.", _d = "يرجى انتظار التأكيد من المطعم لطلبك.", xd = "إذا لم تتلق رداً خلال 5 دقائق، يرجى الاتصال بالمطعم.", yd = "اليوم", bd = "غداً", vd = "احجز طاولتك في مطعمنا واستمتع بتجربة طعام لا تُنسى. نحن نتطلع لاستقبالك!", wd = "اختر التاريخ المفضل لديك", jd = "اختر الوقت", Nd = "عدد الأشخاص", $d = "إشعار مهم", Sd = "تحتاج مساعدة فورية؟ اتصل بنا:", Cd = "أي طلبات خاصة أو ملاحظات...", kd = "ضيف", Ed = "ضيوف", Rd = "طلب حجز طاولة", Od = "التاريخ:", Pd = "الوقت:", Td = "المنطقة:", Ad = "الضيوف:", Ld = "الاسم:", Md = "الهاتف:", Id = "ملاحظات:", zd = "يرجى تأكيد هذا الحجز.", Fd = "شكراً لك! 🙏", Dd = "الأحد-الخميس:", Ud = "الجمعة:", Bd = "السبت:", Vd = "إشعار مهم", qd = "رسوم التوصيل غير مشمولة في السعر الإجمالي", Wd = "متابعة إلى واتساب", Hd = "إلغاء", Kd = "🍽️ طلب جديد", Yd = "📋 عناصر الطلب:", Jd = "👤 معلومات العميل:", Qd = "نوع الطلب", Gd = "الاسم", Xd = "الهاتف", Zd = "الكمية", ep = "العنصر", tp = "الخيارات", sp = "يرجى تأكيد هذا الطلب. شكراً لك! 🙏", np = "يُقدم حتى 13:00", ap = "الأحد", rp = "الاثنين", ip = "الثلاثاء", op = "الأربعاء", cp = "الخميس", lp = "الجمعة", up = "السبت", dp = "شروط الخدمة", pp = "سياسة الخصوصية", hp = "بيان إمكانية الوصول", fp = "آخر تحديث", mp = "قبول الشروط", gp = "باستخدام موقعنا وخدماتنا، فإنك توافق على الالتزام بشروط الخدمة هذه.", _p = "استخدام الخدمة", xp = "تم تصميم موقعنا لتصفح القائمة وتقديم الطلبات عبر واتساب وإجراء الحجوزات.", yp = "الطلبات والحجوزات", bp = "جميع الطلبات تتم معالجتها عبر واتساب. الحجوزات تخضع للتوفر والتأكيد.", vp = "شروط الدفع", wp = "يتم التعامل مع الدفع مباشرة في المطعم. الطلبات عبر الإنترنت للراحة والتأكيد فقط.", jp = "حدود المسؤولية", Np = "نحن غير مسؤولين عن خدمات الطرف الثالث مثل واتساب. استخدام الخدمات الخارجية يخضع لشروطها.", $p = "تغييرات الشروط", Sp = "قد نقوم بتحديث هذه الشروط من وقت لآخر. الاستخدام المستمر يشكل قبولاً للشروط المنقحة.", Cp = "جمع المعلومات", kp = "نحن نحترم خصوصيتك. موقعنا لا يستخدم ملفات تعريف الارتباط أو التتبع عبر الإنترنت. يتم تخزين المعلومات محلياً في متصفحك للاستمرارية، وقد تشمل الاسم وتفضيلات الطلب.", Ep = "استخدام المعلومات", Rp = "نستخدم المعلومات فقط لتقديم خدماتنا وتحسين تجربتك. لا نشارك البيانات الشخصية مع أطراف ثالثة.", Op = "ملفات تعريف الارتباط والتتبع", Pp = "موقعنا لا يستخدم ملفات تعريف الارتباط أو تقنيات التتبع. جميع البيانات مخزنة محلياً في متصفحك.", Tp = "تكامل واتساب", Ap = "تقديم الطلبات يتم عبر واتساب (خدمة خارجية). استخدام واتساب يخضع لشروط وسياسة خصوصية واتساب.", Lp = "تخزين البيانات", Mp = "يتم تخزين البيانات محلياً على جهازك وعلى واتساب لمعالجة الطلبات وأغراض التواصل.", Ip = "حقوق المستخدم", zp = "لأي أسئلة أو طلبات بخصوص بياناتك، يرجى التواصل معنا عبر صفحة الاتصال.", Fp = "التزامنا", Dp = "نحن ملتزمون بجعل موقعنا قابلاً للوصول وفقاً للمعايير الحديثة. هدفنا توفير تجربة مستخدم متاحة ومتساوية ومريحة لجميع المستخدمين.", Up = "معايير إمكانية الوصول", Bp = "يتبع موقعنا إرشادات إمكانية الوصول الحديثة بما في ذلك التنقل بلوحة المفاتيح وتوافق قارئ الشاشة والتصميم البصري الواضح.", Vp = "ميزات إمكانية الوصول", qp = "يتضمن الموقع هيكل عناوين مناسب ونص بديل للصور ودعم التنقل بلوحة المفاتيح وتصميم متجاوب لمختلف الأجهزة والتقنيات المساعدة.", Wp = "التواصل بخصوص إمكانية الوصول", Hp = "إذا واجهت أي مشاكل في إمكانية الوصول أو لديك اقتراحات للتحسين، يرجى التواصل معنا عبر الهاتف أو واتساب المدرجين في صفحة الاتصال.", Kp = "اسم العميل مطلوب قبل الإرسال إلى واتساب", Yp = "العودة إلى القائمة", Jp = "مغلق", Qp = "للتوضيح فقط", Gp = "المطعم مغلق حالياً. الرجاء المحاولة خلال ساعات العمل.", Xp = "إغلاق", Zp = "المطعم مغلق حالياً. يمكن تقديم الطلبات فقط خلال ساعات العمل.", eh = "حسنًا", th = {
-  wa_header: mu,
-  wa_total: gu,
-  wa_name: _u,
-  wa_type: xu,
-  wa_time: yu,
-  opt_size: bu,
-  opt_extras: vu,
-  opt_notes: wu,
-  opt_doneness: ju,
-  opt_sugar: Nu,
-  opt_pasta_type: $u,
-  opt_bread: Su,
-  menu: Cu,
-  contact: ku,
-  all: Eu,
-  search_placeholder: Ru,
-  call: Ou,
-  whatsapp: Pu,
-  location: Tu,
-  address: Au,
-  open_hours: Lu,
-  add_to_cart: Mu,
-  added: Iu,
-  customize: zu,
-  size: Fu,
-  extras: Du,
-  notes: Uu,
-  cart: Bu,
-  items: Vu,
-  empty_cart: qu,
-  clear_cart: Wu,
-  checkout: Hu,
-  total: Ku,
-  customer_name: Yu,
-  order_type: Ju,
-  pickup: Qu,
-  delivery: Gu,
-  time_or_table: Xu,
-  message_preview: Zu,
-  qr: ed,
-  instagram: td,
-  base_price: sd,
-  extras_total: nd,
-  reservation: ad,
-  book_table: rd,
-  reservation_date: id,
-  reservation_time: od,
-  reservation_area: cd,
-  reservation_guests: ld,
-  reservation_name: ud,
-  reservation_phone: dd,
-  reservation_notes: pd,
-  send_reservation: hd,
-  reservation_sent: fd,
-  reservation_wait: md,
-  reservation_no_response: gd,
-  order_wait: _d,
-  order_no_response: xd,
-  today: yd,
-  tomorrow: bd,
-  reservation_description: vd,
-  choose_date: wd,
-  select_time: jd,
-  number_people: Nd,
-  important_notice: $d,
-  need_assistance: Sd,
-  special_requests_placeholder: Cd,
-  guests_singular: kd,
-  guests_plural: Ed,
-  reservation_request: Rd,
-  date_label: Od,
-  time_label: Pd,
-  area_label: Td,
-  guests_label: Ad,
-  name_label: Ld,
-  phone_label: Md,
-  notes_label: Id,
-  confirm_reservation: zd,
-  thank_you: Fd,
-  sun_thu: Dd,
-  fri: Ud,
-  sat: Bd,
-  important_notice_cart: Vd,
-  delivery_notice: qd,
-  continue_to_whatsapp: Wd,
-  cancel: Hd,
-  wa_order_header: Kd,
-  wa_order_items: Yd,
-  wa_customer_info: Jd,
-  wa_order_type: Qd,
-  wa_customer_name: Gd,
-  wa_customer_phone: Xd,
-  wa_quantity: Zd,
-  wa_item: ep,
-  wa_options: tp,
-  wa_confirm_order: sp,
-  served_until_13: np,
-  day_sun: ap,
-  day_mon: rp,
-  day_tue: ip,
-  day_wed: op,
-  day_thu: cp,
-  day_fri: lp,
-  day_sat: up,
+  for_illustration_only: wl,
+  terms_of_service: jl,
+  privacy_policy: Nl,
+  accessibility_statement: $l,
+  last_updated: Sl,
+  terms_acceptance: Cl,
+  terms_acceptance_text: kl,
+  terms_service_usage: El,
+  terms_service_usage_text: Rl,
+  terms_orders: Ol,
+  terms_orders_text: Pl,
+  terms_payment: Tl,
+  terms_payment_text: Al,
+  terms_liability: Ll,
+  terms_liability_text: Ml,
+  terms_changes: Il,
+  terms_changes_text: zl,
+  privacy_info_collection: Fl,
+  privacy_info_collection_text: Dl,
+  privacy_info_usage: Ul,
+  privacy_info_usage_text: Bl,
+  privacy_cookies: Vl,
+  privacy_cookies_text: ql,
+  privacy_whatsapp: Wl,
+  privacy_whatsapp_text: Hl,
+  privacy_data_storage: Kl,
+  privacy_data_storage_text: Yl,
+  privacy_user_rights: Jl,
+  privacy_user_rights_text: Ql,
+  accessibility_commitment: Gl,
+  accessibility_commitment_text: Xl,
+  accessibility_standards: Zl,
+  accessibility_standards_text: eu,
+  accessibility_features: tu,
+  accessibility_features_text: su,
+  accessibility_contact: nu,
+  accessibility_contact_text: au,
+  name_required: ru,
+  back_to_menu: iu,
+  closed: ou,
+  restaurant_closed_message: cu,
+  close: lu,
+  closed_popup_message: uu,
+  got_it_button: du
+}, hu = "طلب جديد عبر قائمة القالب", fu = "الإجمالي", mu = "الاسم", gu = "النوع", _u = "ساعة/طاولة", xu = "الحجم", yu = "إضافات", bu = "ملاحظات", vu = "درجة الاستواء", wu = "سكر", ju = "نوع المعكرونة", Nu = "الخبز", $u = "القائمة", Su = "تواصل", Cu = "الكل", ku = "ابحث عن طبق...", Eu = "اتصال", Ru = "واتساب", Ou = "الموقع", Pu = "العنوان", Tu = "ساعات العمل", Au = "أضف إلى السلة", Lu = "تمت الإضافة", Mu = "تخصيص", Iu = "الحجم", zu = "إضافات", Fu = "ملاحظات", Du = "السلة", Uu = "عنصر", Bu = "السلة فارغة", Vu = "تفريغ السلة", qu = "إرسال عبر واتساب", Wu = "الإجمالي", Hu = "الاسم", Ku = "نوع الطلب", Yu = "استلام", Ju = "توصيل", Qu = "ساعة/طاولة", Gu = "نص الرسالة", Xu = "QR", Zu = "إنستغرام", ed = "السعر الأساسي", td = "الإضافات", sd = "حجز طاولة", nd = "احجز طاولة", ad = "التاريخ", rd = "الوقت", id = "المنطقة", od = "عدد الضيوف", cd = "اسمك", ld = "رقم الهاتف", ud = "طلبات خاصة", dd = "إرسال طلب الحجز", pd = "تم إرسال طلب الحجز!", hd = "يرجى انتظار التأكيد من المطعم.", fd = "إذا لم تتلق رداً خلال 15 دقيقة، يرجى الاتصال بالمطعم.", md = "يرجى انتظار التأكيد من المطعم لطلبك.", gd = "إذا لم تتلق رداً خلال 5 دقائق، يرجى الاتصال بالمطعم.", _d = "اليوم", xd = "غداً", yd = "احجز طاولتك في مطعمنا واستمتع بتجربة طعام لا تُنسى. نحن نتطلع لاستقبالك!", bd = "اختر التاريخ المفضل لديك", vd = "اختر الوقت", wd = "عدد الأشخاص", jd = "إشعار مهم", Nd = "تحتاج مساعدة فورية؟ اتصل بنا:", $d = "أي طلبات خاصة أو ملاحظات...", Sd = "ضيف", Cd = "ضيوف", kd = "طلب حجز طاولة", Ed = "التاريخ:", Rd = "الوقت:", Od = "المنطقة:", Pd = "الضيوف:", Td = "الاسم:", Ad = "الهاتف:", Ld = "ملاحظات:", Md = "يرجى تأكيد هذا الحجز.", Id = "شكراً لك! 🙏", zd = "الأحد-الخميس:", Fd = "الجمعة:", Dd = "السبت:", Ud = "إشعار مهم", Bd = "رسوم التوصيل غير مشمولة في السعر الإجمالي", Vd = "متابعة إلى واتساب", qd = "إلغاء", Wd = "🍽️ طلب جديد", Hd = "📋 عناصر الطلب:", Kd = "👤 معلومات العميل:", Yd = "نوع الطلب", Jd = "الاسم", Qd = "الهاتف", Gd = "الكمية", Xd = "العنصر", Zd = "الخيارات", ep = "يرجى تأكيد هذا الطلب. شكراً لك! 🙏", tp = "يُقدم حتى 13:00", sp = "الأحد", np = "الاثنين", ap = "الثلاثاء", rp = "الأربعاء", ip = "الخميس", op = "الجمعة", cp = "السبت", lp = "شروط الخدمة", up = "سياسة الخصوصية", dp = "بيان إمكانية الوصول", pp = "آخر تحديث", hp = "قبول الشروط", fp = "باستخدام موقعنا وخدماتنا، فإنك توافق على الالتزام بشروط الخدمة هذه.", mp = "استخدام الخدمة", gp = "تم تصميم موقعنا لتصفح القائمة وتقديم الطلبات عبر واتساب وإجراء الحجوزات.", _p = "الطلبات والحجوزات", xp = "جميع الطلبات تتم معالجتها عبر واتساب. الحجوزات تخضع للتوفر والتأكيد.", yp = "شروط الدفع", bp = "يتم التعامل مع الدفع مباشرة في المطعم. الطلبات عبر الإنترنت للراحة والتأكيد فقط.", vp = "حدود المسؤولية", wp = "نحن غير مسؤولين عن خدمات الطرف الثالث مثل واتساب. استخدام الخدمات الخارجية يخضع لشروطها.", jp = "تغييرات الشروط", Np = "قد نقوم بتحديث هذه الشروط من وقت لآخر. الاستخدام المستمر يشكل قبولاً للشروط المنقحة.", $p = "جمع المعلومات", Sp = "نحن نحترم خصوصيتك. موقعنا لا يستخدم ملفات تعريف الارتباط أو التتبع عبر الإنترنت. يتم تخزين المعلومات محلياً في متصفحك للاستمرارية، وقد تشمل الاسم وتفضيلات الطلب.", Cp = "استخدام المعلومات", kp = "نستخدم المعلومات فقط لتقديم خدماتنا وتحسين تجربتك. لا نشارك البيانات الشخصية مع أطراف ثالثة.", Ep = "ملفات تعريف الارتباط والتتبع", Rp = "موقعنا لا يستخدم ملفات تعريف الارتباط أو تقنيات التتبع. جميع البيانات مخزنة محلياً في متصفحك.", Op = "تكامل واتساب", Pp = "تقديم الطلبات يتم عبر واتساب (خدمة خارجية). استخدام واتساب يخضع لشروط وسياسة خصوصية واتساب.", Tp = "تخزين البيانات", Ap = "يتم تخزين البيانات محلياً على جهازك وعلى واتساب لمعالجة الطلبات وأغراض التواصل.", Lp = "حقوق المستخدم", Mp = "لأي أسئلة أو طلبات بخصوص بياناتك، يرجى التواصل معنا عبر صفحة الاتصال.", Ip = "التزامنا", zp = "نحن ملتزمون بجعل موقعنا قابلاً للوصول وفقاً للمعايير الحديثة. هدفنا توفير تجربة مستخدم متاحة ومتساوية ومريحة لجميع المستخدمين.", Fp = "معايير إمكانية الوصول", Dp = "يتبع موقعنا إرشادات إمكانية الوصول الحديثة بما في ذلك التنقل بلوحة المفاتيح وتوافق قارئ الشاشة والتصميم البصري الواضح.", Up = "ميزات إمكانية الوصول", Bp = "يتضمن الموقع هيكل عناوين مناسب ونص بديل للصور ودعم التنقل بلوحة المفاتيح وتصميم متجاوب لمختلف الأجهزة والتقنيات المساعدة.", Vp = "التواصل بخصوص إمكانية الوصول", qp = "إذا واجهت أي مشاكل في إمكانية الوصول أو لديك اقتراحات للتحسين، يرجى التواصل معنا عبر الهاتف أو واتساب المدرجين في صفحة الاتصال.", Wp = "اسم العميل مطلوب قبل الإرسال إلى واتساب", Hp = "العودة إلى القائمة", Kp = "مغلق", Yp = "للتوضيح فقط", Jp = "المطعم مغلق حالياً. الرجاء المحاولة خلال ساعات العمل.", Qp = "إغلاق", Gp = "المطعم مغلق حالياً. يمكن تقديم الطلبات فقط خلال ساعات العمل.", Xp = "حسنًا", Zp = {
+  wa_header: hu,
+  wa_total: fu,
+  wa_name: mu,
+  wa_type: gu,
+  wa_time: _u,
+  opt_size: xu,
+  opt_extras: yu,
+  opt_notes: bu,
+  opt_doneness: vu,
+  opt_sugar: wu,
+  opt_pasta_type: ju,
+  opt_bread: Nu,
+  menu: $u,
+  contact: Su,
+  all: Cu,
+  search_placeholder: ku,
+  call: Eu,
+  whatsapp: Ru,
+  location: Ou,
+  address: Pu,
+  open_hours: Tu,
+  add_to_cart: Au,
+  added: Lu,
+  customize: Mu,
+  size: Iu,
+  extras: zu,
+  notes: Fu,
+  cart: Du,
+  items: Uu,
+  empty_cart: Bu,
+  clear_cart: Vu,
+  checkout: qu,
+  total: Wu,
+  customer_name: Hu,
+  order_type: Ku,
+  pickup: Yu,
+  delivery: Ju,
+  time_or_table: Qu,
+  message_preview: Gu,
+  qr: Xu,
+  instagram: Zu,
+  base_price: ed,
+  extras_total: td,
+  reservation: sd,
+  book_table: nd,
+  reservation_date: ad,
+  reservation_time: rd,
+  reservation_area: id,
+  reservation_guests: od,
+  reservation_name: cd,
+  reservation_phone: ld,
+  reservation_notes: ud,
+  send_reservation: dd,
+  reservation_sent: pd,
+  reservation_wait: hd,
+  reservation_no_response: fd,
+  order_wait: md,
+  order_no_response: gd,
+  today: _d,
+  tomorrow: xd,
+  reservation_description: yd,
+  choose_date: bd,
+  select_time: vd,
+  number_people: wd,
+  important_notice: jd,
+  need_assistance: Nd,
+  special_requests_placeholder: $d,
+  guests_singular: Sd,
+  guests_plural: Cd,
+  reservation_request: kd,
+  date_label: Ed,
+  time_label: Rd,
+  area_label: Od,
+  guests_label: Pd,
+  name_label: Td,
+  phone_label: Ad,
+  notes_label: Ld,
+  confirm_reservation: Md,
+  thank_you: Id,
+  sun_thu: zd,
+  fri: Fd,
+  sat: Dd,
+  important_notice_cart: Ud,
+  delivery_notice: Bd,
+  continue_to_whatsapp: Vd,
+  cancel: qd,
+  wa_order_header: Wd,
+  wa_order_items: Hd,
+  wa_customer_info: Kd,
+  wa_order_type: Yd,
+  wa_customer_name: Jd,
+  wa_customer_phone: Qd,
+  wa_quantity: Gd,
+  wa_item: Xd,
+  wa_options: Zd,
+  wa_confirm_order: ep,
+  served_until_13: tp,
+  day_sun: sp,
+  day_mon: np,
+  day_tue: ap,
+  day_wed: rp,
+  day_thu: ip,
+  day_fri: op,
+  day_sat: cp,
   "day_tue-sat": "الثلاثاء-السبت",
   "day_mon-sat": "الاثنين-السبت",
-  terms_of_service: dp,
-  privacy_policy: pp,
-  accessibility_statement: hp,
-  last_updated: fp,
-  terms_acceptance: mp,
-  terms_acceptance_text: gp,
-  terms_service_usage: _p,
-  terms_service_usage_text: xp,
-  terms_orders: yp,
-  terms_orders_text: bp,
-  terms_payment: vp,
-  terms_payment_text: wp,
-  terms_liability: jp,
-  terms_liability_text: Np,
-  terms_changes: $p,
-  terms_changes_text: Sp,
-  privacy_info_collection: Cp,
-  privacy_info_collection_text: kp,
-  privacy_info_usage: Ep,
-  privacy_info_usage_text: Rp,
-  privacy_cookies: Op,
-  privacy_cookies_text: Pp,
-  privacy_whatsapp: Tp,
-  privacy_whatsapp_text: Ap,
-  privacy_data_storage: Lp,
-  privacy_data_storage_text: Mp,
-  privacy_user_rights: Ip,
-  privacy_user_rights_text: zp,
-  accessibility_commitment: Fp,
-  accessibility_commitment_text: Dp,
-  accessibility_standards: Up,
-  accessibility_standards_text: Bp,
-  accessibility_features: Vp,
-  accessibility_features_text: qp,
-  accessibility_contact: Wp,
-  accessibility_contact_text: Hp,
-  name_required: Kp,
-  back_to_menu: Yp,
-  closed: Jp,
-  for_illustration_only: Qp,
-  restaurant_closed_message: Gp,
-  close: Xp,
-  closed_popup_message: Zp,
-  got_it_button: eh
-}, sh = {
-  en: { translation: Co },
-  he: { translation: fu },
-  ar: { translation: th }
+  terms_of_service: lp,
+  privacy_policy: up,
+  accessibility_statement: dp,
+  last_updated: pp,
+  terms_acceptance: hp,
+  terms_acceptance_text: fp,
+  terms_service_usage: mp,
+  terms_service_usage_text: gp,
+  terms_orders: _p,
+  terms_orders_text: xp,
+  terms_payment: yp,
+  terms_payment_text: bp,
+  terms_liability: vp,
+  terms_liability_text: wp,
+  terms_changes: jp,
+  terms_changes_text: Np,
+  privacy_info_collection: $p,
+  privacy_info_collection_text: Sp,
+  privacy_info_usage: Cp,
+  privacy_info_usage_text: kp,
+  privacy_cookies: Ep,
+  privacy_cookies_text: Rp,
+  privacy_whatsapp: Op,
+  privacy_whatsapp_text: Pp,
+  privacy_data_storage: Tp,
+  privacy_data_storage_text: Ap,
+  privacy_user_rights: Lp,
+  privacy_user_rights_text: Mp,
+  accessibility_commitment: Ip,
+  accessibility_commitment_text: zp,
+  accessibility_standards: Fp,
+  accessibility_standards_text: Dp,
+  accessibility_features: Up,
+  accessibility_features_text: Bp,
+  accessibility_contact: Vp,
+  accessibility_contact_text: qp,
+  name_required: Wp,
+  back_to_menu: Hp,
+  closed: Kp,
+  for_illustration_only: Yp,
+  restaurant_closed_message: Jp,
+  close: Qp,
+  closed_popup_message: Gp,
+  got_it_button: Xp
+}, eh = {
+  en: { translation: $o },
+  he: { translation: pu },
+  ar: { translation: Zp }
 };
 function ys(n) {
   const e = n === "ar" || n === "he" ? "rtl" : "ltr";
   document.documentElement.setAttribute("dir", e), document.documentElement.setAttribute("lang", n), console.log("🎯 TABLY CORE i18n is active! Language:", n, "Direction:", e);
 }
-Y.use(Nn).init({
-  resources: sh,
+Y.use(wn).init({
+  resources: eh,
   lng: "he",
   fallbackLng: "en",
   interpolation: { escapeValue: !1 }
 }).then(() => ys(Y.language));
 Y.on("languageChanged", ys);
 export {
-  dh as AccessibilityPage,
-  uh as AnimationProvider,
-  oh as CartButton,
-  ch as CartDrawer,
-  ih as CartProvider,
-  ra as CategoryTabs,
-  ph as ContactPage,
-  ia as ImageLightbox,
+  ch as AccessibilityPage,
+  oh as AnimationProvider,
+  rh as CartButton,
+  ih as CartDrawer,
+  ah as CartProvider,
+  na as CategoryTabs,
+  lh as ContactPage,
+  aa as ImageLightbox,
   Tt as ItemCard,
-  lh as LanguageSwitcher,
-  hh as MenuPage,
-  ca as OptionModal,
-  fh as PrivacyPage,
-  mh as QRPage,
-  la as ReservationModal,
-  gh as ReservationPage,
-  ua as SearchBar,
-  _h as TermsPage,
+  uh as MenuPage,
+  ia as OptionModal,
+  dh as PrivacyPage,
+  ph as QRPage,
+  oa as ReservationModal,
+  hh as ReservationPage,
+  ca as SearchBar,
+  fh as TermsPage,
   ys as applyDir,
-  th as arLocales,
+  Zp as arLocales,
   kt as cartTotal,
-  Co as enLocales,
-  fu as heLocales,
+  $o as enLocales,
+  pu as heLocales,
   Y as i18n,
   as as isRestaurantOpen,
-  oa as useAnimation,
+  ra as useAnimation,
   nt as useCart
 };
